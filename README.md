@@ -15,9 +15,7 @@
 
 
 ## Others:
-  - Change `Quick View` to `Preview` at the Homepage
-  - Move the `ReplaceTags` from `$:/tags/SideBar` to `$:/ControlPanel`
-  - Add `Close other tiddlers` to the Editor
+  - All done.
 
 ---
 ## Notices:
