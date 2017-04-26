@@ -10,9 +10,6 @@
 ## Improve the properties of the SideBar:
   - Can be moved flexibly
   - Can adjust the width & position
-## Improve the Order System:
-  - It remains unstable when using the `list-before` or `list-after`.
-
 
 ## Others:
   - All done.
