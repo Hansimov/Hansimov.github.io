@@ -1,1 +1,1 @@
-To place the sources used in my tiddlywiki.
+To place the resources used in my tiddlywiki.
