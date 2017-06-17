@@ -217,6 +217,16 @@ Error message and password prompt
 
 <li>$:/core</li>
 
+<li>$:/core/ui/MoreSideBar/Missing</li>
+
+<li>$:/core/ui/MoreSideBar/Orphans</li>
+
+<li>$:/core/ui/MoreSideBar/Recent</li>
+
+<li>$:/core/ui/MoreSideBar/Shadows</li>
+
+<li>$:/core/ui/MoreSideBar/System</li>
+
 <li>$:/core/ui/MoreSideBar/Tags</li>
 
 <li>$:/core/ui/PageTemplate/sidebar</li>
@@ -252,34 +262,6 @@ Error message and password prompt
 <li>$:/palette</li>
 
 <li>$:/pluginlibrary/tobibeer/official</li>
-
-<li>$:/plugins/felixhayashi/tiddlymap/graph/edgeTypes/学科</li>
-
-<li>$:/plugins/felixhayashi/tiddlymap/graph/edgeTypes/unknown</li>
-
-<li>$:/plugins/felixhayashi/tiddlymap/graph/nodeTypes/专业</li>
-
-<li>$:/plugins/felixhayashi/tiddlymap/graph/nodeTypes/tmap:central-topic</li>
-
-<li>$:/plugins/felixhayashi/tiddlymap/graph/nodeTypes/tmap:neighbour</li>
-
-<li>$:/plugins/felixhayashi/tiddlymap/graph/views/Default/filter/edges</li>
-
-<li>$:/plugins/felixhayashi/tiddlymap/graph/views/Default/filter/nodes</li>
-
-<li>$:/plugins/felixhayashi/tiddlymap/graph/views/Default/map</li>
-
-<li>$:/plugins/felixhayashi/tiddlymap/graph/views/Live View</li>
-
-<li>$:/plugins/felixhayashi/tiddlymap/graph/views/Live View/filter/edges</li>
-
-<li>$:/plugins/felixhayashi/tiddlymap/graph/views/Live View/map</li>
-
-<li>$:/plugins/felixhayashi/tiddlymap/misc/defaultViewHolder</li>
-
-<li>$:/plugins/felixhayashi/tiddlymap/misc/meta</li>
-
-<li>$:/plugins/felixhayashi/topstoryview</li>
 
 <li>$:/plugins/gt6796c/flowchart-tw5/eve.js</li>
 
@@ -781,6 +763,8 @@ Error message and password prompt
 
 <li>$:/TagManager</li>
 
+<li>$:/tags/MoreSideBar</li>
+
 <li>$:/temp/AddTags</li>
 
 <li>$:/temp/advancedsearch</li>
@@ -1172,6 +1156,8 @@ Error message and password prompt
 <li>信号与系统</li>
 
 <li>信息安全</li>
+
+<li>修改MoreSideBar的内容</li>
 
 <li>虚拟货币</li>
 
@@ -9237,6 +9223,26 @@ $param={{$:/temp/replace-tag!!replace}}/&gt;
     }
 }</pre>
 </div>
+<div caption="{{$:/language/SideBar/Missing/Caption}}" created="20170617134314024" creator="Hans" modified="20170617134314024" modifier="Hans" title="$:/core/ui/MoreSideBar/Missing">
+<pre>&lt;$list filter={{$:/core/Filters/Missing!!filter}} template=&quot;$:/core/ui/MissingTemplate&quot;/&gt;
+</pre>
+</div>
+<div caption="{{$:/language/SideBar/Orphans/Caption}}" created="20170617134325568" creator="Hans" modified="20170617134325568" modifier="Hans" title="$:/core/ui/MoreSideBar/Orphans">
+<pre>&lt;$list filter={{$:/core/Filters/Orphans!!filter}} template=&quot;$:/core/ui/ListItemTemplate&quot;/&gt;
+</pre>
+</div>
+<div caption="{{$:/language/SideBar/Recent/Caption}}" created="20170617134257361" creator="Hans" modified="20170617134257361" modifier="Hans" title="$:/core/ui/MoreSideBar/Recent">
+<pre>&lt;$macrocall $name=&quot;timeline&quot; format={{$:/language/RecentChanges/DateFormat}}/&gt;
+</pre>
+</div>
+<div caption="{{$:/language/SideBar/Shadows/Caption}}" created="20170617134348216" creator="Hans" modified="20170617134348216" modifier="Hans" title="$:/core/ui/MoreSideBar/Shadows">
+<pre>&lt;$list filter={{$:/core/Filters/ShadowTiddlers!!filter}} template=&quot;$:/core/ui/ListItemTemplate&quot;/&gt;
+</pre>
+</div>
+<div caption="{{$:/language/SideBar/System/Caption}}" created="20170617134527679" creator="Hans" modified="20170617134527679" modifier="Hans" title="$:/core/ui/MoreSideBar/System">
+<pre>&lt;$list filter={{$:/core/Filters/SystemTiddlers!!filter}} template=&quot;$:/core/ui/ListItemTemplate&quot;/&gt;
+</pre>
+</div>
 <div caption="{{$:/language/SideBar/Tags/Caption}}" created="20170423102018732" creator="Hans" modified="20170423102018732" modifier="Hans" tags="$:/tags/MoreSideBar" title="$:/core/ui/MoreSideBar/Tags">
 <pre>&lt;$set name=&quot;tv-config-toolbar-icons&quot; value=&quot;yes&quot;&gt;
 
@@ -9484,87 +9490,6 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 </div>
 <div bag="default" caption="Official Plugin Library by Tobias Beer" modified="20160120132137178" modifier="Tobias Beer" revision="0" tags="$:/tags/PluginLibrary" title="$:/pluginlibrary/tobibeer/official" url="http://tobibeer.github.io/tw5-plugins/library/index.html">
 <pre>The plugin library for the latest and greatest plugins from [ext[tobibeer/plugins|http://tobibeer.github.io/tw5-plugins]]; officially released versions of plugins by [ext[tobibeer|https://github.com/tobibeer]].</pre>
-</div>
-<div created="20170426092733778" modified="20170426092735797" modifier="Hans" title="$:/plugins/felixhayashi/tiddlymap/graph/edgeTypes/学科">
-<pre></pre>
-</div>
-<div created="20170426092657913" modified="20170426092730291" modifier="Hans" title="$:/plugins/felixhayashi/tiddlymap/graph/edgeTypes/unknown">
-<pre></pre>
-</div>
-<div created="20170426102248576" creator="Hans" modified="20170426102248576" modifier="Hans" priority="1" scope="[tag[专业]]" style="{&quot;color&quot;:{&quot;border&quot;:&quot;rgba(215,233,207,1)&quot;,&quot;background&quot;:&quot;rgba(176,252,172,1)&quot;},&quot;size&quot;:31,&quot;font&quot;:{&quot;size&quot;:24}}" title="$:/plugins/felixhayashi/tiddlymap/graph/nodeTypes/专业">
-<pre></pre>
-</div>
-<div description="The style is applied to the node that you marked as central topic in a map." priority="1" style="{&quot;font&quot;:{&quot;size&quot;:22,&quot;color&quot;:&quot;rgba(0,0,0,1)&quot;},&quot;shape&quot;:&quot;star&quot;}" title="$:/plugins/felixhayashi/tiddlymap/graph/nodeTypes/tmap:central-topic">
-<pre></pre>
-</div>
-<div description="Neighbours are all nodes that are not part of the original set of nodes (&quot;matches&quot;) but are connected (either outgoing or incoming) to a node of the original set." priority="1" style="{&quot;color&quot;:&quot;#565656&quot;}" title="$:/plugins/felixhayashi/tiddlymap/graph/nodeTypes/tmap:neighbour">
-<pre></pre>
-</div>
-<div filter="-[prefix[_]] -[[tw-body:link]] -[[tw-list:tags]] -[[tw-list:list]]" title="$:/plugins/felixhayashi/tiddlymap/graph/views/Default/filter/edges">
-<pre></pre>
-</div>
-<div filter="  " title="$:/plugins/felixhayashi/tiddlymap/graph/views/Default/filter/nodes">
-<pre></pre>
-</div>
-<div title="$:/plugins/felixhayashi/tiddlymap/graph/views/Default/map">
-<pre>{}</pre>
-</div>
-<div config.neighbourhood_directions="" config.neighbourhood_scope="1" config.physics_mode="true" config.raster="" config.refresh-triggers="$:/temp/tmap/currentTiddler" config.show_inter_neighbour_edges="false" config.vis="{&quot;physics&quot;:{&quot;forceAtlas2Based&quot;:{&quot;springLength&quot;:0,&quot;springConstant&quot;:0.09}}}" created="20170426103724345" creator="Hans" isview="true" modified="20170426123440259" modifier="Hans" title="$:/plugins/felixhayashi/tiddlymap/graph/views/Live View">
-<pre></pre>
-</div>
-<div filter="-[prefix[_]] " title="$:/plugins/felixhayashi/tiddlymap/graph/views/Live View/filter/edges">
-<pre></pre>
-</div>
-<div title="$:/plugins/felixhayashi/tiddlymap/graph/views/Live View/map">
-<pre>{}</pre>
-</div>
-<div created="20170426104555379" creator="Hans" modified="20170427135611520" modifier="Hans" title="$:/plugins/felixhayashi/tiddlymap/misc/defaultViewHolder">
-<pre>Live View</pre>
-</div>
-<div created="20170425025338817" creator="Hans" modified="20170425025433613" modifier="Hans" title="$:/plugins/felixhayashi/tiddlymap/misc/meta" type="application/json">
-<pre>{
-    &quot;originalVersion&quot;: &quot;0.13.3+9656&quot;,
-    &quot;dataStructureState&quot;: &quot;0.11.0&quot;,
-    &quot;showWelcomeMessage&quot;: false
-}</pre>
-</div>
-<div author="Felix Küppers" core-version="&gt;=5.1.5" dependents="" description="TopStoryView – Always scroll navigated tiddlers to the top" list="Configuration License Readme" modified="20170425025446321" plugin-type="plugin" released="" source="https://github.com/felixhayashi/TW5-TopStoryView" title="$:/plugins/felixhayashi/topstoryview" type="application/json" version="0.2.0">
-<pre>{
-    &quot;tiddlers&quot;: {
-        &quot;$:/plugins/felixhayashi/topstoryview/config.js&quot;: {
-            &quot;text&quot;: &quot;/*\\\n\ntitle: $:/plugins/felixhayashi/topstoryview/config.js\ntype: application/javascript\nmodule-type: library\n\n@preserve\n\n\\*/\n(function(){\&quot;use strict\&quot;;exports.config={classNames:{storyRiver:\&quot;tc-story-river\&quot;,backDrop:\&quot;story-backdrop\&quot;,tiddlerFrame:\&quot;tc-tiddler-frame\&quot;,tiddlerTitle:\&quot;tc-title\&quot;},references:{userConfig:\&quot;$:/config/topStoryView\&quot;,focussedTiddlerStore:\&quot;$:/temp/focussedTiddler\&quot;,refreshTrigger:\&quot;$:/temp/focussedTiddler/refresh\&quot;},checkbackTime:$tw.utils.getAnimationDuration()}})();&quot;,
-            &quot;title&quot;: &quot;$:/plugins/felixhayashi/topstoryview/config.js&quot;,
-            &quot;type&quot;: &quot;application/javascript&quot;,
-            &quot;module-type&quot;: &quot;library&quot;
-        },
-        &quot;$:/plugins/felixhayashi/topstoryview/layout&quot;: {
-            &quot;text&quot;: &quot;html .tc-story-river:after {\n  content: \&quot;\&quot;;\n  display: block; }\n&quot;,
-            &quot;title&quot;: &quot;$:/plugins/felixhayashi/topstoryview/layout&quot;,
-            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
-            &quot;tags&quot;: [
-                &quot;$:/tags/Stylesheet&quot;
-            ]
-        },
-        &quot;$:/plugins/felixhayashi/topstoryview/Configuration&quot;: {
-            &quot;title&quot;: &quot;$:/plugins/felixhayashi/topstoryview/Configuration&quot;,
-            &quot;text&quot;: &quot;Please see the [[GitHub page|https://github.com/felixhayashi/TW5-TopStoryView]] for more information on the options.\n\nSave and reload the wiki to activate changes.\n\n&lt;table&gt;\n  &lt;tr&gt;\n    &lt;th align=\&quot;left\&quot;&gt;Scroll offset:&lt;/th&gt;\n    &lt;td&gt;&lt;$edit-text tiddler=\&quot;$:/config/topStoryView\&quot; field=\&quot;scroll-offset\&quot; tag=\&quot;input\&quot; default=\&quot;150px\&quot; /&gt;&lt;/td&gt;\n  &lt;/tr&gt;\n&lt;/table&gt;&quot;
-        },
-        &quot;$:/plugins/felixhayashi/topstoryview/License&quot;: {
-            &quot;title&quot;: &quot;$:/plugins/felixhayashi/topstoryview/License&quot;,
-            &quot;text&quot;: &quot;This code is released under the BSD license. For the exact terms visit:\n\nhttps://github.com/felixhayashi/TW5-TopStoryView/blob/master/LICENSE&quot;
-        },
-        &quot;$:/plugins/felixhayashi/topstoryview/Readme&quot;: {
-            &quot;title&quot;: &quot;$:/plugins/felixhayashi/topstoryview/Readme&quot;,
-            &quot;text&quot;: &quot;Please visit the [[GitHub page|https://github.com/felixhayashi/TW5-TopStoryView]] for more information.&quot;
-        },
-        &quot;$:/plugins/felixhayashi/topstoryview/top.js&quot;: {
-            &quot;text&quot;: &quot;/*\\\ntitle: $:/plugins/felixhayashi/topstoryview/top.js\ntype: application/javascript\nmodule-type: storyview\n\nViews the story as a linear sequence\n\n@preserve\n\n\\*/\n(function(){\&quot;use strict\&quot;;var t=require(\&quot;$:/plugins/felixhayashi/topstoryview/config.js\&quot;).config;var e=\&quot;cubic-bezier(0.645, 0.045, 0.355, 1)\&quot;;var i=function(e){this.listWidget=e;this.pageScroller=new $tw.utils.PageScroller;this.pageScroller.scrollIntoView=this.scrollIntoView;this.pageScroller.storyRiverDomNode=document.getElementsByClassName(t.classNames.storyRiver)[0];var i=$tw.wiki.getTiddler(t.references.userConfig);var o=i?i.fields:{};$tw.hooks.addHook(\&quot;th-opening-default-tiddlers-list\&quot;,this.hookOpenDefaultTiddlers);var r=parseInt(o[\&quot;scroll-offset\&quot;]);this.pageScroller.scrollOffset=isNaN(r)?71:r;this.recalculateBottomSpace()};i.prototype.refreshStart=function(t,e){};i.prototype.refreshEnd=function(t,e){};i.prototype.hookOpenDefaultTiddlers=function(t){return t};i.prototype.navigateTo=function(t){var e=this.listWidget.findListItem(0,t.title);if(e===undefined)return;var i=this.listWidget.children[e];var o=i.findFirstDomNode();if(!(o instanceof Element))return;this.pageScroller.scrollIntoView(o)};i.prototype.insert=function(t){if(!t)return;var e=t.findFirstDomNode();if(!(e instanceof Element))return;this.startInsertAnimation(e,function(){this.recalculateBottomSpace()}.bind(this))};i.prototype.remove=function(t){if(!t)return;var e=t.findFirstDomNode();if(!(e instanceof Element)){t.removeChildDomNodes();return}var i=this.getLastFrame()===e;this.startRemoveAnimation(t,e,function(){t.removeChildDomNodes();this.recalculateBottomSpace();if(i){this.pageScroller.scrollIntoView(this.getLastFrame())}}.bind(this))};i.prototype.getLastFrame=function(){var t=this.listWidget.children[this.listWidget.children.length-1];return t?t.findFirstDomNode():null};i.prototype.recalculateBottomSpace=function(){var t=this.pageScroller.storyRiverDomNode;if(this.getLastFrame()){var e=this.getLastFrame().getBoundingClientRect();var i=window.innerHeight;if(e.height&lt;i){t.style[\&quot;paddingBottom\&quot;]=i-e.height+\&quot;px\&quot;;return}}t.style[\&quot;paddingBottom\&quot;]=\&quot;\&quot;};i.prototype.scrollIntoView=function(t){if(this.preventNextScrollAttempt){this.preventNextScrollAttempt=false}if(!t)return;var e=$tw.utils.getAnimationDuration();this.cancelScroll();this.startTime=Date.now();var i=$tw.utils.getScrollPosition();var o=t.getBoundingClientRect(),r={left:o.left+i.x,top:o.top+i.y,width:o.width,height:o.height};var n=function(t,e,i,o){if(t&lt;=i){return t}else if(e&lt;o&amp;&amp;i&lt;t+e-o){return t+e-o}else if(i&lt;t){return t}else{return i}},s=n(r.left,r.width,i.x,window.innerWidth),a=r.top-this.scrollOffset;if(s!==i.x||a!==i.y){var l=this,c;c=function(){var t;if(e&lt;=0){t=1}else{t=(Date.now()-l.startTime)/e}if(t&gt;=1){l.cancelScroll();t=1}t=$tw.utils.slowInSlowOut(t);window.scrollTo(i.x+(s-i.x)*t,i.y+(a-i.y)*t);if(t&lt;1){l.idRequestFrame=l.requestAnimationFrame.call(window,c)}};c()}};i.prototype.startInsertAnimation=function(t,i){var o=$tw.utils.getAnimationDuration();var r=window.getComputedStyle(t),n=parseInt(r.marginBottom,10),s=parseInt(r.marginTop,10),a=t.offsetHeight+s;setTimeout(function(){$tw.utils.setStyle(t,[{transition:\&quot;none\&quot;},{marginBottom:\&quot;\&quot;}]);i()},o);$tw.utils.setStyle(t,[{transition:\&quot;none\&quot;},{marginBottom:-a+\&quot;px\&quot;},{opacity:\&quot;0.0\&quot;}]);$tw.utils.forceLayout(t);$tw.utils.setStyle(t,[{transition:\&quot;opacity \&quot;+o+\&quot;ms \&quot;+e+\&quot;, \&quot;+\&quot;margin-bottom \&quot;+o+\&quot;ms \&quot;+e},{marginBottom:n+\&quot;px\&quot;},{opacity:\&quot;1.0\&quot;}])};i.prototype.startRemoveAnimation=function(t,i,o){var r=$tw.utils.getAnimationDuration();var n=i.offsetWidth,s=window.getComputedStyle(i),a=parseInt(s.marginBottom,10),l=parseInt(s.marginTop,10),c=i.offsetHeight+l;setTimeout(o,r);$tw.utils.setStyle(i,[{transition:\&quot;none\&quot;},{transform:\&quot;translateX(0px)\&quot;},{marginBottom:a+\&quot;px\&quot;},{opacity:\&quot;1.0\&quot;}]);$tw.utils.forceLayout(i);$tw.utils.setStyle(i,[{transition:$tw.utils.roundTripPropertyName(\&quot;transform\&quot;)+\&quot; \&quot;+r+\&quot;ms \&quot;+e+\&quot;, \&quot;+\&quot;opacity \&quot;+r+\&quot;ms \&quot;+e+\&quot;, \&quot;+\&quot;margin-bottom \&quot;+r+\&quot;ms \&quot;+e},{transform:\&quot;translateX(-\&quot;+n+\&quot;px)\&quot;},{marginBottom:-c+\&quot;px\&quot;},{opacity:\&quot;0.0\&quot;}])};exports.top=i})();&quot;,
-            &quot;title&quot;: &quot;$:/plugins/felixhayashi/topstoryview/top.js&quot;,
-            &quot;type&quot;: &quot;application/javascript&quot;,
-            &quot;module-type&quot;: &quot;storyview&quot;
-        }
-    }
-}</pre>
 </div>
 <div created="20170501160746593" creator="Hans" modified="20170501160808534" modifier="Hans" module-type="library" title="$:/plugins/gt6796c/flowchart-tw5/eve.js" type="application/javascript">
 <pre>(function(document) {
@@ -11118,7 +11043,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423135641491" creator="Hans" modified="20170425045040740" modifier="Hans" title="$:/state/tab--1287748501">
 <pre>$:/core/ui/AdvancedSearch/System</pre>
 </div>
-<div created="20170423102613832" creator="Hans" modified="20170612024410603" modifier="Hans" title="$:/state/tab--1498284803">
+<div created="20170423102613832" creator="Hans" modified="20170617134816549" modifier="Hans" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/Filter</pre>
 </div>
 <div created="20170423064559946" creator="Hans" modified="20170423064601906" modifier="Hans" title="$:/state/tab--1936963165">
@@ -11151,8 +11076,8 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170426092918097" creator="Hans" modified="20170426092919745" modifier="Hans" title="$:/state/tab--988849601">
 <pre>$:/plugins/felixhayashi/tiddlymap/dialog/configureView/vis</pre>
 </div>
-<div created="20170423144958395" creator="Hans" modified="20170617131313585" modifier="Hans" title="$:/state/tab-1342078386">
-<pre>$:/core/ui/ControlPanel/Plugins/Add/Themes</pre>
+<div created="20170423144958395" creator="Hans" modified="20170617134853325" modifier="Hans" title="$:/state/tab-1342078386">
+<pre>$:/core/ui/ControlPanel/Plugins/Add/Plugins</pre>
 </div>
 <div created="20170423061814187" modified="20170423061816963" title="$:/state/tab-1457143710">
 <pre>$:/core/ui/TiddlerInfo/List</pre>
@@ -11178,10 +11103,10 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423130331633" creator="Hans" modified="20170423130450681" modifier="Hans" title="$:/state/tab/moresidebar--1647206943">
 <pre>$:/core/ui/MoreSideBar/Missing</pre>
 </div>
-<div created="20170423060241542" creator="Hans" modified="20170612023903532" modifier="Hans" title="$:/state/tab/moresidebar-401116514">
-<pre>$:/core/ui/MoreSideBar/Tags</pre>
+<div created="20170423060241542" creator="Hans" modified="20170617135020755" modifier="Hans" title="$:/state/tab/moresidebar-401116514">
+<pre>$:/core/ui/MoreSideBar/All</pre>
 </div>
-<div created="20170423052918471" creator="Hans" modified="20170613124649163" modifier="Hans" title="$:/state/tab/sidebar--1835078512">
+<div created="20170423052918471" creator="Hans" modified="20170617135022906" modifier="Hans" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20170425014253820" creator="Hans" modified="20170427050447110" modifier="Hans" title="$:/state/tabs/controlpanel/toolbars-1345989671">
@@ -11590,11 +11515,14 @@ $title$$(currentTiddler)$
 &lt;/table&gt;
 </pre>
 </div>
+<div created="20170617133940331" creator="Hans" list="$:/core/ui/MoreSideBar/All $:/core/ui/MoreSideBar/Tags $:/core/ui/MoreSideBar/Drafts $:/core/ui/MoreSideBar/Types" modified="20170617134014907" modifier="Hans" title="$:/tags/MoreSideBar">
+<pre></pre>
+</div>
 <div created="20170612021852946" creator="Hans" filter="ToRead" modified="20170612021859206" modifier="Hans" title="$:/temp/AddTags">
 <pre></pre>
 </div>
-<div created="20170423102600845" creator="Hans" modified="20170612024410602" modifier="Hans" title="$:/temp/advancedsearch">
-<pre>[tags[]sort[title]]</pre>
+<div created="20170423102600845" creator="Hans" modified="20170617134819603" modifier="Hans" title="$:/temp/advancedsearch">
+<pre>[all[]sort[title]prefix[$:/plugins/felix]]</pre>
 </div>
 <div created="20170612021352675" creator="Hans" modified="20170612022841011" modifier="Hans" replace_tag="" search_tags="" title="$:/temp/changetags">
 <pre></pre>
@@ -12475,7 +12403,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20170614093702548" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20170617134957963" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20170430020312724" creator="Hans" modified="20170430020312724" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -13683,6 +13611,23 @@ tombkeeper就是这样学习Windows的。
 </div>
 <div created="20170426090200934" creator="Hans" modified="20170426111027680" modifier="Hans" tags="TableOfContents" title="信息安全" tmap.edges="{}" tmap.id="2aa521e0-3304-402b-a28b-30ebb308611b">
 <pre></pre>
+</div>
+<div created="20170617133530978" creator="Hans" modified="20170617134231626" modifier="Hans" tags="Tiddlywiki" title="修改MoreSideBar的内容">
+<pre>打开文件 $:/tags/MoreSideBar，找到其 ''field''中提到的各子文件，去掉其''tag''即可。
+
+备份：
+
+&quot;&quot;&quot;
+$:/core/ui/MoreSideBar/All 
+$:/core/ui/MoreSideBar/Recent 
+$:/core/ui/MoreSideBar/Tags 
+$:/core/ui/MoreSideBar/Missing 
+$:/core/ui/MoreSideBar/Drafts 
+$:/core/ui/MoreSideBar/Orphans 
+$:/core/ui/MoreSideBar/Types 
+$:/core/ui/MoreSideBar/System 
+$:/core/ui/MoreSideBar/Shadows
+&quot;&quot;&quot;</pre>
 </div>
 <div created="20170523022225135" creator="Hans" modified="20170523022246462" modifier="Hans" tags="金融 计算机" title="虚拟货币" tmap.id="8eb8f66e-d5a5-4943-aa87-888c3dc62666">
 <pre></pre>
