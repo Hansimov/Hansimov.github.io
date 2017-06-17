@@ -12,7 +12,7 @@
   - Can adjust the width & position
 
 ## Others:
-  - All done.
+  - Remove some junk files
 
 ---
 ## Notices:
