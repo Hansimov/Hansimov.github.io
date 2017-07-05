@@ -267,10 +267,6 @@ Error message and password prompt
 
 <li>$:/plugins/felixhayashi/topstoryview</li>
 
-<li>$:/plugins/gt6796c/flowchart-tw5/eve.js</li>
-
-<li>$:/plugins/gt6796c/flowchart-tw5/example-flowchart</li>
-
 <li>$:/plugins/ihm/tidgraph</li>
 
 <li>$:/plugins/sk/Indents</li>
@@ -290,8 +286,6 @@ Error message and password prompt
 <li>$:/plugins/tiddlywiki/markdown</li>
 
 <li>$:/plugins/tiddlywiki/nodewebkitsaver</li>
-
-<li>$:/plugins/tiddlywiki/stacked-view</li>
 
 <li>$:/plugins/tiddlywiki/stacked-view/config-macros/stacked-storyview</li>
 
@@ -348,6 +342,8 @@ Error message and password prompt
 <li>$:/state/dropdown/keyboardshortcut/link-286565879</li>
 
 <li>$:/state/dropdown/keyboardshortcut/list-bullet-286565879</li>
+
+<li>$:/state/dropdown/keyboardshortcut/mono-line-286565879</li>
 
 <li>$:/state/dropdown/keyboardshortcut/save-tiddler-286565879</li>
 
@@ -556,6 +552,8 @@ Error message and password prompt
 <li>$:/state/tabs/controlpanel/toolbars-1345989671</li>
 
 <li>$:/state/tabs/MapElementTypeManager-1719816939</li>
+
+<li>$:/state/tag-manager/0day安全</li>
 
 <li>$:/state/tag-manager/PAA_top</li>
 
@@ -1035,6 +1033,8 @@ Error message and password prompt
 
 <li>4.6：置信区间与假设检验</li>
 
+<li>安卓关闭某程序通知</li>
+
 <li>巴赫：BWV</li>
 
 <li>搬瓦工搭建ss</li>
@@ -1096,6 +1096,8 @@ Error message and password prompt
 <li>结构体排序</li>
 
 <li>开锁</li>
+
+<li>可视化</li>
 
 <li>乐理</li>
 
@@ -1197,6 +1199,8 @@ Error message and password prompt
 
 <li>dirtree</li>
 
+<li>DPA发现</li>
+
 <li>Endnote破解</li>
 
 <li>Enter password to unlock your login keyring</li>
@@ -1259,11 +1263,23 @@ Error message and password prompt
 
 <li>Test For CSS</li>
 
+<li>Test For D3.js</li>
+
+<li>Test For Delete Field</li>
+
+<li>Test For Embeded CDF</li>
+
+<li>Test For Embeded HTML</li>
+
 <li>Test For FamilyTree</li>
 
 <li>Test For GIF</li>
 
+<li>Test For HTML</li>
+
 <li>Test For Images</li>
+
+<li>Test For KaTeX</li>
 
 <li>Test For Link Local Files</li>
 
@@ -1294,6 +1310,8 @@ Error message and password prompt
 <li>TeX中插入空格</li>
 
 <li>The Last Question</li>
+
+<li>TiddlerA</li>
 
 <li>ToDo</li>
 
@@ -9538,417 +9556,6 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
     }
 }</pre>
 </div>
-<div created="20170501160746593" creator="Hans" modified="20170501160808534" modifier="Hans" module-type="library" title="$:/plugins/gt6796c/flowchart-tw5/eve.js" type="application/javascript">
-<pre>(function(document) {
-// ┌────────────────────────────────────────────────────────────┐ \\
-// │ Eve 0.4.2 - JavaScript Events Library                      │ \\
-// ├────────────────────────────────────────────────────────────┤ \\
-// │ Author Dmitry Baranovskiy (http://dmitry.baranovskiy.com/) │ \\
-// └────────────────────────────────────────────────────────────┘ \\
-
-(function (glob) {
-  var version = &quot;0.4.2&quot;,
-      has = &quot;hasOwnProperty&quot;,
-      separator = /[\.\/]/,
-      wildcard = &quot;*&quot;,
-      fun = function () {},
-      numsort = function (a, b) {
-        return a - b;
-      },
-      current_event,
-      stop,
-      events = {n: {}},
-  /*\
-   * eve
-   [ method ]
-
-   * Fires event with given `name`, given scope and other parameters.
-
-   &gt; Arguments
-
-   - name (string) name of the *event*, dot (`.`) or slash (`/`) separated
-   - scope (object) context for the event handlers
-   - varargs (...) the rest of arguments will be sent to event handlers
-
-   = (object) array of returned values from the listeners
-   \*/
-      eve = function (name, scope) {
-        name = String(name);
-        var e = events,
-            oldstop = stop,
-            args = Array.prototype.slice.call(arguments, 2),
-            listeners = eve.listeners(name),
-            z = 0,
-            f = false,
-            l,
-            indexed = [],
-            queue = {},
-            out = [],
-            ce = current_event,
-            errors = [];
-        current_event = name;
-        stop = 0;
-        for (var i = 0, ii = listeners.length; i &lt; ii; i++) if (&quot;zIndex&quot; in listeners[i]) {
-          indexed.push(listeners[i].zIndex);
-          if (listeners[i].zIndex &lt; 0) {
-            queue[listeners[i].zIndex] = listeners[i];
-          }
-        }
-        indexed.sort(numsort);
-        while (indexed[z] &lt; 0) {
-          l = queue[indexed[z++]];
-          out.push(l.apply(scope, args));
-          if (stop) {
-            stop = oldstop;
-            return out;
-          }
-        }
-        for (i = 0; i &lt; ii; i++) {
-          l = listeners[i];
-          if (&quot;zIndex&quot; in l) {
-            if (l.zIndex == indexed[z]) {
-              out.push(l.apply(scope, args));
-              if (stop) {
-                break;
-              }
-              do {
-                z++;
-                l = queue[indexed[z]];
-                l &amp;&amp; out.push(l.apply(scope, args));
-                if (stop) {
-                  break;
-                }
-              } while (l)
-            } else {
-              queue[l.zIndex] = l;
-            }
-          } else {
-            out.push(l.apply(scope, args));
-            if (stop) {
-              break;
-            }
-          }
-        }
-        stop = oldstop;
-        current_event = ce;
-        return out.length ? out : null;
-      };
-  // Undocumented. Debug only.
-  eve._events = events;
-  /*\
-   * eve.listeners
-   [ method ]
-
-   * Internal method which gives you array of all event handlers that will be triggered by the given `name`.
-
-   &gt; Arguments
-
-   - name (string) name of the event, dot (`.`) or slash (`/`) separated
-
-   = (array) array of event handlers
-   \*/
-  eve.listeners = function (name) {
-    var names = name.split(separator),
-        e = events,
-        item,
-        items,
-        k,
-        i,
-        ii,
-        j,
-        jj,
-        nes,
-        es = [e],
-        out = [];
-    for (i = 0, ii = names.length; i &lt; ii; i++) {
-      nes = [];
-      for (j = 0, jj = es.length; j &lt; jj; j++) {
-        e = es[j].n;
-        items = [e[names[i]], e[wildcard]];
-        k = 2;
-        while (k--) {
-          item = items[k];
-          if (item) {
-            nes.push(item);
-            out = out.concat(item.f || []);
-          }
-        }
-      }
-      es = nes;
-    }
-    return out;
-  };
-
-  /*\
-   * eve.on
-   [ method ]
-   **
-   * Binds given event handler with a given name. You can use wildcards “`*`” for the names:
-   | eve.on(&quot;*.under.*&quot;, f);
-   | eve(&quot;mouse.under.floor&quot;); // triggers f
-   * Use @eve to trigger the listener.
-   **
-   &gt; Arguments
-   **
-   - name (string) name of the event, dot (`.`) or slash (`/`) separated, with optional wildcards
-   - f (function) event handler function
-   **
-   = (function) returned function accepts a single numeric parameter that represents z-index of the handler. It is an optional feature and only used when you need to ensure that some subset of handlers will be invoked in a given order, despite of the order of assignment. 
-   &gt; Example:
-   | eve.on(&quot;mouse&quot;, eatIt)(2);
-   | eve.on(&quot;mouse&quot;, scream);
-   | eve.on(&quot;mouse&quot;, catchIt)(1);
-   * This will ensure that `catchIt()` function will be called before `eatIt()`.
-   *
-   * If you want to put your handler before non-indexed handlers, specify a negative value.
-   * Note: I assume most of the time you don’t need to worry about z-index, but it’s nice to have this feature “just in case”.
-   \*/
-  eve.on = function (name, f) {
-    name = String(name);
-    if (typeof f != &quot;function&quot;) {
-      return function () {};
-    }
-    var names = name.split(separator),
-        e = events;
-    for (var i = 0, ii = names.length; i &lt; ii; i++) {
-      e = e.n;
-      e = e.hasOwnProperty(names[i]) &amp;&amp; e[names[i]] || (e[names[i]] = {n: {}});
-    }
-    e.f = e.f || [];
-    for (i = 0, ii = e.f.length; i &lt; ii; i++) if (e.f[i] == f) {
-      return fun;
-    }
-    e.f.push(f);
-    return function (zIndex) {
-      if (+zIndex == +zIndex) {
-        f.zIndex = +zIndex;
-      }
-    };
-  };
-  /*\
-   * eve.f
-   [ method ]
-   **
-   * Returns function that will fire given event with optional arguments.
-   * Arguments that will be passed to the result function will be also
-   * concated to the list of final arguments.
-   | el.onclick = eve.f(&quot;click&quot;, 1, 2);
-   | eve.on(&quot;click&quot;, function (a, b, c) {
-   |     console.log(a, b, c); // 1, 2, [event object]
-   | });
-   &gt; Arguments
-   - event (string) event name
-   - varargs (…) and any other arguments
-   = (function) possible event handler function
-   \*/
-  eve.f = function (event) {
-    var attrs = [].slice.call(arguments, 1);
-    return function () {
-      eve.apply(null, [event, null].concat(attrs).concat([].slice.call(arguments, 0)));
-    };
-  };
-  /*\
-   * eve.stop
-   [ method ]
-   **
-   * Is used inside an event handler to stop the event, preventing any subsequent listeners from firing.
-   \*/
-  eve.stop = function () {
-    stop = 1;
-  };
-  /*\
-   * eve.nt
-   [ method ]
-   **
-   * Could be used inside event handler to figure out actual name of the event.
-   **
-   &gt; Arguments
-   **
-   - subname (string) #optional subname of the event
-   **
-   = (string) name of the event, if `subname` is not specified
-   * or
-   = (boolean) `true`, if current event’s name contains `subname`
-   \*/
-  eve.nt = function (subname) {
-    if (subname) {
-      return new RegExp(&quot;(?:\\.|\\/|^)&quot; + subname + &quot;(?:\\.|\\/|$)&quot;).test(current_event);
-    }
-    return current_event;
-  };
-  /*\
-   * eve.nts
-   [ method ]
-   **
-   * Could be used inside event handler to figure out actual name of the event.
-   **
-   **
-   = (array) names of the event
-   \*/
-  eve.nts = function () {
-    return current_event.split(separator);
-  };
-  /*\
-   * eve.off
-   [ method ]
-   **
-   * Removes given function from the list of event listeners assigned to given name.
-   * If no arguments specified all the events will be cleared.
-   **
-   &gt; Arguments
-   **
-   - name (string) name of the event, dot (`.`) or slash (`/`) separated, with optional wildcards
-   - f (function) event handler function
-   \*/
-  /*\
-   * eve.unbind
-   [ method ]
-   **
-   * See @eve.off
-   \*/
-  eve.off = eve.unbind = function (name, f) {
-    if (!name) {
-      eve._events = events = {n: {}};
-      return;
-    }
-    var names = name.split(separator),
-        e,
-        key,
-        splice,
-        i, ii, j, jj,
-        cur = [events];
-    for (i = 0, ii = names.length; i &lt; ii; i++) {
-      for (j = 0; j &lt; cur.length; j += splice.length - 2) {
-        splice = [j, 1];
-        e = cur[j].n;
-        if (names[i] != wildcard) {
-          if (e[names[i]]) {
-            splice.push(e[names[i]]);
-          }
-        } else {
-          for (key in e) if (e[has](key)) {
-            splice.push(e[key]);
-          }
-        }
-        cur.splice.apply(cur, splice);
-      }
-    }
-    for (i = 0, ii = cur.length; i &lt; ii; i++) {
-      e = cur[i];
-      while (e.n) {
-        if (f) {
-          if (e.f) {
-            for (j = 0, jj = e.f.length; j &lt; jj; j++) if (e.f[j] == f) {
-              e.f.splice(j, 1);
-              break;
-            }
-            !e.f.length &amp;&amp; delete e.f;
-          }
-          for (key in e.n) if (e.n[has](key) &amp;&amp; e.n[key].f) {
-            var funcs = e.n[key].f;
-            for (j = 0, jj = funcs.length; j &lt; jj; j++) if (funcs[j] == f) {
-              funcs.splice(j, 1);
-              break;
-            }
-            !funcs.length &amp;&amp; delete e.n[key].f;
-          }
-        } else {
-          delete e.f;
-          for (key in e.n) if (e.n[has](key) &amp;&amp; e.n[key].f) {
-            delete e.n[key].f;
-          }
-        }
-        e = e.n;
-      }
-    }
-  };
-  /*\
-   * eve.once
-   [ method ]
-   **
-   * Binds given event handler with a given name to only run once then unbind itself.
-   | eve.once(&quot;login&quot;, f);
-   | eve(&quot;login&quot;); // triggers f
-   | eve(&quot;login&quot;); // no listeners
-   * Use @eve to trigger the listener.
-   **
-   &gt; Arguments
-   **
-   - name (string) name of the event, dot (`.`) or slash (`/`) separated, with optional wildcards
-   - f (function) event handler function
-   **
-   = (function) same return function as @eve.on
-   \*/
-  eve.once = function (name, f) {
-    var f2 = function () {
-      eve.unbind(name, f2);
-      return f.apply(this, arguments);
-    };
-    return eve.on(name, f2);
-  };
-  /*\
-   * eve.version
-   [ property (string) ]
-   **
-   * Current version of the library.
-   \*/
-  eve.version = version;
-  eve.toString = function () {
-    return &quot;You are running Eve &quot; + version;
-  };
-  (typeof module != &quot;undefined&quot; &amp;&amp; module.exports) ? (module.exports = eve) : (typeof define != &quot;undefined&quot; ? (define(&quot;eve&quot;, [], function() { return eve; })) : (glob.eve = eve));
-})(window || this);
-
-
-})($tw.node ? $tw.fakeDocument : window.document)
-</pre>
-</div>
-<div created="20170501160841021" creator="Hans" modified="20170501160841021" modifier="Hans" title="$:/plugins/gt6796c/flowchart-tw5/example-flowchart">
-<pre>Notation
-
-```
-&lt;$flowchart
-flowstate='{ &quot;current&quot; : { &quot;fill&quot; : &quot;gray&quot; } }' &gt;
-st=&gt;start: Start|past:&gt;[[HelloThere]]
-e=&gt;end: End|future:&gt;http://www.google.com
-op1=&gt;operation: My Operation|past
-op2=&gt;operation: Stuff|current
-sub1=&gt;subroutine: My Subroutine|invalid
-cond=&gt;condition: Yes
-or No?|approved:&gt;http://www.google.com
-c2=&gt;condition: Good idea|rejected
-io=&gt;inputoutput: catch something...|future
-
-st-&gt;op1(right)-&gt;cond
-cond(yes, right)-&gt;c2
-cond(no)-&gt;sub1(left)-&gt;op1
-c2(yes)-&gt;io-&gt;e
-c2(no)-&gt;op2-&gt;e
-&lt;/$flowchart&gt;
-```
-Results
-
-&lt;$flowchart
-flowstate='{ &quot;current&quot; : { &quot;fill&quot; : &quot;gray&quot; } }'&gt;
-st=&gt;start: Start|past:&gt;[[HelloThere]]
-e=&gt;end: End|future:&gt;http://www.google.com
-op1=&gt;operation: My Operation|past
-op2=&gt;operation: Stuff|current
-sub1=&gt;subroutine: My Subroutine|invalid
-cond=&gt;condition: Yes
-or No?|approved:&gt;http://www.google.com
-c2=&gt;condition: Good idea|rejected
-io=&gt;inputoutput: catch something...|future
-
-st-&gt;op1(right)-&gt;cond
-cond(yes, right)-&gt;c2
-cond(no)-&gt;sub1(left)-&gt;op1
-c2(yes)-&gt;io-&gt;e
-c2(no)-&gt;op2-&gt;e
-&lt;/$flowchart&gt;
-
-</pre>
-</div>
 <div author="ihm4u" core-version="&gt;=5.1.9" dependents="" description="Tidgraph - Easy tiddler graphs for TW5" list="readme changelog documentation" plugin-type="plugin" source="https://ihm4u.github.io/tw5plugs" title="$:/plugins/ihm/tidgraph" type="application/json" version="0.9.6">
 <pre>{
     &quot;tiddlers&quot;: {
@@ -10532,42 +10139,6 @@ c2(no)-&gt;op2-&gt;e
     }
 }</pre>
 </div>
-<div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="Stacked card storyview" list="readme" plugin-type="plugin" title="$:/plugins/tiddlywiki/stacked-view" type="application/json" version="5.1.13">
-<pre>{
-    &quot;tiddlers&quot;: {
-        &quot;$:/plugins/tiddlywiki/stacked-view/StackedControls&quot;: {
-            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/stacked-view/StackedControls&quot;,
-            &quot;caption&quot;: &quot;Stacked View&quot;,
-            &quot;tags&quot;: &quot;$:/tags/SideBar&quot;,
-            &quot;text&quot;: &quot;Set the [[fan separation|$:/config/StackedStoryViewFanHeight]]:\n\n* &lt;$button set=\&quot;$:/config/StackedStoryViewFanHeight\&quot; setTo=\&quot;-10\&quot;&gt;-10&lt;/$button&gt;\n* &lt;$button set=\&quot;$:/config/StackedStoryViewFanHeight\&quot; setTo=\&quot;0\&quot;&gt;0&lt;/$button&gt;\n* &lt;$button set=\&quot;$:/config/StackedStoryViewFanHeight\&quot; setTo=\&quot;10\&quot;&gt;10&lt;/$button&gt;\n* &lt;$button set=\&quot;$:/config/StackedStoryViewFanHeight\&quot; setTo=\&quot;30\&quot;&gt;30&lt;/$button&gt;\n* &lt;$button set=\&quot;$:/config/StackedStoryViewFanHeight\&quot; setTo=\&quot;50\&quot;&gt;50&lt;/$button&gt;\n* &lt;$button set=\&quot;$:/config/StackedStoryViewFanHeight\&quot; setTo=\&quot;100\&quot;&gt;100&lt;/$button&gt;\n* &lt;$button set=\&quot;$:/config/StackedStoryViewFanHeight\&quot; setTo=\&quot;150\&quot;&gt;150&lt;/$button&gt;\n* &lt;$button set=\&quot;$:/config/StackedStoryViewFanHeight\&quot; setTo=\&quot;200\&quot;&gt;200&lt;/$button&gt;\n* &lt;$button set=\&quot;$:/config/StackedStoryViewFanHeight\&quot; setTo=\&quot;250\&quot;&gt;250&lt;/$button&gt;\n* &lt;$button set=\&quot;$:/config/StackedStoryViewFanHeight\&quot; setTo=\&quot;300\&quot;&gt;300&lt;/$button&gt;\n* &lt;$button set=\&quot;$:/config/StackedStoryViewFanHeight\&quot; setTo=\&quot;500\&quot;&gt;500&lt;/$button&gt;\n* &lt;$button set=\&quot;$:/config/StackedStoryViewFanHeight\&quot; setTo=\&quot;700\&quot;&gt;700&lt;/$button&gt;\n* &lt;$button set=\&quot;$:/config/StackedStoryViewFanHeight\&quot; setTo=\&quot;1500\&quot;&gt;1500&lt;/$button&gt;\n&quot;
-        },
-        &quot;$:/config/StackedStoryViewFanHeight&quot;: {
-            &quot;title&quot;: &quot;$:/config/StackedStoryViewFanHeight&quot;,
-            &quot;text&quot;: &quot;100&quot;
-        },
-        &quot;$:/plugins/tiddlywiki/stacked-view/readme&quot;: {
-            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/stacked-view/readme&quot;,
-            &quot;text&quot;: &quot;This plugin provides a new story visualisation that displays individual tiddlers as a stack of cards. It is currently experimental and incomplete.\n\n[[Source code|https://github.com/Jermolene/TiddlyWiki5/blob/master/plugins/tiddlywiki/stacked-view]]\n&quot;
-        },
-        &quot;$:/plugins/tiddlywiki/stacked-view/config-macros/stacked-storyview&quot;: {
-            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/stacked-view/config-macros/stacked-storyview&quot;,
-            &quot;tags&quot;: &quot;$:/tags/Macro&quot;,
-            &quot;text&quot;: &quot;\\define tv-stacked-storyview-fan-height-config-title() $:/config/StackedStoryViewFanHeight\n&quot;
-        },
-        &quot;$:/plugins/tiddlywiki/stacked-view/stacked.js&quot;: {
-            &quot;text&quot;: &quot;/*\\\ntitle: $:/plugins/tiddlywiki/stacked-view/stacked.js\ntype: application/javascript\nmodule-type: storyview\n\nKeeps tiddlers in a stack\n\n\\*/\n(function(){\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\&quot;use strict\&quot;;\n\nvar easing = \&quot;cubic-bezier(0.645, 0.045, 0.355, 1)\&quot;; // From http://easings.net/#easeInOutCubic\n\nvar StackedListView = function(listWidget) {\n\tvar self = this;\n\tthis.listWidget = listWidget;\n\tthis.fanHeightConfigTitle = listWidget.getVariable(\&quot;tv-stacked-storyview-fan-height-config-title\&quot;);\n\tthis.placeTiddlers();\n};\n\nStackedListView.prototype.placeTiddlers = function() {\n\t// Initialise the stack of tiddler titles\n\tthis.listStack = [];\n\tvar numItems = this.listWidget.children.length,\n\t\tt, itemWidget,\n\t\tduration = $tw.utils.getAnimationDuration();\n\tfor(t=numItems-1; t&gt;=0; t--) {\n\t\titemWidget = this.listWidget.children[t];\n\t\tthis.listStack.push(itemWidget.parseTreeNode.itemTitle);\n\t}\n\t// Ensure the tiddler at the top of the history stack is at the top of the array\n\tvar history = this.listWidget.wiki.getTiddlerData(this.listWidget.historyTitle,[]);\n\tfor(t=0; t&lt;history.length; t++) {\n\t\tvar title = history[t].title;\n\t\tif(this.listStack.indexOf(title) !== -1) {\n\t\t\t$tw.utils.pushTop(this.listStack,title);\n\t\t}\n\t}\n\t// Get the configured fan height\n\tvar fanHeight = parseInt(this.listWidget.wiki.getTiddlerText(this.fanHeightConfigTitle),10);\n\t// Position each tiddler\n\tfor(var t=numItems-1; t&gt;=0; t--) {\n\t\t// Get the DOM node for this tiddler\n\t\titemWidget = this.listWidget.children[t];\n\t\tvar domNode = itemWidget.findFirstDomNode();\n\t\tif(domNode instanceof Element) {\n\t\t\t// Allows the width of the tiddler to be adjusted\n\t\t\t$tw.utils.addClass(domNode,\&quot;tc-storyview-zoomin-tiddler\&quot;);\n\t\t\t// Find the position of the tiddler in the stack\n\t\t\tvar pos = this.listStack.indexOf(itemWidget.parseTreeNode.itemTitle);\n\t\t\tif(pos !== -1) {\n\t\t\t\t// Style the tiddler to position it\n\t\t\t\tvar posFactor = pos/(numItems-1);\n\t\t\t\t$tw.utils.setStyle(domNode,[\n\t\t\t\t\t{position: \&quot;absolute\&quot;},\n\t\t\t\t\t{transformOrigin: \&quot;50% 0\&quot;},\n\t\t\t\t\t{transition: $tw.utils.roundTripPropertyName(\&quot;transform\&quot;) + \&quot; \&quot; + duration * (0.5 + posFactor) + \&quot;ms \&quot; + easing},\n\t\t\t\t\t{transform: \&quot;translateX(0px) translateY(\&quot; + (fanHeight * posFactor * posFactor) + \&quot;px) scale(\&quot; + (0.1 + posFactor * 0.9) + \&quot;)\&quot;},\n\t\t\t\t\t{zIndex: pos + \&quot;\&quot;}\n\t\t\t\t]);\n\t\t\t}\n\t\t}\n\t}\n};\n\nStackedListView.prototype.refreshStart = function(changedTiddlers,changedAttributes) {\n};\n\nStackedListView.prototype.refreshEnd = function(changedTiddlers,changedAttributes) {\n\tthis.placeTiddlers();\n};\n\nStackedListView.prototype.navigateTo = function(historyInfo) {\n};\n\nStackedListView.prototype.insert = function(widget) {\n};\n\nStackedListView.prototype.remove = function(widget) {\n\twidget.removeChildDomNodes();\n};\n\nexports.stacked = StackedListView;\n\n})();&quot;,
-            &quot;title&quot;: &quot;$:/plugins/tiddlywiki/stacked-view/stacked.js&quot;,
-            &quot;type&quot;: &quot;application/javascript&quot;,
-            &quot;module-type&quot;: &quot;storyview&quot;
-        },
-        &quot;$:/core/images/storyview-stacked&quot;: {
-            &quot;title&quot;: &quot;$:/core/images/storyview-stacked&quot;,
-            &quot;tags&quot;: &quot;$:/tags/Image&quot;,
-            &quot;text&quot;: &quot;&lt;svg class=\&quot;tc-image-storyview-stack tc-image-button\&quot; width=\&quot;22pt\&quot; height=\&quot;22pt\&quot; viewBox=\&quot;0 0 128 128\&quot;&gt;\n    &lt;g fill-rule=\&quot;evenodd\&quot;&gt;\n        &lt;path d=\&quot;M8.00697327,0 C3.58484404,0 0,3.59075293 0,8.00697327 L0,119.993027 C0,124.415156 3.59075293,128 8.00697327,128 L119.993027,128 C124.415156,128 128,124.409247 128,119.993027 L128,8.00697327 C128,3.58484404 124.409247,0 119.993027,0 L8.00697327,0 L8.00697327,0 Z M32,43 L32,37.3807213 C32,34.4040057 34.3875896,32 37.3328305,32 L45.5,32 L45.5,32 L84,32 L90.6671695,32 C93.6079301,32 96,34.409031 96,37.3807213 L96,43 L32,43 Z M30,48 L23.9992458,48 C19.5813843,48 16,51.578055 16,56.0085154 L16,103.991485 C16,108.414466 19.5881049,112 23.9992458,112 L104.000754,112 C108.418616,112 112,108.421945 112,103.991485 L112,56.0085154 C112,51.5855345 108.411895,48 104.000754,48 L98.5,48 L30,48 Z M80,27 L80,23.7529272 C80,22.2325275 78.803965,21 77.3335847,21 L50.6664153,21 C49.1937948,21 48,22.2299564 48,23.7529272 L48,27 L80,27 Z\&quot;&gt;&lt;/path&gt;\n    &lt;/g&gt;\n&lt;/svg&gt;&quot;
-        }
-    }
-}</pre>
-</div>
 <div created="20170425033540115" creator="Hans" modified="20170425033540115" modifier="Hans" tags="$:/tags/Macro" title="$:/plugins/tiddlywiki/stacked-view/config-macros/stacked-storyview">
 <pre>\define tv-stacked-storyview-fan-height-config-title() $:/config/StackedStoryViewFanHeight
 </pre>
@@ -10850,6 +10421,9 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170427024453593" creator="Hans" modified="20170427024454081" modifier="Hans" title="$:/state/dropdown/keyboardshortcut/list-bullet-286565879">
 <pre>close</pre>
 </div>
+<div created="20170626123546869" creator="Hans" modified="20170626123548061" modifier="Hans" title="$:/state/dropdown/keyboardshortcut/mono-line-286565879">
+<pre>close</pre>
+</div>
 <div created="20170427024423256" creator="Hans" modified="20170427024433929" modifier="Hans" title="$:/state/dropdown/keyboardshortcut/save-tiddler-286565879">
 <pre>close</pre>
 </div>
@@ -11078,7 +10652,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170427093719513" creator="Hans" modified="20170427093733009" modifier="Hans" title="$:/state/ShowPaletteEditor">
 <pre>no</pre>
 </div>
-<div created="20170423064611651" creator="Hans" modified="20170617142512407" modifier="Hans" title="$:/state/sidebar">
+<div created="20170423064611651" creator="Hans" modified="20170630013652402" modifier="Hans" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div created="20170423122204667" creator="Hans" modified="20170425023502061" modifier="Hans" title="$:/state/tab--1032361530">
@@ -11096,8 +10670,8 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423064559946" creator="Hans" modified="20170423064601906" modifier="Hans" title="$:/state/tab--1936963165">
 <pre>$:/core/ui/TiddlerInfo/Listed</pre>
 </div>
-<div created="20170423055551946" creator="Hans" modified="20170617131247770" modifier="Hans" title="$:/state/tab--1963855381">
-<pre>$:/core/ui/ControlPanel/Theme</pre>
+<div created="20170423055551946" creator="Hans" modified="20170626125534509" modifier="Hans" title="$:/state/tab--1963855381">
+<pre>$:/themes/tiddlywiki/vanilla/themetweaks</pre>
 </div>
 <div created="20170426092950049" creator="Hans" modified="20170426092950049" modifier="Hans" title="$:/state/tab--1979493427">
 <pre>$:/plugins/felixhayashi/tiddlymap/dialog/editNode/local</pre>
@@ -11114,8 +10688,8 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423052944549" creator="Hans" modified="20170617131318553" modifier="Hans" title="$:/state/tab--86143343">
 <pre>$:/core/ui/ControlPanel/Plugins/Installed/Plugins</pre>
 </div>
-<div created="20170423093651445" creator="Hans" modified="20170617131242668" modifier="Hans" title="$:/state/tab--959111941">
-<pre>$:/core/ui/ControlPanel/EditorTypes</pre>
+<div created="20170423093651445" creator="Hans" modified="20170626125559919" modifier="Hans" title="$:/state/tab--959111941">
+<pre>$:/core/ui/ControlPanel/TiddlerFields</pre>
 </div>
 <div created="20170426113104472" creator="Hans" modified="20170426113106665" modifier="Hans" title="$:/state/tab--963698674">
 <pre>$:/plugins/felixhayashi/tiddlymap/dialog/configureView/vis</pre>
@@ -11129,8 +10703,8 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423061814187" modified="20170423061816963" title="$:/state/tab-1457143710">
 <pre>$:/core/ui/TiddlerInfo/List</pre>
 </div>
-<div created="20170423052939963" creator="Hans" modified="20170617131330033" modifier="Hans" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Plugins</pre>
+<div created="20170423052939963" creator="Hans" modified="20170626125536061" modifier="Hans" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Info</pre>
 </div>
 <div created="20170423064346284" creator="Hans" modified="20170423064350083" modifier="Hans" title="$:/state/tab-1872943071">
 <pre>$:/core/ui/TiddlerInfo/Advanced</pre>
@@ -11150,17 +10724,20 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423130331633" creator="Hans" modified="20170423130450681" modifier="Hans" title="$:/state/tab/moresidebar--1647206943">
 <pre>$:/core/ui/MoreSideBar/Missing</pre>
 </div>
-<div created="20170423060241542" creator="Hans" modified="20170617135020755" modifier="Hans" title="$:/state/tab/moresidebar-401116514">
-<pre>$:/core/ui/MoreSideBar/All</pre>
+<div created="20170423060241542" creator="Hans" modified="20170617143550655" modifier="Hans" title="$:/state/tab/moresidebar-401116514">
+<pre>$:/core/ui/MoreSideBar/Tags</pre>
 </div>
-<div created="20170423052918471" creator="Hans" modified="20170617135022906" modifier="Hans" title="$:/state/tab/sidebar--1835078512">
+<div created="20170423052918471" creator="Hans" modified="20170630013655130" modifier="Hans" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div created="20170425014253820" creator="Hans" modified="20170427050447110" modifier="Hans" title="$:/state/tabs/controlpanel/toolbars-1345989671">
-<pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
+<div created="20170425014253820" creator="Hans" modified="20170626125527117" modifier="Hans" title="$:/state/tabs/controlpanel/toolbars-1345989671">
+<pre>$:/core/ui/ControlPanel/Toolbars/EditorToolbar</pre>
 </div>
 <div created="20170426102237345" creator="Hans" modified="20170426102237345" modifier="Hans" title="$:/state/tabs/MapElementTypeManager-1719816939">
 <pre>$:/plugins/felixhayashi/tiddlymap/dialog/MapElementTypeManager/generalSettings</pre>
+</div>
+<div created="20170617143559366" creator="Hans" modified="20170617143601718" modifier="Hans" title="$:/state/tag-manager/0day安全">
+<pre>closed</pre>
 </div>
 <div created="20170423130404331" creator="Hans" modified="20170423130404331" modifier="Hans" title="$:/state/tag-manager/PAA_top">
 <pre>open</pre>
@@ -11471,7 +11048,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="$:/Import" title="$:/StoryList">
+<div list="" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -11568,8 +11145,8 @@ $title$$(currentTiddler)$
 <div created="20170612021852946" creator="Hans" filter="ToRead" modified="20170612021859206" modifier="Hans" title="$:/temp/AddTags">
 <pre></pre>
 </div>
-<div created="20170423102600845" creator="Hans" modified="20170617134819603" modifier="Hans" title="$:/temp/advancedsearch">
-<pre>[all[]sort[title]prefix[$:/plugins/felix]]</pre>
+<div created="20170423102600845" creator="Hans" modified="20170617144325988" modifier="Hans" title="$:/temp/advancedsearch">
+<pre>[all[]sort[title]prefix[$:/plugin]]</pre>
 </div>
 <div created="20170612021352675" creator="Hans" modified="20170612022841011" modifier="Hans" replace_tag="" search_tags="" title="$:/temp/changetags">
 <pre></pre>
@@ -12450,7 +12027,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20170617134957963" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20170702114530703" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20170430020312724" creator="Hans" modified="20170430020312724" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -12781,7 +12358,7 @@ canvas.tc-edit-bitmapeditor  {
 <div created="20170423113044520" creator="Hans" modified="20170426092540218" modifier="Hans" title="$:/themes/tiddlywiki/vanilla/options/sidebarlayout">
 <pre>fluid-fixed</pre>
 </div>
-<div created="20170423063534473" creator="Hans" modified="20170425035046880" modifier="Hans" title="$:/view">
+<div created="20170423063534473" creator="Hans" modified="20170626125447757" modifier="Hans" title="$:/view">
 <pre>top</pre>
 </div>
 <div created="20170427050254847" creator="Hans" modified="20170427050255902" modifier="Hans" tags="软件安全" title="0day安全" tmap.edges="{}" tmap.id="a6407454-990f-48b6-af76-37982c9d39e2">
@@ -12916,7 +12493,7 @@ Sergei Skorobogatov. ''//Cryptographic processors - a survey.//'' https://www.cl
 &lt;&lt;footnotes &quot;[Cha06]&quot; &quot;Chair for Communication, Ruhr-Universität Bochum. ''//Security Side Channel Cryptanalysis Lounge.//'' https://www.emsec.rub.de/research/projects/sclounge/&quot;&gt;&gt;
 </pre>
 </div>
-<div created="20170427093523993" creator="Hans" modified="20170427093538011" modifier="Hans" tags="第1章：引言" title="1.3：能量分析攻击" tmap.id="66b0d2f4-de76-460a-aff9-2226e1ac08b6">
+<div created="20170626125512885" creator="Hans" modified="20170626130127098" modifier="Hans" tags="第1章：引言" title="1.3：能量分析攻击">
 <pre></pre>
 </div>
 <div created="20170427093541727" creator="Hans" modified="20170427093554063" modifier="Hans" tags="第1章：引言" title="1.4：能量分析攻击防御对策" tmap.id="9fb30ba4-ff3c-465e-9523-afc94944adce">
@@ -12940,7 +12517,7 @@ Sergei Skorobogatov. ''//Cryptographic processors - a survey.//'' https://www.cl
 <div created="20170427134756947" creator="Hans" modified="20170427134821045" modifier="Hans" tags="第3章：能量消耗" title="3.3：适用于攻击者的能量仿真与能量模型" tmap.id="bc5ca588-ae98-401d-b6a4-6b67467c25a2">
 <pre></pre>
 </div>
-<div created="20170427134823915" creator="Hans" modified="20170427134840332" modifier="Hans" tags="第3章：能量消耗" title="3.4：能量分析攻击测量配置" tmap.id="51e2fb31-ca08-40be-9a48-ecf9591cfced">
+<div created="20170427134823915" creator="Hans" modified="20170626123236062" modifier="Hans" tags="第3章：能量消耗" title="3.4：能量分析攻击测量配置" tmap.id="51e2fb31-ca08-40be-9a48-ecf9591cfced">
 <pre></pre>
 </div>
 <div created="20170427134904803" creator="Hans" modified="20170427134917875" modifier="Hans" tags="第3章：能量消耗" title="3.5：测量配置质量标准" tmap.id="eb725212-6f11-46e7-9160-d242bb118bba">
@@ -12997,6 +12574,9 @@ Sergei Skorobogatov. ''//Cryptographic processors - a survey.//'' https://www.cl
 <div created="20170427135044484" creator="Hans" modified="20170427135059338" modifier="Hans" tags="第4章：能量迹的统计特征" title="4.6：置信区间与假设检验" tmap.id="e29be957-18b4-46bb-82b9-ce2b126f9fd7">
 <pre></pre>
 </div>
+<div created="20170620030315503" creator="Hans" modified="20170620030525222" modifier="Hans" tags="Tips" title="安卓关闭某程序通知">
+<pre>设置——应用管理——选中指定程序——通知——去掉“允许通知”</pre>
+</div>
 <div created="20170514015209851" creator="Hans" modified="20170514024133141" modifier="Hans" tags="音乐" title="巴赫：BWV" tmap.id="d5363898-07e9-4ad1-a78a-8fcf8f634d69">
 <pre>[[BWV_百度百科|http://baike.baidu.com/link?url=IZfkyXU_3b9X4p9hJ6klyGdS5OofVxcK3KTYpvyA5sT_vTL-rzeYnLJN2jSAoKHF7EDrXPQaxnH7af9gEJqe5q]]
 
@@ -13032,7 +12612,7 @@ BWV772至BWV994为键盘乐器作品
 康塔塔（意译为清唱套曲）（Cantata）是一种包括独唱、重唱、合唱的声乐套曲，一般包含一个以上的乐章，大都有管弦乐伴奏，与中国的大合唱体裁特点十分相近，因而一度被误译为大合唱。
 </pre>
 </div>
-<div created="20170519091234266" creator="Hans" modified="20170614112524850" modifier="Hans" tags="计算机" title="搬瓦工搭建ss" tmap.id="bab0e077-3ed3-48be-9dd6-ead124d07a30">
+<div created="20170519091234266" creator="Hans" modified="20170702114934800" modifier="Hans" tags="计算机" title="搬瓦工搭建ss" tmap.id="bab0e077-3ed3-48be-9dd6-ead124d07a30">
 <pre>1. 搭建ss教程（互相参照和补充）：
 
 *搬瓦工shadowsocks多用户配置教程 - 简书
@@ -13076,6 +12656,14 @@ BWV772至BWV994为键盘乐器作品
 
 *shadowsocks,500 internal privoxy error.怎么解决？ - 知乎
 **https://www.zhihu.com/question/40771057
+*用''管理员权限''打开命令行提示符，输入：
+
+&lt;&lt;&lt;
+:netsh interface ipv4 reset
+:netsh interface ipv6 reset
+:netsh winsock reset
+&lt;&lt;&lt;
+
 *Shadowsocks 500 Internal Privoxy Error 解决方案 - Woadzs
 **https://woadzs.me/2016/06/23/shadowsocks-500-internal-privoxy-error-solution/
 
@@ -13504,6 +13092,15 @@ int compare_num(const void *a , const void *b )
 </div>
 <div created="20170426114932948" creator="Hans" modified="20170426114936182" modifier="Hans" tags="技能" title="开锁" tmap.id="d803e430-651a-4430-bfdb-bb60023886b4">
 <pre></pre>
+</div>
+<div created="20170618040408693" creator="Hans" modified="20170618040513251" modifier="Hans" tags="艺术" title="可视化">
+<pre>* Poser
+
+* Processing
+
+* Mathematica
+
+* Python tools</pre>
 </div>
 <div created="20170521105133818" creator="Hans" modified="20170521105218009" modifier="Hans" tags="音乐" title="乐理" tmap.id="8f46ec52-8033-4c0f-a074-124fb87197e5">
 <pre>B站收藏
@@ -14039,6 +13636,11 @@ body .dirtree li:last-child {
 }
 </pre>
 </div>
+<div created="20170629075930601" creator="Hans" modified="20170629080652527" modifier="Hans" tags="零碎" title="DPA发现">
+<pre>有趣的是， SPA 和 DPA 在很长的一段时间内都没有被发现。原因很简单：该领域不属于任何人的研究范畴。密码学家关注于实现数学强度，而工程师则要对硬件和软件负责。攻击研究也被严格互补地划分为对算法的研究和对物理安全性的研究。几乎没有密码学家在开发实际的产品，也很少有工程师理解数学。
+
+It’s interesting that SPA and DPA went undiscovered for so long. The main reason is simple: it wasn’t anybody’s job to look for the issue. Cryptographers focused on achieving mathematical strength, while engineers were responsible for the hardware and software. Attack research was also neatly compartmentalized, with work on algorithms separated from physical defenses. Few cryptographers were working on real products, and few engineers understood the math.</pre>
+</div>
 <div created="20170501092020470" creator="Hans" modified="20170612022737066" modifier="Hans" tags="Crack" title="Endnote破解" tmap.id="39f65626-bbbf-4a5c-8e07-62563a9f6143">
 <pre>`F:/Install Exes/Endnote X7`
 
@@ -14204,15 +13806,17 @@ http://blog.csdn.net/daiyutage/article/details/8540932</pre>
 **只需要在快捷方式中，将目标路径改成如下语句：
 ** `C:\Users\yuzeh\AppData\Local\GitHub\GitHub.appref-ms --open-shell`</pre>
 </div>
-<div created="20170502020535080" creator="Hans" modified="20170502020804439" modifier="Hans" tags="" title="Hans" tmap.id="6f77188c-63dc-4836-b3d8-d6847590dded">
+<div created="20170618040056441" creator="Hans" modified="20170618040058087" modifier="Hans" tags="" title="Hans">
 <pre>Author of this website.
 
-Major in Microelectronics.</pre>
+Major in Microelectronics.
+
+</pre>
 </div>
 <div created="20170426122835582" creator="Hans" modified="20170430034136775" modifier="Hans" tags="test" title="Hello" tmap.id="aa4da482-ed14-4641-bf62-f84ccd376e4c">
 <pre>&lt;$tmap view=&quot;Live View&quot; editor=&quot;advanced&quot; height=&quot;600px&quot; &gt;&lt;/$tmap&gt;</pre>
 </div>
-<div created="20170527043732590" creator="Hans" modified="20170527043748492" modifier="Hans" tags="硬件安全" title="IC破解" tmap.id="199f012d-5b13-47bc-a64e-c50719f401f5">
+<div created="20170626125138662" creator="Hans" modified="20170626125139823" modifier="Hans" tags="硬件安全" title="IC破解">
 <pre></pre>
 </div>
 <div created="20170506083542682" creator="Hans" modified="20170506123925644" modifier="Hans" tags="编译原理" title="Lex基础" tmap.id="75c67f52-43de-444e-ab56-be38c6e2e9ad">
@@ -14603,6 +14207,46 @@ TEXT 4
 @@
 </pre>
 </div>
+<div created="20170627030044373" creator="Hans" modified="20170627030445659" modifier="Hans" tags="test" title="Test For D3.js" type="text/html">
+<pre>&lt;html&gt; 
+  &lt;head&gt; 
+        &lt;meta charset=&quot;utf-8&quot;&gt; 
+        &lt;title&gt;HelloWorld&lt;/title&gt; 
+  &lt;/head&gt; 
+    &lt;body&gt; 
+        &lt;p&gt;Hello World 1&lt;/p&gt;
+        &lt;p&gt;Hello World 2&lt;/p&gt;
+        &lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt; 
+        &lt;script&gt;  
+        d3.select(&quot;body&quot;).selectAll(&quot;p&quot;).text(&quot;www.ourd3js.com&quot;);      
+        &lt;/script&gt; 
+    &lt;/body&gt; 
+&lt;/html&gt;</pre>
+</div>
+<div created="20170626123018334" creator="Hans" modified="20170626125351894" modifier="Hans" tags="test" title="Test For Delete Field">
+<pre>&lt;$fieldmangler&gt;
+Add field ''tmp.id'' to this tiddler (current)&lt;$button message=&quot;tm-add-field&quot; param=&quot;ex-field&quot;&gt;{{$:/core/images/new-button}}&lt;/$button&gt;
+&lt;br&gt;
+Remove field ''tmap.id'' of this tiddler (current)&lt;$button message=&quot;tm-remove-field&quot; param=&quot;ex-field&quot;&gt;{{$:/core/images/delete-button}}&lt;/$button&gt;
+&lt;/$fieldmangler&gt;</pre>
+</div>
+<div created="20170630014111887" creator="Hans" modified="20170630021801729" modifier="Hans" tags="" title="Test For Embeded CDF">
+<pre>&lt;html&gt;
+&lt;head&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://www.wolfram.com/cdf-player/plugin/v2.1/cdfplugin.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var cdf = new cdfplugin();
+cdf.setDefaultContent('&lt;a href=&quot;http://www.wolfram.com/cdf-player/&quot;&gt;&lt;img  src=&quot;TBP.png&quot;&gt;&lt;/a&gt;');
+cdf.embed('TBP.cdf', 619, 1095);
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</div>
+<div created="20170630012647493" creator="Hans" modified="20170630015936968" modifier="Hans" tags="test" title="Test For Embeded HTML">
+<pre>&lt;embed src=&quot;./wikisources/index-0.html&quot; width=100% height=&quot;900&quot;&gt;</pre>
+</div>
 <div created="20170429050326628" creator="Hans" modified="20170612023558254" modifier="Hans" tags="test" title="Test For FamilyTree" tmap.id="1cc6aa24-265d-40be-8c05-d7b9921b7ac3">
 <pre>&lt;div class=&quot;family-tree&quot;&gt;
 
@@ -14623,10 +14267,29 @@ TEXT 4
 <div created="20170530095313609" creator="Hans" modified="20170530095353645" modifier="Hans" tags="test" title="Test For GIF" tmap.id="675c644a-687d-4afc-a875-767529483927">
 <pre>[img[https://w4.sanwen8.cn/mmbiz/P9GG5qvyzM7hib9E0v9DcRia9sax3s7MHOMcr96AGoJ55Hfboa6zroRsVOGn6rMaOELFapVUbGjChha2npFcQq7w/640?wx_fmt=gif]]</pre>
 </div>
+<div created="20170627025848476" creator="Hans" modified="20170627030042941" modifier="Hans" tags="test" title="Test For HTML" type="application/javascript">
+<pre>&lt;html&gt; 
+  &lt;head&gt; 
+        &lt;meta charset=&quot;utf-8&quot;&gt; 
+        &lt;title&gt;HelloWorld&lt;/title&gt; 
+  &lt;/head&gt; 
+    &lt;body&gt; 
+        &lt;p&gt;Hello World 1&lt;/p&gt;
+        &lt;p&gt;Hello World 2&lt;/p&gt;
+    &lt;/body&gt; 
+&lt;/html&gt;
+</pre>
+</div>
 <div created="20170508112858567" creator="Hans" modified="20170614012223637" modifier="Hans" tags="test" title="Test For Images" tmap.id="72b22730-bf5e-4116-9326-d7080ce5e08f">
 <pre>@@text-align:center;
 [img width=500 [./wikisources/Athena.png]] 
 @@</pre>
+</div>
+<div created="20170617143425888" creator="Hans" modified="20170617143522207" modifier="Hans" tags="test" title="Test For KaTeX">
+<pre>$$f(x) = \int_{-\infty}^\infty
+    \hat f(\xi)\,e^{2 \pi i \xi x}
+    \,d\xi
+$$</pre>
 </div>
 <div created="20170602033720312" creator="Hans" modified="20170603052812543" modifier="Hans" tags="test" title="Test For Link Local Files" tmap.id="9f6d1eac-6534-4779-a763-d969cce845a5">
 <pre>*&lt;iframe seamless width = &quot;800&quot; height= &quot;400&quot; src=&quot;file:///F:/Download&quot;&gt;&lt;/iframe&gt;
@@ -14635,7 +14298,7 @@ TEXT 4
 *[ext[wikisources|./wikisources]]
 *&lt;a href=&quot;./wikisources&quot;&gt; wikisources &lt;/a&gt;</pre>
 </div>
-<div created="20170603051706930" creator="Hans" modified="20170603053917163" modifier="Hans" tags="test" title="Test For Linking Html" tmap.id="ac1cc046-ee96-4d20-93f4-bd22af2c17e2" type="text/html">
+<div created="20170603051706930" creator="Hans" modified="20170630020007617" modifier="Hans" tags="test" title="Test For Linking Html" tmap.id="ac1cc046-ee96-4d20-93f4-bd22af2c17e2" type="text/html">
 <pre>---
 
 *** 把[width=&quot;765&quot;]，改成：[width=100%] ***
@@ -15319,7 +14982,10 @@ And AC said, &quot;LET THERE BE LIGHT!&quot;
 And there was light---
 </pre>
 </div>
-<div created="20170613060523961" creator="Hans" modified="20170613095147133" modifier="Hans" title="ToDo">
+<div caption="" created="20170626123036111" creator="Hans" modified="20170626123036737" modifier="Hans" title="TiddlerA">
+<pre></pre>
+</div>
+<div created="20170613060523961" creator="Hans" modified="20170620015219633" modifier="Hans" title="ToDo">
 <pre>;工具篇
 
 * TeX 踩过的坑
@@ -15340,6 +15006,8 @@ And there was light---
 ** Verilog
 ** MATLAB
 
+
+
 ;专业篇
 
 * 计算机专业课程
@@ -15354,7 +15022,12 @@ And there was light---
 
 * ~~搬瓦工搭建ss~~
 * 科普
+** 数学可视化
+** 傅里叶变换
+
 * 开锁
+* 机械
+** 齿轮
 * [[乐理]]
 
 * 练字
