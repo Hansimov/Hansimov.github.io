@@ -1003,6 +1003,10 @@ Error message and password prompt
 
 <li>1.4：能量分析攻击防御对策</li>
 
+<li>2：Perfectly-Secret Encryption</li>
+
+<li>2：Perfectly-Secret Encryption（Solutions）</li>
+
 <li>2.1：组成部件</li>
 
 <li>2.2：设计与实现</li>
@@ -10581,7 +10585,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170425021519265" creator="Hans" modified="20170425021526273" modifier="Hans" title="$:/state/plugin-info--896887961-$:/plugins/tiddlywiki/highlight---896887961">
 <pre>readme</pre>
 </div>
-<div created="20170425021549641" creator="Hans" modified="20170425021557737" modifier="Hans" title="$:/state/plugin-info--896887961-$:/plugins/tiddlywiki/katex">
+<div created="20170425021549641" creator="Hans" modified="20170710034952652" modifier="Hans" title="$:/state/plugin-info--896887961-$:/plugins/tiddlywiki/katex">
 <pre>no</pre>
 </div>
 <div created="20170425021551024" creator="Hans" modified="20170425021551024" modifier="Hans" title="$:/state/plugin-info--896887961-$:/plugins/tiddlywiki/katex---896887961">
@@ -10656,13 +10660,13 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170612021600648" creator="Hans" modified="20170612021604096" modifier="Hans" num_recent_entries="40" title="$:/state/Recent Changes">
 <pre></pre>
 </div>
-<div created="20170423105015768" creator="Hans" modified="20170502114443110" modifier="Hans" title="$:/state/showeditpreview">
+<div created="20170423105015768" creator="Hans" modified="20170710045351584" modifier="Hans" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
 <div created="20170427093719513" creator="Hans" modified="20170427093733009" modifier="Hans" title="$:/state/ShowPaletteEditor">
 <pre>no</pre>
 </div>
-<div created="20170423064611651" creator="Hans" modified="20170630013652402" modifier="Hans" title="$:/state/sidebar">
+<div created="20170423064611651" creator="Hans" modified="20170710045455278" modifier="Hans" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div created="20170423122204667" creator="Hans" modified="20170425023502061" modifier="Hans" title="$:/state/tab--1032361530">
@@ -10713,8 +10717,8 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423061814187" modified="20170423061816963" title="$:/state/tab-1457143710">
 <pre>$:/core/ui/TiddlerInfo/List</pre>
 </div>
-<div created="20170423052939963" creator="Hans" modified="20170626125536061" modifier="Hans" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Info</pre>
+<div created="20170423052939963" creator="Hans" modified="20170710034431264" modifier="Hans" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Plugins</pre>
 </div>
 <div created="20170423064346284" creator="Hans" modified="20170423064350083" modifier="Hans" title="$:/state/tab-1872943071">
 <pre>$:/core/ui/TiddlerInfo/Advanced</pre>
@@ -11058,7 +11062,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="一些研究的原则" title="$:/StoryList">
+<div list="[[2：Perfectly-Secret Encryption（Solutions）]] [[2：Perfectly-Secret Encryption]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -12037,7 +12041,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20170708123901794" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20170710040833065" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20170430020312724" creator="Hans" modified="20170430020312724" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -12508,6 +12512,32 @@ Sergei Skorobogatov. ''//Cryptographic processors - a survey.//'' https://www.cl
 </div>
 <div created="20170427093541727" creator="Hans" modified="20170427093554063" modifier="Hans" tags="第1章：引言" title="1.4：能量分析攻击防御对策" tmap.id="9fb30ba4-ff3c-465e-9523-afc94944adce">
 <pre></pre>
+</div>
+<div created="20170710032649889" creator="Hans" modified="20170710045450572" modifier="Hans" tags="现代密码学" title="2：Perfectly-Secret Encryption">
+<pre>;DEFINITION 2.1
+
+:An encryption scheme ''(Gen, Enc, Dec)'' over a message space $$M$$ is ''perfectly secret'' if for every probability distribution over $$M$$, every message $$m \in M$$, and every ciphertext $$c \in C$$ for which $$Pr [C=c] &gt; 0$$：
+
+@@text-align:center;
+$$Pr[M=m ~ |~  C=c] = Pr[M=m]$$
+@@
+
+;LEMMA 2.2
+:An encryption scheme ''(Gen, Enc, Dec)'' over a message space $$M$$ is ''perfectly secret'' if and only if for every probability distribution over $$M$$, every message $$m \in M$$, and every ciphertext $$c \in C$$：
+
+@@text-align:center;
+$$Pr[C=c~|~M=m] = Pr[C=c]$$
+@@</pre>
+</div>
+<div created="20170710044359618" creator="Hans" modified="20170710045534394" modifier="Hans" tags="现代密码学" title="2：Perfectly-Secret Encryption（Solutions）">
+<pre>@@color:blue;
+;Ex.2.1
+:Prove the second direction of Lemma 2.2
+@@
+
+;So.2.1
+
+</pre>
 </div>
 <div created="20170426111248458" creator="Hans" modified="20170426111256446" modifier="Hans" tags="第2章：密码设备" title="2.1：组成部件" tmap.id="5e2c7883-f874-492b-9c73-fd4d4876d24f">
 <pre></pre>
@@ -14277,7 +14307,7 @@ Documentation often presents two items that are parallel either by similarity or
 Prefer precise instructions over woolly descriptions. If something has a name, use it. If something lacks a name, give it a tiddler.
 </pre>
 </div>
-<div created="20170430025129389" creator="Hans" modified="20170508145541990" modifier="Hans" tags="test" title="Test For CSS" tmap.id="39d14b54-0754-4322-8a36-6ab229552a81">
+<div created="20170430025129389" creator="Hans" modified="20170710040830987" modifier="Hans" tags="test" title="Test For CSS" tmap.id="39d14b54-0754-4322-8a36-6ab229552a81">
 <pre>@@display:block;text-align:right;background-color:red;border:1px solid #0f0;width:px;
 TEXT 1
 @@
@@ -14293,7 +14323,18 @@ TEXT 2
 @@display:box;text-align:right;border:1px solid #00ff7f;background: #00FF00 no-repeat fixed top;
 TEXT 4
 @@
-</pre>
+
+@@color:red; 
+This is red text
+@@
+
+@@color:green;
+And this is green text.
+@@
+
+@@background-color:yellow;
+And this is highlighted text in yellow.
+@@</pre>
 </div>
 <div created="20170627030044373" creator="Hans" modified="20170627030445659" modifier="Hans" tags="test" title="Test For D3.js" type="text/html">
 <pre>&lt;html&gt; 
