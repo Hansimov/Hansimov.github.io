@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>	
+<!-- Mirrored from iamthecu.be/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Aug 2017 07:06:53 GMT -->
+<head>
+		<meta charset="utf-8">
+		<meta name="viewport"           content="width=640">
+		<meta name="description"        content="Hi. I am Ernő Rubik’s magic cube.">
+		<meta name="keywords"           content="Erno Rubik’s Cube Rubix Stewart Smith Stewdio Google Creative Lab">		
+		<meta property="og:type"        content="website">
+		<meta property="og:title"       content="Rubik’s Cube Explorer">
+		<meta property="og:description" content="Hi. I am Ernő Rubik’s magic cube.">
+		<meta property="og:url"         content="index.html">
+		<meta property="og:image"       content="media/cubeExplorer.jpg">
+		<link rel="stylesheet" type="text/css"  href="styles/cube.css">
+		<link rel="stylesheet" type="text/css"  href="styles/explorer.css">
+		<link rel="icon"       type="image/png" href="media/cubeExplorer-favicon-0064x0064.png">
+		<link rel="apple-touch-icon"            href="media/cubeExplorer-favicon-0144x0144.png">
+		<script charset="utf-8" src="scripts/bowser.min.js"></script>
+		<script charset="utf-8" src="scripts/cuber.min.js"></script>
+		<script charset="utf-8" src="scripts/patches.js"></script>
+		<script charset="utf-8" src="scripts/buttons.js"></script>
+		<script charset="utf-8" src="scripts/demos.js"></script>
+		<script charset="utf-8" src="scripts/explorer.js"></script>
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','../www.google-analytics.com/analytics.js','ga');
+			ga('create','UA-3087756-4','iamthecu.be');
+			ga('send','pageview');
+		</script>
+		<title>Rubik’s Cube Explorer</title>
+	</head>
+	<body>
+		<div id="container"></div>
+
+
+
+
+		<div id="navRequester"></div>
+		<nav>
+			<div class="navGroup" id="styles">
+				<h3>Styles</h3>
+				<ul>
+					<li id="styleGrid">Grid</li>
+					<li id="styleGlass">Glass</li>
+				</ul>
+			</div>
+			<div class="navGroup" id="highlights">
+				<h3>Cubelets</h3>
+				<ul>
+					<li id="highlightCenters">Centers</li>
+					<li id="highlightEdges">Edges</li>
+					<li id="highlightCorners">Corners</li>
+					<li id="highlightWhites">Whites</li>
+				</ul>
+			</div>
+			<div class="navGroup" id="labels">
+				<h3>Labels</h3>
+				<ul>
+					<li id="labelNumbers">Numbers</li>
+					<li id="labelFaces">Faces</li>
+				</ul>
+			</div>
+			<div class="navGroup" id="actions">
+				<h3>Actions</h3>
+				<ul>
+					<li id="actionRotate">Rotate</li>
+					<li id="actionRealign">Realign</li>
+					<li id="actionShuffle">Shuffle</li>
+					<li id="actionUndo">Undo</li>
+					<li id="actionDemo">Demo</li>
+				</ul>
+			</div>
+			<div class="closer">Close</div>
+		</nav>
+		
+
+
+
+		<div id="alerts"><p></p></div>
+		<div id="offerChrome">
+			For best viewing try Google’s <a target="_blank" href="https://www.chrome.com/">Chrome</a> browser.
+		</div>
+
+
+
+
+		<div id="info">
+			<div class="slider">
+				<div class="container">
+					<h2>Rubik’s Cube Explorer</h2>
+					<p>
+						An interactive presentation to help you understand the basics of Rubik’s Cube.
+						Have a go experimenting with the different kinds of cubelets—centers, edges, and corners—to see how these
+						simple elements combine to create the beautiful complexity of the cube.
+						While Cube Explorer can be enjoyed in several browsers
+						it is best experienced in the latest version of 
+						<a target="_blank" href="http://chrome.com/">Google Chrome</a>.
+					</p>
+					<h2>Made with friends</h2>
+					<p>
+						Hi. I’m (not the cube) <a target="_blank" href="http://stewartsmith.io/">Stewart Smith</a>.
+						This ’lil demo runs on the Cuber framework that I created whilst at Google Creative Lab.
+						Yup, it’s the very same backbone that powers the 
+						<a target="_blank" href="https://www.google.com/doodles/rubiks-cube">Rubik’s Cube Google Doodle</a>
+						as well as the other experiments from <a target="_blank" href="http://chrome.com/cubelab">Chrome Cube Lab</a>.
+						There are about a hundred people to thank for bringing this to fruition
+						and I’ve tried to do that in detail <a target="_blank" href="http://stewd.io/work/rubikscube">here</a>.
+						But first and foremost thank you 
+						<a target="_blank" href="http://en.wikipedia.org/wiki/Ernő_Rubik">Mr. Ernő Rubik</a>
+						for inventing the cube itself.
+						And thanks for signing one of my old, scuffed up, and half broken cubes. 
+						Having to solve that thing in front of you so you could sign it was ... terrifying :)
+					</p>
+					<h2>Hackable by design</h2>
+					<p>
+						Are you familiar with Rubik’s Cube twist notation? 
+						Do you like to r-d-R-D six times in a row for fun?
+						Are you a fan of your browser’s JavaScript console? 
+						This is your lucky day.
+						Not only does Cube Explorer respond to twist commands,
+						it lets you get fancy like this: 
+						<code>cube.twist( 'rdRD'.multiply( 6 ))</code>.
+						Cuber also offers deep inspection of the cube right from the console, complete with
+						colorful ASCII diagrams for browsers that support it:<br>
+						<code>
+							cube.inspect()<br>
+							cube.front.inspect()<br>
+							cube.front.northEast.inspect()<br>
+							cube.front.northWest.up.color.name<br>
+							cube.standing.setOpacity( 0.5 )<br>
+							cube.corners.setRadius( 90 )<br>
+							cube.hasColors( ERNO.RED, ERNO.BLUE ).showIds()<br>
+						</code>
+						Have a go. I think you’re going to like it.
+						And ping me at <a target="_blank" href="https://twitter.com/stew_rtsmith">@stew_rtsmith</a> when you’ve written your first solver.
+						Happy cubing, everyone.
+					</p>
+					<br>
+					<br>
+					<!-- a target="_blank" href="http://www.chromeexperiments.com/"><img id="chromeExperiment" src="media/badges/chromeExperiment.png"></a><br>
+					<br -->
+					<img id="googleFriends" src="media/badges/googleFriends.png"><br>
+				</div>
+			</div>
+		</div>
+		<img id="infoToggle" src="media/buttons/info.png">
+	
+
+
+
+		<footer>
+			<img class="share facebook" src="media/share/facebook.png" alt="Share on Facebook">
+			<img class="share twitter"  src="media/share/twitter.png"  alt="Share on Twitter">			
+			<img class="share gplus"    src="media/share/gplus.png"    alt="Share on Google Plus">
+			<img class="share tumblr"   src="media/share/tumblr.png"    alt="Share on Tumblr">
+			<img class="share email"    src="media/share/email.png"    alt="Share via email">
+			<img class="chromeCubeLab calmDown"  src="media/badges/chromeCubeLabBug.png" alt="Chrome Cube Lab">
+		</footer>
+
+
+
+
+	</body>
+
+<!-- Mirrored from iamthecu.be/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Aug 2017 07:07:09 GMT -->
+</html>
