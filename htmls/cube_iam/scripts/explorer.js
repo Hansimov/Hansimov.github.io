@@ -334,10 +334,10 @@ function createCube(){
 
 	//  Kick it off, Mate!
 
-	cube.taskQueue.add( function(){
+	// cube.taskQueue.add( function(){
 
-		demoStart()
-	})
+	// 	demoStart()
+	// })
 }
 
 
@@ -361,7 +361,7 @@ function createControls(){
 	//  Idling for a while will bring it back into play.
 
 	window.idleSeconds = 0
-	window.isDemoing = true// Trick it such that the nav won’t popup on startup since we're automagically starting demo!
+	window.isDemoing = false// Trick it such that the nav won’t popup on startup since we're automagically starting demo!
 	setInterval( function(){
 
 		if( isDemoing === false ) idleSeconds ++
