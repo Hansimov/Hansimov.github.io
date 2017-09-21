@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Rose</title>
+</head>
+<!-- <link rel='stylesheet' type='text/css' href='https://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css' /> -->
+<script src='https://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js' type='text/javascript'>
+</script>
+<script>
+function IntToHex(int) {
+    var hex = int.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+}
+
+function RgbToHex(r, g, b) {
+    return "#" + IntToHex(r) + IntToHex(g) + IntToHex(b);
+}
+
+function NumProjection(m) {
+    return Math.round(m.Value() / m._smax * 255);
+}
+</script>
+<!-- <script src='https://jsxgraph.uni-bayreuth.de/distrib/GeonextReader.js' type='text/javascript'></script> -->
+<div id='box1' class='jxgbox' style='width:100%; height:910px;'></div>
+<script type='text/javascript'>
+board = JXG.JSXGraph.initBoard('box1', {
+    boundingbox: [-13, 13, 13, -13],
+    axis: true,
+    showNavigation: false,
+    showCopyright: false,
+    keepaspectratio: true
+});
+
+var slider_left = 8,slider_right = 11;
+var button_left1 = 13,button_left2 = 15;
+var k = board.create('slider', [[slider_left, 9],  [slider_right, 9],  [0, 0, 11 ]], { name: 'k', precision: 2 });
+var t = board.create('slider', [[slider_left, 8],  [slider_right, 8],  [0, 0, 100]], { name: 't', strokeOpacity: 1.0, fillOpacity: 1.0 });
+var b = board.create('slider', [[slider_left, 7],  [slider_right, 7],  [0, 0, 100]], { name: 'b', strokeOpacity: 1.0, fillOpacity: 1.0 });
+var c = board.create('slider', [[slider_left, 6],  [slider_right, 6],  [-1, 0, 1]], { name: 'c', strokeOpacity: 1.0, fillOpacity: 1.0 });
+
+var rose = board.create('curve', 
+                    [   function(phi) { return 6 * (Math.sin(k.Value() * phi + b.Value() ) + c.Value()); },
+                        [0, 0],
+                        function() { return t._smin * Math.PI; },
+                        function() { return t.Value() * Math.PI; }
+                    ], 
+                    {   curveType: 'polar', 
+                        strokewidth: 2, 
+                        strokeColor: function() { return RgbToHex(NumProjection(k), 30, NumProjection(t)) } }
+);
+
+
+// r = a*cos(k*pi*t+b)+c
+var state_k = 0,
+    state_t = 0,
+    state_b = 0,
+    state_c = 0;
+
+var reset_k = board.create('button', [button_left1, 9, 'Reset',function() { k.setValue(0); state_k = 0;}], {});
+var start_k = board.create('button', [button_left2, 9, 'Start',function() { if (state_k == 0) state_k = 1; else state_k = 0;}], {});
+var Run_k = function() {
+    if (k.Value() > k._smax || state_k == 0) {} else {
+        k.setValue(k.Value() + 0.01);
+        board.update();
+    }
+    setTimeout(Run_k, 100);
+};
+
+var reset_t = board.create('button', [button_left1, 8, 'Reset',function() { t.setValue(0); state_t = 0;}], {});
+var start_t = board.create('button', [button_left2, 8, 'Start',function() { if (state_t == 0) state_t = 1; else state_t = 0;}], {});
+var Run_t = function() {
+    if (t.Value() > t._smax || state_t == 0) {} else {
+        t.setValue(t.Value() + 0.01);
+        board.update();
+    }
+    setTimeout(Run_t, 100);
+};
+
+
+var reset_b = board.create('button', [button_left1, 7, 'Reset',function() { b.setValue(0); state_b = 0;}], {});
+var start_b = board.create('button', [button_left2, 7, 'Start',function() { if (state_b == 0) state_b = 1; else state_b = 0;}], {});
+var Run_b = function() {
+    if (b.Value() > b._smax || state_b == 0) {} else {
+        b.setValue(b.Value() + 1);
+        board.update();
+    }
+    setTimeout(Run_b, 100);
+};
+
+var reset_c = board.create('button', [button_left1, 6, 'Reset',function() { c.setValue(0); state_c = 0;}], {});
+var start_c = board.create('button', [button_left2, 6, 'Start',function() { if (state_c == 0) state_c = 1; else state_c = 0;}], {});
+var Run_c = function() {
+    if (c.Value() > c._smax || state_c == 0) {} else {
+        c.setValue(c.Value() + 0.01);
+        board.update();
+    }
+    setTimeout(Run_c, 100);
+};
+
+Run_k();
+Run_t();
+Run_b();
+Run_c();
+
+</script>
+
+</html>
