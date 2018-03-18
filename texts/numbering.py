@@ -1,9 +1,9 @@
 import re
 
-file_r = open('dx01.csv',encoding='utf-8',mode='r')
-file_w = open('dx01_w.txt','w')
+file_r = open('dx02.csv',encoding='utf-8',mode='r')
+file_w = open('dx02_w.txt','w')
 
-start = 0
+start = 31
 mode = 1
 # mode == 1 :
 #   Haven't met the body, discard all lines until a star
