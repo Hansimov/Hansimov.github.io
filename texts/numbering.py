@@ -1,9 +1,13 @@
 import re
 
-file_r = open('dx02.csv',encoding='utf-8',mode='r')
-file_w = open('dx02_w.txt','w')
+# file_r = open('dx02.csv',encoding='utf-8',mode='r')
+# file_w = open('dx02_w.txt','w')
+file_r = open('dx03.csv',encoding='utf-8',mode='r')
+file_w = open('dx03_w.txt','w')
 
-start = 31
+# start = 31
+start = 61
+
 mode = 1
 # mode == 1 :
 #   Haven't met the body, discard all lines until a star
