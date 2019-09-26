@@ -2,11 +2,14 @@ import re
 
 # file_r = open('dx02.csv',encoding='utf-8',mode='r')
 # file_w = open('dx02_w.txt','w')
-file_r = open('dx03.csv',encoding='utf-8',mode='r')
-file_w = open('dx03_w.txt','w')
+# file_r = open('dx03.csv',encoding='utf-8',mode='r')
+# file_w = open('dx03_w.txt','w')
+file_r = open('dx04.csv',encoding='utf-8',mode='r')
+file_w = open('dx04_w.txt','w')
 
 # start = 31
-start = 61
+# start = 61
+start = 91
 
 mode = 1
 # mode == 1 :
