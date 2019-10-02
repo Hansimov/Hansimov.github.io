@@ -1,0 +1,31 @@
+created: 20180514072106766
+creator: Hans
+modified: 20180514072341950
+modifier: Hans
+tags: Python
+title: Python 下载图片
+
+* 注意点：
+** `img = requests.get(img_link)`
+** `with open(..., 'wb') as imgfile:`
+** `imgfile.write(img.content)`
+
+
+```
+import requests
+
+imagelink = 'http://res.ajiao.com/uploadfiles/Book/255/101_838x979.jpg'
+
+def getImage(img_link, img_name):
+    try:
+        print('Getting image: {}'.format(img_link))
+        img = requests.get(img_link)
+    except Exception as e:
+        print(e)
+    else:
+        with open('books/bx1/' + img_name, 'wb') as imgfile:
+            imgfile.write(img.content)
+
+if __name__ == '__main__':
+    getImage(imagelink, '101.jpg')
+```

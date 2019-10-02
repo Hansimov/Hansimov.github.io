@@ -1,0 +1,70 @@
+author: Stephen Kimmel
+description: Editor Indents
+list: Indent List
+plugin-type: plugin
+title: $:/plugins/sk/Indents
+type: application/json
+version: 0.0.4
+
+{
+    "tiddlers": {
+        "$:/core/images/format-indent": {
+            "text": "<svg class=\"tc-image-format-bold tc-image-button\" width=\"22pt\" height=\"22pt\" viewBox=\"0 0 32 32\">\n    <g fill-rule=\"evenodd\">\n<path d=\"M0,2h32v4h-32ZM12,8h20v4h-20ZM12,14h20v4h-20ZM12,20h20v4h-20ZM0,26h32v4h-32ZM0,22v-12l8,6Z\" transform=\"matrix(0.787546, 0, 0, 0.787546, 3.99252, 3.17783)\"/>\n\n    </g>\n</svg>",
+            "created": "20160309033519012",
+            "modified": "20160309033653986",
+            "tags": "$:/tags/Image",
+            "title": "$:/core/images/format-indent"
+        },
+        "$:/core/ui/TextEditorToolbar/indent": {
+            "text": "<$action-sendmessage\n\t$message=\"tm-edit-text-operation\"\n\t$param=\"wrap-selection\"\n\tprefix='<div style=\"padding-left: 50px\";>'\n\tsuffix=\"</div>\"\n/>",
+            "caption": "{{$:/language/Buttons/Indent/Caption}}",
+            "condition": "[all[current]!is[image]]",
+            "created": "20160309033243275",
+            "creator": "Stephen",
+            "description": "{{$:/language/Buttons/Indent/Hint}}",
+            "icon": "$:/core/images/format-indent",
+            "list-after": "$:/core/ui/TextEditorToolbar/Colour-Picker",
+            "modified": "20160505115255124",
+            "modifier": "Stephen",
+            "shortcuts": "((indent))",
+            "tags": "$:/tags/EditorToolbar",
+            "title": "$:/core/ui/TextEditorToolbar/indent"
+        },
+        "$:/language/Buttons/Indent/Caption": {
+            "text": "indent",
+            "created": "20160202125743972",
+            "creator": "Stephen",
+            "modified": "20160202125809776",
+            "modifier": "Stephen",
+            "tags": "ske",
+            "title": "$:/language/Buttons/Indent/Caption"
+        },
+        "$:/language/Buttons/Indent/Hint": {
+            "text": "Indent the highlighted selection",
+            "created": "20160202130252685",
+            "creator": "Stephen",
+            "modified": "20160202130311459",
+            "modifier": "Stephen",
+            "tags": "ske",
+            "title": "$:/language/Buttons/Indent/Hint"
+        },
+        "$:/config/ShortcutInfo/indent": {
+            "text": "{{$:/language/Buttons/Indent/Hint}}",
+            "created": "20160505023441784",
+            "creator": "Stephen",
+            "modified": "20160505023752509",
+            "modifier": "Stephen",
+            "tags": "",
+            "title": "$:/config/ShortcutInfo/indent"
+        },
+        "$:/config/shortcuts/indent": {
+            "text": "ctrl-alt-N",
+            "created": "20160505023801780",
+            "creator": "Stephen",
+            "modified": "20160505121745541",
+            "modifier": "Stephen",
+            "tags": "",
+            "title": "$:/config/shortcuts/indent"
+        }
+    }
+}

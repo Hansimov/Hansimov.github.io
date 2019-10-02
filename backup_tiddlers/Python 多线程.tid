@@ -1,0 +1,82 @@
+created: 20180514075302127
+creator: Hans
+modified: 20180514075612023
+modifier: Hans
+tags: Python
+title: Python 多线程
+
+* 注意点
+** `import time, threading`
+** `def singlePrint():`
+** `tmp = threading.Thread(target=singlePrint, name=thread_name)`
+** `thread_pool.append(tmp)`
+** 
+<ol> <ol>
+
+```
+for thrd in thread_pool:
+    thrd.start()
+
+for thrd in thread_pool:
+    thrd.join()
+```
+
+</ol> </ol>
+
+
+
+---
+样例：
+
+```
+import time, threading
+import random
+
+def singlePrint():
+    print('{} is running'.format(threading.current_thread().name))
+    time.sleep(random.random())
+    print('{} is ended'.format(threading.current_thread().name))
+
+def parallelPrint(num):
+    thread_pool = []
+    for i in range(1,num+1):
+        thread_name = 'mythread--{:0>4d}'.format(i)
+        tmp = threading.Thread(target=singlePrint,name=thread_name)
+        thread_pool.append(tmp)
+    return thread_pool
+
+thread_pool = parallelPrint(10)
+
+for thrd in thread_pool:
+    thrd.start()
+
+for thrd in thread_pool:
+    thrd.join()
+```
+
+输出：
+
+```
+mythread--0001 is running
+mythread--0002 is running
+mythread--0003 is running
+mythread--0004 is running
+mythread--0005 is running
+mythread--0006 is running
+mythread--0007 is running
+mythread--0008 is running
+mythread--0009 is running
+mythread--0010 is running
+mythread--0003 is ended
+mythread--0008 is ended
+mythread--0010 is ended
+mythread--0006 is ended
+mythread--0009 is ended
+mythread--0001 is ended
+mythread--0005 is ended
+mythread--0002 is ended
+mythread--0004 is ended
+mythread--0007 is ended
+[Finished in 1.1s]
+```
+

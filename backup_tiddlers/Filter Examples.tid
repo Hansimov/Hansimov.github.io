@@ -1,0 +1,20 @@
+color: #ffd7d7
+created: 20150106205722091
+creator: Tobias Beer
+modified: 20150128135701333
+modifier: Tobias Beer
+title: Filter Examples
+
+This wiki gives examples for various [[filters|Filters]] and their use in the [[list widget|ListWidget]]. A good starting point to understand what filters yield which results also is [[test-filters.js|https://github.com/Jermolene/TiddlyWiki5/blob/master/editions/test/tiddlers/tests/test-filters.js]].
+
+<div class="overview-link">
+[[Grouped By FilterOperator »|FilterOperator]]
+</div>
+<dl class="overview">
+<<list-search
+"[[Filters]tagging[]!sort[modified]]"
+"search"
+"$:/temp/list-search-list-examples"
+"$:/.tb/template/list-examples"
+placeholder:"Filter all examples..." >>
+</dl>

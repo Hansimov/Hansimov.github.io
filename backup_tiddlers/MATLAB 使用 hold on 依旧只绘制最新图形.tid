@@ -1,0 +1,28 @@
+created: 20180320065414565
+creator: Hans
+modified: 20180320065912745
+modifier: Hans
+tags: MATLAB
+title: MATLAB 使用 hold on 依旧只绘制最新图形
+
+原因是 hold on 的作用对象是最新创建的 axes。
+
+由于下面这段代码，最新创建的 axes 是 ax_freq，所以即使在 ax_time 的 plot 使用 hold on，被 hold  的也是 ax_freq。
+
+解决方法就是指定曲线：hold(ax,'on')
+
+```
+ax_time = subplot(2,1,1);
+ax_freq = subplot(2,1,2);
+```
+
+```
+plot(ax_time,tx,time_original,'DisplayName','原始功耗曲线');
+hold(ax_time,'on'); % Instead of `hold on`
+plot(ax_time,tx,time_lowpassed,'DisplayName','低通后的功耗曲线');
+```
+```
+plot(ax_freq,fx,freq_original,'DisplayName','原始功耗曲线频谱');
+hold(ax_freq,'on'); % Instead of `hold on`
+plot(ax_freq,fx,freq_lowpassed,'DisplayName','低通后的功耗曲线频谱');
+```
