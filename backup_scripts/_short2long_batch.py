@@ -7,7 +7,7 @@ CROP_HEIGHT = 50
 CROP_OFF_Y = 445
 CHOP_HEIGHT = 25
 IS_CROP_FIRST = False
-SHARPEN = 4
+SHARPEN = 1
 # BLACK_THRESHOLD = 0
 
 def sortImgs(imgInames):

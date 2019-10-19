@@ -1,8 +1,8 @@
 ﻿#SingleInstance force
 !c::
-    SetKeyDelay, 100
+    SetKeyDelay, 200
     Send, {AppsKey}
     Send, N
-    Send, _
+    Send, {Down}
     Send, {Enter}
 return
