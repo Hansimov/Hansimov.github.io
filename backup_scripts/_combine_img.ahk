@@ -1,9 +1,8 @@
 #SingleInstance force
-!c::
+!z::
     SetKeyDelay, 200
     Send, {AppsKey}
     Send, N
-    Send, N
-    Send, {Right}
+    Send, c
     Send, {Enter}
 return

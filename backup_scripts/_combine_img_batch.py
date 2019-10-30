@@ -1,7 +1,7 @@
 import os
 from PIL import Image
 
-magick = "D:/ImageMagick/convert.exe "
+magick = "D:/ImageMagick/magick convert "
 ffmpeg = "D:/ffmpeg/bin/ffmpeg.exe "
 
 cmd_append = magick + " -resize {} -append {} \"{}\""
