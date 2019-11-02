@@ -13,24 +13,25 @@ home = './'
 magick = "D:/ImageMagick/magick.exe convert "
 ffmpeg = "D:/ffmpeg/bin/ffmpeg.exe "
 
-antimode = [2,2]            # 1: tolong - 2: togif || 1: stripe - 2: blur
-isPreviewPDF = False        # txt2pdf2png2gif: True: only output pdf || False: toGif
-MASK_NUM = 2                # imgToLong: num of masks
-BLUR_RADIUS = 32            # blurImg: GaussianBlur radius
-STRIPE_STEP = 2             # stripeImg: number of step of stripes
-STRIPE_COLOR = 255          # stripeImg: number of step of stripes
-isResizeImg = True          # imgToLong: is resize img before later processing
-ratiow, ratioh = 800, 1000  # resizeImg: min image width (high or wide)
-MAX_H = 8000                # resizeImg: max image height
-gsw = 600                   # resizeGif: gif max width
-# bg = (209,160,25)         # genBG: background color
-bg = (0,0,0)                # genBG: background color
-gaph = 10                   # imgToLong: height gap between images
-bgrw,bgrh = 1,4             # genBG: ratio of width and height to original img
-bdr = ((0,0),               # borderImg: border of tolong (in ratio %): w>h
-       (0,0))               # borderImg: border of tolong (in ratio %): w<h
-vrw = 600                   # video2gif: max gif width
-vrt = 12                    # video2gif: max frame rate
+antimode = [2,2]                    # 1: tolong - 2: togif || 1: stripe - 2: blur
+isPreviewPDF = False                # txt2pdf2png2gif: True: only output pdf || False: toGif
+MASK_NUM = 2                        # imgToLong: num of masks
+BLUR_RADIUS = 32                    # blurImg: GaussianBlur radius
+STRIPE_STEP = 2                     # stripeImg: number of step of stripes
+STRIPE_COLOR = 255                  # stripeImg: number of step of stripes
+isResizeImg = True                  # imgToLong: is resize img before later processing
+ratiow, ratioh = 800, 1000          # resizeImg: min image width (high or wide)
+MAX_H = 8000                        # resizeImg: max image height
+gsw = 600                           # resizeGif: gif max width
+bg = (209,160,25)                 # genBG: background color
+# bg = (0,0,0)                        # genBG: background color
+gaph = 10                           # imgToLong: height gap between images
+bgrw,bgrh = 1,4                     # genBG: ratio of width and height to original img
+bdr = ((0,0),                       # borderImg: border of tolong (in ratio %): w>h
+       (0,0))                       # borderImg: border of tolong (in ratio %): w<h
+vrw = 400                           # video2gif: max gif width
+vrt = 8 #                             # video2gif: max frame rate
+VIDEO_DURATION_THRESHOLD = 10*1000  # video2gif: video duration threshold
 
 tex_head = '''
 \\documentclass[12pt]{article}
@@ -166,7 +167,8 @@ def extractImg(gifname):
 def genBG(imgename):
     name,ext = os.path.splitext(imgename)
     imge = Image.open(imgename)
-    imgp,imgpname = stripeImg(imge, name, ".jpg")
+    # imgp,imgpname = stripeImg(imge, name, ".jpg")
+    imgp,imgpname = blurImg(imge, name, ".jpg")
     imgb, imgbname = blankImg(imge,name,".jpg",bgrw,bgrh,bg)
     parts = [imgpname, imgbname, imgpname]
 
@@ -201,25 +203,6 @@ def video2gif(videoname):
     os.remove(videorname)
     return gifvname
 
-def videoToLong(videorname):
-    name,ext = os.path.splitext(videorname)
-    if   ext in [".webm",".mp4"]:
-        gifvname = video2gif(videorname)
-    else:
-        gifvname = ""
-
-    video =cv2.VideoCapture(videorname)
-    video.set(cv2.CAP_PROP_POS_AVI_RATIO,1)
-    duration = video.get(cv2.CAP_PROP_POS_MSEC)
-    if duration >= 30000:
-        gif2gif(gifvname,isResize=False)
-    else:
-        gifToLong(gifvname,isResize=False)
-
-    # gifToLong(gifvname,isResize=False)
-    os.remove(gifvname)
-
-
 def resizeGif(gifname):
     name, ext = os.path.splitext(gifname)
     gifrname = name + "_resize" + ext
@@ -230,27 +213,6 @@ def resizeGif(gifname):
     cmd_resizegif = magick + " \"{}\" -resize {}x \"{}\""
     os.system(cmd_resizegif.format(gifname,gswx,gifrname))
     return "",gifrname
-
-# cmd_compgif = "convert {} null: ( {} -coalesce ) -gravity center -layers composite -fuzz 3% -layers OptimizeTransparency {}"
-cmd_compgif = magick + "\"{}\" null: ( \"{}\" -coalesce ) -gravity center -layers composite -fuzz 5% -layers OptimizeTransparency \"{}\""
-def gifToLong(gifname, isResize=True):
-    print("Gif to long: {} ...".format(gifname))
-    name,ext = os.path.splitext(gifname)
-    outname = name+"_out"+ext
-
-    if isResize==True:
-        gifc, gifrname = resizeGif(gifname)
-        imge, imgename = extractImg(gifrname)
-        imgg, imggname = genBG(imgename)
-        os.system(cmd_compgif.format(imggname,gifrname,outname))
-        os.remove(gifrname)
-    else:
-        imge, imgename = extractImg(gifname)
-        imgg, imggname = genBG(imgename)
-        os.system(cmd_compgif.format(imggname,gifname,outname))
-
-    os.remove(imgename)
-    os.remove(imggname)
 
 def getFPS(img):
     img.seek(0)
@@ -350,10 +312,32 @@ def img2gif(imgname):
     os.remove(imgbname)
 
 
+# cmd_compgif = "convert {} null: ( {} -coalesce ) -gravity center -layers composite -fuzz 3% -layers OptimizeTransparency {}"
+cmd_compgif = magick + "\"{}\" null: ( \"{}\" -coalesce ) -gravity center -layers composite -fuzz 5% -layers OptimizeTransparency \"{}\""
+def gifToLong(gifname, isResize=True):
+    print("Gif to long: {} ...".format(gifname))
+    name,ext = os.path.splitext(gifname)
+    outname = name+"_out"+ext
+
+    if isResize==True:
+        gifc, gifrname = resizeGif(gifname)
+        imge, imgename = extractImg(gifrname)
+        imgg, imggname = genBG(imgename)
+        os.system(cmd_compgif.format(imggname,gifrname,outname))
+        os.remove(gifrname)
+    else:
+        imge, imgename = extractImg(gifname)
+        imgg, imggname = genBG(imgename)
+        os.system(cmd_compgif.format(imggname,gifname,outname))
+
+    os.remove(imgename)
+    os.remove(imggname)
+
 cmd_resizegif = magick + " \"{}\" -resize {}x{} \"{}\""
 # cmd_gif2gif = magick  + " -delay 0 {} -loop 1 -delay 4 {} -duplicate 5,1--1 -fuzz 5% -layers OptimizeTransparency {}"
 # cmd_gif2gif = magick  + " {} {} {}"
-cmd_gif2gif = magick  + " \"{}\" \"{}\" -fuzz 5% -layers OptimizeTransparency \"{}\""
+# cmd_gif2gif = magick  + " \"{}\" \"{}\" -fuzz 5% -layers OptimizeTransparency \"{}\""
+cmd_gif2gif = magick  + " \"{}\" \"{}\" \"{}\""
 def gif2gif(gifname,isResize=True):
     name,ext = os.path.splitext(gifname)
     imgename = name+"_extract.jpg"
@@ -366,20 +350,37 @@ def gif2gif(gifname,isResize=True):
         print("Resizing {}".format(gifname))
         gifrname = name + "_resize" + ".gif"
         os.system(cmd_resizegif.format(gifname,wr,hr,gifrname))
-        # imgb, imgpname = blurImg(imgr, name, ".jpg")
-        imgb, imgpname = stripeImg(imgr, name, ".jpg")
+        imgb, imgpname = blurImg(imgr, name, ".jpg")
+        # imgb, imgpname = stripeImg(imgr, name, ".jpg")
         print("Creating {} ...".format(outname))
         os.system(cmd_gif2gif.format(imgpname, gifrname,outname))
         os.remove(imgrname)
         os.remove(gifrname)
     else:
-        imgb, imgpname = stripeImg(imge,name,".jpg")
+        # imgb, imgpname = stripeImg(imge,name,".jpg")
+        imgb, imgpname = blurImg(imge, name, ".jpg")
         print("Creating {} ...".format(outname))
         os.system(cmd_gif2gif.format(imgpname, gifname,outname))
 
     os.remove(imgename)
     os.remove(imgpname)
 
+def antiVideo(videorname):
+    name,ext = os.path.splitext(videorname)
+    if   ext in [".webm",".mp4"]:
+        gifvname = video2gif(videorname)
+    else:
+        gifvname = ""
+
+    video =cv2.VideoCapture(videorname)
+    video.set(cv2.CAP_PROP_POS_AVI_RATIO,1)
+    duration = video.get(cv2.CAP_PROP_POS_MSEC)
+    if duration >= VIDEO_DURATION_THRESHOLD:
+        gif2gif(gifvname,isResize=False)
+    else:
+        gifToLong(gifvname,isResize=False)
+
+    os.remove(gifvname)
 
 cmd_tex2pdf = "xelatex -aux-directory=latex-temp -interaction=batchmode {}"
 cmd_pdf2png = 'gswin64c -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -r288 -sOutputFile="{}" "{}"'
@@ -405,7 +406,7 @@ def txt2pdf2png2gif(filename):
         os.remove(pdfname)
         os.remove(pngname)
 
-def toLong(filename):
+def antiWB(filename):
     global antimode
     name,ext = os.path.splitext(filename)
     if ext in [".jpg",".png",".jpeg",".bmp"]:
@@ -418,16 +419,13 @@ def toLong(filename):
     elif ext == ".txt":
         txt2pdf2png2gif(filename)
     elif ext in [".webm", ".mp4"]:
-        videoToLong(filename)
+        antiVideo(filename)
     else:
         pass
 if __name__ == '__main__':
     pass
 
     # videoname = "_txt2pdf.txt"
-    videoname = "z.png"
-    # video =cv2.VideoCapture(videoname)
-    # video.set(cv2.CAP_PROP_POS_AVI_RATIO,1)
-    # duration = video.get(cv2.CAP_PROP_POS_MSEC)
-    # print(duration)
-    toLong(videoname)
+    # videoname = "z.png"
+    videoname = "z.mp4"
+    antiWB(videoname)
