@@ -31,7 +31,7 @@ bdr = ((0,0),                       # borderImg: border of tolong (in ratio %): 
        (0,0))                       # borderImg: border of tolong (in ratio %): w<h
 vrw = 400                           # video2gif: max gif width
 vrt = 8 #                             # video2gif: max frame rate
-VIDEO_DURATION_THRESHOLD = 10*1000  # video2gif: video duration threshold
+VIDEO_DURATION_THRESHOLD = 5*1000  # video2gif: video duration threshold
 
 tex_head = '''
 \\documentclass[12pt]{article}
