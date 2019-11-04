@@ -3,7 +3,7 @@ from PIL import Image, ImageFilter
 # from _combine_img_batch import *
 
 home = './'
-magick = "D:/ImageMagick/convert.exe "
+magick = "D:/ImageMagick/magick.exe convert "
 cmd_resize_img = magick + " \"{}\" -resize {}x{} \"{}\""
 
 ratiow,ratioh = 800,1200
@@ -36,7 +36,9 @@ def resizeThis(imgname):
 
 
 if __name__ == '__main__':
-    for imgname in os.listdir(home):
-        resizeThis(imgname)
-    pass
+    # for imgname in os.listdir(home):
+    #     resizeThis(imgname)
+    # pass
     # appendImg("disharmonica-lying-2b.jpg")
+    imgname = "z.jpeg"
+    resizeThis(imgname)

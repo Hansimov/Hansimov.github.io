@@ -29,8 +29,8 @@ gaph = 10                           # imgToLong: height gap between images
 bgrw,bgrh = 1,4                     # genBG: ratio of width and height to original img
 bdr = ((0,0),                       # borderImg: border of tolong (in ratio %): w>h
        (0,0))                       # borderImg: border of tolong (in ratio %): w<h
-vrw = 400                           # video2gif: max gif width
-vrt = 8 #                             # video2gif: max frame rate
+vrw = 600                           # video2gif: max gif width
+vrt = 10 #                             # video2gif: max frame rate
 VIDEO_DURATION_THRESHOLD = 5*1000  # video2gif: video duration threshold
 
 tex_head = '''
