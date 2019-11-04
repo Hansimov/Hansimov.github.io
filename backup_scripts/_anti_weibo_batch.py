@@ -288,7 +288,7 @@ def imgToLong(imgname):
     os.remove(imgpname)
     os.remove(imgdname)
 
-cmd_img2gif = magick + " -delay 8 \"{}\" -delay 1500 \"{}\" -loop 1 \"{}\""
+cmd_img2gif = magick + " -flatten -delay 8 \"{}\" -delay 1500 \"{}\" -loop 1 \"{}\""
 def img2gif(imgname):
     name,ext = os.path.splitext(imgname)
     img = Image.open(imgname)
