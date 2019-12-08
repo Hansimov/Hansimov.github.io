@@ -403,7 +403,7 @@ def txt2pdf2png2gif(filename):
         ratiow = 400
         img2gif(pngname)
         os.remove(texname)
-        os.remove(pdfname)
+        # os.remove(pdfname)
         os.remove(pngname)
 
 def antiWB(filename):
