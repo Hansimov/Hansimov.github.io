@@ -1,0 +1,16 @@
+{
+	"color_scheme": "Packages/Colorsublime - Themes/Adventure_Time.tmTheme",
+	"draw_white_space": "all",
+	"font_size": 16,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"show_panel_on_build": false,
+	"tab_completion": true,
+	"tab_size": 4,
+	"theme": "Adaptive.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"update_check": false,
+	"word_wrap": true
+}
