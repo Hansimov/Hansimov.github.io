@@ -16,4 +16,7 @@
     { "keys": ["alt+d"], "command": "duplicate_line" },
     { "keys": ["alt+k"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
     { "keys": ["ctrl+end"], "command": "cancel_build" },
+    { "keys": ["ctrl+y"], "command": "redo" },
+    { "keys": ["alt+enter"], "command": "send_python_code" },
+    { "keys": ["alt+t"], "command": "toggle_tabs" },
 ]
