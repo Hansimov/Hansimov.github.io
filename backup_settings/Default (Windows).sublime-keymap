@@ -1,11 +1,13 @@
 [
-    {"keys": ["ctrl+insert"], "command": "exec", "args": {"kill": true} },
+    {"keys": ["ctrl+pause"], "command": "exec", "args": {"kill": true} },
+    {"keys": ["ctrl+end"], "command": "exec", "args": {"kill": true} },
     {"keys": ["alt+s"], "command": "toggle_side_bar" },
     {"keys": ["alt+f11"], "command": "toggle_menu" },
     // {"keys": ["f5"], "command": "build"},
     {"keys" :["shift+escape"], "command" : "show_panel" , "args" : {"panel": "output.exec"}},
-    { "keys": ["ctrl+alt+f"], "command": "js_format", "context": [{"key": "selector", "operator": "equal", "operand": "source.js,source.json"}] 
-    },
+    // {"keys": ["ctrl+\\"], "command": "reindent", "args": {"single_line": false}},
+    // { "keys": ["ctrl+alt+f"], "command": "js_format", "context": [{"key": "selector", "operator": "equal", "operand": "source.js,source.json"}] 
+    // },
     { "keys": ["alt+equals"], "command": "jump_forward" },
     { "keys": ["alt+g"], "command": "google_search" },
     { "keys": ["alt+f"], "command": "open_dir","args": {"dir": "$file_path", "file": "$file_name"} },
@@ -15,8 +17,9 @@
     { "keys": ["alt+down"], "command": "swap_line_down" },
     { "keys": ["alt+d"], "command": "duplicate_line" },
     { "keys": ["alt+k"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
-    { "keys": ["ctrl+end"], "command": "cancel_build" },
+    { "keys": ["alt+f"], "command": "open_dir", "args": {"dir": "$file_path", "file": "$file_name"} },
     { "keys": ["ctrl+y"], "command": "redo" },
     { "keys": ["alt+enter"], "command": "send_python_code" },
     { "keys": ["alt+t"], "command": "toggle_tabs" },
+    { "keys": ["alt+m"], "command": "toggle_minimap" }
 ]
