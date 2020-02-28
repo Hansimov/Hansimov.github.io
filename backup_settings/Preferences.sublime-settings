@@ -1,16 +1,40 @@
 {
+	"anaconda_linting": false,
+	"auto_complete": true,
+	"auto_complete_commit_on_tab": true,
+	"auto_complete_delay": 50,
+	"auto_complete_selector": true,
+	"auto_complete_triggers":
+	[
+		{
+			"characters": ".",
+			"selector": "source.python - string - comment - constant.numeric"
+		},
+		{
+			"characters": "\\",
+			"selector": "text.tex.latex"
+		}
+	],
 	"color_scheme": "Packages/Colorsublime - Themes/Adventure_Time.tmTheme",
+	"copy_with_empty_selection": false,
+	"dictionary": "Packages/Language - English/en_US.dic",
 	"draw_white_space": "all",
-	"font_size": 16,
+	"expand_tabs_on_save": true,
+	"font_face": "Consolas Bold",
+	"font_size": 14,
+	"highlight_line": true,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
+	"show_encoding": true,
+	"show_errors_inline": true,
 	"show_panel_on_build": false,
 	"tab_completion": true,
 	"tab_size": 4,
 	"theme": "Adaptive.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	"update_check": false,
-	"word_wrap": true
+	"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?＜＞（）［］｛｝「」『』〈〉《》【】‘’“”＂＋－＊／，。、．‧・･·﹣：；～！？＠＃＄％︿＆｜＝",
+	"word_wrap": true,
+	"always_show_minimap_viewport": true
 }
