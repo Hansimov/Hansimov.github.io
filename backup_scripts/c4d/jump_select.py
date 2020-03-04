@@ -1,4 +1,8 @@
 """
+Jump Select
+
+(Original name: Select Loop)
+
 MIT License
 Copyright 2019 Christopher Montesano
 
@@ -10,28 +14,18 @@ from c4d.utils import Neighbor
 from c4d import gui
 
 def get_opposite_edge(poly, p1, p2):
-
-    if (p1 == p2):
-        return None
-
-    if (poly.c == poly.d):  # triangle
+    if (p1 == p2) or (poly.c == poly.d):
         return None
 
     points = (p1, p2)
+    poly_abcd = [poly.a, poly.b, poly.c, poly.d]
+    poly_oppo = []
 
-    if poly.a in points and poly.b in points:
-        return poly.c, poly.d
+    for ele in poly_abcd:
+        if ele not in points:
+            poly_oppo.append(ele)
 
-    if poly.b in points and poly.c in points:
-        return poly.a, poly.d
-
-    if poly.c in points and poly.d in points:
-        return poly.a, poly.b
-
-    if poly.d in points and poly.a in points:
-        return poly.b, poly.c
-
-    return None
+    return poly_oppo
 
 
 def get_shared_points(poly1, poly2):
@@ -42,8 +36,7 @@ def get_shared_points(poly1, poly2):
                 shared_points.add(pta)
     return list(shared_points)
 
-
-def select_poly_loop(obj, nth=1, sim=False):
+def select_poly_loop(obj, nth, sim=False):
     if obj is None:
         raise ValueError("No object selected")
 
@@ -53,11 +46,14 @@ def select_poly_loop(obj, nth=1, sim=False):
     cply = obj.GetPolygonCount()
     cpnt = obj.GetPointCount()
     bsel = obj.GetPolygonS()
+    print(list(bsel.GetAll(cply)))
 
     if cply == 0:
         raise ValueError("No polygons found")
     if bsel.GetCount() != 2:
-        raise ValueError("Exactly two polygons must be selected")
+        raise ValueError("Must select if and only if 2 edges!")
+
+    offsets = get_offsets(nth)
 
     plys = obj.GetAllPolygons()
 
@@ -90,8 +86,9 @@ def select_poly_loop(obj, nth=1, sim=False):
                 break
             this_poly_index = nply
             bsel.Select(nply)
-            if i % nth != 0:
+            if not i%nth in offsets:
                 bsel.Toggle(nply)
+
             opposite_edge = get_opposite_edge(plys[this_poly_index], pt1, pt2)
             if opposite_edge is None:
                 break
@@ -105,35 +102,42 @@ def select_poly_loop(obj, nth=1, sim=False):
 def select_spline_point_loop(op,nth):
     sel = op.GetPointS()
     sel.DeselectAll()
-
-    # Set the index of first selected point
-    offset_list = gui.InputDialog("Set offset (int), range 0-{}, \n use space to split multiple offsets".format(nth-1), "0")
-    offset_list = offset_list.split()
-    offsets = []
-    for offset in offset_list:
-        offsets.append(min(int(offset),nth-1))
-
     cnt = op.GetPointCount()
+    offsets = get_offsets(nth)
     for i in range(cnt):
         if i%nth in offsets: sel.Select(i)
     c4d.EventAdd()
 
+def get_offsets(nth):
+    if nth == 1:
+        return [0]
+    offset_list = gui.InputDialog("Set offsets (int, 0-{}), use space to split several offsets".format(nth-1), "1")
+    offset_list = offset_list.split()
+    offsets = []
+    for offset in offset_list:
+        offsets.append(min(int(offset),nth-1))
+    return offsets
+
 def main():
     op = doc.GetActiveObject()
     if not op:
-        #gui.MessageDialog("No object active!")
+        gui.MessageDialog("No active object!", c4d.GEMB_ICONSTOP)
         return False
 
-    nth = int(gui.InputDialog("Set every nth polygon/points:", "2"))
-
-    try:
-        select_poly_loop(op, nth)
-    except:
+    if type(op) == c4d.PolygonObject:
+        nth = int(gui.InputDialog("Set nth (int) of polys:", "2"))
         try:
-        # when the object is spline
+            select_poly_loop(op, nth)
+        except ValueError as err:
+            gui.MessageDialog(str(err), c4d.GEMB_ICONSTOP)
+    elif type(op) == c4d.SplineObject:
+        nth = int(gui.InputDialog("Set nth (int) of points:", "2"))
+        try:
             select_spline_point_loop(op,nth)
         except ValueError as err:
-            gui.MessageDialog(str(err))
+            gui.MessageDialog(str(err), c4d.GEMB_ICONSTOP)
+    else:
+        return False
 
 if __name__=='__main__':
     main()
