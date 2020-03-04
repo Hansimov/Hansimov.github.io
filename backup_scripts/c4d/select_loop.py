@@ -1,6 +1,8 @@
 """
 MIT License
 Copyright 2019 Christopher Montesano
+
+Modified by Hansimov, 2020.03
 """
 
 import c4d
@@ -104,27 +106,32 @@ def select_spline_point_loop(op,nth):
     sel = op.GetPointS()
     sel.DeselectAll()
 
-    # Set the index of first selected point 
-    offset = int(gui.InputDialog("Set offset (0-{}) (int)".format(nth-1), "0"))
+    # Set the index of first selected point
+    offset_list = gui.InputDialog("Set offset (int), range 0-{}, \n use space to split multiple offsets".format(nth-1), "0")
+    offset_list = offset_list.split()
+    offsets = []
+    for offset in offset_list:
+        offsets.append(min(int(offset),nth-1))
+
     cnt = op.GetPointCount()
     for i in range(cnt):
-        if i%nth == offset: sel.Select(i)
-    c4d.EventAdd() #Update the scene
+        if i%nth in offsets: sel.Select(i)
+    c4d.EventAdd()
 
 def main():
     op = doc.GetActiveObject()
-    if not op: 
+    if not op:
         #gui.MessageDialog("No object active!")
         return False
-    
-    nth = int(gui.InputDialog("Set every nth polygon:", "2"))
 
-    # Check whether the object is spline type
-    if type(op) != c4d.Ospline:
-        select_spline_point_loop(op,nth)
-    else:
+    nth = int(gui.InputDialog("Set every nth polygon/points:", "2"))
+
+    try:
+        select_poly_loop(op, nth)
+    except:
         try:
-            select_poly_loop(op, nth)
+        # when the object is spline
+            select_spline_point_loop(op,nth)
         except ValueError as err:
             gui.MessageDialog(str(err))
 

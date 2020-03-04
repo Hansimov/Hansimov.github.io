@@ -1285,8 +1285,6 @@ Error message and password prompt
 
 <li>$:/temp/info-plugin</li>
 
-<li>$:/temp/NewTagName</li>
-
 <li>$:/temp/password</li>
 
 <li>$:/temp/quickConnectSearch</li>
@@ -1877,6 +1875,8 @@ Error message and password prompt
 
 <li>c4d 打开动画窗口</li>
 
+<li>C4D 琴弦动力学 string or rope spline dynamics</li>
+
 <li>C4D 鼠标失灵，无法选中物体</li>
 
 <li>C4d 修改 V 键 弹出式菜单</li>
@@ -1890,8 +1890,6 @@ Error message and password prompt
 <li>C4D points to circle</li>
 
 <li>C4D split and delete</li>
-
-<li>C4D string or rope spline dynamics</li>
 
 <li>C盘 清理</li>
 
@@ -17556,9 +17554,6 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200301024325126" creator="Hans" modified="20200302140342860" modifier="Hans" title="$:/temp/NewTagName">
-<pre></pre>
-</div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
 <pre></pre>
 </div>
@@ -25616,7 +25611,7 @@ vector&lt;int&gt; nums1 = vector&lt;int&gt;(nums.begin(), nums.end()-1);
 ** https://stackoverflow.com/questions/50549611/slicing-a-vector-in-c
 </pre>
 </div>
-<div created="20190221104213141" creator="Hans" modified="20200304031803930" modifier="Hans" tags="C4D" title="C4D 安装插件/脚本 + 常用插件列表">
+<div created="20190221104213141" creator="Hans" modified="20200304033439265" modifier="Hans" tags="C4D" title="C4D 安装插件/脚本 + 常用插件列表">
 <pre>* 安装插件（C4D R20+）
 ** 在 `D:\C4D R20` 目录下新建 `plugins` 文件夹，将插件放进该目录，重启 C4D 即可。
 
@@ -25630,6 +25625,8 @@ vector&lt;int&gt; nums1 = vector&lt;int&gt;(nums.begin(), nums.end()-1);
 
 ---
 ; 常用插件列表
+
+备份：&lt;a href=&quot;./backup_scripts/c4d&quot;&gt;C4D Scripts&lt;/a&gt;
 
 * Scripting Server
 ** 发送 Python 命令到 C4D
@@ -25709,6 +25706,68 @@ vector&lt;int&gt; nums1 = vector&lt;int&gt;(nums.begin(), nums.end()-1);
 </div>
 <div created="20190330120758538" creator="Hans" modified="20190330121008065" modifier="Hans" tags="C4D" title="c4d 打开动画窗口">
 <pre>转到 Animate 界面，右击下方的 时间线/帧 窗口，保存为面板，然后回到自定义的用户界面，随便右键一个面板，新建面板，然后右键该空面板，加载之前保存的面板，最后保存为启动界面即可。</pre>
+</div>
+<div created="20200302140322946" creator="Hans" modified="20200304032604608" modifier="Hans" tags="C4D" title="C4D 琴弦动力学 string or rope spline dynamics">
+<pre>; 方法1（推荐）：
+
+* 使用 Pen 创建样条 Spline
+* 创建 Sweep &gt; n-Side + Spline
+** 使用 Circle 存在不能正确扫出的 bug
+* 对 Spline 做适当次数的 Subdivide
+** 越多越平滑
+
+* 在 Spline 子级添加 Deformer &gt; Formula，属性 &gt; Object
+** Effect: Y Radial
+** d(u,v,x,y,z,t)
+*** 无衰减、幅值周期变化：`Sin(100*t)*(1-u*u)*0.1`
+*** 无衰减、幅值恒定：`Sin(100*PI*t)*(1-u*u)*0.2`
+*** 有衰减：`Sin(100*PI*t)*(1-u*u)*0.2*exp(1-0.5*t)`
+
+---
+---
+
+; 方法2：
+
+; 创建可以振动的弦
+
+* 使用 Pen 创建样条 Spline
+* 创建 Sweep &gt; n-Side + Spline
+** 使用 Circle 存在不能正确扫出的 bug
+* 对 Spline 做适当次数的 Subdivide
+** 分段太多会不够“硬”和“弹性”，太少则不够“柔软”
+* 创建两个固定的物体 obj1、obj2
+* 为 Spline 赋予 Hair Tags &gt; Constraint 标签
+** Object 设置为 obj1，选中 Spline 的一个顶点，点击 Set
+** 对另外一个顶点作同样操作
+* 为 Spline 赋予 Hair Tags &gt; Spline Dynamics 标签
+** Advances &gt; Steps 越高，“弹性越好”
+* 创建另一个物体 Controller
+** 赋予 Hair Tags &gt; Hair Collider 标签
+** 可以用该物体的位移控制 Spline 的振动
+** 该物体可以为一个圆环，以同时限定 Spline 上下
+
+
+; 真实的振动效果参数设置
+
+* Spline Dynamics 
+** Properties
+*** Rest Mix: 70%
+*** Rubber: 100%
+** Advanced
+*** Steps: 80
+*** Iterations: 4
+* Controller
+** Keyframes
+*** large Y position change in short time across spline
+** Timeline (Dope sheet)
+*** Step interpolation
+
+---
+* Tips and Tricks with C4D 3: Spline Collision - YouTube 
+** https://www.youtube.com/watch?v=4fUSOzYp-Hw
+
+* Cinema 4D tips: Control spline points with nulls - YouTube 
+** https://www.youtube.com/watch?v=KtCGb9D_EXo</pre>
 </div>
 <div created="20200209020146673" creator="Hans" modified="20200209020312245" modifier="Hans" tags="C4D" title="C4D 鼠标失灵，无法选中物体">
 <pre>按下键盘 1234567890
@@ -25930,68 +25989,6 @@ if __name__=='__main__':
 ** https://forums.cgsociety.org/t/split-and-kill-script-in-r21/2055213/3
 
 </pre>
-</div>
-<div created="20200302140322946" creator="Hans" modified="20200303114757330" modifier="Hans" tags="C4D" title="C4D string or rope spline dynamics">
-<pre>; 方法1（推荐）：
-
-* 使用 Pen 创建样条 Spline
-* 创建 Sweep &gt; n-Side + Spline
-** 使用 Circle 存在不能正确扫出的 bug
-* 对 Spline 做适当次数的 Subdivide
-** 越多越平滑
-
-* 在 Spline 子级添加 Deformer &gt; Formula，属性 &gt; Object
-** Effect: Y Radial
-** d(u,v,x,y,z,t)
-*** 无衰减、幅值周期变化：`Sin(100*t)*(1-u*u)*0.1`
-*** 无衰减、幅值恒定：`Sin(100*PI*t)*(1-u*u)*0.2`
-*** 有衰减：`Sin(100*PI*t)*(1-u*u)*0.2*exp(1-0.5*t)`
-
----
----
-
-; 方法2：
-
-; 创建可以振动的弦
-
-* 使用 Pen 创建样条 Spline
-* 创建 Sweep &gt; n-Side + Spline
-** 使用 Circle 存在不能正确扫出的 bug
-* 对 Spline 做适当次数的 Subdivide
-** 分段太多会不够“硬”和“弹性”，太少则不够“柔软”
-* 创建两个固定的物体 obj1、obj2
-* 为 Spline 赋予 Hair Tags &gt; Constraint 标签
-** Object 设置为 obj1，选中 Spline 的一个顶点，点击 Set
-** 对另外一个顶点作同样操作
-* 为 Spline 赋予 Hair Tags &gt; Spline Dynamics 标签
-** Advances &gt; Steps 越高，“弹性越好”
-* 创建另一个物体 Controller
-** 赋予 Hair Tags &gt; Hair Collider 标签
-** 可以用该物体的位移控制 Spline 的振动
-** 该物体可以为一个圆环，以同时限定 Spline 上下
-
-
-; 真实的振动效果参数设置
-
-* Spline Dynamics 
-** Properties
-*** Rest Mix: 70%
-*** Rubber: 100%
-** Advanced
-*** Steps: 80
-*** Iterations: 4
-* Controller
-** Keyframes
-*** large Y position change in short time across spline
-** Timeline (Dope sheet)
-*** Step interpolation
-
----
-* Tips and Tricks with C4D 3: Spline Collision - YouTube 
-** https://www.youtube.com/watch?v=4fUSOzYp-Hw
-
-* Cinema 4D tips: Control spline points with nulls - YouTube 
-** https://www.youtube.com/watch?v=KtCGb9D_EXo</pre>
 </div>
 <div created="20171020162052046" creator="Hans" modified="20171020162107870" modifier="Hans" tags="Tips" title="C盘 清理">
 <pre>Dism++</pre>
@@ -43826,8 +43823,19 @@ name = proxy      # 默认配置
 ```
 &lt;/ol&gt; &lt;/ol&gt; &lt;/div&gt;</pre>
 </div>
-<div created="20200229064247975" creator="Hans" modified="20200229064853550" modifier="Hans" tags="Tiddlywiki" title="Tiddlywiki 访问外部资源">
-<pre>* 设置 Type，如：
+<div created="20200229064247975" creator="Hans" modified="20200304034421497" modifier="Hans" tags="Tiddlywiki" title="Tiddlywiki 访问外部资源">
+<pre>; 使用 HTML 标签（推荐）
+* 注意：用鼠标中键点击，在新标签页浏览，否则会覆盖当前页面
+
+```
+&lt;a href=&quot;./backup_scripts/c4d&quot;&gt;File Path&lt;/a&gt;
+```
+效果：&lt;a href=&quot;./backup_scripts/c4d&quot;&gt;File Path&lt;/a&gt;
+
+---
+---
+; 直接展示文件内容
+* 设置 Type，如：
 ** application/pdf
 ** image/svg+xml
 * 添加新的 field： `_canonical_uri` + `&lt;相对于 index.html 的路径&gt;`，如：
