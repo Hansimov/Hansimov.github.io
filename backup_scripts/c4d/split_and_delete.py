@@ -1,3 +1,7 @@
+"""
+Name-US: split and delete
+Description-US: split and delete polygons
+"""
 import c4d
 
 def main():

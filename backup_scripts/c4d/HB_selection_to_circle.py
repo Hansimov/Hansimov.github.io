@@ -5,7 +5,7 @@ Last Modified: 1/1/2016
 Works with CINEMA 4D R16.050 and up.
 Copyright: Holger Biebrach, www.c4dstuff.com
 
-Name-US: HB_SelectionToCircle
+Name-US: HB_Selection_To_Circle
 Description-US: Makes current Selection Spherical/Radial
 
 Select Points or Polygons and run the Script. The selection will be made Spherical.
