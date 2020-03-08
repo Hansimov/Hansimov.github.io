@@ -17419,7 +17419,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[C4D 自定义快捷键并导入导出 / customize shortcuts and export]]" title="$:/StoryList">
+<div list="[[Sublime license 失效 / unregistered / invalid license]] 电脑突然没有声音" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -18324,7 +18324,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200305045302646" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200307134331821" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -22297,10 +22297,13 @@ Date: 2017.04
 
 </pre>
 </div>
-<div created="20170819071605573" creator="Hans" modified="20170819071701160" modifier="Hans" tags="Debug" title="电脑突然没有声音">
-<pre>* 旋转耳机和电脑接口
+<div created="20170819071605573" creator="Hans" modified="20200307135127671" modifier="Hans" tags="Debug" title="电脑突然没有声音">
+<pre>; 按照顺序尝试下列方法：
+* 旋转耳机和电脑接口
 * 调整耳机的音量滑块
-* 选中''扬声器''，右键选择''声音问题疑难解答''</pre>
+* 声音设置 &gt; 扬声器 &gt; 管理声音设备 &gt; 扬声器 &gt; 测试
+* 选中''扬声器''，右键选择''声音问题疑难解答''
+* 重启</pre>
 </div>
 <div created="20170922043100398" creator="Hans" modified="20170922043511504" modifier="Hans" tags="Tips" title="电脑文件夹架构">
 <pre>* 分区
@@ -40731,13 +40734,18 @@ for item in tex_key_list:
 ```
 </pre>
 </div>
-<div created="20180429160739730" creator="Hans" modified="20200228172237865" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime license 失效 / unregistered / invalid license">
+<div created="20180429160739730" creator="Hans" modified="20200307135050019" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime license 失效 / unregistered / invalid license">
 <pre>; 最新的 3211 版本
 
-* 访问：https://hexed.it/ ，导入（Open File）`sublime_text.ext`
-** Go to `0x8545`，将 `84` 改成 `85`
-** Go to `0x1932C7` 将 `75` 改成 `74`
-** 注意，这里的 `0x8545` 和 `0x1932C7` 是地址（offset），不是实际的 16 进制字符串
+* 访问：https://hexed.it/ ，导入（Open File）`sublime_text.ext`，修改下列字节：
+
+| !Offset | !Original | !Patched |
+|0x0E12A |0x00 |0x10 |
+|0x8F099 |0x488901 |0x800910 |
+|0x915AA |0x25 |0x0D |
+|0x915AF |0x00 |0x10 |
+
+** 注意，这里的 `0x0E12A ` 和 `0x8F099` 是地址（offset），不是实际的 16 进制字符串
 * 备份原有的执行文件，导出（Export）并覆盖 `sublime_text.exe`
 * 点开  Help &gt; About Sublime Text，可以看到已经是 Unlimited User License
 
@@ -40749,13 +40757,18 @@ for item in tex_key_list:
 127.0.0.1 license.sublimehq.com
 127.0.0.1 45.55.255.55
 127.0.0.1 45.55.41.223
+127.0.0.1 sublimetext.com
+127.0.0.1 www.sublimetext.com
+127.0.0.1 sublimehq.com
+127.0.0.1 telemetry.sublimehq.com
 &lt;/op&gt;
 
 ; 如果使用了上面的方法，过一段时间失效了，就去 hosts 文件看一下，这几句话是否被注释了。取消注释即可。
 
 ---
 ---
-
+* Sublime HQ Patching Guide 
+** https://gist.github.com/jrhax/d0b89a0c80a03396370ac4b638447580
 * Sublime Text Patching Guide 
 ** https://gist.github.com/deyixtan/6822b66ad7792ab2580ba37c450ae79c#gistcomment-3043714
 
