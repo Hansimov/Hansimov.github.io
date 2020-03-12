@@ -38,7 +38,7 @@ def get_shared_points(poly1, poly2):
                 shared_points.add(pta)
     return list(shared_points)
 
-def select_poly_loop(obj, nth, sim=False):
+def select_poly_loop(obj, sim=False):
     if obj is None:
         raise ValueError("No object selected")
 
@@ -49,10 +49,13 @@ def select_poly_loop(obj, nth, sim=False):
     cpnt = obj.GetPointCount()
     bsel = obj.GetPolygonS()
 
+
     if cply == 0:
         raise ValueError("No polygons found")
     if bsel.GetCount() != 2:
-        raise ValueError("Must select if and only if 2 edges!")
+        raise ValueError("Must select if and only if 2 Polygons!")
+
+    nth = int(gui.InputDialog("Set nth (int) of polys:", "2"))
 
     offsets = get_offsets(nth)
 
@@ -106,10 +109,11 @@ def select_poly_loop(obj, nth, sim=False):
     obj.Message(c4d.MSG_CHANGE)
     c4d.EventAdd()
 
-def select_spline_point_loop(op,nth):
+def select_spline_point_loop(op):
     sel = op.GetPointS()
     sel.DeselectAll()
     cnt = op.GetPointCount()
+    nth = int(gui.InputDialog("Set nth (int) of points:", "2"))
     offsets = get_offsets(nth)
     for i in range(cnt):
         if i%nth in offsets: sel.Select(i)
@@ -130,17 +134,14 @@ def main():
     if not op:
         gui.MessageDialog("No active object!", c4d.GEMB_ICONSTOP)
         return False
-
     if type(op) == c4d.PolygonObject:
-        nth = int(gui.InputDialog("Set nth (int) of polys:", "2"))
         try:
-            select_poly_loop(op, nth)
+            select_poly_loop(op)
         except ValueError as err:
             gui.MessageDialog(str(err), c4d.GEMB_ICONSTOP)
     elif type(op) == c4d.SplineObject:
-        nth = int(gui.InputDialog("Set nth (int) of points:", "2"))
         try:
-            select_spline_point_loop(op,nth)
+            select_spline_point_loop(op)
         except ValueError as err:
             gui.MessageDialog(str(err), c4d.GEMB_ICONSTOP)
     else:
