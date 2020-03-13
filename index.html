@@ -599,8 +599,6 @@ Error message and password prompt
 
 <li>$:/GoogleAnalyticsDomain</li>
 
-<li>$:/Import</li>
-
 <li>$:/isEncrypted</li>
 
 <li>$:/language</li>
@@ -1285,6 +1283,8 @@ Error message and password prompt
 
 <li>$:/temp/info-plugin</li>
 
+<li>$:/temp/NewTagName</li>
+
 <li>$:/temp/password</li>
 
 <li>$:/temp/quickConnectSearch</li>
@@ -1873,6 +1873,8 @@ Error message and password prompt
 
 <li>C4D 安装破解</li>
 
+<li>C4D 常用类的层级关系 python classes hierarchy</li>
+
 <li>c4d 打开动画窗口</li>
 
 <li>C4D 琴弦动力学 string or rope spline dynamics</li>
@@ -1887,7 +1889,11 @@ Error message and password prompt
 
 <li>C4D 自定义快捷键并导入导出 / customize shortcuts and export</li>
 
+<li>C4D 坐标：World, Object(Rel), Object(Abs)</li>
+
 <li>C4D points to circle</li>
+
+<li>C4D python 导入外部模块时不能及时更新 cannot update imported modules</li>
 
 <li>C4D split and delete</li>
 
@@ -2649,6 +2655,8 @@ Error message and password prompt
 
 <li>Python 二维数组排序 sort 2d list</li>
 
+<li>Python 翻转列表 reverse list</li>
+
 <li>Python 复制文件</li>
 
 <li>Python 覆盖文件内容</li>
@@ -2790,6 +2798,8 @@ Error message and password prompt
 <li>Python 中文 OCR</li>
 
 <li>Python 重命名文件、文件夹中所有文件 rename file/folder</li>
+
+<li>Python 重新导入模块 reload imported module</li>
 
 <li>Python 字符串/数组（循环）移位</li>
 
@@ -15240,11 +15250,6 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div created="20170425085549252" creator="Hans" modified="20170425085620727" modifier="Hans" title="$:/GoogleAnalyticsDomain">
 <pre>hansimov.github.io</pre>
 </div>
-<div status="complete" title="$:/Import">
-<pre>The following tiddlers were imported:
-
-# [[Trafficlight-green-64x64.png]]</pre>
-</div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
@@ -16957,7 +16962,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170427093719513" creator="Hans" modified="20180609134438525" modifier="Hans" title="$:/state/ShowPaletteEditor">
 <pre>yes</pre>
 </div>
-<div created="20170423064611651" creator="Hans" modified="20200229034156161" modifier="Hans" title="$:/state/sidebar">
+<div created="20170423064611651" creator="Hans" modified="20200312121832416" modifier="Hans" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div created="20170423122204667" creator="Hans" modified="20170425023502061" modifier="Hans" title="$:/state/tab--1032361530">
@@ -17419,7 +17424,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[Sublime license 失效 / unregistered / invalid license]] 电脑突然没有声音" title="$:/StoryList">
+<div list="" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -17553,6 +17558,9 @@ $title$$(currentTiddler)$
         }
     }
 }</pre>
+</div>
+<div created="20200312094502634" creator="Hans" modified="20200313064452351" modifier="Hans" title="$:/temp/NewTagName">
+<pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
 <pre></pre>
@@ -18324,7 +18332,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200307134331821" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200313053329334" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -25707,6 +25715,41 @@ vector&lt;int&gt; nums1 = vector&lt;int&gt;(nums.begin(), nums.end()-1);
 * MAXON Cinema 4D C4D R21.027 Win/Mac 中文版/英文版/破解版 | 龋齿一号GFXCamp 
 ** http://www.gfxcamp.com/c4d-r21</pre>
 </div>
+<div created="20200312121146422" creator="Hans" modified="20200313052252408" modifier="Hans" tags="C4D Python" title="C4D 常用类的层级关系 python classes hierarchy">
+<pre>* [[c4d.C4DAtom|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/index.html#c4d-c4datom]]
+** [[c4d.GeListNode|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/index.html#c4d-c4datom]]
+*** [[c4d.CKey|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/CKey/index.html#c4d-ckey]]
+*** [[c4d.GeListHead|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/GeListNode/GeListHead/index.html#c4d-gelisthead]]
+*** [[c4d.BaseList2D|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/GeListNode/BaseList2D/index.html#c4d-baselist2d]]
+
+**** c4d.BaseMaterial
+**** c4d.BaseShader
+**** [[c4d.CCurve|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/GeListNode/BaseList2D/CCurve/index.html#c4d-ccurve]]
+**** [[c4d.CTrack|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/GeListNode/BaseList2D/CTrack/index.html#c4d-ctrack]]
+**** c4d.BaseTag
+**** [[c4d.BaseObject|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseObject/index.html#c4d-baseobject]]
+**** c4d.BaseView
+**** [[c4d.documents.BaseDocument|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d.documents/BaseDocument/index.html#c4d-documents-basedocument]]
+**** c4d.documents.LayerObject
+**** c4d.documents.RenderData
+**** c4d.documents.BaseVideoPost
+**** c4d.modules.mograph.FieldLayer
+**** c4d.modules.net.RenderJob
+**** c4d.modules.bodypaint.PaintBitmap
+**** c4d.modules.thinkingparticles.TP_PGroup
+**** c4d.modules.thinkingparticles.TP_MasterSystem
+**** c4d.modules.sculpting.SculptLayerData
+**** c4d.modules.graphview.GvNodeMaster
+**** c4d.modules.graphview.GvNode
+**** c4d.modules.takesystem.BaseTake
+**** c4d.modules.takesystem.BaseOverride
+**** c4d.modules.takesystem.BaseOverrideGroup
+**** c4d.plugins.BasePlugin
+
+---
+* c4d.C4DAtom — Cinema 4D SDK 21.207 documentation
+** https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/index.html#c4d.C4DAtom</pre>
+</div>
 <div created="20190330120758538" creator="Hans" modified="20190330121008065" modifier="Hans" tags="C4D" title="c4d 打开动画窗口">
 <pre>转到 Animate 界面，右击下方的 时间线/帧 窗口，保存为面板，然后回到自定义的用户界面，随便右键一个面板，新建面板，然后右键该空面板，加载之前保存的面板，最后保存为启动界面即可。</pre>
 </div>
@@ -25823,6 +25866,21 @@ https://forums.creativecow.net/docs/forums/post.php?forumid=19&amp;postid=869153
 ** https://www.c4dcafe.com/ipb/forums/topic/92874-how-to-export-custom-shortcuts-file/
 * Where is the Shortcuttable file in the C4D R20 Folders? : Maxon Cinema 4D 
 ** https://forums.creativecow.net/thread/19/896498</pre>
+</div>
+<div created="20200312094431934" creator="Hans" modified="20200312100206742" modifier="Hans" tags="C4D" title="C4D 坐标：World, Object(Rel), Object(Abs)">
+<pre>* World: 相对于世界原点的坐标
+* Object(Abs)：相对于父级对象的坐标
+* Object(Rel)：去掉冻结变换后的相对坐标
+* Frozen：冻结坐标
+
+关系：
+
+&lt;op&gt;
+Wrd = Abs ⊕ Parent's Abs
+Abs = Rel ⊕ Frozen
+&lt;/op&gt;
+
+</pre>
 </div>
 <div created="20200214013501483" creator="Hans" modified="20200214013639631" modifier="Hans" tags="C4D Python" title="C4D points to circle">
 <pre>```py
@@ -25975,6 +26033,26 @@ if __name__=='__main__':
 ---
 * Points2Circle.py 
 ** https://www.dropbox.com/s/c96x8hhqobz2448/Points2Circle.py?dl=0</pre>
+</div>
+<div created="20200313064354049" creator="Hans" modified="20200313064513083" modifier="Hans" tags="C4D Python" title="C4D python 导入外部模块时不能及时更新 cannot update imported modules">
+<pre>参见：[[Python 重新导入模块 reload imported module]]
+
+
+```
+import sys
+path_to_add = &quot;H:/codes/SciAniLab/technology-presentations/animusic-piano/scripts/&quot;
+if not path_to_add in sys.path:
+    sys.path.append(path_to_add)
+
+import c4d_utils
+reload(c4d_utils)
+from c4d_utils import *
+
+c4d.CallCommand(13957) # Clear Console
+
+find_obj(&quot;Cube&quot;,&quot;&quot;)
+```
+</pre>
 </div>
 <div created="20200210075230332" creator="Hans" modified="20200210085049556" modifier="Hans" tags="C4D Python" title="C4D split and delete">
 <pre>```py
@@ -34926,6 +35004,44 @@ for nameext in nameexts:
 ** https://stackoverflow.com/a/18564382/8328786
 </pre>
 </div>
+<div created="20200313051406915" creator="Hans" modified="20200313052245083" modifier="Hans" tags="Python" title="Python 翻转列表 reverse list">
+<pre>`list.reverse()`:
+
+```
+list
+# [1,2,3,4,5]
+
+list.reverse()
+# Return None
+# list: [5,4,3,2,1]
+```
+
+`list[::-1]`:
+
+```
+list
+# [1,2,3,4,5]
+
+list[::-1]
+# [5,4,3,2,1]
+# list: [1,2,3,4,5]
+```
+
+`reversed(list)`:
+
+```
+list
+# [1,2,3,4,5]
+
+reversed(list)
+# [5,4,3,2,1]
+# list: [1,2,3,4,5]
+```
+
+---
+* Python List reverse() 
+** https://www.programiz.com/python-programming/methods/list/reverse</pre>
+</div>
 <div created="20180801083844248" creator="Hans" modified="20180801083936537" modifier="Hans" tags="Python" title="Python 复制文件">
 <pre>```
 from shutil import copyfile
@@ -36916,6 +37032,35 @@ with open(outfile,&quot;w&quot;) as wf:
 
 * `C:\Users\xxx\AppData\Roaming\Microsoft\Windows\SendTo\_rename_folder.bat`
 </pre>
+</div>
+<div created="20200313064037874" creator="Hans" modified="20200313064351432" modifier="Hans" tags="Python" title="Python 重新导入模块 reload imported module">
+<pre>Python2:
+
+&lt;op&gt;
+reload(module)
+&lt;/op&gt;
+
+Python3 &lt; 3.4:
+
+&lt;op&gt;
+import imp
+imp.reload(packagename)
+&lt;/op&gt;
+
+Python3 &gt;= 3.4:
+
+&lt;op&gt;
+import importlib
+importlib.reload(module)
+&lt;/op&gt;
+
+
+---
+* How to re import an updated package while in Python Interpreter? - Stack Overflow 
+** https://stackoverflow.com/questions/684171/how-to-re-import-an-updated-package-while-in-python-interpreter
+
+* Reloading modules in Python - GeeksforGeeks 
+** https://www.geeksforgeeks.org/reloading-modules-python/</pre>
 </div>
 <div created="20180519131248031" creator="Hans" modified="20180520052326294" modifier="Hans" tags="Python" title="Python 字符串/数组（循环）移位">
 <pre>循环移位：
