@@ -1893,6 +1893,8 @@ Error message and password prompt
 
 <li>C4D points to circle</li>
 
+<li>C4D python 不选中物体 do no set active object</li>
+
 <li>C4D python 导入外部模块时不能及时更新 cannot update imported modules</li>
 
 <li>C4D split and delete</li>
@@ -2870,6 +2872,8 @@ Error message and password prompt
 <li>Python Windows 安装 pygobject / import gi</li>
 
 <li>Python： 'gbk' codec can't decode byte 0xaa</li>
+
+<li>Python2 re fullmatch</li>
 
 <li>Python循环输出字符串</li>
 
@@ -17424,7 +17428,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="" title="$:/StoryList">
+<div list="[[C4D python 不选中物体 do no set active object]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -17559,7 +17563,7 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200312094502634" creator="Hans" modified="20200313064452351" modifier="Hans" title="$:/temp/NewTagName">
+<div created="20200312094502634" creator="Hans" modified="20200313113735684" modifier="Hans" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
@@ -26033,6 +26037,22 @@ if __name__=='__main__':
 ---
 * Points2Circle.py 
 ** https://www.dropbox.com/s/c96x8hhqobz2448/Points2Circle.py?dl=0</pre>
+</div>
+<div created="20200313113703937" creator="Hans" modified="20200313113806826" modifier="Hans" tags="C4D Python" title="C4D python 不选中物体 do no set active object">
+<pre>加上 `c4d.EventAdd()`：
+
+```
+obj_list = find_obj_in_root(&quot;.*Rot.*&quot;, &quot;Arm_.*&quot;,case_sensitive=[1,0])
+for obj in obj_list:
+    print(obj.GetName())
+    doc.SetActiveObject(obj,c4d.SELECTION_ADD)
+c4d.EventAdd()
+```
+
+---
+* c4d — Cinema 4D SDK 21.207 documentation 
+** https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/index.html?highlight=eventadd#c4d.EventAdd
+</pre>
 </div>
 <div created="20200313064354049" creator="Hans" modified="20200313064513083" modifier="Hans" tags="C4D Python" title="C4D python 导入外部模块时不能及时更新 cannot update imported modules">
 <pre>参见：[[Python 重新导入模块 reload imported module]]
@@ -38039,6 +38059,19 @@ with open(filename, encoding='utf-8', mode = ‘r') as f:
 ** https://github.com/rkern/line_profiler/issues/37
 * Python3:使用open()打开文件时提示'gbk' codec can't decode byte的原因
 ** https://www.polarxiong.com/archives/python-3-open-file-gbk-error.html
+</pre>
+</div>
+<div created="20200313094242708" creator="Hans" modified="20200313094403600" modifier="Hans" tags="Python" title="Python2 re fullmatch">
+<pre>在模式字符串后面加上 &quot;\Z&quot;
+
+```
+import re
+bool(re.match(r&quot;a_.?\Z&quot;,&quot;a_2&quot;))
+```
+
+---
+* regex - Backport Python 3.4's regular expression &quot;fullmatch()&quot; to Python 2 - Stack Overflow 
+** https://stackoverflow.com/questions/30212413/backport-python-3-4s-regular-expression-fullmatch-to-python-2
 </pre>
 </div>
 <div created="20170719123221719" creator="Hans" modified="20170719123414009" modifier="Hans" tags="Python" title="Python循环输出字符串">
