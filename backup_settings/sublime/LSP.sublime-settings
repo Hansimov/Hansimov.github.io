@@ -1,31 +1,41 @@
 {
+	"show_view_status": false,
+	"show_symbol_action_links": true,
+	"show_diagnostics_in_view_status": false,
 	"auto_show_diagnostics_panel": "never",
 	"auto_show_diagnostics_panel_level": 0,
 	"clients":
 	{
 		"pyls":
 		{
-			"enabled": true
-		}
-	},
-	"diagnostics_gutter_marker": "",
-	"document_highlight_style": "",
-	"pyls":
-	{
-		"command":
-		[
-			"D:/Anaconda/Scripts/pyls.exe"
-		],
-		"enabled": false,
-		"settings": {
-			"pyls": {
-				"plugins": {
-					"pydocstyle": {
-						"enabled":false
+			"command":
+			[
+				"D:/Anaconda/Scripts/pyls.exe"
+			],
+			"enabled": true,
+			"settings":
+			{
+				"pyls":
+				{
+					"plugins":
+					{
+						"pycodestyle":
+						{
+							"enabled": false
+						},
+						"pyflakes":{
+							"enabled":false
+						},
+						"mccabe":{
+							"enabled":false
+						}
 					}
 				}
 			}
 		}
 	},
+	"diagnostics_gutter_marker": "",
+	"diagnostics_highlight_style": "underline",
+	"document_highlight_style": "",
 	"show_diagnostics_severity_level": 0
 }

@@ -17442,7 +17442,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[Sublime Python 增加 IDE 功能]]" title="$:/StoryList">
+<div list="[[Sublime 修改主题颜色]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -18350,7 +18350,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200317124507719" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200317180611792" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -39597,8 +39597,10 @@ https://jingyan.baidu.com/article/fc07f98972ee0a12fee51943.html</pre>
 ** @@color:red;注意，千万不要注释这一行，否则会崩！@@如果崩了，记得把这行重新注释回来。
 ** 然后修改下面对应的样式，比方说，把 `&lt;string&gt;italic&lt;/string&gt;` 改成 `&lt;string&gt;&lt;/string&gt;` 即可去掉斜体</pre>
 </div>
-<div created="20180120080904631" creator="Hans" modified="20190921132614948" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime 修改主题颜色">
-<pre>高亮当前行：
+<div created="20180120080904631" creator="Hans" modified="20200317180742329" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime 修改主题颜色">
+<pre>主题文件：[ext[./backup_settings/sublime/Adventure_Time.tmTheme]]
+
+高亮当前行：
 
 * 打开 Settings，在User Settings 里添加：`&quot;highlight_line&quot;:true`
 
@@ -39618,12 +39620,40 @@ https://jingyan.baidu.com/article/fc07f98972ee0a12fee51943.html</pre>
 ** `Invalid` : background `#FF4400`; foreground `#AA0044`
 ** `Tag name`: foreground `#88C620`
 ** `Invalid deprecated`: background `#FF4400`; foreground `#AA0044`
+** `docstring`:
 
-参考链接：https://forum.sublimetext.com/t/change-colors-for-selected-text-and-currently-highlighted-line/33507/2
+&lt;ol&gt;
 
+```
+&lt;dict&gt;
+    &lt;key&gt;name&lt;/key&gt;
+    &lt;string&gt;docstring&lt;/string&gt;
+    &lt;key&gt;scope&lt;/key&gt;
+    &lt;string&gt;comment.block.documentation.python&lt;/string&gt;
+    &lt;key&gt;settings&lt;/key&gt;
+    &lt;dict&gt;
+        &lt;key&gt;fontStyle&lt;/key&gt;
+        &lt;string&gt;bold&lt;/string&gt;
+        &lt;key&gt;foreground&lt;/key&gt;
+        &lt;string&gt;#00ff00&lt;/string&gt;
+    &lt;/dict&gt;
+&lt;/dict&gt;
+```
+&lt;/ol&gt;
+
+
+
+
+
+
+---
+* Change colors for selected text and currently highlighted line - General Discussion - Sublime Forum 
+** https://forum.sublimetext.com/t/change-colors-for-selected-text-and-currently-highlighted-line/33507/2
+* python - Sublime Text Editor 3 - Theme-ing - Change docstring color - Stack Overflow 
+** https://stackoverflow.com/questions/21648753/sublime-text-editor-3-theme-ing-change-docstring-color
 </pre>
 </div>
-<div created="20170818152731884" creator="Hans" modified="20180608143153358" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime 修改自动补全（snippet）">
+<div created="20170818152731884" creator="Hans" modified="20200317153026898" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime 修改自动补全（snippet）">
 <pre>---
 ; 如果还没有改 snippet 文件：
 * `Preferences` → `Browse Packages`
@@ -39655,6 +39685,21 @@ script src=&quot;$0&quot;&gt;&lt;/script&gt;
     &lt;description&gt;p5 width&lt;/description&gt;
 &lt;/snippet&gt;
 ```
+
+或者是：
+
+```
+&lt;snippet&gt;
+    &lt;description&gt;def&lt;/description&gt;
+    &lt;content&gt;
+&lt;![CDATA[def $0:
+]]&gt;
+&lt;/content&gt;
+    &lt;tabTrigger&gt;def&lt;/tabTrigger&gt;
+    &lt;scope&gt;source.python&lt;/scope&gt;
+&lt;/snippet&gt;
+```
+
 
 
 &lt;&lt;&lt;
@@ -41272,13 +41317,14 @@ if not view.match_selector(locations[0], &quot;text.html - source - text.html.ma
 另见：[[Sublime 不在行内显示错误框]]
 </pre>
 </div>
-<div created="20200317125557253" creator="Hans" modified="20200317134120567" modifier="Hans" tags="Python [[Sublime Text 3]]" title="Sublime Python 增加 IDE 功能">
+<div created="20200317125557253" creator="Hans" modified="20200317152555209" modifier="Hans" tags="Python [[Sublime Text 3]]" title="Sublime Python 增加 IDE 功能">
 <pre>* Sublime：Package Install &gt; LSP: Language Server Protocol
 * 命令行：`pip install python-language-server`
 * Sublime &gt; Preferences &gt; Package Settings &gt; LSP &gt; Settings
 
 ** [ext[./backup_settings/sublime/LSP.sublime-settings]]
 ** 不提示语法不规范、错误和标记，只显示函数定义
+** ''重启 Sublime 后才会生效''
 
 * Sublime &gt; Package Control &gt; LSP: Enable Language Server Globally
 
@@ -41297,7 +41343,10 @@ if not view.match_selector(locations[0], &quot;text.html - source - text.html.ma
 ** https://lsp.readthedocs.io/en/latest/#python
 
 * pycodestyle plugin ignore setting ignored · Issue #244 · sublimelsp/LSP 
-** https://github.com/sublimelsp/LSP/issues/244</pre>
+** https://github.com/sublimelsp/LSP/issues/244
+
+* How to disable pycodestyle warnings? · Issue #229 · palantir/python-language-server 
+** https://github.com/palantir/python-language-server/issues/229#issuecomment-358686334</pre>
 </div>
 <div created="20180609053046514" creator="Hans" modified="20180609053142093" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime QQ 聊天记录匹配时间">
 <pre>2018-06-08 0:43:01 Hans

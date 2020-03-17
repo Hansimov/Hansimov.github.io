@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+
+	Name:		Adventure Time
+    Author:		Kyle Wilcox
+    License:	Public Domain Mark 1.0
+    URL:		https://github.com/wilcoxky/Adventure_Time.tmTheme
+
+    Ported sublime theme based off of (https://github.com/philpl/Adventurous-Syntax)
+
+-->
+
 <plist version="1.0">
 <dict>
 	<key>name</key>
@@ -25,7 +36,7 @@
 				<string>#00FF00</string>
 			</dict>
 		</dict>
-		
+		<!-- Comment Scope -->
 		<dict>
 			<key>name</key>
 			<string>Comment</string>
@@ -39,20 +50,7 @@
 				<string>bold</string>
 			</dict>
 		</dict>
-		<dict>
-		    <key>name</key>
-		    <string>docstring</string>
-		    <key>scope</key>
-		    <string>comment.block.documentation.python</string>
-		    <key>settings</key>
-		    <dict>
-		        <key>fontStyle</key>
-		        <string>bold</string>
-		        <key>foreground</key>
-		        <string>#00ff00</string>
-		    </dict>
-		</dict>
-				
+		<!-- String scope -->
 		<dict>
 			<key>name</key>
 			<string>String</string>
@@ -86,7 +84,7 @@
 				<string>#f25a55</string>
 			</dict>
 		</dict>
-		
+		<!-- Constants Scope -->
 		<dict>
 			<key>name</key>
 			<string>Constant</string>
@@ -131,7 +129,7 @@
 				<string>#de347a</string>
 			</dict>
 		</dict>
-		
+		<!-- Variable Scope -->
 		<dict>
 			<key>name</key>
 			<string>Variable function</string>
@@ -140,7 +138,7 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string />
+				<string></string>
 				<key>foreground</key>
 				<string>#277BD3</string>
 			</dict>
@@ -153,7 +151,7 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string />
+				<string></string>
 				<key>foreground</key>
 				<string>#BFD7DB</string>
 			</dict>
@@ -166,7 +164,7 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string />
+				<string></string>
 				<key>foreground</key>
 				<string>#BFD7DB</string>
 			</dict>
@@ -179,12 +177,12 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string />
+				<string></string>
 				<key>foreground</key>
 				<string>#f25a55</string>
 			</dict>
 		</dict>
-		
+		<!-- Keyword Scope -->
 		<dict>
 			<key>name</key>
 			<string>Keyword</string>
@@ -239,10 +237,10 @@
 				<key>foreground</key>
 				<string>#F5BB12</string>
 				<key>fontStyle</key>
-				<string />
+				<string></string>
 			</dict>
 		</dict>
-		
+		<!-- Storage Scope -->
 		<dict>
 			<key>name</key>
 			<string>Storage</string>
@@ -251,7 +249,7 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string />
+				<string></string>
 				<key>foreground</key>
 				<string>#f25a55</string>
 			</dict>
@@ -264,7 +262,7 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string />
+				<string></string>
 				<key>foreground</key>
 				<string>#D3422E</string>
 			</dict>
@@ -277,12 +275,12 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string />
+				<string></string>
 				<key>foreground</key>
 				<string>#F5BB12</string>
 			</dict>
 		</dict>
-		
+		<!-- Entity Scope -->
 		<dict>
 			<key>name</key>
 			<string>Function</string>
@@ -359,7 +357,7 @@
 			<key>settings</key>
 			<dict>
 			    <key>fontStyle</key>
-    			<string />
+    			<string></string>
 				<key>foreground</key>
 				<string>#f25a55</string>
 			</dict>
@@ -372,7 +370,7 @@
 			<key>settings</key>
 			<dict>
 			    <key>fontStyle</key>
-    			<string />
+    			<string></string>
 				<key>foreground</key>
 				<string>#f25a55</string>
 			</dict>
@@ -407,7 +405,7 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string />
+				<string></string>
 				<key>foreground</key>
 				<string>#FFC620</string>
 			</dict>
@@ -420,7 +418,7 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string />
+				<string></string>
 				<key>foreground</key>
 				<string>#88C620</string>
 			</dict>
@@ -433,12 +431,12 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string />
+				<string></string>
 				<key>foreground</key>
 				<string>#FFC620</string>
 			</dict>
 		</dict>
-		
+		<!-- Support Scope -->
 		<dict>
 			<key>name</key>
 			<string>Library function</string>
@@ -458,7 +456,7 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string />
+				<string></string>
 				<key>foreground</key>
 				<string>#DE347A</string>
 			</dict>
@@ -471,7 +469,7 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string />
+				<string></string>
 				<key>foreground</key>
 				<string>#4BAE16</string>
 			</dict>
@@ -484,12 +482,12 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string />
+				<string></string>
 				<key>foreground</key>
 				<string>#3299CC</string>
 			</dict>
 		</dict>
-		
+		<!-- Invalid Scope -->
 		<dict>
 			<key>name</key>
 			<string>Invalid</string>
@@ -500,7 +498,7 @@
 				<key>background</key>
 				<string>#FF4400</string>
 				<key>fontStyle</key>
-				<string />
+				<string></string>
 				<key>foreground</key>
 				<string>#AA0044</string>
 			</dict>
@@ -518,7 +516,7 @@
 				<string>#AA0044</string>
 			</dict>
 		</dict>
-		
+		<!-- Punctuation Scope -->
 		<dict>
 			<key>name</key>
 			<string>Punctuation def comment</string>
@@ -527,7 +525,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string />
+				<string></string>
 			</dict>
 		</dict>
 		<dict>
@@ -563,37 +561,17 @@
 				<string>#277BD3</string>
 			</dict>
 		</dict>
-	<dict>
-            <key>name</key>
-            <string>SublimePythonIDE Warning</string>
-            <key>scope</key>
-            <string>sublimepythonide.mark.warning</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string>#EDBA00</string>
-            </dict>
-        </dict><dict>
-            <key>name</key>
-            <string>SublimePythonIDE Gutter Mark</string>
-            <key>scope</key>
-            <string>sublimepythonide.gutter-mark</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string>#FFFFFF</string>
-            </dict>
-        </dict><dict>
-            <key>name</key>
-            <string>SublimePythonIDE Error</string>
-            <key>scope</key>
-            <string>sublimepythonide.mark.error</string>
-            <key>settings</key>
-            <dict>
-                <key>foreground</key>
-                <string>#DA2000</string>
-            </dict>
-        </dict></array>
+		<dict>
+			<key>name</key>
+			<string>minimapBorder</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#FF00FF</string>
+			</dict>
+		</dict>
+
+	</array>
 	<key>uuid</key>
 	<string>D8D5E82E-3D5B-46B5-B38E-8C841C21347D</string>
 	<key>colorSpaceName</key>
@@ -602,5 +580,6 @@
 	<string>theme.dark.adventure_time</string>
 	<key>author</key>
 	<string>Kyle Wilcox</string>
+
 </dict>
 </plist>
