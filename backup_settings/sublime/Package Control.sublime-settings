@@ -1,0 +1,30 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Anaconda",
+		"Auto Semi-Colon",
+		"BracketHighlighter",
+		"Colorsublime",
+		"ConvertToUTF8",
+		"Extract Sublime Package",
+		"HexViewer",
+		"Hide Menu",
+		"HTMLBeautify",
+		"Indent XML",
+		"LaTeXTools",
+		"Layout",
+		"MarkdownPreview",
+		"Package Control",
+		"PackageResourceViewer",
+		"Pretty JSON",
+		"Semicolon",
+		"SideBarEnhancements",
+		"sublime-text-2-buildview",
+		"SublimeREPL",
+		"Verilog"
+	]
+}

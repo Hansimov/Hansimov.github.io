@@ -23,7 +23,7 @@
 	"draw_white_space": "all",
 	"expand_tabs_on_save": true,
 	"font_face": "Consolas Bold",
-	"font_size": 14,
+	"font_size": 16,
 	"highlight_line": true,
 	"ignored_packages":
 	[
@@ -31,12 +31,12 @@
 	],
 	"show_encoding": true,
 	"show_errors_inline": true,
+	"show_full_path": false,
 	"show_panel_on_build": false,
 	"tab_completion": true,
 	"tab_size": 4,
 	"theme": "Adaptive.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"word_separators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?＜＞（）［］｛｝「」『』〈〉《》【】‘’“”＂＋－＊／，。、．‧・･·﹣：；～！？＠＃＄％︿＆｜＝",
-	"word_wrap": true,
-	"show_full_path": false,
+	"word_wrap": true
 }

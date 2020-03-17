@@ -1,0 +1,5 @@
+// These settings override both User and Default settings for the Verilog syntax
+{
+    "default_line_ending": "unix",
+    "tab_size": 4,
+}

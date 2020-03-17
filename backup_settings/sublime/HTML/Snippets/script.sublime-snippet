@@ -1,0 +1,10 @@
+<snippet>
+    <description>script</description>
+    <content>
+<![CDATA[
+script src="$0"></script>
+]]>
+</content>
+    <tabTrigger>script</tabTrigger>
+    <scope>text.html entity.name.tag</scope>
+</snippet>

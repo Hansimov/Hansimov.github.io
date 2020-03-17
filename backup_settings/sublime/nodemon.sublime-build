@@ -1,0 +1,7 @@
+{
+  "cmd": ["nodemon", "$file"],
+  "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+  "selector": "source.js",
+  "shell": true,
+  "encoding": "cp936"
+}

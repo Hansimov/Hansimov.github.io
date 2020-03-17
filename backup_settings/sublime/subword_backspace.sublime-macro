@@ -1,0 +1,18 @@
+// "subword" deletion - General Discussion - Sublime Forum 
+//    https://forum.sublimetext.com/t/subword-deletion/2483/4
+
+[
+    {
+        "command": "move",
+        "args": 
+        {
+            "by": "subwords",
+            "extend": true,
+            "forward": false
+        }
+    },
+    {
+        "args": {},
+        "command": "left_delete"
+    }
+]

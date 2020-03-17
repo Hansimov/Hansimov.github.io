@@ -29,9 +29,9 @@
 				<key>invisibles</key>
 				<string>#373B41</string>
 				<key>lineHighlight</key>
-				<string>#303030</string>
+				<string>#333333</string>
 				<key>selection</key>
-				<string>#a425b3</string>
+				<string>#004444</string>
 				<key>selectionBorder</key>
 				<string>#00FF00</string>
 			</dict>
@@ -59,7 +59,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#7FD6FA</string>
+				<string>#7fd6fa</string>
 			</dict>
 		</dict>
 		<dict>
@@ -237,7 +237,7 @@
 				<key>foreground</key>
 				<string>#F5BB12</string>
 				<key>fontStyle</key>
-				<string>italic</string>
+				<string></string>
 			</dict>
 		</dict>
 		<!-- Storage Scope -->
@@ -249,7 +249,7 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string>italic</string>
+				<string></string>
 				<key>foreground</key>
 				<string>#f25a55</string>
 			</dict>
@@ -262,7 +262,7 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string>italic</string>
+				<string></string>
 				<key>foreground</key>
 				<string>#D3422E</string>
 			</dict>
@@ -275,7 +275,7 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string>italic</string>
+				<string></string>
 				<key>foreground</key>
 				<string>#F5BB12</string>
 			</dict>
@@ -405,7 +405,7 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string>italic</string>
+				<string></string>
 				<key>foreground</key>
 				<string>#FFC620</string>
 			</dict>
@@ -469,7 +469,7 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string>italic</string>
+				<string></string>
 				<key>foreground</key>
 				<string>#4BAE16</string>
 			</dict>
@@ -525,7 +525,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#</string>
+				<string></string>
 			</dict>
 		</dict>
 		<dict>
@@ -561,6 +561,16 @@
 				<string>#277BD3</string>
 			</dict>
 		</dict>
+		<dict>
+			<key>name</key>
+			<string>minimapBorder</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#FF00FF</string>
+			</dict>
+		</dict>
+
 	</array>
 	<key>uuid</key>
 	<string>D8D5E82E-3D5B-46B5-B38E-8C841C21347D</string>
@@ -570,5 +580,6 @@
 	<string>theme.dark.adventure_time</string>
 	<key>author</key>
 	<string>Kyle Wilcox</string>
+
 </dict>
 </plist>

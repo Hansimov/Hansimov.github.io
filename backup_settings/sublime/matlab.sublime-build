@@ -1,0 +1,4 @@
+{
+    "cmd": ["D:/MATLAB R2017a/bin/win64/MATLAB.exe", "-nosplash", "-nodesktop", "-r", "$file_base_name"],
+    "selector": "source.m"
+}

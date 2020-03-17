@@ -21,5 +21,7 @@
     { "keys": ["ctrl+y"], "command": "redo" },
     { "keys": ["alt+enter"], "command": "send_python_code" },
     { "keys": ["alt+t"], "command": "toggle_tabs" },
-    { "keys": ["alt+m"], "command": "toggle_minimap" }
+    { "keys": ["alt+m"], "command": "toggle_minimap" },
+    { "keys": ["alt+backspace"], "command": "run_macro_file", "args": {"file": "Packages/User/subword_backspace.sublime-macro"} },
+    { "keys": ["alt+delete"], "command": "run_macro_file", "args": {"file": "Packages/User/subword_delete.sublime-macro"} },
 ]

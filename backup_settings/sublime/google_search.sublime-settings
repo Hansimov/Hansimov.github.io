@@ -1,0 +1,7 @@
+{
+    "suffix": "", // will be after the query
+    "prefix": "", // will be added before the query
+    "default_browser": "chrome", // chrome, firefox, more valid values here https://docs.python.org/2/library/webbrowser.html#webbrowser.register
+    // "domain": "https://www.google.com" // google domain to perform the search
+    "domain": "https://www.baidu.com" // baidu domain to perform the search
+}

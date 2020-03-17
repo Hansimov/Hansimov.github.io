@@ -1873,9 +1873,13 @@ Error message and password prompt
 
 <li>C4D 安装破解</li>
 
+<li>C4D 不渲染材质 do not render materials</li>
+
 <li>C4D 常用类的层级关系 python classes hierarchy</li>
 
 <li>c4d 打开动画窗口</li>
+
+<li>C4D 将材质赋给层的所有对象 assign materials to layer</li>
 
 <li>C4D 琴弦动力学 string or rope spline dynamics</li>
 
@@ -1894,6 +1898,8 @@ Error message and password prompt
 <li>C4D points to circle</li>
 
 <li>C4D python 不选中物体 do no set active object</li>
+
+<li>C4D python 撤销操作 undo issues</li>
 
 <li>C4D python 导入外部模块时不能及时更新 cannot update imported modules</li>
 
@@ -2807,6 +2813,8 @@ Error message and password prompt
 
 <li>python anti nsfw detection</li>
 
+<li>Python append list return new</li>
+
 <li>Python bmp 转 png</li>
 
 <li>Python Could not install packages due to an EnvironmentError: WinError 5</li>
@@ -2816,6 +2824,8 @@ Error message and password prompt
 <li>python download_metart</li>
 
 <li>Python f-string</li>
+
+<li>Python for in 加上索引</li>
 
 <li>Python format varible width 变量传入 format 参数</li>
 
@@ -2872,6 +2882,8 @@ Error message and password prompt
 <li>Python Windows 安装 pygobject / import gi</li>
 
 <li>Python： 'gbk' codec can't decode byte 0xaa</li>
+
+<li>Python2 浮点除法 float division</li>
 
 <li>Python2 re fullmatch</li>
 
@@ -16966,7 +16978,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170427093719513" creator="Hans" modified="20180609134438525" modifier="Hans" title="$:/state/ShowPaletteEditor">
 <pre>yes</pre>
 </div>
-<div created="20170423064611651" creator="Hans" modified="20200312121832416" modifier="Hans" title="$:/state/sidebar">
+<div created="20170423064611651" creator="Hans" modified="20200313123328217" modifier="Hans" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div created="20170423122204667" creator="Hans" modified="20170425023502061" modifier="Hans" title="$:/state/tab--1032361530">
@@ -17428,7 +17440,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[C4D python 不选中物体 do no set active object]]" title="$:/StoryList">
+<div list="[[Python append list return new]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -17563,7 +17575,7 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200312094502634" creator="Hans" modified="20200313113735684" modifier="Hans" title="$:/temp/NewTagName">
+<div created="20200312094502634" creator="Hans" modified="20200315120105949" modifier="Hans" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
@@ -25719,43 +25731,37 @@ vector&lt;int&gt; nums1 = vector&lt;int&gt;(nums.begin(), nums.end()-1);
 * MAXON Cinema 4D C4D R21.027 Win/Mac 中文版/英文版/破解版 | 龋齿一号GFXCamp 
 ** http://www.gfxcamp.com/c4d-r21</pre>
 </div>
-<div created="20200312121146422" creator="Hans" modified="20200313052252408" modifier="Hans" tags="C4D Python" title="C4D 常用类的层级关系 python classes hierarchy">
-<pre>* [[c4d.C4DAtom|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/index.html#c4d-c4datom]]
+<div created="20200314095157335" creator="Hans" modified="20200314095431832" modifier="Hans" tags="C4D" title="C4D 不渲染材质 do not render materials">
+<pre>* Render Settings &gt; 勾选 Material Override
+** Mode &gt; Exclude（默认），可添加特定材质球
+** Preserve &gt; 取消勾选下方所有，也可以是特定类型材质</pre>
+</div>
+<div created="20200312121146422" creator="Hans" modified="20200315012817173" modifier="Hans" tags="C4D Python" title="C4D 常用类的层级关系 python classes hierarchy">
+<pre>;详见：[[c4d|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/index.html#c4d]]
+* [[c4d.Vector|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/Vector/index.html]]
+* [[c4d.Matrix|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/Matrix/index.html]]
+* [[c4d.BaseTime|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/BaseTime/index.html]]
+* [[c4d.C4DAtom|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/index.html#c4d-c4datom]]
 ** [[c4d.GeListNode|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/index.html#c4d-c4datom]]
 *** [[c4d.CKey|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/CKey/index.html#c4d-ckey]]
 *** [[c4d.GeListHead|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/GeListNode/GeListHead/index.html#c4d-gelisthead]]
 *** [[c4d.BaseList2D|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/GeListNode/BaseList2D/index.html#c4d-baselist2d]]
 
-**** c4d.BaseMaterial
-**** c4d.BaseShader
 **** [[c4d.CCurve|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/GeListNode/BaseList2D/CCurve/index.html#c4d-ccurve]]
 **** [[c4d.CTrack|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/GeListNode/BaseList2D/CTrack/index.html#c4d-ctrack]]
-**** c4d.BaseTag
 **** [[c4d.BaseObject|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/GeListNode/BaseList2D/BaseObject/index.html#c4d-baseobject]]
-**** c4d.BaseView
 **** [[c4d.documents.BaseDocument|https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d.documents/BaseDocument/index.html#c4d-documents-basedocument]]
-**** c4d.documents.LayerObject
-**** c4d.documents.RenderData
-**** c4d.documents.BaseVideoPost
-**** c4d.modules.mograph.FieldLayer
-**** c4d.modules.net.RenderJob
-**** c4d.modules.bodypaint.PaintBitmap
-**** c4d.modules.thinkingparticles.TP_PGroup
-**** c4d.modules.thinkingparticles.TP_MasterSystem
-**** c4d.modules.sculpting.SculptLayerData
-**** c4d.modules.graphview.GvNodeMaster
-**** c4d.modules.graphview.GvNode
-**** c4d.modules.takesystem.BaseTake
-**** c4d.modules.takesystem.BaseOverride
-**** c4d.modules.takesystem.BaseOverrideGroup
-**** c4d.plugins.BasePlugin
 
 ---
-* c4d.C4DAtom — Cinema 4D SDK 21.207 documentation
-** https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/C4DAtom/index.html#c4d.C4DAtom</pre>
+</pre>
 </div>
 <div created="20190330120758538" creator="Hans" modified="20190330121008065" modifier="Hans" tags="C4D" title="c4d 打开动画窗口">
 <pre>转到 Animate 界面，右击下方的 时间线/帧 窗口，保存为面板，然后回到自定义的用户界面，随便右键一个面板，新建面板，然后右键该空面板，加载之前保存的面板，最后保存为启动界面即可。</pre>
+</div>
+<div created="20200314110534347" creator="Hans" modified="20200314110820276" modifier="Hans" tags="C4D" title="C4D 将材质赋给层的所有对象 assign materials to layer">
+<pre>* Layer Manager &gt; 右键一个层，Select From Layer，选中该层的所有对象
+* 点击一个材质，右边出现 Material Manager，转到 Assign 一项
+* 将选中的对象拖动到 Assignment 中，即可将这些材质都赋予该材质</pre>
 </div>
 <div created="20200302140322946" creator="Hans" modified="20200304032604608" modifier="Hans" tags="C4D" title="C4D 琴弦动力学 string or rope spline dynamics">
 <pre>; 方法1（推荐）：
@@ -25871,7 +25877,7 @@ https://forums.creativecow.net/docs/forums/post.php?forumid=19&amp;postid=869153
 * Where is the Shortcuttable file in the C4D R20 Folders? : Maxon Cinema 4D 
 ** https://forums.creativecow.net/thread/19/896498</pre>
 </div>
-<div created="20200312094431934" creator="Hans" modified="20200312100206742" modifier="Hans" tags="C4D" title="C4D 坐标：World, Object(Rel), Object(Abs)">
+<div created="20200312094431934" creator="Hans" modified="20200313130700627" modifier="Hans" tags="C4D" title="C4D 坐标：World, Object(Rel), Object(Abs)">
 <pre>* World: 相对于世界原点的坐标
 * Object(Abs)：相对于父级对象的坐标
 * Object(Rel)：去掉冻结变换后的相对坐标
@@ -25884,6 +25890,10 @@ Wrd = Abs ⊕ Parent's Abs
 Abs = Rel ⊕ Frozen
 &lt;/op&gt;
 
+
+---
+* Matrix Fundamentals — Cinema 4D SDK 21.207 documentation 
+** https://developers.maxon.net/docs/Cinema4DPythonSDK/html/manuals/data_algorithms/classic_api/matrix.html#freeze-transformations
 </pre>
 </div>
 <div created="20200214013501483" creator="Hans" modified="20200214013639631" modifier="Hans" tags="C4D Python" title="C4D points to circle">
@@ -26052,6 +26062,25 @@ c4d.EventAdd()
 ---
 * c4d — Cinema 4D SDK 21.207 documentation 
 ** https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d/index.html?highlight=eventadd#c4d.EventAdd
+</pre>
+</div>
+<div created="20200313135058546" creator="Hans" modified="20200313135426717" modifier="Hans" tags="C4D Python" title="C4D python 撤销操作 undo issues">
+<pre>```
+doc.StartUndo()
+print(v_rot_1.GetRelRot())
+# must AddUndo() before the change
+doc.AddUndo(c4d.UNDOTYPE_CHANGE, v_rot_1)
+v_rot_1.SetRelRot(rot_vec(60,0,0))
+doc.EndUndo()
+c4d.EventAdd()
+```
+
+---
+* c4d.documents.BaseDocument — Cinema 4D SDK 21.207 documentation 
+** https://developers.maxon.net/docs/Cinema4DPythonSDK/html/modules/c4d.documents/BaseDocument/index.html?highlight=addundo#BaseDocument.StartUndo
+
+* Fighting with UNDO - Plugin Cafe Forums 
+** http://www.plugincafe.com/forum/forum_posts.asp?TID=12227
 </pre>
 </div>
 <div created="20200313064354049" creator="Hans" modified="20200313064513083" modifier="Hans" tags="C4D Python" title="C4D python 导入外部模块时不能及时更新 cannot update imported modules">
@@ -37204,6 +37233,22 @@ if __name__ == '__main__':
 ** https://stackoverflow.com/questions/8570288/run-python-script-on-selected-file
 </pre>
 </div>
+<div created="20200315120058617" creator="Hans" modified="20200315120328545" modifier="Hans" tags="Python" title="Python append list return new">
+<pre>
+```
+new_list = old_list + [num1, num2]
+```
+或者
+
+```
+new_list = [*old_list, num1, num2]
+```
+
+---
+* python - How to allow list append() method to return the new list - Stack Overflow 
+** https://stackoverflow.com/questions/12902980/how-to-allow-list-append-method-to-return-the-new-list
+</pre>
+</div>
 <div created="20190509132155994" creator="Hans" modified="20190509132216888" modifier="Hans" tags="Python ImageMagick" title="Python bmp 转 png">
 <pre>```
 import os
@@ -37312,6 +37357,17 @@ if __name__ == '__main__':
 ** https://www.python.org/dev/peps/pep-0498/
 
 </pre>
+</div>
+<div created="20200315111307267" creator="Hans" modified="20200315111352146" modifier="Hans" tags="Python" title="Python for in 加上索引">
+<pre>```
+for idx, val in enumerate(int_list):
+    print(idx, val)
+```
+
+
+---
+* python - Accessing the index in 'for' loops? - Stack Overflow 
+** https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops</pre>
 </div>
 <div created="20190709075647477" creator="Hans" modified="20190709075742400" modifier="Hans" tags="Python" title="Python format varible width 变量传入 format 参数">
 <pre>```
@@ -38059,6 +38115,29 @@ with open(filename, encoding='utf-8', mode = ‘r') as f:
 ** https://github.com/rkern/line_profiler/issues/37
 * Python3:使用open()打开文件时提示'gbk' codec can't decode byte的原因
 ** https://www.polarxiong.com/archives/python-3-open-file-gbk-error.html
+</pre>
+</div>
+<div created="20200313132801135" creator="Hans" modified="20200313133050004" modifier="Hans" tags="Python" title="Python2 浮点除法 float division">
+<pre>```
+from __future__ import division
+# this import must be added at the very beginning of the file
+
+&gt;&gt;&gt; 1/2 
+0.5
+
+&gt;&gt;&gt; 1//2
+0
+
+&gt;&gt;&gt; 1//2.0
+0.0
+```
+
+---
+* python - How can I force division to be floating point? Division keeps rounding down to 0? - Stack Overflow 
+** https://stackoverflow.com/questions/1267869/how-can-i-force-division-to-be-floating-point-division-keeps-rounding-down-to-0
+
+* 28.11. __future__ — Future statement definitions — Python 2.7.17 documentation 
+** https://docs.python.org/2/library/__future__.html
 </pre>
 </div>
 <div created="20200313094242708" creator="Hans" modified="20200313094403600" modifier="Hans" tags="Python" title="Python2 re fullmatch">
