@@ -3097,6 +3097,8 @@ Error message and password prompt
 
 <li>Sublime Python 跳到 Build Error</li>
 
+<li>Sublime Python 增加 IDE 功能</li>
+
 <li>Sublime QQ 聊天记录匹配时间</li>
 
 <li>Sublime sidebar/titlebar 颜色和主题一致</li>
@@ -17440,7 +17442,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[Python append list return new]]" title="$:/StoryList">
+<div list="[[Sublime Python 增加 IDE 功能]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -17575,7 +17577,7 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200312094502634" creator="Hans" modified="20200315120105949" modifier="Hans" title="$:/temp/NewTagName">
+<div created="20200312094502634" creator="Hans" modified="20200317125610781" modifier="Hans" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
@@ -18348,7 +18350,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200313053329334" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200317124507719" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -37234,8 +37236,7 @@ if __name__ == '__main__':
 </pre>
 </div>
 <div created="20200315120058617" creator="Hans" modified="20200315120328545" modifier="Hans" tags="Python" title="Python append list return new">
-<pre>
-```
+<pre>```
 new_list = old_list + [num1, num2]
 ```
 或者
@@ -39067,7 +39068,7 @@ footer {
 
 另见：[[Sublime Python 跳到 Build Error]]</pre>
 </div>
-<div created="20180328055550067" creator="Hans" modified="20190123090815388" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime 插件一览">
+<div created="20180328055550067" creator="Hans" modified="20200317124506407" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime 插件一览">
 <pre>Package Control：包管理器
 
 BracketHighlighter：在行号旁边显示括号对的匹配位置
@@ -39136,7 +39137,9 @@ Google Search：谷歌/百度搜索
 
 Hide Menu：如果设置菜单栏隐藏，那么打开新窗口时也隐藏
 
-C++ Completions: C++ 语法补全</pre>
+C++ Completions: C++ 语法补全
+
+LSP：提供类似 IDE 的特性</pre>
 </div>
 <div created="20180118134133625" creator="Hans" modified="20180118134432996" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime 出错 No build system">
 <pre>一般是由于.sublime-build 文件出错导致的。
@@ -41268,6 +41271,33 @@ if not view.match_selector(locations[0], &quot;text.html - source - text.html.ma
 
 另见：[[Sublime 不在行内显示错误框]]
 </pre>
+</div>
+<div created="20200317125557253" creator="Hans" modified="20200317134120567" modifier="Hans" tags="Python [[Sublime Text 3]]" title="Sublime Python 增加 IDE 功能">
+<pre>* Sublime：Package Install &gt; LSP: Language Server Protocol
+* 命令行：`pip install python-language-server`
+* Sublime &gt; Preferences &gt; Package Settings &gt; LSP &gt; Settings
+
+** [ext[./backup_settings/sublime/LSP.sublime-settings]]
+** 不提示语法不规范、错误和标记，只显示函数定义
+
+* Sublime &gt; Package Control &gt; LSP: Enable Language Server Globally
+
+---
+
+* LSP - Packages - Package Control 
+** https://packagecontrol.io/packages/LSP
+
+* sublimelsp/LSP: Language Server Protocol support for Sublime Text 3 
+** https://github.com/sublimelsp/LSP
+
+* palantir/python-language-server: An implementation of the Language Server Protocol for Python 
+** https://github.com/palantir/python-language-server
+
+* Home - Sublime Text Language Server Protocol Documentation 
+** https://lsp.readthedocs.io/en/latest/#python
+
+* pycodestyle plugin ignore setting ignored · Issue #244 · sublimelsp/LSP 
+** https://github.com/sublimelsp/LSP/issues/244</pre>
 </div>
 <div created="20180609053046514" creator="Hans" modified="20180609053142093" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime QQ 聊天记录匹配时间">
 <pre>2018-06-08 0:43:01 Hans
@@ -44096,14 +44126,28 @@ name = proxy      # 默认配置
 ```
 &lt;/ol&gt; &lt;/ol&gt; &lt;/div&gt;</pre>
 </div>
-<div created="20200229064247975" creator="Hans" modified="20200304034421497" modifier="Hans" tags="Tiddlywiki" title="Tiddlywiki 访问外部资源">
-<pre>; 使用 HTML 标签（推荐）
+<div created="20200229064247975" creator="Hans" modified="20200317133710267" modifier="Hans" tags="Tiddlywiki" title="Tiddlywiki 访问外部资源">
+<pre>;方法一：使用 `[ext[...]]`（推荐）
+
+
+```
+[ext[./backup_scripts/c4d]]
+```
+
+效果：[ext[./backup_scripts/c4d]]
+
+---
+; 方法二：使用 HTML 标签
 * 注意：用鼠标中键点击，在新标签页浏览，否则会覆盖当前页面
 
 ```
-&lt;a href=&quot;./backup_scripts/c4d&quot;&gt;File Path&lt;/a&gt;
+&lt;a href=&quot;./backup_scripts/c4d&quot;&gt;./backup_scripts/c4d&lt;/a&gt;
 ```
-效果：&lt;a href=&quot;./backup_scripts/c4d&quot;&gt;File Path&lt;/a&gt;
+效果：&lt;a href=&quot;./backup_scripts/c4d&quot;&gt;./backup_scripts/c4d&lt;/a&gt;
+
+---
+* Linking: TiddlyWiki — a non-linear personal web notebook 
+** https://tiddlywiki.com/static/Linking%2520in%2520WikiText.html
 
 ---
 ---

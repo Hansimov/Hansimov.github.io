@@ -1,0 +1,31 @@
+{
+	"auto_show_diagnostics_panel": "never",
+	"auto_show_diagnostics_panel_level": 0,
+	"clients":
+	{
+		"pyls":
+		{
+			"enabled": true
+		}
+	},
+	"diagnostics_gutter_marker": "",
+	"document_highlight_style": "",
+	"pyls":
+	{
+		"command":
+		[
+			"D:/Anaconda/Scripts/pyls.exe"
+		],
+		"enabled": false,
+		"settings": {
+			"pyls": {
+				"plugins": {
+					"pydocstyle": {
+						"enabled":false
+					}
+				}
+			}
+		}
+	},
+	"show_diagnostics_severity_level": 0
+}
