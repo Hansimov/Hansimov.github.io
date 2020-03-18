@@ -490,7 +490,7 @@
 			</dict>
 		</dict>
 		
-		<dict>
+<!-- 		<dict>
 			<key>name</key>
 			<string>Invalid</string>
 			<key>scope</key>
@@ -517,7 +517,7 @@
 				<key>foreground</key>
 				<string>#AA0044</string>
 			</dict>
-		</dict>
+		</dict> -->
 		
 		<dict>
 			<key>name</key>
@@ -563,7 +563,7 @@
 				<string>#277BD3</string>
 			</dict>
 		</dict>
-	<dict>
+		<dict>
             <key>name</key>
             <string>SublimePythonIDE Warning</string>
             <key>scope</key>
@@ -573,7 +573,8 @@
                 <key>foreground</key>
                 <string>#EDBA00</string>
             </dict>
-        </dict><dict>
+        </dict>
+        <dict>
             <key>name</key>
             <string>SublimePythonIDE Gutter Mark</string>
             <key>scope</key>
@@ -583,7 +584,8 @@
                 <key>foreground</key>
                 <string>#FFFFFF</string>
             </dict>
-        </dict><dict>
+        </dict>
+        <dict>
             <key>name</key>
             <string>SublimePythonIDE Error</string>
             <key>scope</key>
@@ -593,7 +595,8 @@
                 <key>foreground</key>
                 <string>#DA2000</string>
             </dict>
-        </dict></array>
+        </dict>
+    </array>
 	<key>uuid</key>
 	<string>D8D5E82E-3D5B-46B5-B38E-8C841C21347D</string>
 	<key>colorSpaceName</key>
