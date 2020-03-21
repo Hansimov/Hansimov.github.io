@@ -17444,7 +17444,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[Sublime alt backspace/delete subword]]" title="$:/StoryList">
+<div list="将扫描版PDF变清晰" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -18352,7 +18352,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200317180611792" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200320035133012" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -22849,37 +22849,42 @@ plotConfig =
 Plot[RecFunc[x], {x, -1, 1}, Evaluate@plotConfig]
 ```</pre>
 </div>
-<div created="20200128023510045" creator="Hans" modified="20200128112158733" modifier="Hans" tags="Python ImageMagick GhostScript [[Acrobat Reader]] pdftk" title="将扫描版PDF变清晰">
+<div created="20200128023510045" creator="Hans" modified="20200320040138283" modifier="Hans" tags="Python ImageMagick GhostScript [[Acrobat Reader]] pdftk" title="将扫描版PDF变清晰">
 <pre>; 基本思路：提取 PDF 中的图片，将其锐化，然后再合并成单个 PDF
 
-* 【可选】剔除文件中不需要的部分
+* ''【可选】剔除文件中不需要的部分''
 ** 方法一：（推荐）
 *** Acrobat Reader Pro 9 &gt; 文件 &gt; 打印 &gt; 打印范围 &gt; 页面 &gt; ...
 ** 方法二：
 *** [[GhostScript 删除/选取某些页码 remove/select pages]]
 
-* 【可选】裁剪去掉水印
+* ''【可选】裁剪去掉水印''
 ** Acrobat Reader Pro 9 &gt; 文档 &gt; 裁剪页面 &gt; 页面范围 &gt; ...
 
-* 将单个 PDF 提取为多个独立图片
+* ''将单个 PDF 提取为多个独立图片''
 ** 方法一：（推荐）
 *** Acrobat Reader Pro 9 &gt; 文件 &gt; 导出 &gt; 图像 &gt; JPEG
 ** 方法二：
 *** 提取为多个 PDF
 **** `pdftk input.pdf burst`
 *** [[ImageMagick/GhostScript convert 转换 pdf 到 png]]
-* 对每张图片进行锐化处理
+* ''对每张图片进行锐化处理''
 ** &lt;pr&gt;
 magick convert -adaptive-sharpen 0x3 in.jpg out.jpg
 &lt;/pr&gt;
 ** 代码样例：[[sharpen_img.py - ImageMagick 批量锐化图片]]
-* 将图片合并成单个 PDF
+
+* ''【可选】调整部分图片大小（通常是开头和结尾）''
+** Faststone &gt; 编辑 &gt; 调整大小 &gt; 调为和其他页面一样的宽度 + 相同的 DPI
+** 对于已有的PDF，还可以用 Acrobat &gt; 文档 &gt; 替换页面
+
+* ''将图片合并成单个 PDF''
 ** 方法一：（推荐）
 *** Adobe Acrobat Pro 9 &gt; 文件 &gt; 创建 PDF &gt; 合并文件到单个 PDF &gt; 添加文件夹（或选择多个文件）
 ** 方法二：
 *** `magick convert *.jpg -adjoin output.pdf`
 ** 另见：[[ImageMagick 多张图片合成PDF / multiple images to pdf]]
-* 同步书签信息
+* ''同步书签信息''
 ** &lt;pr&gt;
 pdftk original.pdf dump_data output bookmarks.txt
 pdftk middle.pdf update_info bookmarks.txt output output.pdf
