@@ -1,0 +1,21 @@
+.goog-te-banner-frame.skiptranslate {
+    opacity:0;
+    /* height:50px; */
+}
+.goog-te-banner-frame.skiptranslate:hover {
+    opacity:1.0;
+}
+
+#goog-gt-tt > div.top, #goog-gt-tt > div.bottom, #goog-gt-tt > div:nth-child(1) {
+    display:none;
+}
+
+#goog-gt-tt {
+    padding:8px 12px !important;
+/*     text-align:center !important; */
+    left:100px !important;
+}
+
+#goog-gt-tt > div.middle {
+    padding:0px !important;
+}

@@ -2103,6 +2103,8 @@ Error message and password prompt
 
 <li>HTML</li>
 
+<li>HTML 重置计数器为特定值</li>
+
 <li>HTML Entity Search</li>
 
 <li>HTML grid content/text 纵向对齐</li>
@@ -3102,6 +3104,8 @@ Error message and password prompt
 <li>Sublime Python 增加 IDE 功能</li>
 
 <li>Sublime QQ 聊天记录匹配时间</li>
+
+<li>Sublime regex 将文章按句换行</li>
 
 <li>Sublime sidebar/titlebar 颜色和主题一致</li>
 
@@ -17444,7 +17448,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="将扫描版PDF变清晰" title="$:/StoryList">
+<div list="[[Stylish 一些网站的配置]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -17579,7 +17583,7 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200312094502634" creator="Hans" modified="20200318012649917" modifier="Hans" title="$:/temp/NewTagName">
+<div created="20200312094502634" creator="Hans" modified="20200324010641484" modifier="Hans" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
@@ -18352,7 +18356,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200320035133012" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200324045443098" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -28293,6 +28297,12 @@ replot
 <div color="#627e0c" created="20200229053004824" creator="Hans" modified="20200229053014054" modifier="Hans" title="HTML">
 <pre></pre>
 </div>
+<div created="20200321024618986" creator="Hans" modified="20200321024707743" modifier="Hans" tags="HTML" title="HTML 重置计数器为特定值">
+<pre>```
+counter-reset: yourCounter -1
+```
+</pre>
+</div>
 <div created="20171012131339485" creator="Hans" modified="20171012131655360" modifier="Hans" tags="HTML" title="HTML Entity Search">
 <pre>&lt;embed src=&quot;http://www.amp-what.com/unicode/search/&quot; height=800 width=100%&gt;</pre>
 </div>
@@ -37643,8 +37653,10 @@ D:\Anaconda\Library\bin
 * Preview option from extract_scene
 ** https://github.com/3b1b/manim/issues/103</pre>
 </div>
-<div created="20180718065604804" creator="Hans" modified="20180718065754612" modifier="Hans" tags="Python" title="Python matplotlib 键盘关闭窗口">
-<pre>```
+<div created="20180718065604804" creator="Hans" modified="20200321100928679" modifier="Hans" tags="Python" title="Python matplotlib 键盘关闭窗口">
+<pre>默认的是 `Q` 键关闭。
+
+```
 from PIL import Image, ImageDraw
 
 import matplotlib.pyplot as plt
@@ -38688,8 +38700,13 @@ if __name__ == '__main__':
 ---
 </pre>
 </div>
-<div created="20190828062253782" creator="Hans" modified="20200107045912726" modifier="Hans" tags="stylish" title="Stylish 一些网站的配置">
-<pre>''cplusplus：''`.*.cplusplus.com/.*`：
+<div created="20190828062253782" creator="Hans" modified="20200324045441517" modifier="Hans" tags="stylish" title="Stylish 一些网站的配置">
+<pre>详见：[ext[./backup_settings/stylish/]]
+
+
+---
+
+''cplusplus：''`.*.cplusplus.com/.*`：
 
 ```
 pre,code,dt {
@@ -41421,6 +41438,14 @@ if not view.match_selector(locations[0], &quot;text.html - source - text.html.ma
 \d{4}-\d{2}-\d{2}\s\d{1,2}:\d{2}:\d{2}\s
 ```
 </pre>
+</div>
+<div created="20200324010622779" creator="Hans" modified="20200324010725815" modifier="Hans" tags="[[Sublime Text 3]] regex" title="Sublime regex 将文章按句换行">
+<pre>Find: `([。！!？?]|……)`
+Replace: `\1\n`
+
+---
+* Sublime Text Regular Expression Cheat Sheet - jdhao's blog 
+** https://jdhao.github.io/2019/02/28/sublime_text_regex_cheat_sheet/</pre>
 </div>
 <div created="20180122021307831" creator="Hans" modified="20180819021151344" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime sidebar/titlebar 颜色和主题一致">
 <pre>需要更新到最新版本。

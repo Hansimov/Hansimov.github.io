@@ -1,33 +1,5 @@
-/* cyrillic */
-
-@font-face {
-    /*font-family: 'Lora';*/
-    font-style: normal;
-    font-weight: 800;
-    src: local('Lora'), local('Lora-Regular'), url(https://fonts.gstatic.com/s/lora/v9/XXbc_aQtUtjJrkp7pYGEKhTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
-    unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* latin-ext */
-
-@font-face {
-    /*font-family: 'Lora';*/
-    font-style: normal;
-    font-weight: 800;
-    /*src: local('Lora'), local('Lora-Regular'), url(https://fonts.gstatic.com/s/lora/v9/tHQOv8O1rd82EIrTHlzvmhTbgVql8nDJpwnrE27mub0.woff2) format('woff2');*/
-    unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-
-@font-face {
-    /*font-family: 'Lora';*/
-    font-style: normal;
-    font-weight: 800;
-    /*src: local('Lora'), local('Lora-Regular'), url(https://fonts.gstatic.com/s/lora/v9/rAXKWvABQNHjPUk26ixVvvesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');*/
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
 body {
     border: none !important;
-    /*font-family: 'Lora', serif !important;*/
     font-size: 18px !important;
 /*     font-weight:800; */
     background: #FFF !important;
@@ -35,7 +7,6 @@ body {
 #content {
     margin: 0 auto !important;
     border: none !important;
-    /*font-family: 'Lora' !important;*/
     font-size: 16px !important;
     line-height: 80% !important;
     max-width: 920px !important;
@@ -136,7 +107,6 @@ a:hover {
     top: 30px !important;
     left: 10px !important;
     content: 'Wikipedia' !important;
-    /*font-family: 'Lora', serif !important;*/
     /*font-style: italic !important;*/
     
     font-weight: normal !important;
@@ -198,7 +168,6 @@ a:hover {
 /* headlines */
 
 #firstHeading {
-    /*font-family: 'Lora', serif !important;*/
     font-size: 2.7em !important;
     margin-top: 40px !important;
     padding-bottom: 5px !important;
@@ -213,7 +182,6 @@ a:hover {
 #bodyContent h6 {
     margin-top: 40px !important;
     margin-bottom: 25px !important;
-    /*font-family: 'Lora', serif !important;*/
     font-weight: normal !important;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) !important;
 }
@@ -255,7 +223,7 @@ body {
 #toctitle h2:before {
     content: "" !important;
     counter-reset: headingOne;
-    padding-right: -30px !important;
+    padding-right: 0px !important;
 }
 #bodyContent h2:before,
 #bodyContent h3:before,
@@ -490,7 +458,6 @@ table
     padding-bottom: 0 !important;
 }
 #toc #toctitle h2 {
-    /*font-family: "Lora", "Lora", sans-serif !important;*/
     font-size: 17px !important;
 }
 /* floating toc*/

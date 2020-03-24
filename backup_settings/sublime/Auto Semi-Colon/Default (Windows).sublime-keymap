@@ -1,14 +1,15 @@
 [
     {
         "keys": [";"], "command": "auto_semi_colon", "context": [
-            { "key": "selector", "operator": "equal", "operand": "source - string" },
+            { "key": "selector", "operator": "equal", "operand": "source.python" },
             // { "key": "preceding_text", "operator": "not_regex_contains", "operand": "(for(each)?|if|switch|while)[^\\{]+$", "match_all": true }
         ]
     },
     {
         "keys": [":"], "command": "auto_colon", "context": [
-            { "key": "selector", "operator": "equal", "operand": "source - string" },
-            // { "key": "preceding_text", "operator": "not_regex_contains", "operand": "(for(each)?|if|switch|while)[^\\{]+$", "match_all": true }
+            { "key": "selector", "operator": "equal", "operand": "source.python" },
+            // { "key": "preceding_text", "not_regex_contains": "equal", "operand": "source.c, source.c++, source.h" },
+            // { "key": "preceding_text", "operator": "not_regex_contains", "operand": "(for(each)?|if|switch|while)[^\\{]+$", "match_all": true },
         ]
     }
 ]
