@@ -2557,6 +2557,8 @@ Error message and password prompt
 
 <li>pdftk 导入/导出书签 import / export  bookmarks</li>
 
+<li>PhotoScore 破解</li>
+
 <li>PIL 和 Numpy 格式互转</li>
 
 <li>PIL 获取 gif 帧率</li>
@@ -2623,6 +2625,10 @@ Error message and password prompt
 
 <li>Python **kwargs 用法</li>
 
+<li>Python 16进制转2进制 hex to bin leading zeros</li>
+
+<li>Python 16进制字符串转10进制整数</li>
+
 <li>Python 安装 cairocffi</li>
 
 <li>Python 安装 pycairo</li>
@@ -2652,6 +2658,8 @@ Error message and password prompt
 <li>Python 等某线程执行完再执行后续程序</li>
 
 <li>Python 动态条形图 - 两种方法</li>
+
+<li>Python 读取16进制文件到列表 read hex file to list</li>
 
 <li>Python 多线程</li>
 
@@ -2730,6 +2738,8 @@ Error message and password prompt
 <li>Python 脚本加入 Windows 右键菜单</li>
 
 <li>Python 科学计数法有效位数</li>
+
+<li>Python 可变长度格式化字符串 format variable width</li>
 
 <li>Python 两个日期相距的天数/小时/分钟</li>
 
@@ -3050,6 +3060,8 @@ Error message and password prompt
 <li>Sublime AlignTab 使用</li>
 
 <li>Sublime alt backspace/delete subword</li>
+
+<li>Sublime alt组合键不弹出菜单</li>
 
 <li>Sublime Anaconda 插件错误方框</li>
 
@@ -17091,7 +17103,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423060241542" creator="Hans" modified="20200229061738747" modifier="Hans" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/Tags</pre>
 </div>
-<div created="20170423052918471" creator="Hans" modified="20200229061739516" modifier="Hans" title="$:/state/tab/sidebar--1835078512">
+<div created="20170423052918471" creator="Hans" modified="20200326132819541" modifier="Hans" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20170425014253820" creator="Hans" modified="20200229060410625" modifier="Hans" title="$:/state/tabs/controlpanel/toolbars-1345989671">
@@ -17448,7 +17460,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[Stylish 一些网站的配置]]" title="$:/StoryList">
+<div list="[[Python 可变长度格式化字符串 format variable width]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -17583,7 +17595,7 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200312094502634" creator="Hans" modified="20200324010641484" modifier="Hans" title="$:/temp/NewTagName">
+<div created="20200312094502634" creator="Hans" modified="20200328080039962" modifier="Hans" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
@@ -18356,7 +18368,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200324045443098" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200327115757039" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -33879,6 +33891,18 @@ pdftk middle.pdf update_info bookmarks.txt output output.pdf
 * How to import, export and edit bookmarks of a pdf file? - Super User 
 ** https://superuser.com/questions/276311/how-to-import-export-and-edit-bookmarks-of-a-pdf-file/1044429#1044429</pre>
 </div>
+<div created="20200327115643084" creator="Hans" modified="20200327120126234" modifier="Hans" tags="PhotoScore Sibelius" title="PhotoScore 破解">
+<pre>* 下载 PhotoScore 破解版：
+** https://pan.baidu.com/s/12jt7lGQb9naiuYdV-OkYig
+
+* 安装完成后回到电脑桌面找到 PhotoScore 8，右键 &gt; 打开文件的位置
+* 将数据包中fix文件夹下的破解文件 Neuratron PhotoScore.exe 复制到上一步打开的文件目录下，按提示点击“复制和替换”即可；
+* 启动软件，破解成功
+
+---
+* PhotoScore|音乐扫瞄软件|PhotoScore2018破解版（附破解工具）-就是爱分享 
+** https://www.94afx.com/a/diannaoruanjian/PhotoScore2018.html</pre>
+</div>
 <div created="20190612090734251" creator="Hans" modified="20190612090949667" modifier="Hans" tags="PIL Python" title="PIL 和 Numpy 格式互转">
 <pre>```
 import numpy as np
@@ -34407,6 +34431,28 @@ for key in a.__dict__:
 * Python getattr() 函数
 ** http://www.runoob.com/python/python-func-getattr.html</pre>
 </div>
+<div created="20200328040543952" creator="Hans" modified="20200328040626834" modifier="Hans" tags="Python" title="Python 16进制转2进制 hex to bin leading zeros">
+<pre>```
+&gt;&gt;&gt; &quot;{:08b}&quot;.format(127)
+'01111111'
+&gt;&gt;&gt; format(127,&quot;08b&quot;)
+'01111111'
+```
+
+---
+* Convert to binary and keep leading zeros in Python - Stack Overflow 
+** https://stackoverflow.com/questions/16926130/convert-to-binary-and-keep-leading-zeros-in-python
+</pre>
+</div>
+<div created="20200328031129268" creator="Hans" modified="20200328031208910" modifier="Hans" tags="Python" title="Python 16进制字符串转10进制整数">
+<pre>```
+dec_int = int(hex_str, 16)
+```
+
+---
+* How do I convert hex to decimal in Python? - Stack Overflow 
+** https://stackoverflow.com/questions/9210525/how-do-i-convert-hex-to-decimal-in-python</pre>
+</div>
 <div created="20180719055733172" creator="Hans" modified="20180719061201885" modifier="Hans" tags="cairocffi Python" title="Python 安装 cairocffi">
 <pre>* 安装 cffi
 ** 似乎 Anaconda 里已经自带了
@@ -34814,6 +34860,19 @@ ani=FuncAnimation(fig,update,interval=0,blit=False)
 ```
 
 </pre>
+</div>
+<div created="20200328024133594" creator="Hans" modified="20200328024227447" modifier="Hans" tags="Python" title="Python 读取16进制文件到列表 read hex file to list">
+<pre>```
+with open(&quot;abc.mid&quot;,&quot;rb&quot;) as rf:
+    hex_L = [&quot;{:02x}&quot;.format(b) for b in rf.read()]
+
+print(hex_L[0])
+```
+
+
+---
+* Python: Read hex from file into list? - Stack Overflow 
+** https://stackoverflow.com/a/35516923</pre>
 </div>
 <div created="20180514075302127" creator="Hans" modified="20180731062305368" modifier="Hans" tags="Python" title="Python 多线程" type="application/x-tiddler">
 <pre>* 注意点
@@ -35891,6 +35950,17 @@ def floatSciNote(float_num, sig_digits):
 
 * Display a decimal in scientific notation
 ** https://stackoverflow.com/a/6913576/8328786
+</pre>
+</div>
+<div created="20200328080020480" creator="Hans" modified="20200328080048561" modifier="Hans" tags="Python" title="Python 可变长度格式化字符串 format variable width">
+<pre>
+```
+'{num:0{width}}'.format(num=123, width=6)
+```
+
+---
+* string - How do I format a number with a variable number of digits in Python? - Stack Overflow 
+** https://stackoverflow.com/questions/3228865/how-do-i-format-a-number-with-a-variable-number-of-digits-in-python
 </pre>
 </div>
 <div created="20180821083515738" creator="Hans" modified="20180821083918178" modifier="Hans" tags="Python" title="Python 两个日期相距的天数/小时/分钟">
@@ -38616,7 +38686,7 @@ if __name__ == '__main__':
 &lt;/pr&gt;
 </pre>
 </div>
-<div created="20200218115011794" creator="Hans" modified="20200218115042834" modifier="Hans" tags="Crack" title="Sibelius 破解">
+<div created="20200218115011794" creator="Hans" modified="20200327115713740" modifier="Hans" tags="Crack Sibelius" title="Sibelius 破解">
 <pre>* Avid Sibelius Ultimate 2019.4.1破解版(附破解补丁) | 麦田一棵葱 
 ** https://www.52maicong.com/music/9933.html
 *** 百度网盘：https://pan.baidu.com/s/1KDsAb4FbVU6jvrlVTMB9pw 
@@ -39187,8 +39257,8 @@ LSP：提供类似 IDE 的特性</pre>
 ** https://stackoverflow.com/a/19561427/8328786
 </pre>
 </div>
-<div created="20180328075539755" creator="Hans" modified="20200224062248627" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime 的当前 Key Bindings">
-<pre>最新的设置请见 `backup_settings` 下的 `Default (Windows).sublime-keymap`
+<div created="20180328075539755" creator="Hans" modified="20200325020459202" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime 的当前 Key Bindings">
+<pre>最新配置详见：[ext[Default (Windows).sublime-keymap|F:\Sources\git\hanslab\backup_settings\sublime\User\Default (Windows).sublime-keymap]]
 
 
 ```sublime
@@ -40650,6 +40720,17 @@ function (){
 
 </pre>
 </div>
+<div created="20200325013607128" creator="Hans" modified="20200325030628436" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime alt组合键不弹出菜单">
+<pre>* 打开 PackageSourceViewer &gt; Default &gt; Main.sublime-menu
+* 将所有的一级 `mnemonic: &quot;*&quot;` 都注释掉
+* 对于 `alt+f` 和 `alt+e` 失效，不知道为什么。
+
+---
+* Disable Alt key tapping open menu in Windows - Technical Support - Sublime Forum 
+** https://forum.sublimetext.com/t/disable-alt-key-tapping-open-menu-in-windows/27777/3
+
+</pre>
+</div>
 <div created="20171113045802853" creator="Hans" modified="20180503080048682" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime Anaconda 插件错误方框">
 <pre>一劳永逸的方法：
 
@@ -41120,7 +41201,7 @@ for item in tex_key_list:
 ```
 </pre>
 </div>
-<div created="20180429160739730" creator="Hans" modified="20200307135050019" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime license 失效 / unregistered / invalid license">
+<div created="20180429160739730" creator="Hans" modified="20200326021549843" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime license 失效 / unregistered / invalid license">
 <pre>; 最新的 3211 版本
 
 * 访问：https://hexed.it/ ，导入（Open File）`sublime_text.ext`，修改下列字节：
@@ -41130,6 +41211,11 @@ for item in tex_key_list:
 |0x8F099 |0x488901 |0x800910 |
 |0x915AA |0x25 |0x0D |
 |0x915AF |0x00 |0x10 |
+
+或者是：
+
+| !Offset | !Original | !Patched |
+|0x8F4B0 |0x554157415641 |0xBB01000000C3 |
 
 ** 注意，这里的 `0x0E12A ` 和 `0x8F099` 是地址（offset），不是实际的 16 进制字符串
 * 备份原有的执行文件，导出（Export）并覆盖 `sublime_text.exe`
