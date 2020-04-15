@@ -2643,6 +2643,8 @@ Error message and password prompt
 
 <li>Python 词干化/stem/lematize</li>
 
+<li>python 从另一个模块导入全局变量 import global variable from another modul</li>
+
 <li>Python 从字符串中匹配数字</li>
 
 <li>Python 打开 .csv</li>
@@ -2765,6 +2767,8 @@ Error message and password prompt
 
 <li>Python 三元运算符 ?:</li>
 
+<li>Python 十六进制转ascii  hex to ascii</li>
+
 <li>Python 时间戳</li>
 
 <li>Python 时间戳变为日期数值</li>
@@ -2863,6 +2867,8 @@ Error message and password prompt
 
 <li>Python new GitHub issue of manim</li>
 
+<li>Python Non-ASCII character '\xe6' in file</li>
+
 <li>Python os.system 不工作</li>
 
 <li>Python pandas csv sort/排序</li>
@@ -2888,6 +2894,8 @@ Error message and password prompt
 <li>Python requests json.dump \u -&gt; UTF8</li>
 
 <li>Python requests text 编码错误</li>
+
+<li>Python UnicodeDecodeError: 'utf8' codec can't decode byte 0x..</li>
 
 <li>Python UnicodeEncodeError: 'gbk' codec can't encode character</li>
 
@@ -17460,7 +17468,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[Python 可变长度格式化字符串 format variable width]]" title="$:/StoryList">
+<div list="[[Stylish 隐藏知乎问题标题栏 hide zhihu question header]] [[Stylish 一些网站的配置]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -17595,7 +17603,7 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200312094502634" creator="Hans" modified="20200328080039962" modifier="Hans" title="$:/temp/NewTagName">
+<div created="20200312094502634" creator="Hans" modified="20200403013334384" modifier="Hans" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
@@ -18368,7 +18376,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200327115757039" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200415080454285" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -26203,7 +26211,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 * 新版chrome安装离线插件 - beenyoung的博客 - CSDN博客 
 ** https://blog.csdn.net/beenyoung/article/details/79152382</pre>
 </div>
-<div created="20190825062713938" creator="Hans" modified="20200301031323947" modifier="Hans" tags="Chrome" title="Chrome 常用插件">
+<div created="20190825062713938" creator="Hans" modified="20200330055156400" modifier="Hans" tags="Chrome" title="Chrome 常用插件">
 <pre>* Google翻译
 ** 翻译页面：鼠标悬浮到文字上方可查看原文（这点比网页右键翻译有时候要有用）
 
@@ -26247,6 +26255,10 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 * Images On/Off
 ** 一键隐藏或显示当前域名下的图片
 
+* Link Grabber
+** 提取网页中的链接
+
+
 * Stylish
 ** 自定义页面样式
 
@@ -26287,7 +26299,9 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 *** 修改后可能会导致扩展损坏
 
 * Chrome extension source viewer
-** 查看扩展程序源码</pre>
+** 查看扩展程序源码
+
+</pre>
 </div>
 <div created="20191208060654071" creator="Hans" modified="20200229050843762" modifier="Hans" tags="Chrome" title="Chrome 关闭调节声音时左上角的方块">
 <pre>输入网址 `chrome://flags/`，搜索 media key，将 `Hardware Media Key Handling` 这一项设为 `Disabled`。
@@ -34642,6 +34656,23 @@ u'be'
 * Dive Into NLTK, Part IV: Stemming and Lemmatization
 ** https://textminingonline.com/dive-into-nltk-part-iv-stemming-and-lemmatization</pre>
 </div>
+<div created="20200331151101960" creator="Hans" modified="20200331151905151" modifier="Hans" tags="Python" title="python 从另一个模块导入全局变量 import global variable from another modul">
+<pre>`from xxx import *` 在导入 xxx 模块时，全局变量是初始定义的值，后续函数对其产生的改变不会被记录。
+
+要访问经过函数执行更新后的全局变量，应该使用：
+
+```
+import xxx
+global_val = xxx.global_var
+```
+
+---
+* python - Visibility of global variables in imported modules - Stack Overflow 
+** https://stackoverflow.com/questions/15959534/visibility-of-global-variables-in-imported-modules
+
+* python - Using global variables between files? - Stack Overflow 
+** https://stackoverflow.com/questions/13034496/using-global-variables-between-files</pre>
+</div>
 <div created="20181014032834626" creator="Hans" modified="20181014032907409" modifier="Hans" tags="Python" title="Python 从字符串中匹配数字">
 <pre>```
 &gt;&gt;&gt; import re
@@ -35667,7 +35698,7 @@ Elapsed time : 1.2002 s
 * tic, toc functions analog in Python
 ** https://stackoverflow.com/questions/5849800/tic-toc-functions-analog-in-python</pre>
 </div>
-<div created="20200222031757795" creator="Hans" modified="20200222031925658" modifier="Hans" tags="Python" title="Python 计数">
+<div created="20200222031757795" creator="Hans" modified="20200331094650772" modifier="Hans" tags="Python" title="Python 计数">
 <pre>```py
 import collections
 a = [1,1,1,1,2,2,2,2,3,3,4,5,5]
@@ -35682,8 +35713,14 @@ print(counter.most_common(3))
 # [(1, 4), (2, 4), (3, 2)]
 ```
 
+---
 * python - How to count the frequency of the elements in a list? - Stack Overflow 
 ** https://stackoverflow.com/questions/2161752/how-to-count-the-frequency-of-the-elements-in-a-list
+
+* 8.3. collections — High-performance container datatypes — Python 2.7.17 documentation 
+** https://docs.python.org/2/library/collections.html#counter-objects
+* iteration - Pythonic way to iterate over a collections.Counter() instance in descending order? - Stack Overflow 
+** https://stackoverflow.com/questions/11037005/pythonic-way-to-iterate-over-a-collections-counter-instance-in-descending-orde
 </pre>
 </div>
 <div created="20180530171426570" creator="Hans" modified="20180530171736419" modifier="Hans" tags="Python" title="Python 计算相关系数">
@@ -35953,8 +35990,7 @@ def floatSciNote(float_num, sig_digits):
 </pre>
 </div>
 <div created="20200328080020480" creator="Hans" modified="20200328080048561" modifier="Hans" tags="Python" title="Python 可变长度格式化字符串 format variable width">
-<pre>
-```
+<pre>```
 '{num:0{width}}'.format(num=123, width=6)
 ```
 
@@ -36457,6 +36493,26 @@ a if condition else b
 ---
 * Does Python have a ternary conditional operator? - Stack Overflow 
 ** https://stackoverflow.com/questions/394809/does-python-have-a-ternary-conditional-operator
+</pre>
+</div>
+<div created="20200403013122402" creator="Hans" modified="20200403013445572" modifier="Hans" tags="Python" title="Python 十六进制转ascii  hex to ascii">
+<pre>Python 2:
+
+```
+hex_str.decode(&quot;hex&quot;)
+```
+
+
+Python 3：
+
+```
+bytes.fromhex(hex_str).decode('windows-1252'))
+```
+
+
+---
+* python - Convert from ASCII string encoded in Hex to plain ASCII? - Stack Overflow 
+** https://stackoverflow.com/a/49796372
 </pre>
 </div>
 <div created="20180323153013225" creator="Hans" modified="20180324084337261" modifier="Hans" tags="Python" title="Python 时间戳">
@@ -37777,6 +37833,18 @@ I find it here in the `camera.py`!
 
 https://github.com/3b1b/manim/blob/1c3dcfb0c5bfcd4634d4c08b444b57b099ac158f/camera/camera.py#L14</pre>
 </div>
+<div created="20200330022528373" creator="Hans" modified="20200330022622026" modifier="Hans" tags="Python" title="Python Non-ASCII character '\xe6' in file">
+<pre>在文件首加上：
+
+
+```
+# encoding: utf-8
+```
+
+---
+* PEP 263 -- Defining Python Source Code Encodings | Python.org 
+** https://www.python.org/dev/peps/pep-0263/</pre>
+</div>
 <div created="20180720051814495" creator="Hans" modified="20190622155219543" modifier="Hans" tags="Python" title="Python os.system 不工作">
 <pre>一个原因是： `os.system` 不知道输入文件的路径，因此要加上绝对路径
 
@@ -38108,6 +38176,19 @@ print(req.text)
 * Response.text returns improperly decoded text (requests 1.2.3, python 2.7) #1604
 ** https://github.com/requests/requests/issues/1604#issuecomment-24497699
 </pre>
+</div>
+<div created="20200403013319938" creator="Hans" modified="20200403013425886" modifier="Hans" tags="Python" title="Python UnicodeDecodeError: 'utf8' codec can't decode byte 0x..">
+<pre>用 `windows-1252` 编码代替 `utf-8`：
+
+```
+bytes.fromhex(hex_str).decode('windows-1252'))
+```
+
+
+
+---
+* python - UnicodeDecodeError: 'utf8' codec can't decode byte 0xa5 in position 0: invalid start byte - Stack Overflow 
+** https://stackoverflow.com/a/29217546</pre>
 </div>
 <div created="20180325100053713" creator="Hans" modified="20180513115208159" modifier="Hans" tags="Python" title="Python UnicodeEncodeError: 'gbk' codec can't encode character">
 <pre>原因在于 Python 自身的 print 有限制，以及某些字符在 windows 下的 cmd 不支持。
@@ -38770,7 +38851,7 @@ if __name__ == '__main__':
 ---
 </pre>
 </div>
-<div created="20190828062253782" creator="Hans" modified="20200324045441517" modifier="Hans" tags="stylish" title="Stylish 一些网站的配置">
+<div created="20190828062253782" creator="Hans" modified="20200415080452976" modifier="Hans" tags="stylish" title="Stylish 一些网站的配置">
 <pre>详见：[ext[./backup_settings/stylish/]]
 
 
@@ -38801,7 +38882,11 @@ tt {
 
 
 ```
-.Sticky.AppHeader.is-hidden.is-fixed,.Card.QuestionInvitation {
+#root &gt; div &gt; main &gt; div &gt; div.ColumnPageHeader-Wrapper &gt; div:nth-child(2) &gt; div.Sticky.ColumnPageHeader.is-fixed {
+     display: none;
+}
+
+.Sticky.AppHeader.is-hidden.is-fixed {
      display: none;
 }
 ```
@@ -38888,10 +38973,14 @@ article {
 ```
 </pre>
 </div>
-<div created="20190902021959840" creator="Hans" modified="20190903063941775" modifier="Hans" tags="stylish" title="Stylish 隐藏知乎问题标题栏 hide zhihu question header">
+<div created="20190902021959840" creator="Hans" modified="20200415080435940" modifier="Hans" tags="stylish" title="Stylish 隐藏知乎问题标题栏 hide zhihu question header">
 <pre>与该正则表达式匹配的网址：`.*.zhihu.com/.*`：
 
 ```
+#root &gt; div &gt; main &gt; div &gt; div.ColumnPageHeader-Wrapper &gt; div:nth-child(2) &gt; div.Sticky.ColumnPageHeader.is-fixed {
+     display: none;
+}
+
 .Sticky.AppHeader.is-hidden.is-fixed {
      display: none;
 }
