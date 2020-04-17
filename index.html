@@ -2583,9 +2583,15 @@ Error message and password prompt
 
 <li>PowerShell 清屏</li>
 
+<li>PowerShell 文件重定向</li>
+
 <li>PowerShell 无法调用 assoc/ftype</li>
 
 <li>PowerShell 修改字体</li>
+
+<li>PowerShell 运行带空格的exe</li>
+
+<li>PowerShell 在此系统上禁止运行脚本</li>
 
 <li>PowerShell 终止端口进程</li>
 
@@ -3047,6 +3053,8 @@ Error message and password prompt
 
 <li>Sublime 运行 nodejs</li>
 
+<li>Sublime 运行 PowerShell</li>
+
 <li>Sublime 运行 processing</li>
 
 <li>Sublime 运行 Python</li>
@@ -3082,6 +3090,8 @@ Error message and password prompt
 <li>Sublime Build 时不显示杂乱的路径等信息</li>
 
 <li>Sublime Build Pannel 不能输出中文</li>
+
+<li>Sublime C++ 增加 IDE 功能</li>
 
 <li>Sublime console清屏</li>
 
@@ -17468,7 +17478,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[Stylish 隐藏知乎问题标题栏 hide zhihu question header]] [[Stylish 一些网站的配置]]" title="$:/StoryList">
+<div list="[[Sublime 运行 PowerShell]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -17603,7 +17613,7 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200312094502634" creator="Hans" modified="20200403013334384" modifier="Hans" title="$:/temp/NewTagName">
+<div created="20200312094502634" creator="Hans" modified="20200417124020484" modifier="Hans" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
@@ -18376,7 +18386,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200415080454285" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200417124943320" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -22873,7 +22883,7 @@ plotConfig =
 Plot[RecFunc[x], {x, -1, 1}, Evaluate@plotConfig]
 ```</pre>
 </div>
-<div created="20200128023510045" creator="Hans" modified="20200320040138283" modifier="Hans" tags="Python ImageMagick GhostScript [[Acrobat Reader]] pdftk" title="将扫描版PDF变清晰">
+<div created="20200128023510045" creator="Hans" modified="20200417011248328" modifier="Hans" tags="Python ImageMagick GhostScript [[Acrobat Reader]] pdftk" title="将扫描版PDF变清晰">
 <pre>; 基本思路：提取 PDF 中的图片，将其锐化，然后再合并成单个 PDF
 
 * ''【可选】剔除文件中不需要的部分''
@@ -22894,7 +22904,7 @@ Plot[RecFunc[x], {x, -1, 1}, Evaluate@plotConfig]
 *** [[ImageMagick/GhostScript convert 转换 pdf 到 png]]
 * ''对每张图片进行锐化处理''
 ** &lt;pr&gt;
-magick convert -adaptive-sharpen 0x3 in.jpg out.jpg
+magick convert -contrast -contrast -adaptive-sharpen 0x3 in.jpg out.jpg
 &lt;/pr&gt;
 ** 代码样例：[[sharpen_img.py - ImageMagick 批量锐化图片]]
 
@@ -34083,6 +34093,28 @@ tc-drop-down a {display:inline;padding:0}</pre>
 <div created="20180321085125197" creator="Hans" modified="20180321085144001" modifier="Hans" tags="PowerShell" title="PowerShell 清屏">
 <pre>`Clear-Host`</pre>
 </div>
+<div created="20200417120407240" creator="Hans" modified="20200417122319667" modifier="Hans" tags="PowerShell" title="PowerShell 文件重定向">
+<pre>
+
+```
+PS&gt;  Get-Content &quot;input.txt&quot; | &amp; &quot;.\my program.exe&quot; &gt; &quot;output.txt&quot;
+```
+或者
+
+```
+PS&gt;  Get-Content &quot;input.txt&quot; | &amp; &quot;.\my program.exe&quot; | Out-File &quot;output.txt&quot;
+```
+
+---
+* Windows PowerShell的“管道”以及对可执行文件的文件重定向_C/C++_fjjaylz的博客-CSDN博客 
+** https://blog.csdn.net/fjjaylz/article/details/86663013
+
+* Redirecting standard input\output in Windows PowerShell - Stack Overflow 
+** https://stackoverflow.com/questions/11447598/redirecting-standard-input-output-in-windows-powershell
+
+* scripting - Basic PowerShell Script Issue: &quot;Expressions are only allowed as the first element of a pipeline&quot; - Stack Overflow 
+** https://stackoverflow.com/questions/25078049/basic-powershell-script-issue-expressions-are-only-allowed-as-the-first-elemen</pre>
+</div>
 <div created="20181203123146235" creator="Hans" modified="20181203123245166" modifier="Hans" tags="PowerShell" title="PowerShell 无法调用 assoc/ftype">
 <pre>在 PS 中使用如下命令：
 
@@ -34107,6 +34139,32 @@ cmd /c ftype
 ---
 * windows10 cmd和powershell字体格式永久更改_运维_亮子的专栏-CSDN博客 
 ** https://blog.csdn.net/glDemo/article/details/79028569</pre>
+</div>
+<div created="20200417094538628" creator="Hans" modified="20200417122237058" modifier="Hans" tags="PowerShell" title="PowerShell 运行带空格的exe">
+<pre>使用 `&amp;` 运算符
+
+```
+&amp; &quot;./p15-1 cin.exe&quot;
+```
+
+注意：不要忘记加上 `./`
+
+---
+* Spaces cause split in path with PowerShell - Stack Overflow 
+** https://stackoverflow.com/questions/18537098/spaces-cause-split-in-path-with-powershell
+</pre>
+</div>
+<div created="20200417123025815" creator="Hans" modified="20200417123111482" modifier="Hans" tags="PowerShell" title="PowerShell 在此系统上禁止运行脚本">
+<pre>
+```
+powershell -executionpolicy bypass -File .\Test.ps1
+```
+
+
+---
+* windows - How to run a PowerShell script - Stack Overflow 
+** https://stackoverflow.com/a/28355427
+</pre>
 </div>
 <div created="20180413082530401" creator="Hans" modified="20180413083303315" modifier="Hans" tags="PowerShell JavaScript nodejs" title="PowerShell 终止端口进程">
 <pre>; 一步到位的方法：
@@ -39251,7 +39309,7 @@ footer {
 
 另见：[[Sublime Python 跳到 Build Error]]</pre>
 </div>
-<div created="20180328055550067" creator="Hans" modified="20200317124506407" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime 插件一览">
+<div created="20180328055550067" creator="Hans" modified="20200417074207628" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime 插件一览">
 <pre>Package Control：包管理器
 
 BracketHighlighter：在行号旁边显示括号对的匹配位置
@@ -39321,6 +39379,8 @@ Google Search：谷歌/百度搜索
 Hide Menu：如果设置菜单栏隐藏，那么打开新窗口时也隐藏
 
 C++ Completions: C++ 语法补全
+
+EasyClangComplete: C++ 语法补全
 
 LSP：提供类似 IDE 的特性</pre>
 </div>
@@ -40543,6 +40603,25 @@ package resource view，修改 nodejs 的 encoding 为 cp936，然后删除 shel
 ```
 </pre>
 </div>
+<div created="20200417124006562" creator="Hans" modified="20200417134910540" modifier="Hans" tags="[[Sublime Text 3]] PowerShell" title="Sublime 运行 PowerShell">
+<pre>`powershell.sublime-build`：
+
+```
+{
+    &quot;cmd&quot;: [&quot;powershell.exe&quot;,&quot;-executionpolicy&quot;,&quot;bypass&quot;, &quot;-File&quot;, &quot;$file&quot;],
+    &quot;file_patterns&quot;: [&quot;*.ps1&quot;],
+}
+```
+
+
+---
+* PowerShell/Powershell.sublime-build at master · SublimeText/PowerShell 
+** https://github.com/SublimeText/PowerShell/blob/master/Support/Powershell.sublime-build
+
+* Make Build system use powershell instead of cmd - Technical Support - Sublime Forum 
+** https://forum.sublimetext.com/t/make-build-system-use-powershell-instead-of-cmd/29460/2
+</pre>
+</div>
 <div created="20180322054926666" creator="Hans" modified="20180322060900710" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime 运行 processing">
 <pre>* Sublime 安装插件 Processing
 ** https://github.com/b-g/processing-sublime
@@ -40995,6 +41074,22 @@ self.debug_text += &quot;[dir: &quot; + str(os.getcwd()) + &quot;]\n&quot;
 ** https://tieba.baidu.com/p/3698901424?red_tag=1231573319
 * [[Sublime 运行 Python]]
 </pre>
+</div>
+<div created="20200417074033853" creator="Hans" modified="20200417085345534" modifier="Hans" tags="[[Sublime Text 3]] C/C++" title="Sublime C++ 增加 IDE 功能">
+<pre>* Sublime：Package Install &gt; EasyClangComplete
+* 安装 LLVM，并添加到系统路径
+** 找到 Pre-Built Binaries，选择最新版本
+** https://releases.llvm.org/download.html
+* 配置 Cmake
+** ……
+
+
+---
+* EasyClangComplete 
+** https://niosus.github.io/EasyClangComplete/
+
+* LLVM Download Page 
+** https://releases.llvm.org/download.html</pre>
 </div>
 <div created="20180321111118615" creator="Hans" modified="20180321111150792" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime console清屏">
 <pre>安装插件 ClearConsole
@@ -41573,12 +41668,12 @@ if not view.match_selector(locations[0], &quot;text.html - source - text.html.ma
 另见：[[Sublime 不在行内显示错误框]]
 </pre>
 </div>
-<div created="20200317125557253" creator="Hans" modified="20200317152555209" modifier="Hans" tags="Python [[Sublime Text 3]]" title="Sublime Python 增加 IDE 功能">
+<div created="20200317125557253" creator="Hans" modified="20200417071842698" modifier="Hans" tags="Python [[Sublime Text 3]]" title="Sublime Python 增加 IDE 功能">
 <pre>* Sublime：Package Install &gt; LSP: Language Server Protocol
 * 命令行：`pip install python-language-server`
 * Sublime &gt; Preferences &gt; Package Settings &gt; LSP &gt; Settings
 
-** [ext[./backup_settings/sublime/LSP.sublime-settings]]
+** [ext[./backup_settings/sublime/User/LSP.sublime-settings]]
 ** 不提示语法不规范、错误和标记，只显示函数定义
 ** ''重启 Sublime 后才会生效''
 
