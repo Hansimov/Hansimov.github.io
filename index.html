@@ -2979,6 +2979,8 @@ Error message and password prompt
 
 <li>Sublime 的当前设置 settings</li>
 
+<li>Sublime 定制build显示的信息 Finished in 0.3s</li>
+
 <li>Sublime 断词设置</li>
 
 <li>Sublime 对齐插件 AlignTab</li>
@@ -17613,7 +17615,7 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200312094502634" creator="Hans" modified="20200417124020484" modifier="Hans" title="$:/temp/NewTagName">
+<div created="20200312094502634" creator="Hans" modified="20200419024942357" modifier="Hans" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
@@ -18386,7 +18388,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200417124943320" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200422114710332" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -22883,7 +22885,7 @@ plotConfig =
 Plot[RecFunc[x], {x, -1, 1}, Evaluate@plotConfig]
 ```</pre>
 </div>
-<div created="20200128023510045" creator="Hans" modified="20200417011248328" modifier="Hans" tags="Python ImageMagick GhostScript [[Acrobat Reader]] pdftk" title="将扫描版PDF变清晰">
+<div created="20200128023510045" creator="Hans" modified="20200418012841390" modifier="Hans" tags="Python ImageMagick GhostScript [[Acrobat Reader]] pdftk" title="将扫描版PDF变清晰">
 <pre>; 基本思路：提取 PDF 中的图片，将其锐化，然后再合并成单个 PDF
 
 * ''【可选】剔除文件中不需要的部分''
@@ -22903,8 +22905,11 @@ Plot[RecFunc[x], {x, -1, 1}, Evaluate@plotConfig]
 **** `pdftk input.pdf burst`
 *** [[ImageMagick/GhostScript convert 转换 pdf 到 png]]
 * ''对每张图片进行锐化处理''
-** &lt;pr&gt;
+** 样例 1：&lt;pr&gt;
 magick convert -contrast -contrast -adaptive-sharpen 0x3 in.jpg out.jpg
+&lt;/pr&gt;
+** 样例 2：&lt;pr&gt;
+magick convert -level 48%,100% -contrast-stretch 4% -adaptive-sharpen 0x3 -contrast -contrast in.jpg out.jpg
 &lt;/pr&gt;
 ** 代码样例：[[sharpen_img.py - ImageMagick 批量锐化图片]]
 
@@ -34094,9 +34099,7 @@ tc-drop-down a {display:inline;padding:0}</pre>
 <pre>`Clear-Host`</pre>
 </div>
 <div created="20200417120407240" creator="Hans" modified="20200417122319667" modifier="Hans" tags="PowerShell" title="PowerShell 文件重定向">
-<pre>
-
-```
+<pre>```
 PS&gt;  Get-Content &quot;input.txt&quot; | &amp; &quot;.\my program.exe&quot; &gt; &quot;output.txt&quot;
 ```
 或者
@@ -34155,8 +34158,7 @@ cmd /c ftype
 </pre>
 </div>
 <div created="20200417123025815" creator="Hans" modified="20200417123111482" modifier="Hans" tags="PowerShell" title="PowerShell 在此系统上禁止运行脚本">
-<pre>
-```
+<pre>```
 powershell -executionpolicy bypass -File .\Test.ps1
 ```
 
@@ -39463,6 +39465,23 @@ LSP：提供类似 IDE 的特性</pre>
 }
 ```</pre>
 </div>
+<div created="20200419024908707" creator="Hans" modified="20200419030630865" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime 定制build显示的信息 Finished in 0.3s">
+<pre>Package Resource Viewer &gt; Default &gt; exec.py
+
+搜索 `if exit_code == 0`（大约从 360 行起），改成如下内容：
+
+```
+if exit_code == 0 or exit_code is None：
+    self.append_string(proc, &quot;[=== %.1fs ===]&quot; % elapsed)
+else:
+    self.append_string(proc, &quot;[=== %.1fs - Exit code %d ===\n&quot; % (elapsed, exit_code))
+    self.append_string(proc, self.debug_text)
+```
+
+---
+* How can I change the build time from seconds to milliseconds - Technical Support - Sublime Forum 
+** https://forum.sublimetext.com/t/how-can-i-change-the-build-time-from-seconds-to-milliseconds/47678/4</pre>
+</div>
 <div created="20180719063629591" creator="Hans" modified="20180719063906631" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime 断词设置">
 <pre>```
 &quot;word_separators&quot;: &quot;./\\()\&quot;'-:,.;&lt;&gt;~!@#$%^&amp;*|+=[]{}`~?，。；！？、‘’“”《》（）【】…&quot;,
@@ -40603,15 +40622,100 @@ package resource view，修改 nodejs 的 encoding 为 cp936，然后删除 shel
 ```
 </pre>
 </div>
-<div created="20200417124006562" creator="Hans" modified="20200417134910540" modifier="Hans" tags="[[Sublime Text 3]] PowerShell" title="Sublime 运行 PowerShell">
-<pre>`powershell.sublime-build`：
+<div created="20200417124006562" creator="Hans" modified="20200422122059017" modifier="Hans" tags="[[Sublime Text 3]] PowerShell" title="Sublime 运行 PowerShell">
+<pre>* 详见以下文件：
+** [ext[./backup_settings/sublime/User/powershell.sublime-build]]
+** [ext[./backup_settings/sublime/User/powershell.sublime-syntax]]
+** [ext[./backup_settings/sublime/User/powershell.tmPreferences]]
 
-```
+
+---
+
+* 新建 `powershell.sublime-build`：
+
+&lt;op&gt;
 {
     &quot;cmd&quot;: [&quot;powershell.exe&quot;,&quot;-executionpolicy&quot;,&quot;bypass&quot;, &quot;-File&quot;, &quot;$file&quot;],
     &quot;file_patterns&quot;: [&quot;*.ps1&quot;],
+    &quot;encoding&quot;: &quot;cp936&quot;,
 }
+&lt;/op&gt;
+
+
+
+* 新建 `powershell.sublime-syntax`：
+
+** 复制 Package Resource Viewer &gt; Batch File &gt; `Batch File.sublime-syntax`
+
+** 修改前几行为：
+
+
+&lt;ol&gt;
+
+```py
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: PowerShell
+file_extensions:
+  - ps1
+scope: source.ps1
+...
 ```
+&lt;/ol&gt;
+
+
+** 以及 371 行附近：
+
+&lt;ol&gt;
+
+```py
+    # REM command
+    # https://technet.microsoft.com/en-us/library/bb490986.aspx
+    - match: &quot;#&quot;
+      # scope: keyword.command.rem.dosbatch
+      scope: comment.line.rem.dosbatch
+      push:
+        # meta_content_scope is used since rem should not be
+        # highlighted as a comment, but a command
+        - meta_content_scope: comment.line.rem.dosbatch
+        # - meta_content_scope: keyword.command.rem.dosbatch
+```
+&lt;/ol&gt;
+
+
+
+* 新建 `powershell.tmPreferences`：
+
+&lt;ol&gt;
+
+```xml
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+    &lt;key&gt;name&lt;/key&gt;
+    &lt;string&gt;Comments&lt;/string&gt;
+    &lt;key&gt;scope&lt;/key&gt;
+    &lt;string&gt;source.ps1&lt;/string&gt;
+    &lt;key&gt;settings&lt;/key&gt;
+    &lt;dict&gt;
+        &lt;key&gt;shellVariables&lt;/key&gt;
+        &lt;array&gt;
+            &lt;dict&gt;
+                &lt;key&gt;name&lt;/key&gt;
+                &lt;string&gt;TM_COMMENT_START&lt;/string&gt;
+                &lt;key&gt;value&lt;/key&gt;
+                &lt;string&gt;# &lt;/string&gt;
+            &lt;/dict&gt;
+        &lt;/array&gt;
+    &lt;/dict&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+
+```
+&lt;/ol&gt;
+
+
 
 
 ---
@@ -40620,6 +40724,9 @@ package resource view，修改 nodejs 的 encoding 为 cp936，然后删除 shel
 
 * Make Build system use powershell instead of cmd - Technical Support - Sublime Forum 
 ** https://forum.sublimetext.com/t/make-build-system-use-powershell-instead-of-cmd/29460/2
+
+* Toggle Comment with a custom sublime-syntax - Technical Support - Sublime Forum 
+** https://forum.sublimetext.com/t/toggle-comment-with-a-custom-sublime-syntax/18789/3
 </pre>
 </div>
 <div created="20180322054926666" creator="Hans" modified="20180322060900710" modifier="Hans" tags="[[Sublime Text 3]]" title="Sublime 运行 processing">

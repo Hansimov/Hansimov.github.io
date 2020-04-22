@@ -1,0 +1,6 @@
+<snippet>
+    <description>&lt;&lt;" "&lt;&lt;</description>
+    <content><![CDATA[<< endl;]]></content>
+    <tabTrigger>ce</tabTrigger>
+    <scope>(source.c | source.c++)</scope>
+</snippet>

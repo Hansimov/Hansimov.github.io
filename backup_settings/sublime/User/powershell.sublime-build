@@ -1,4 +1,5 @@
 {
     "cmd": ["powershell.exe","-executionpolicy","bypass", "-File", "$file"],
     "file_patterns": ["*.ps1"],
+    "encoding": "cp936",
 }

@@ -1,0 +1,22 @@
+<snippet>
+    <description>c++: main</description>
+    <content><![CDATA[
+#include <stdio.h>
+
+using namespace std;
+
+static const auto _ = []() {
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+    return nullptr;
+}();
+
+int main() {
+    $0
+
+    return 0;
+}
+]]></content>
+    <tabTrigger>main</tabTrigger>
+    <scope>source.c++</scope>
+</snippet>

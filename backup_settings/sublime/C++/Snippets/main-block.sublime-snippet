@@ -1,0 +1,17 @@
+<snippet>
+    <description>#include main()</description>
+    <content><![CDATA[include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    ${0}
+
+    return 0;
+}]]></content>
+    <tabTrigger>include</tabTrigger>
+    <scope>(source.c | source.c++)</scope>
+</snippet>
