@@ -2645,6 +2645,8 @@ Error message and password prompt
 
 <li>Python 不打印文件一行中的换行符</li>
 
+<li>Python 测试 ip port 连接情况</li>
+
 <li>Python 出错时仍旧写入文件</li>
 
 <li>Python 词干化/stem/lematize</li>
@@ -2669,11 +2671,11 @@ Error message and password prompt
 
 <li>Python 读取16进制文件到列表 read hex file to list</li>
 
+<li>Python 多进程 multiprocessing</li>
+
 <li>Python 多线程</li>
 
 <li>Python 多线程 Ctrl+C 中断</li>
-
-<li>Python 多线程 multithread with `threading`</li>
 
 <li>Python 二进制数组转为整数</li>
 
@@ -2749,6 +2751,8 @@ Error message and password prompt
 
 <li>Python 可变长度格式化字符串 format variable width</li>
 
+<li>Python 立刻输出 print immediately</li>
+
 <li>Python 两个日期相距的天数/小时/分钟</li>
 
 <li>Python 列表部分删除操作</li>
@@ -2817,6 +2821,8 @@ Error message and password prompt
 
 <li>Python 找出 数组/字符串 中某个 元素/子字符串 的所有索引</li>
 
+<li>Python 正则 非贪婪 regex non-greedy</li>
+
 <li>Python 正则表达式 re/regex 懒惰匹配</li>
 
 <li>Python 正则表达式 re/regex 匹配换行符在内的所有字符</li>
@@ -2877,6 +2883,8 @@ Error message and password prompt
 
 <li>Python os.system 不工作</li>
 
+<li>Python os.system 抑制输出 suppress output</li>
+
 <li>Python pandas csv sort/排序</li>
 
 <li>python pandas DataFrame Keyerror</li>
@@ -2900,6 +2908,8 @@ Error message and password prompt
 <li>Python requests json.dump \u -&gt; UTF8</li>
 
 <li>Python requests text 编码错误</li>
+
+<li>Python try except 打印出错信息</li>
 
 <li>Python UnicodeDecodeError: 'utf8' codec can't decode byte 0x..</li>
 
@@ -3552,6 +3562,8 @@ Error message and password prompt
 <li>Windows 必须管理员权限才能删除文件夹·</li>
 
 <li>Windows 更新后声音变小</li>
+
+<li>Windows 开启 telnet</li>
 
 <li>Windows 麦克风声音时大时小</li>
 
@@ -17480,7 +17492,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[Sublime 运行 PowerShell]]" title="$:/StoryList">
+<div list="[[Python 多线程 Ctrl+C 中断]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -17615,7 +17627,7 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200312094502634" creator="Hans" modified="20200419024942357" modifier="Hans" title="$:/temp/NewTagName">
+<div created="20200312094502634" creator="Hans" modified="20200424091828824" modifier="Hans" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
@@ -18388,7 +18400,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200422114710332" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200424150853807" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -34662,6 +34674,51 @@ for line in file:
 ```
 </pre>
 </div>
+<div created="20200424032936758" creator="Hans" modified="20200424033308601" modifier="Hans" tags="Python" title="Python 测试 ip port 连接情况">
+<pre>```
+import socket
+ip,port = &quot;1.2.3.4&quot;, &quot;80&quot;
+
+skt = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+skt.settimeout(3)
+try:
+    # s.connect((ip, int(port)))
+    # s.shutdown(socket.SHUT_RDWR)
+    ex_code = skt.connect_ex((ip, int(port)))
+    print(ex_code)
+except Exception as e:
+    print(e)
+finally:
+    skt.close()
+```
+
+或者是：
+
+
+```
+import socket
+ip,port = &quot;1.2.3.4&quot;, &quot;80&quot;
+
+skt = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+ex_code = sock.connect_ex((ip,int(port)))
+if ex_code == 0:
+   print(&quot;Port is open&quot;)
+else:
+   print(&quot;Port no response&quot;)
+skt.close()
+```
+
+
+---
+* python - How to check if a network port is open on linux? - Stack Overflow 
+** https://stackoverflow.com/questions/19196105/how-to-check-if-a-network-port-is-open-on-linux
+
+* Using Python to check if remote port is open and accessible. 
+** https://gist.github.com/betrcode/0248f0fda894013382d7
+
+* Socket Programming HOWTO — Python 3.8.2 documentation 
+** https://docs.python.org/3/howto/sockets.html</pre>
+</div>
 <div created="20180324142414280" creator="Hans" modified="20180324143857269" modifier="Hans" tags="Python" title="Python 出错时仍旧写入文件">
 <pre>可以在 print() 之后加上一句 `file.truncate()`
 
@@ -34965,6 +35022,36 @@ print(hex_L[0])
 * Python: Read hex from file into list? - Stack Overflow 
 ** https://stackoverflow.com/a/35516923</pre>
 </div>
+<div created="20190122100433120" creator="Hans" modified="20200424123736346" modifier="Hans" tags="Python" title="Python 多进程 multiprocessing">
+<pre>```
+import requests
+import re
+import sys
+from multiprocessing.dummy import Pool
+
+def getIPList():
+    ...
+    return ip_list
+
+def checkIP(ip):
+    ...
+
+if __name__ == '__main__':
+    ip_list = getIPList()
+    pool = Pool(5)
+    pool.map_async(checkIP, ip_list).get(100)
+```
+
+---
+
+* How to use threading in Python?
+** https://stackoverflow.com/a/2846697
+** https://stackoverflow.com/a/28463266
+
+
+* Keyboard Interrupts with python's multiprocessing Pool
+** https://stackoverflow.com/a/1408476</pre>
+</div>
 <div created="20180514075302127" creator="Hans" modified="20180731062305368" modifier="Hans" tags="Python" title="Python 多线程" type="application/x-tiddler">
 <pre>* 注意点
 ** `import time, threading`
@@ -35053,9 +35140,10 @@ mythread--0007 is ended
 
 </pre>
 </div>
-<div created="20180514084701345" creator="Hans" modified="20180731062257385" modifier="Hans" tags="Python" title="Python 多线程 Ctrl+C 中断">
+<div created="20180514084701345" creator="Hans" modified="20200424151128491" modifier="Hans" tags="Python" title="Python 多线程 Ctrl+C 中断">
 <pre>* 注意点：
-** 在 thrd start() 之前先设置 `thrd.daemon=True`
+** 在 `t.start()` 之前先设置 `thrd.daemon=True`
+** 不要使用 `t.join()`
 ** 在主程序最后加上：
 
 &lt;ol&gt;
@@ -35066,14 +35154,29 @@ while True:
 ```
 &lt;/ol&gt;
 
+或者
+
+&lt;ol&gt;
+
+```
+def is_any_thread_alive(threads):
+    return True in [t.isAlive() for t in threads]
+
+while is_anythread_alive(threads):
+        time.sleep(1)
+```
+&lt;/ol&gt;
+
 ---
 * Cannot kill Python script with Ctrl-C
 ** https://stackoverflow.com/a/11816038/8328786
 
+* Python thread sample with handling Ctrl-C 
+** https://gist.github.com/ruedesign/5218221
 
 ---
 
-样例：
+样例 1：
 
 ```
 def startThreads(thread_pool):
@@ -35102,37 +35205,56 @@ if __name__ == '__main__':
     while True:
         time.sleep(1)
 ```
-</pre>
-</div>
-<div created="20190122100433120" creator="Hans" modified="20191114171354195" modifier="Hans" tags="Python" title="Python 多线程 multithread with `threading`">
-<pre>```
-import requests
-import re
+
+样例 2：
+
+
+```
+import threading
+import time
+import random
 import sys
-from multiprocessing.dummy import Pool
 
-def getIPList():
-    ...
-    return ip_list
+def job1():
+    global cnt, lock
+    # global cnt
+    lock.acquire()
+    for i in range(10):
+        time.sleep(random.random())
+        cnt += 1
+        print(&quot;job1: &quot;,cnt)
+        sys.stdout.flush()
+    lock.release()
 
-def checkIP(ip):
-    ...
+def job2():
+    global cnt, lock
+    # global cnt
+    lock.acquire()
+    for i in range(10):
+        time.sleep(random.random())
+        cnt += 10
+        print(&quot;job2: &quot;,cnt)
+        sys.stdout.flush()
+    lock.release()
 
-if __name__ == '__main__':
-    ip_list = getIPList()
-    pool = Pool(5)
-    pool.map_async(checkIP, ip_list).get(100)
+def is_any_thread_alive(threads):
+    return True in [t.is_alive() for t in threads]
+
+if __name__ == &quot;__main__&quot;:
+    lock = threading.Lock()
+    cnt = 0
+    t1 = threading.Thread(target=job1,daemon=True)
+    t2 = threading.Thread(target=job2,daemon=True)
+
+    t1.start()
+    t2.start()
+
+    while is_any_thread_alive([t1,t2]):
+        time.sleep(1)
+
 ```
 
----
-
-* How to use threading in Python?
-** https://stackoverflow.com/a/2846697
-** https://stackoverflow.com/a/28463266
-
-
-* Keyboard Interrupts with python's multiprocessing Pool
-** https://stackoverflow.com/a/1408476</pre>
+</pre>
 </div>
 <div created="20180519135532274" creator="Hans" modified="20180519135550634" modifier="Hans" tags="Python" title="Python 二进制数组转为整数">
 <pre>```
@@ -36057,6 +36179,15 @@ def floatSciNote(float_num, sig_digits):
 ---
 * string - How do I format a number with a variable number of digits in Python? - Stack Overflow 
 ** https://stackoverflow.com/questions/3228865/how-do-i-format-a-number-with-a-variable-number-of-digits-in-python
+</pre>
+</div>
+<div created="20200424091821101" creator="Hans" modified="20200424091912700" modifier="Hans" tags="Python" title="Python 立刻输出 print immediately">
+<pre>```
+import sys
+
+print(&quot;xxxx&quot;)
+sys.stdout.flush()
+```
 </pre>
 </div>
 <div created="20180821083515738" creator="Hans" modified="20180821083918178" modifier="Hans" tags="Python" title="Python 两个日期相距的天数/小时/分钟">
@@ -37215,6 +37346,16 @@ def find(s, ch):
 ** https://stackoverflow.com/questions/11122291/python-find-char-in-string-can-i-get-all-indexes
 </pre>
 </div>
+<div created="20200424064934743" creator="Hans" modified="20200424065058024" modifier="Hans" tags="Python" title="Python 正则 非贪婪 regex non-greedy">
+<pre>Python 正则默认是贪婪的（即匹配尽可能多的字符）。
+
+在 `[\s\S]*` 后面加上 `?`，即 `[\s\S]*?`
+
+```
+item = re.findall(r&quot;&lt;td&gt;([\s\S]*?)&lt;/td&gt;&quot;,res)
+```
+</pre>
+</div>
 <div created="20191107061314614" creator="Hans" modified="20191107061405988" modifier="Hans" tags="Python regex" title="Python 正则表达式 re/regex 懒惰匹配">
 <pre>`[\S|\s]*?`
 
@@ -37926,6 +38067,37 @@ def openImg(img_name):
 * Using os.system() inside a function
 ** https://stackoverflow.com/a/43502143/8328786</pre>
 </div>
+<div created="20200424021730536" creator="Hans" modified="20200424022344975" modifier="Hans" tags="Python" title="Python os.system 抑制输出 suppress output">
+<pre>弃用 `os.system`，换用 `subprocess`。
+
+
+```
+import os
+import subprocess
+
+FNULL = open(os.devnull, 'w')
+retcode = subprocess.call(['echo', 'foo'], stdout=FNULL, stderr=subprocess.STDOUT)
+
+```
+
+或者一行
+
+
+```
+retcode = subprocess.call(['echo', 'foo'], stdout=open(os.devnull, 'w'), stderr=subprocess.STDOUT)
+```
+
+
+等价于（Linux 下）：
+
+```
+retcode = os.system(&quot;echo 'foo' &amp;&gt; /dev/null&quot;)
+```
+
+---
+* How to hide output of subprocess in Python 2.7 - Stack Overflow 
+** https://stackoverflow.com/questions/11269575/how-to-hide-output-of-subprocess-in-python-2-7</pre>
+</div>
 <div created="20180826145740288" creator="Hans" modified="20180826145929441" modifier="Hans" tags="Python" title="Python pandas csv sort/排序">
 <pre>```
 df_sorted = df.sort_values(by='view', ascending=False)
@@ -38235,6 +38407,20 @@ print(req.text)
 ---
 * Response.text returns improperly decoded text (requests 1.2.3, python 2.7) #1604
 ** https://github.com/requests/requests/issues/1604#issuecomment-24497699
+</pre>
+</div>
+<div created="20200424014858700" creator="Hans" modified="20200424014947897" modifier="Hans" tags="Python" title="Python try except 打印出错信息">
+<pre>```
+try:
+    r = requests.get(cur_url, proxies=cur_proxy, timeout=6)
+    print(r)
+except Exception as e:
+    print(e)
+```
+
+---
+* How to print an exception in Python? - Stack Overflow 
+** https://stackoverflow.com/questions/1483429/how-to-print-an-exception-in-python
 </pre>
 </div>
 <div created="20200403013319938" creator="Hans" modified="20200403013425886" modifier="Hans" tags="Python" title="Python UnicodeDecodeError: 'utf8' codec can't decode byte 0x..">
@@ -47412,6 +47598,66 @@ cmd /c ftype py_auto_file=&quot;D:\SumatraPDF\SumatraPDF.exe&quot; &quot;%1&quot
 </div>
 <div created="20200213045152355" creator="Hans" modified="20200213045317488" modifier="Hans" tags="Windows" title="Windows 更新后声音变小">
 <pre>右下角右键小喇叭 &gt; 打开声音设置 &gt; 耳机属性 &gt; Enhancements &gt; 勾选 Loudness Equalization</pre>
+</div>
+<div created="20200423120258294" creator="Hans" modified="20200423122608103" modifier="Hans" tags="Windows PowerShell" title="Windows 开启 telnet">
+<pre>开始 &gt; 启用或关闭 Windows 功能 &gt; 勾选 Telnet Client &gt; 确定
+
+运行 
+
+```
+telnet cis.poly.edu 80
+```
+
+按下 `ctrl`+`]`，显示 telnet 命令行。（否则只是一个空白界面和跳动的光标。）
+
+再按一次回车，这时发现可以显示输入的命令了。（也可以输入 `set localecho` 打开回显。）
+
+输入：（速度快一点，否则会遗失对主机的连接。）
+
+```
+GET /~ross/ HTTP/1.1
+Host: cis.poly.edu
+```
+
+按两次回车，即可得到如下响应报文：
+
+
+```
+HTTP/1.1 200 OK
+Date: Thu, 23 Apr 2020 12:14:56 GMT
+Server: Apache/2.4.6
+Last-Modified: Mon, 12 Nov 2018 16:25:17
+ETag: &quot;cf-57a7a257df256&quot;
+Accept-Ranges: bytes
+Content-Length: 207
+Content-Type: text/html; charset=UTF-8
+
+&lt;head&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=windows-1252&quot;&gt;
+&lt;meta http-equiv=&quot;refresh&quot;content=&quot;0;url=http://nyu.edu/projects/keithwross/&quot;&gt;
+&lt;title&gt; Automatic Forwarding &lt;/title&gt;
+&lt;/head&gt;
+```
+
+
+
+
+---
+* networking - Using Telnet in Windows 10? - Super User 
+** https://superuser.com/questions/1152947/using-telnet-in-windows-10
+
+* How to enable the telnet client in Windows 10 
+** https://www.rootusers.com/how-to-enable-the-telnet-client-in-windows-10/
+
+* Test your network connection - Code42 Support 
+** https://support.code42.com/CrashPlan/6/Troubleshooting/Test_your_network_connection
+
+
+* Using telnet under windows to test HTTP - Stack Overflow 
+** https://stackoverflow.com/questions/13180487/using-telnet-under-windows-to-test-http
+
+* telnet - How to unsupress local echo - Stack Overflow 
+** https://stackoverflow.com/questions/1098503/how-to-unsupress-local-echo</pre>
 </div>
 <div created="20200213045620349" creator="Hans" modified="20200213045736287" modifier="Hans" tags="Windows" title="Windows 麦克风声音时大时小">
 <pre>控制面板 &gt; 硬件和声音 &gt; 声音 &gt; 管理音频设备 &gt; 通信 &gt; 当 Windows 检测到通信活动时，不执行任何操作。</pre>
