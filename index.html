@@ -2673,7 +2673,11 @@ Error message and password prompt
 
 <li>Python 多进程 multiprocessing</li>
 
+<li>Python 多进程 pool Ctrl+C 中断</li>
+
 <li>Python 多线程</li>
+
+<li>Python 多线程 限制并发数</li>
 
 <li>Python 多线程 Ctrl+C 中断</li>
 
@@ -2811,8 +2815,6 @@ Error message and password prompt
 
 <li>Python 显示图片</li>
 
-<li>Python 限制线程数目</li>
-
 <li>Python 写入 utf8</li>
 
 <li>Python 新建文件夹</li>
@@ -2877,6 +2879,8 @@ Error message and password prompt
 
 <li>Python module 'jieba' has no attribute 'analyse'</li>
 
+<li>Python multiprocessing pool 多个参数 multiple arguments</li>
+
 <li>Python new GitHub issue of manim</li>
 
 <li>Python Non-ASCII character '\xe6' in file</li>
@@ -2892,6 +2896,8 @@ Error message and password prompt
 <li>python pandas read_csv 读取中文出现 unicodedecodeerror ...</li>
 
 <li>Python pip error: Microsoft Visual C++ 14.0 is required</li>
+
+<li>Python pool 使用锁 lock</li>
 
 <li>Python print 到文件</li>
 
@@ -17492,7 +17498,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[Python 多线程 Ctrl+C 中断]]" title="$:/StoryList">
+<div list="[[Python 多线程 限制并发数]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -17627,7 +17633,7 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200312094502634" creator="Hans" modified="20200424091828824" modifier="Hans" title="$:/temp/NewTagName">
+<div created="20200312094502634" creator="Hans" modified="20200425014302407" modifier="Hans" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
@@ -18400,7 +18406,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200424150853807" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200425021350987" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -35052,14 +35058,23 @@ if __name__ == '__main__':
 * Keyboard Interrupts with python's multiprocessing Pool
 ** https://stackoverflow.com/a/1408476</pre>
 </div>
-<div created="20180514075302127" creator="Hans" modified="20180731062305368" modifier="Hans" tags="Python" title="Python 多线程" type="application/x-tiddler">
+<div created="20200425014225209" creator="Hans" modified="20200425015502531" modifier="Hans" tags="Python" title="Python 多进程 pool Ctrl+C 中断">
+<pre>测试过感觉好像都没什么用。。。
+
+---
+* Keyboard Interrupts with python's multiprocessing Pool - Stack Overflow 
+** https://stackoverflow.com/questions/1408356/keyboard-interrupts-with-pythons-multiprocessing-pool
+
+* multiprocessing-keyboardinterrupt/example.py at master · jreese/multiprocessing-keyboardinterrupt 
+** https://github.com/jreese/multiprocessing-keyboardinterrupt/blob/master/example.py</pre>
+</div>
+<div created="20180514075302127" creator="Hans" modified="20200424152104345" modifier="Hans" tags="Python" title="Python 多线程" type="application/x-tiddler">
 <pre>* 注意点
 ** `import time, threading`
 ** `def singlePrint():`
 ** `tmp = threading.Thread(target=singlePrint, name=thread_name)`
 ** `thread_pool.append(tmp)`
-** 
-&lt;ol&gt; &lt;ol&gt;
+&lt;ol&gt; 
 
 ```
 for thrd in thread_pool:
@@ -35068,8 +35083,7 @@ for thrd in thread_pool:
 for thrd in thread_pool:
     thrd.join()
 ```
-
-&lt;/ol&gt; &lt;/ol&gt;
+&lt;/ol&gt; 
 
 ---
 
@@ -35140,7 +35154,98 @@ mythread--0007 is ended
 
 </pre>
 </div>
-<div created="20180514084701345" creator="Hans" modified="20200424151128491" modifier="Hans" tags="Python" title="Python 多线程 Ctrl+C 中断">
+<div created="20180731070005914" creator="Hans" modified="20200425025014385" modifier="Hans" tags="Python" title="Python 多线程 限制并发数">
+<pre>; 要点：
+
+* `semlock=threading.BoundedSemaphore(thread_num_max)`
+* `semlock.acquire()` 必须在 `threading.Thread(target=..., args=[...])` 之前
+* 不要忘记在 `target` 对应的函数末尾 `semlock.release()`
+** 要注意是否存在提早返回的 `return` 语句，不能忘了在其中加上 `semlock.release()`
+* `semlock` 不能和 `thrd.daemon = True` 混用，也不用加上 `thrd.join()`
+
+
+* 不要加 `.join()`（因为这会强行保证当前进程结束才退出），否则会严重拖慢 `semlock` 的速度
+** 如果有些线程不运行，才加上 `.join()`，`join()` 的作用是保证执行顺序。
+
+---
+* python多线程threading使用Semaphore或BoundedSemaphore实现并发限制
+** https://blog.csdn.net/comprel/article/details/72798413
+
+* what is the use of join() in python threading
+** https://stackoverflow.com/questions/15085348/what-is-the-use-of-join-in-python-threading
+
+* python - The right way to limit maximum number of threads running at once? - Stack Overflow 
+** https://stackoverflow.com/questions/19369724/the-right-way-to-limit-maximum-number-of-threads-running-at-once
+---
+
+; 样例 1：
+
+```
+import threading
+import time
+
+def showfun(n):
+    print(&quot;%s start -- %d&quot;%(time.ctime(),n))
+    print(&quot;working&quot;)
+    time.sleep(2)
+    print(&quot;%s end -- %d&quot; % (time.ctime(), n))
+    semlock.release()
+
+if __name__ == '__main__':
+    maxconnections = 5
+    semlock = threading.BoundedSemaphore(maxconnections)
+    listx=[]
+    for i in range(8):
+        semlock.acquire()
+        t = threading.Thread(target=showfun, args=(i,), kwargs={'k1':v1, 'k2',v2})
+        listx.append(t)
+        t.start()
+```
+
+; 样例 2：（最新，推荐）
+
+```
+import sys
+import time
+import random
+import threading
+
+n_L = []
+def square(x):
+    sema.acquire()
+    time.sleep(random.random())
+    # print(x*x)
+    print(x,end=&quot; &quot;)
+    lock.acquire()
+    sys.stdout.flush()
+    n_L.append(x)
+    lock.release()
+    sema.release()
+
+def is_any_thread_alive(threads):
+    return True in [t.is_alive() for t in threads]
+
+if __name__ == '__main__':
+    max_concurrent_num = 100
+    lock = threading.Lock()
+    sema = threading.BoundedSemaphore(max_concurrent_num)
+
+    thread_pool = []
+    for i in range(100):
+        tmp_thread = threading.Thread(target=square, args=(i+1,), daemon=True)
+        thread_pool.append(tmp_thread)
+
+    for tmp_thread in thread_pool:
+        tmp_thread.start()
+
+    while is_any_thread_alive(thread_pool):
+        time.sleep(0)
+
+    print()
+    print(n_L)
+```</pre>
+</div>
+<div created="20180514084701345" creator="Hans" modified="20200424152722367" modifier="Hans" tags="Python" title="Python 多线程 Ctrl+C 中断">
 <pre>* 注意点：
 ** 在 `t.start()` 之前先设置 `thrd.daemon=True`
 ** 不要使用 `t.join()`
@@ -35250,7 +35355,7 @@ if __name__ == &quot;__main__&quot;:
     t2.start()
 
     while is_any_thread_alive([t1,t2]):
-        time.sleep(1)
+        time.sleep(0)
 
 ```
 
@@ -37246,47 +37351,6 @@ plt.show()
 ```
 </pre>
 </div>
-<div created="20180731070005914" creator="Hans" modified="20190122074542048" modifier="Hans" tags="Python" title="Python 限制线程数目">
-<pre>; 要点：
-
-* `semlock=threading.BoundedSemaphore(thread_num_max)`
-* `semlock.acquire()` 必须在 `threading.Thread(target=..., args=[...])` 之前
-* 不要忘记在 `target` 对应的函数末尾 `semlock.release()`
-** 要注意是否存在提早返回的 `return` 语句，不能忘了在其中加上 `semlock.release()`
-* `semlock` 不能和 `thrd.daemon = True` 混用，也不用加上 `thrd.join()`
-
-```
-import threading
-import time
-
-def showfun(n):
-    print(&quot;%s start -- %d&quot;%(time.ctime(),n))
-    print(&quot;working&quot;)
-    time.sleep(2)
-    print(&quot;%s end -- %d&quot; % (time.ctime(), n))
-    semlock.release()
-
-if __name__ == '__main__':
-    maxconnections = 5
-    semlock = threading.BoundedSemaphore(maxconnections)
-    listx=[]
-    for i in range(8):
-        semlock.acquire()
-        t = threading.Thread(target=showfun, args=(i,), kwargs={'k1':v1, 'k2',v2})
-        listx.append(t)
-        t.start()
-```
-
-* 尽量不要加 `.join()`，否则会严重拖慢 `semlock` 的速度
-* 如果有些线程不运行，才加上 `.join()`。似乎 `join()`
- 的作用是保证顺序？
----
-* python多线程threading使用Semaphore或BoundedSemaphore实现并发限制
-** https://blog.csdn.net/comprel/article/details/72798413
-
-* what is the use of join() in python threading
-** https://stackoverflow.com/questions/15085348/what-is-the-use-of-join-in-python-threading</pre>
-</div>
 <div created="20180726084549302" creator="Hans" modified="20180726084702425" modifier="Hans" tags="Python" title="Python 写入 utf8">
 <pre>```
 with open(tex_filename, 'a', encoding='utf-8') as txf:
@@ -38016,6 +38080,10 @@ plt.show()
 import jieba.analyse
 ```</pre>
 </div>
+<div created="20200425010244262" creator="Hans" modified="20200425010445299" modifier="Hans" tags="Python" title="Python multiprocessing pool 多个参数 multiple arguments">
+<pre>* Python multiprocessing pool.map for multiple arguments - Stack Overflow 
+** https://stackoverflow.com/questions/5442910/python-multiprocessing-pool-map-for-multiple-arguments</pre>
+</div>
 <div created="20180818074237196" creator="Hans" modified="20180818074448395" modifier="Hans" tags="Python PyCairo" title="Python new GitHub issue of manim">
 <pre>Which engine dose manim use to draw the primitives?
 
@@ -38162,6 +38230,10 @@ print(df.columns)
 
 该问题可以参考这个链接：
 http://blog.csdn.net/WelcomeToHebei/article/details/48827847</pre>
+</div>
+<div created="20200425011841132" creator="Hans" modified="20200425011908907" modifier="Hans" tags="Python" title="Python pool 使用锁 lock">
+<pre>* locking - Python sharing a lock between processes - Stack Overflow 
+** https://stackoverflow.com/questions/25557686/python-sharing-a-lock-between-processes</pre>
 </div>
 <div created="20171214080435760" creator="Hans" modified="20180503121129606" modifier="Hans" tags="Python" title="Python print 到文件">
 <pre>输入：
