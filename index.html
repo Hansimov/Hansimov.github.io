@@ -2651,6 +2651,8 @@ Error message and password prompt
 
 <li>Python 词干化/stem/lematize</li>
 
+<li>Python 此刻时间 datetime now</li>
+
 <li>python 从另一个模块导入全局变量 import global variable from another modul</li>
 
 <li>Python 从字符串中匹配数字</li>
@@ -2789,8 +2791,6 @@ Error message and password prompt
 
 <li>Python 时间戳和时间转换</li>
 
-<li>Python 时间从字符串生成datetime</li>
-
 <li>Python 实时更新plot</li>
 
 <li>Python 是否存在某文件（夹）</li>
@@ -2840,6 +2840,8 @@ Error message and password prompt
 <li>Python 重新导入模块 reload imported module</li>
 
 <li>Python 字符串/数组（循环）移位</li>
+
+<li>Python 字符串和 datetime 互相转换</li>
 
 <li>python anti nsfw detection</li>
 
@@ -2908,6 +2910,10 @@ Error message and password prompt
 <li>Python pygame 不打印 &quot;Hello from the pygame community&quot;</li>
 
 <li>Python pyplot 绘图设置标题/标签字体大小 title/label fontsize</li>
+
+<li>Python requests 测试代理是否有效</li>
+
+<li>Python requests 给定时间断开链接 timeout</li>
 
 <li>Python requests 使用 cookies</li>
 
@@ -17498,7 +17504,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[Python 多线程 限制并发数]]" title="$:/StoryList">
+<div list="[[Python requests 给定时间断开链接 timeout]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -17633,7 +17639,7 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200312094502634" creator="Hans" modified="20200425014302407" modifier="Hans" title="$:/temp/NewTagName">
+<div created="20200312094502634" creator="Hans" modified="20200427063759004" modifier="Hans" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
@@ -18406,7 +18412,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200425021350987" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200425102607045" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -34779,6 +34785,36 @@ u'be'
 * Dive Into NLTK, Part IV: Stemming and Lemmatization
 ** https://textminingonline.com/dive-into-nltk-part-iv-stemming-and-lemmatization</pre>
 </div>
+<div created="20200425095835940" creator="Hans" modified="20200425102638658" modifier="Hans" tags="Python" title="Python 此刻时间 datetime now">
+<pre>```
+import datetime as dt
+
+dt.datetime.now()
+# datetime.datetime(2009, 1, 6, 15, 8, 24, 78915)
+
+print(datetime.datetime.now())
+# 2009-01-06 15:08:24.789150
+```
+
+求两个时刻的间隔（秒）
+
+```
+a = dt.datetime(2013,12,30,23,59,59)
+b = dt.datetime(2013,12,31,23,59,59)
+
+(b-a).total_seconds()
+# 86400.0
+```
+
+另见：[[Python 字符串和 datetime 互相转换]]
+
+---
+* python - How do I check the difference, in seconds, between two dates? - Stack Overflow 
+** https://stackoverflow.com/questions/4362491/how-do-i-check-the-difference-in-seconds-between-two-dates
+
+* datetime - How to get the current time in Python - Stack Overflow 
+** https://stackoverflow.com/questions/415511/how-to-get-the-current-time-in-python</pre>
+</div>
 <div created="20200331151101960" creator="Hans" modified="20200331151905151" modifier="Hans" tags="Python" title="python 从另一个模块导入全局变量 import global variable from another modul">
 <pre>`from xxx import *` 在导入 xxx 模块时，全局变量是初始定义的值，后续函数对其产生的改变不会被记录。
 
@@ -36942,47 +36978,6 @@ print(time.mktime(tp))
 
 `1346236702.0`</pre>
 </div>
-<div created="20180725113254360" creator="Hans" modified="20180725115909691" modifier="Hans" tags="Python" title="Python 时间从字符串生成datetime">
-<pre>```
-import datetime
-
-if __name__ == '__main__':
-        this_date = datetime.datetime.strptime(pubdate,'%Y/%m/%d %H:%M:%S')
-
-        print(this_date)
-        print(this_date.year,this_date.month,this_date.day,this_date.hour,this_date.minute,this_date.second)
-```
-
-`pudate` 的格式：
-
-```
-2010/12/1 13:54:15
-2011/7/9 8:56:02
-2012/8/27 18:46:30
-2012/11/30 14:47:09
-```
-
-输出结果：
-
-
-```
-2010-12-01 13:54:15
-2010 12 1 13 54 15
-2011-07-09 08:56:02
-2011 7 9 8 56 2
-2012-08-27 18:46:30
-2012 8 27 18 46 30
-2012-11-30 14:47:09
-2012 11 30 14 47 9
-```
----
-
-* 8.1.8. strftime() and strptime() Behavior
-** https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
-* Python date string to date object
-** https://stackoverflow.com/a/2803877/8328786
-</pre>
-</div>
 <div created="20180531065752134" creator="Hans" modified="20180531065825596" modifier="Hans" tags="Python matplotlib" title="Python 实时更新plot">
 <pre>```
 plt.cla()
@@ -37579,6 +37574,64 @@ def shiftLeft(arr_in, bits=1):
     return arr_out
 
 ```
+</pre>
+</div>
+<div created="20180725113254360" creator="Hans" modified="20200425102626458" modifier="Hans" tags="Python" title="Python 字符串和 datetime 互相转换">
+<pre>```
+import datetime as dt
+
+def dt2str(dt_time):
+    return &quot;{:&gt;4}-{:0&gt;2}-{:0&gt;2}-{:0&gt;2}-{:0&gt;2}-{:0&gt;2}&quot;.format(dt_time.year, dt_time.month, dt_time.day, dt_time.hour, dt_time.minute, dt_time.second)
+
+def str2dt(dt_str):
+    return dt.datetime.strptime(dt_str,'%Y-%m-%d-%H-%M-%S')
+
+now = dt.datetime.now()
+# 2020-04-25 18:25:20.541920
+
+dt_str = dt2str(now)
+# 2020-04-25-18-25-20
+
+dt_time = str2dt(dt_str)
+# 2020-04-25 18:24:26
+```
+
+```
+this_date = datetime.datetime.strptime(pubdate,'%Y/%m/%d %H:%M:%S')
+print(this_date)
+print(this_date.year,this_date.month,this_date.day,this_date.hour,this_date.minute,this_date.second)
+
+```
+
+
+`pudate` 的格式：
+
+```
+2010/12/1 13:54:15
+2011/7/9 8:56:02
+2012/8/27 18:46:30
+2012/11/30 14:47:09
+```
+
+输出结果：
+
+
+```
+2010-12-01 13:54:15
+2010 12 1 13 54 15
+2011-07-09 08:56:02
+2011 7 9 8 56 2
+2012-08-27 18:46:30
+2012 8 27 18 46 30
+2012-11-30 14:47:09
+2012 11 30 14 47 9
+```
+---
+
+* 8.1.8. strftime() and strptime() Behavior
+** https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
+* Python date string to date object
+** https://stackoverflow.com/a/2803877/8328786
 </pre>
 </div>
 <div created="20190606124423857" creator="Hans" modified="20190808120657616" modifier="Hans" tags="Python" title="python anti nsfw detection">
@@ -38420,6 +38473,62 @@ import pygame as pg
 plt.rcParams['axes.titlesize'] = 13
 plt.rcParams['axes.labelsize'] = 12
 ```
+</pre>
+</div>
+<div created="20200425145856402" creator="Hans" modified="20200425145927485" modifier="Hans" tags="Python" title="Python requests 测试代理是否有效">
+<pre>```
+import requests
+import random
+
+headers = {
+    &quot;user-agent&quot;: &quot;skynet - {}&quot;.format(random.random())
+}
+
+kind_D = {
+    &quot;http&quot;:  &quot;http://{}:{}&quot;,
+    &quot;https&quot;: &quot;https://{}:{}&quot;,
+    &quot;ftp&quot;:   &quot;ftp://{}:{}&quot;
+}
+
+url_body = &quot;{}://icanhazip.com/&quot;
+try:
+    ip,port,kind = &quot;192.41.71.221   3128  https&quot;.split()
+    kind = kind.lower()
+    url = url_body.format(kind)
+    proxies = {kind: kind_D[kind].format(ip,port)}
+    print(proxies)
+    # proxies = {}
+
+    req = requests.get(url, headers=headers, proxies=proxies, timeout=5)
+    print(req.status_code)
+    print(req.text)
+except Exception as e:
+    print(e)
+
+```
+</pre>
+</div>
+<div created="20200427063733848" creator="Hans" modified="20200427071811378" modifier="Hans" tags="Python" title="Python requests 给定时间断开链接 timeout">
+<pre>```
+import requests
+import eventlet
+eventlet.monkey_patch()
+# eventlet.monkey_patch(thread=False) # if you are also using multiprocessing module
+
+try:
+    with eventlet.Timeout(3):
+        requests.get(&quot;...&quot;)
+except eventlet.Timeout as e:
+    ...
+
+```
+
+---
+* Timeout for python requests.get entire response - Stack Overflow 
+** https://stackoverflow.com/questions/21965484/timeout-for-python-requests-get-entire-response
+
+* timeout – Universal Timeouts — Eventlet 0.25.0 documentation 
+** https://eventlet.net/doc/modules/timeout.html
 </pre>
 </div>
 <div created="20190828073133689" creator="Hans" modified="20190828073307083" modifier="Hans" tags="Python requests" title="Python requests 使用 cookies">
