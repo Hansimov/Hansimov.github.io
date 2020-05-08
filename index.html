@@ -2783,6 +2783,8 @@ Error message and password prompt
 
 <li>Python 三元运算符 ?:</li>
 
+<li>Python 删除文件/文件夹</li>
+
 <li>Python 十六进制转ascii  hex to ascii</li>
 
 <li>Python 时间戳</li>
@@ -2843,6 +2845,8 @@ Error message and password prompt
 
 <li>Python 字符串和 datetime 互相转换</li>
 
+<li>Python 自定义plot样式</li>
+
 <li>python anti nsfw detection</li>
 
 <li>Python append list return new</li>
@@ -2852,6 +2856,8 @@ Error message and password prompt
 <li>Python Could not install packages due to an EnvironmentError: WinError 5</li>
 
 <li>Python cProfile 测试程序速度</li>
+
+<li>Python ctrl+c 断开 socket</li>
 
 <li>python download_metart</li>
 
@@ -2912,6 +2918,8 @@ Error message and password prompt
 <li>Python pyplot 绘图设置标题/标签字体大小 title/label fontsize</li>
 
 <li>Python requests 测试代理是否有效</li>
+
+<li>Python requests 的内容读成 json</li>
 
 <li>Python requests 给定时间断开链接 timeout</li>
 
@@ -17504,7 +17512,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[Python requests 给定时间断开链接 timeout]]" title="$:/StoryList">
+<div list="[[Python 自定义plot样式]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -17639,7 +17647,7 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200312094502634" creator="Hans" modified="20200427063759004" modifier="Hans" title="$:/temp/NewTagName">
+<div created="20200312094502634" creator="Hans" modified="20200507074714095" modifier="Hans" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
@@ -18412,7 +18420,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200425102607045" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200504032224127" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -36827,6 +36835,30 @@ a if condition else b
 ** https://stackoverflow.com/questions/394809/does-python-have-a-ternary-conditional-operator
 </pre>
 </div>
+<div created="20200504132102953" creator="Hans" modified="20200504132812962" modifier="Hans" tags="Python" title="Python 删除文件/文件夹">
+<pre>
+```
+import os
+import shutil
+
+# 删除文件
+os.remove(file_name) 
+
+# 删除空文件夹
+os.rmdir(folder_name) 
+
+# 删除文件夹（空/非空）
+shutil.rmtree(folder_name)
+# 保留文件夹本身
+os.makedirs(folder_name)
+```
+
+---
+* python - How do I remove/delete a folder that is not empty? - Stack Overflow 
+** https://stackoverflow.com/questions/303200/how-do-i-remove-delete-a-folder-that-is-not-empty
+* python - Can't remove a folder with os.remove (WindowsError: [Error 5] Access is denied: 'c:/temp/New Folder') - Stack Overflow 
+** https://stackoverflow.com/questions/11625062/cant-remove-a-folder-with-os-remove-windowserror-error-5-access-is-denied</pre>
+</div>
 <div created="20200403013122402" creator="Hans" modified="20200403013445572" modifier="Hans" tags="Python" title="Python 十六进制转ascii  hex to ascii">
 <pre>Python 2:
 
@@ -37358,18 +37390,29 @@ with open(tex_filename, 'a', encoding='utf-8') as txf:
 ** https://stackoverflow.com/a/19591815/8328786
 </pre>
 </div>
-<div created="20180505045756564" creator="Hans" modified="20180505045914570" modifier="Hans" tags="Python" title="Python 新建文件夹">
-<pre>```
+<div created="20180505045756564" creator="Hans" modified="20200504032221659" modifier="Hans" tags="Python" title="Python 新建文件夹">
+<pre>`os.mkdir` 创建文件夹
+
+```
 replies_dir = 'relies'
 if not os.path.exists(replies_dir): 
     os.mkdir(replies_dir)
+```
+
+`os.makedirs` 创建有子文件夹的文件夹
+
+```
+os.makedirs(&quot;./main-folder/sub-folder&quot;)
 ```
 
 ---
 * Python os.mkdir() 方法
 ** http://www.runoob.com/python/os-mkdir.html
 * How to overwrite a folder if it already exists when creating it with makedirs?
-** https://stackoverflow.com/questions/11660605/how-to-overwrite-a-folder-if-it-already-exists-when-creating-it-with-makedirs</pre>
+** https://stackoverflow.com/questions/11660605/how-to-overwrite-a-folder-if-it-already-exists-when-creating-it-with-makedirs
+
+* operating system - python mkdir to make folder with subfolder? - Stack Overflow 
+** https://stackoverflow.com/questions/6692678/python-mkdir-to-make-folder-with-subfolder</pre>
 </div>
 <div created="20200228025035731" creator="Hans" modified="20200228025153394" modifier="Hans" tags="Python" title="Python 元组间运算">
 <pre>```
@@ -37634,6 +37677,33 @@ print(this_date.year,this_date.month,this_date.day,this_date.hour,this_date.minu
 ** https://stackoverflow.com/a/2803877/8328786
 </pre>
 </div>
+<div created="20200507074707180" creator="Hans" modified="20200507074757020" modifier="Hans" tags="Python" title="Python 自定义plot样式">
+<pre>
+```
+def customize_plt(title=&quot;&quot;,xlabel=&quot;&quot;,ylabel=&quot;&quot;,grid=False,size=None,tight_layout=False,cla=False,save_path=None, show=False):
+    if size:
+        fig = plt.gcf()
+        mydpi = 100
+        fig.set_size_inches((size[0]/mydpi,size[1]/mydpi))
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    if grid:
+        plt.grid(True)
+    if tight_layout:
+        plt.tight_layout()
+    if save_path:
+        plt.savefig(save_path)
+    if cla:
+        plt.cla()
+    if show:
+        plt.show()
+
+plt.plot(tmp_ct_L, tmp_heat_L)
+customize_plt(title=&quot;{}\n{}&quot;.format(title,ct2dt(created)),xlabel=&quot;时间&quot;,ylabel=&quot;评论数&quot;,grid=True,size=(1280,720),tight_layout=False,save_path=join_path(heat_path,&quot;0001.png&quot;))
+```
+</pre>
+</div>
 <div created="20190606124423857" creator="Hans" modified="20190808120657616" modifier="Hans" tags="Python" title="python anti nsfw detection">
 <pre>; 详见：[[_anti_weibo_batch.py]]
 
@@ -37742,6 +37812,59 @@ pip install --user -r requirements.txt
 <pre>```
 python -m cProfile -s tottime z_test_hello.py
 ```
+</pre>
+</div>
+<div created="20200501090721855" creator="Hans" modified="20200501090807212" modifier="Hans" tags="Python" title="Python ctrl+c 断开 socket">
+<pre>```
+import os
+import sys
+import time
+import socket
+
+# fetch proxies in advance
+# if a proxy in client is invalid, then the client requests for a new proxy
+# return a valid proxy when receiving a client request
+
+host = &quot;127.0.0.1&quot;
+port = 23333
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+sock.bind((host,port))
+sock.listen()
+
+sock.settimeout(0.5)
+
+print(&quot;&gt; Listening {}:{} ...&quot;.format(host,port))
+
+try:
+    while True:
+        try:
+            conn, addr = sock.accept()
+            data = conn.recv(1024)
+            if not data:
+                print(&quot;x Client disconnected!&quot;)
+                break
+            else:
+                print(&quot;&gt; Message from client: {}&quot;.format(data.decode()))
+                msg = &quot;&gt; Message from server&quot;.format(data.decode()).encode()
+                conn.sendall(msg)
+        except socket.timeout:
+            print(&quot;Timeout&quot;)
+        except KeyboardInterrupt:
+            pass
+except KeyboardInterrupt:
+    print(&quot;Server closed with KeyboardInterrupt!&quot;)
+
+# sock.close()
+
+
+```
+* python - can't close socket on KeyboardInterrupt - Stack Overflow 
+** https://stackoverflow.com/questions/34871191/cant-close-socket-on-keyboardinterrupt/61539628#61539628
+
+* How to close socket connection on Ctrl-C in a python programme - Stack Overflow 
+** https://stackoverflow.com/questions/27360218/how-to-close-socket-connection-on-ctrl-c-in-a-python-programme/61539640#61539640
 </pre>
 </div>
 <div created="20190709060909263" creator="Hans" modified="20190709060940136" modifier="Hans" tags="Python" title="python download_metart">
@@ -38506,6 +38629,17 @@ except Exception as e:
     print(e)
 
 ```
+</pre>
+</div>
+<div created="20200504064647439" creator="Hans" modified="20200504064717616" modifier="Hans" tags="Python" title="Python requests 的内容读成 json">
+<pre>```
+data = json.loads(req.content.decode(&quot;utf-8&quot;))
+
+```
+
+---
+* Python; urllib error: AttributeError: 'bytes' object has no attribute 'read' - Stack Overflow 
+** https://stackoverflow.com/questions/6541767/python-urllib-error-attributeerror-bytes-object-has-no-attribute-read
 </pre>
 </div>
 <div created="20200427063733848" creator="Hans" modified="20200427071811378" modifier="Hans" tags="Python" title="Python requests 给定时间断开链接 timeout">
