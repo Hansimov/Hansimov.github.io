@@ -17512,7 +17512,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[Python 自定义plot样式]]" title="$:/StoryList">
+<div list="[[Python cProfile 测试程序速度]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -18420,7 +18420,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200504032224127" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200509163729086" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -36836,8 +36836,7 @@ a if condition else b
 </pre>
 </div>
 <div created="20200504132102953" creator="Hans" modified="20200504132812962" modifier="Hans" tags="Python" title="Python 删除文件/文件夹">
-<pre>
-```
+<pre>```
 import os
 import shutil
 
@@ -37678,8 +37677,7 @@ print(this_date.year,this_date.month,this_date.day,this_date.hour,this_date.minu
 </pre>
 </div>
 <div created="20200507074707180" creator="Hans" modified="20200507074757020" modifier="Hans" tags="Python" title="Python 自定义plot样式">
-<pre>
-```
+<pre>```
 def customize_plt(title=&quot;&quot;,xlabel=&quot;&quot;,ylabel=&quot;&quot;,grid=False,size=None,tight_layout=False,cla=False,save_path=None, show=False):
     if size:
         fig = plt.gcf()
@@ -37808,10 +37806,45 @@ pip install --user -r requirements.txt
 ```
 </pre>
 </div>
-<div created="20190105133637932" creator="Hans" modified="20190111030249882" modifier="Hans" tags="Python" title="Python cProfile 测试程序速度">
-<pre>```
-python -m cProfile -s tottime z_test_hello.py
+<div created="20190105133637932" creator="Hans" modified="20200509164006283" modifier="Hans" tags="Python" title="Python cProfile 测试程序速度">
+<pre>''注意：''如果程序是以 `sys.exit()` 方式退出，则不会输出 profile 的信息。此时需要采用方法二，将 `pr.enable()` 等语句写在 `sys.exit()` 之前。
+
+方法一：
+
 ```
+python -m cProfile -s tottime z_test_cprofile.py
+```
+
+方法二：
+
+```
+import os
+import time
+
+import cProfile, pstats, io
+pr = cProfile.Profile()
+pr.enable()
+
+def main():
+    time.sleep(0.4)
+    print(&quot;hello&quot;)
+main()
+
+pr.disable()
+s = io.StringIO()
+sortby = &quot;cumulative&quot;
+sortby = &quot;tottime&quot;
+ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
+ps.print_stats()
+print(s.getvalue())
+```
+
+
+---
+* performance - How can you profile a Python script? - Stack Overflow 
+** https://stackoverflow.com/questions/582336/how-can-you-profile-a-python-script
+* 27.4. The Python Profilers — Python 3.6.10 documentation 
+** https://docs.python.org/3.6/library/profile.html
 </pre>
 </div>
 <div created="20200501090721855" creator="Hans" modified="20200501090807212" modifier="Hans" tags="Python" title="Python ctrl+c 断开 socket">

@@ -1,0 +1,107 @@
+@-moz-document regexp(".*help.maxon.net.*") {
+html {
+    padding: 0;
+}
+body {
+    margin-top: 0;
+}
+
+/* sidebar */
+.menucontent {
+    font-size: .5rem;
+    font-weight: bold;
+}
+.jstree ins {
+    width: 9px;
+    height: 9px;
+}
+.jstree li {
+    min-height: 9px;
+    line-height: 9px;
+    margin-left: 9px;
+    min-width: 9px;
+}
+.jstree-classic .jstree-closed > ins {
+    background-position: -58px -5px;
+}
+.jstree-classic .jstree-open > ins {
+    background-position: -76px -5px;
+}
+.jstree-classic .jstree-leaf > ins {
+    background-position: -40px -5px;
+    background: none;
+}
+.jstree-classic li {
+    background-position: -94px 0;
+    background: none;
+}
+
+/* header */
+.header .header_left,
+.header .title {
+    display: none !important;
+}
+.header {
+    background: none;
+    border: none;
+}
+.header_right {
+    margin-top: 5px;
+    z-index: 9;
+}
+.header_right {
+    background: none;
+    margin: 0;
+    min-width: 1em;
+    opacity: .0;
+    padding: 10px;
+    width: auto;
+}
+.header_right:hover {
+    background: white;
+    opacity: 1;
+}
+#header_selectors {
+    height: 22px;
+}
+#version,
+#languages,
+#query,
+#searchform,
+.header_right .selector {
+    background: white;
+    height: 20px;
+}
+#selector_version,
+#version {
+    width: 10em;
+}
+#selector_languages,
+#languages {
+    width: 5em;
+}
+#search {
+    max-width: 30em;
+    width: 30em;
+    margin: 0;
+}
+#content,
+#dragbar,
+.menucontent {
+    top: 0;
+    bottom: 0 !important;
+}
+.menucontent {
+    border-right: 1px solid #e0e0e0;
+}
+#menu {
+    margin: 0;
+}
+
+/*
+
+footer */
+footer {
+    display: none !important;
+}
+}
