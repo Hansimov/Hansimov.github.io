@@ -2525,6 +2525,8 @@ Error message and password prompt
 
 <li>npm 换源</li>
 
+<li>OBS Win10 显示器捕获黑屏</li>
+
 <li>Office 激活</li>
 
 <li>ol pre style</li>
@@ -2840,6 +2842,8 @@ Error message and password prompt
 <li>Python 重命名文件、文件夹中所有文件 rename file/folder</li>
 
 <li>Python 重新导入模块 reload imported module</li>
+
+<li>Python 转码 HTML code</li>
 
 <li>Python 字符串/数组（循环）移位</li>
 
@@ -17512,7 +17516,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[Windows 麦克风声音时大时小]]" title="$:/StoryList">
+<div list="[[Python 转码 HTML code]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -17647,7 +17651,7 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200312094502634" creator="Hans" modified="20200507074714095" modifier="Hans" title="$:/temp/NewTagName">
+<div created="20200312094502634" creator="Hans" modified="20200529015506425" modifier="Hans" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
@@ -18420,7 +18424,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200519053003351" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200529015410373" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -22917,7 +22921,7 @@ plotConfig =
 Plot[RecFunc[x], {x, -1, 1}, Evaluate@plotConfig]
 ```</pre>
 </div>
-<div created="20200128023510045" creator="Hans" modified="20200418012841390" modifier="Hans" tags="Python ImageMagick GhostScript [[Acrobat Reader]] pdftk" title="将扫描版PDF变清晰">
+<div created="20200128023510045" creator="Hans" modified="20200525042126232" modifier="Hans" tags="Python ImageMagick GhostScript [[Acrobat Reader]] pdftk" title="将扫描版PDF变清晰">
 <pre>; 基本思路：提取 PDF 中的图片，将其锐化，然后再合并成单个 PDF
 
 * ''【可选】剔除文件中不需要的部分''
@@ -22944,6 +22948,9 @@ magick convert -contrast -contrast -adaptive-sharpen 0x3 in.jpg out.jpg
 magick convert -level 48%,100% -contrast-stretch 4% -adaptive-sharpen 0x3 -contrast -contrast in.jpg out.jpg
 &lt;/pr&gt;
 ** 代码样例：[[sharpen_img.py - ImageMagick 批量锐化图片]]
+
+* ''【可选】调整扭斜''
+** `magick convert -set option:deskew:auto-crop true -deskew 40% -adaptive-sharpen 0x4 -resize 1000x in.jpg out.jpg`
 
 * ''【可选】调整部分图片大小（通常是开头和结尾）''
 ** Faststone &gt; 编辑 &gt; 调整大小 &gt; 调为和其他页面一样的宽度 + 相同的 DPI
@@ -33159,6 +33166,17 @@ $$$</pre>
 * `npm config get registry `
 * 或者：`npm info express`</pre>
 </div>
+<div created="20200528123742419" creator="Hans" modified="20200528154708687" modifier="Hans" tags="OBS Windows" title="OBS Win10 显示器捕获黑屏">
+<pre>1909 版本之后的 Win 10 笔记本：
+
+* 图形设置 &gt; 经典应用 &gt; 浏览 &gt; */obs64.exe &gt; 添加 &gt; 选项 &gt; 节能
+
+&lt;img src=&quot;https://obsproject.com/images/windows-10-graphics-settings.png&quot; height=300&gt;
+
+---
+* Laptop? Black screen when capturing? Read here first. | OBS Forums 
+** https://obsproject.com/forum/threads/laptop-black-screen-when-capturing-read-here-first.5965/</pre>
+</div>
 <div created="20180905033019889" creator="Hans" modified="20190922075727335" modifier="Hans" tags="Crack" title="Office 激活">
 <pre>* Office 2019专业版安装并激活 - 『精品软件区』 - 吾爱破解
 ** https://www.52pojie.cn/thread-766942-1-1.html
@@ -37559,6 +37577,31 @@ importlib.reload(module)
 * Reloading modules in Python - GeeksforGeeks 
 ** https://www.geeksforgeeks.org/reloading-modules-python/</pre>
 </div>
+<div created="20200529015457857" creator="Hans" modified="20200529015607637" modifier="Hans" tags="Python" title="Python 转码 HTML code">
+<pre>
+`line.encode('ascii', 'xmlcharrefreplace').decode('utf-8')`
+
+```
+mark_str_body = &quot;BookmarkBegin\nBookmarkTitle: {}\nBookmarkLevel: 1\nBookmarkPageNumber: {}\n&quot;
+def write_bookmark_from_txt(txt_fname,mark_fname):
+    with open(txt_fname,encoding='utf-8', mode = 'r') as rf:
+        lines = rf.readlines()
+        
+    mark_str = &quot;&quot;
+    for line in lines:
+        mark_str+=mark_str_body.format(line.encode('ascii', 'xmlcharrefreplace').decode('utf-8'), 1)
+    with open(mark_fname,&quot;w&quot;) as wf:
+        wf.write(mark_str)
+```
+
+
+---
+* python - Convert HTML entities to Unicode and vice versa - Stack Overflow 
+** https://stackoverflow.com/questions/701704/convert-html-entities-to-unicode-and-vice-versa
+
+* python - Convert bytes to a string - Stack Overflow 
+** https://stackoverflow.com/questions/606191/convert-bytes-to-a-string</pre>
+</div>
 <div created="20180519131248031" creator="Hans" modified="20180520052326294" modifier="Hans" tags="Python" title="Python 字符串/数组（循环）移位">
 <pre>循环移位：
 
@@ -38863,7 +38906,7 @@ UnicodeDecodeError: 'utf-8' codec can't decode byte 0x80 in position 0:
 * How to install PyGObject in Anaconda under Windows 10?
 ** https://stackoverflow.com/questions/52236512/how-to-install-pygobject-in-anaconda-under-windows-10</pre>
 </div>
-<div created="20180118144559779" creator="Hans" modified="20180505102027990" modifier="Hans" tags="Python" title="Python： 'gbk' codec can't decode byte 0xaa">
+<div created="20180118144559779" creator="Hans" modified="20200529015407720" modifier="Hans" tags="Python" title="Python： 'gbk' codec can't decode byte 0xaa">
 <pre>这个一般出在文件解码上：
 
 * 对于读文件，可以用下面这个方法解决：
@@ -38871,7 +38914,7 @@ UnicodeDecodeError: 'utf-8' codec can't decode byte 0x80 in position 0:
 使用 `utf-8` 或者 `utf8` 编码，同时在 `'r'`之前加上 `mode`
 
 ```
-with open(filename, encoding='utf-8', mode = ‘r') as f:
+with open(filename, encoding='utf-8', mode = 'r') as f:
     for line in f:
         print(repr(line))
 ```
