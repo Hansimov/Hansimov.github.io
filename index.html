@@ -18430,7 +18430,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200529015410373" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200601043220369" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -47570,15 +47570,20 @@ Master's student of CS at Shanghai Jiao Tong University
 ```
 </pre>
 </div>
-<div created="20200601042511495" creator="Hans" modified="20200601043009710" modifier="Hans" tags="ShadowSocks" title="v2ray 设置">
+<div created="20200601042511495" creator="Hans" modified="20200601054017681" modifier="Hans" tags="ShadowSocks" title="v2ray 设置">
 <pre>* HTTP 代理 &gt; 关闭 HTTP 代理
 * 左键图标 &gt; 订阅 &gt; 订阅设置 &gt; 输入订阅链接 &gt; 更新订阅
 * 选择一个合适的服务器
 * HTTP 代理 &gt; 开启 HTTP 代理
 * 参数设置 &gt; Core: 路由设置 &gt; 4.预定义规则 &gt; 绕过局域网及大陆地址
-* 注意 IE 的端口要和 HTTP 代理的端口一致
-** 默认情况下 v2ray 是会自动配置端口的，360可能会弹出提示，点击“允许程序操作”即可，socks5 是 10808，http 是 10809
-** 需要将 GitHub 和 SwithyOmega 的端口也都改成和 http 的一致
+* 注意：IE 的端口要和 HTTP 代理的端口一致
+** 默认情况下 v2ray 是会自动配置端口的，360可能会弹出提示，点击“允许程序操作”即可，socks 是 10808，http 是 10809，可以手动将 socks 改成 1079 端口，则 http 自动+1 编程 1080 端口
+
+* HTTP 代理 &gt; 仅开启 HTTP 代理，不改变系统代理
+
+** 需要将 [[GitHub ssh|GitHub ssh使用ss代理]] 和 [[SwithyOmega|SwitchyOmega 使用]] 的端口也都改成和 http 的一致
+* 注意： IE &gt; Internet 选项 &gt; 连接 &gt; 局域网设置 &gt; 勾选 对于本地地址不使用代理服务器
+** 否则 Chrome 可能会出现重大问题：扩展失效，进程僵死（无法被杀掉）
 
 </pre>
 </div>
