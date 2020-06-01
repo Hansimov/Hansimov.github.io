@@ -2037,6 +2037,8 @@ Error message and password prompt
 
 <li>GhostScript 删除/选取某些页码 remove/select pages</li>
 
+<li>Ghostscript 删除PDF中所有文字内容</li>
+
 <li>GhostScript 输出设备 -o 选项</li>
 
 <li>GhostScript 提高图片质量</li>
@@ -2698,6 +2700,8 @@ Error message and password prompt
 <li>Python 覆盖文件内容</li>
 
 <li>Python 格式化 print</li>
+
+<li>Python 给扫描版PDF添加书签</li>
 
 <li>Python 给文档段落编号</li>
 
@@ -3546,6 +3550,8 @@ Error message and password prompt
 <li>Unity 黑色主题 dark theme</li>
 
 <li>Upwork 个人介绍</li>
+
+<li>v2ray 设置</li>
 
 <li>VBA中的Application</li>
 
@@ -17516,7 +17522,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[Python 转码 HTML code]]" title="$:/StoryList">
+<div list="[[v2ray 设置]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -17651,7 +17657,7 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200312094502634" creator="Hans" modified="20200529015506425" modifier="Hans" title="$:/temp/NewTagName">
+<div created="20200312094502634" creator="Hans" modified="20200601042516113" modifier="Hans" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
@@ -27747,6 +27753,14 @@ gswin64c -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dFirstPage=4 -o s13_g.pdf s13.pdf
 
 </pre>
 </div>
+<div created="20200529034324887" creator="Hans" modified="20200529034436802" modifier="Hans" tags="GhostScript" title="Ghostscript 删除PDF中所有文字内容">
+<pre>`gswin64c -o output.pdf -sDEVICE=pdfwrite -dFILTERTEXT input.pdf`
+
+---
+* pdf generation - Remove all text from PDF file - Stack Overflow 
+** https://stackoverflow.com/questions/24322338/remove-all-text-from-pdf-file
+</pre>
+</div>
 <div created="20180727070859708" creator="Hans" modified="20180727070936317" modifier="Hans" tags="GhostScript" title="GhostScript 输出设备 -o 选项">
 <pre>* Details of Ghostscript Output Devices
 
@@ -35620,6 +35634,14 @@ print('{:0&gt;10s} {1} {2} {3}'.format(user_mid, user_regtime_local, user_regtim
 ** https://pyformat.info/
 </pre>
 </div>
+<div created="20200529023809487" creator="Hans" modified="20200529024137171" modifier="Hans" tags="Python pdftk" title="Python 给扫描版PDF添加书签">
+<pre>; 基本思路：
+* 将目录截图，用 QQ 识别图中文字并复制到 `bk-*-i.txt`
+* 用 Python 将 `bk-*-i.txt` 处理成 pdftk 能识别的格式并写入文件 `bk-*.txt`
+* 使用 pdftk 将书签 `bk-*.txt` 写入 pdf 文件
+
+代码样例见：[ext[./backup_scripts/sync_bookmarks.py]]</pre>
+</div>
 <div created="20180118145947271" creator="Hans" modified="20180118150304882" modifier="Hans" tags="Python" title="Python 给文档段落编号">
 <pre>将文档导出成 ''.csv'' 格式，然后修改对应的两个 dx 后面的编号，以及 start 的数值。
 
@@ -37578,8 +37600,7 @@ importlib.reload(module)
 ** https://www.geeksforgeeks.org/reloading-modules-python/</pre>
 </div>
 <div created="20200529015457857" creator="Hans" modified="20200529015607637" modifier="Hans" tags="Python" title="Python 转码 HTML code">
-<pre>
-`line.encode('ascii', 'xmlcharrefreplace').decode('utf-8')`
+<pre>`line.encode('ascii', 'xmlcharrefreplace').decode('utf-8')`
 
 ```
 mark_str_body = &quot;BookmarkBegin\nBookmarkTitle: {}\nBookmarkLevel: 1\nBookmarkPageNumber: {}\n&quot;
@@ -47547,6 +47568,18 @@ Bachelor of EE at Shanghai Jiao Tong University
 Master's student of CS at Shanghai Jiao Tong University
 (SJTU is TOP 4 university in China)
 ```
+</pre>
+</div>
+<div created="20200601042511495" creator="Hans" modified="20200601043009710" modifier="Hans" tags="ShadowSocks" title="v2ray 设置">
+<pre>* HTTP 代理 &gt; 关闭 HTTP 代理
+* 左键图标 &gt; 订阅 &gt; 订阅设置 &gt; 输入订阅链接 &gt; 更新订阅
+* 选择一个合适的服务器
+* HTTP 代理 &gt; 开启 HTTP 代理
+* 参数设置 &gt; Core: 路由设置 &gt; 4.预定义规则 &gt; 绕过局域网及大陆地址
+* 注意 IE 的端口要和 HTTP 代理的端口一致
+** 默认情况下 v2ray 是会自动配置端口的，360可能会弹出提示，点击“允许程序操作”即可，socks5 是 10808，http 是 10809
+** 需要将 GitHub 和 SwithyOmega 的端口也都改成和 http 的一致
+
 </pre>
 </div>
 <div created="20170712085049209" creator="Hans" modified="20170712091405946" modifier="Hans" tags="VBA" title="VBA中的Application">
