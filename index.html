@@ -2965,6 +2965,8 @@ Error message and password prompt
 
 <li>Qt theme 主题设置</li>
 
+<li>QTTabBar 配置</li>
+
 <li>reCAPTCHA 打不开</li>
 
 <li>Recent Changes</li>
@@ -17522,7 +17524,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[v2ray 设置]]" title="$:/StoryList">
+<div list="[[QTTabBar 配置]] [[v2ray 设置]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -17657,7 +17659,7 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200312094502634" creator="Hans" modified="20200601042516113" modifier="Hans" title="$:/temp/NewTagName">
+<div created="20200312094502634" creator="Hans" modified="20200608020037660" modifier="Hans" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
@@ -18430,7 +18432,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200606144843227" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200608020021654" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -39210,6 +39212,38 @@ C:\Strawberry\perl\bin
 `dark_copy.xml` 文件见：[[Qt my_dark theme 黑色主题]]
 
 {{Qt my_dark theme 黑色主题}}</pre>
+</div>
+<div created="20200608020022474" creator="Hans" modified="20200608022120712" modifier="Hans" tags="QTTabBar" title="QTTabBar 配置">
+<pre>* 安装 
+** 先安装 1038 版本，再安装 1040 版本的升级补丁
+*** http://qttabbar.wikidot.com/
+
+* 启用
+** 重启文件资源管理器 &gt; 查看 &gt; 选项（注意是下面的小矩形） &gt; 勾选 QTTabBar &gt; 重启文件资源管理器 &gt; 这时应该就能看见标签了
+
+* 汉化
+** 右键标签 &gt; QTabBar Options &gt; General &gt; Download Language File &gt; Filter Languages &gt; 下拉到最下面选择“中文（简体）” &gt; 点击 Revision 逆向排序 &gt; 选择 Joxon 翻译的版本 &gt; 下载对应的 xml 文件 &gt; 关闭下载界面 &gt; 点击三个点打开该 xml 文件 &gt; 重启文件资源管理器
+
+* 设置
+** 标签设置 
+*** 取消勾选“除非Ctr|按下否则不重复打开相同标签”
+*** 取消勾选“创建新窗口时关闭原标签”
+** 外观设置
+*** 标签 &gt; 标签标题文本 &gt; 活动标签的字体样式 &gt; 勾选“粗体”
+** 预览提示
+*** 图片 最大宽度/高度： 512 / 512
+*** 电影 最大宽度/高度： 512 / 512
+*** 文本 最大宽度/高度： 256 / 512
+*** 音量：0%
+
+** &lt;red&gt;''常规 &gt; 导出设置''&lt;/red&gt;
+
+---
+* QTTabBar - QuizoApps 
+** http://qttabbar.wikidot.com/
+* QTTabBar – 从安装到能用再到秒飞Clover | 超能小紫 - mokeyjay 
+** https://www.mokeyjay.com/archives/1811
+</pre>
 </div>
 <div created="20190627114413726" creator="Hans" modified="20190627121703100" modifier="Hans" tags="计算机" title="reCAPTCHA 打不开">
 <pre>关闭 Adblock 即可。
