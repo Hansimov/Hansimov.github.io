@@ -3581,6 +3581,8 @@ Error message and password prompt
 
 <li>Webstrom 最新激活方式</li>
 
+<li>Win10 电脑有线网时断时续</li>
+
 <li>Win10 记忆每个应用的中英文输入法</li>
 
 <li>Win10 你需要提供管理员权限才能删除此文件夹</li>
@@ -17068,7 +17070,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170427093719513" creator="Hans" modified="20180609134438525" modifier="Hans" title="$:/state/ShowPaletteEditor">
 <pre>yes</pre>
 </div>
-<div created="20170423064611651" creator="Hans" modified="20200313123328217" modifier="Hans" title="$:/state/sidebar">
+<div created="20170423064611651" creator="Hans" modified="20200609124704703" modifier="Hans" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
 <div created="20170423122204667" creator="Hans" modified="20170425023502061" modifier="Hans" title="$:/state/tab--1032361530">
@@ -17530,7 +17532,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="凯酷键盘失效" title="$:/StoryList">
+<div list="[[Win10 电脑有线网时断时续]] 凯酷键盘失效" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -17665,7 +17667,7 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200312094502634" creator="Hans" modified="20200609054104210" modifier="Hans" title="$:/temp/NewTagName">
+<div created="20200312094502634" creator="Hans" modified="20200609100352819" modifier="Hans" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
@@ -23051,13 +23053,20 @@ int compare_num(const void *a , const void *b )
 
 # win + alt</pre>
 </div>
-<div created="20200609054057384" creator="Hans" modified="20200609054400944" modifier="Hans" tags="Windows" title="凯酷键盘失效">
+<div created="20200609054057384" creator="Hans" modified="20200609124715660" modifier="Hans" tags="Windows" title="凯酷键盘失效">
 <pre>; 临时救急：设置 &gt; 轻松使用 &gt; 键盘 &gt; 屏幕键盘 &gt; 开启
+
+
+
 
 * fn + 上下左右：恢复键盘活动性
 
-* 如果 alt 和 win 调换了，使用 KeyExtender 调换相关的键
-** http://www.remapkey.com/
+
+* 如果 alt 和 win 调换了
+** 用 SharpKeys 互换 `Special: Left Alt (00_38)` 和 `Special: Left Windows (E0_5B)`
+*** https://www.randyrants.com/category/sharpkeys/
+** ~~使用 KeyExtender 调换相关的键~~
+*** ~~http://www.remapkey.com/~~
 
 * fn+F12：取消锁win键
 
@@ -23067,7 +23076,10 @@ int compare_num(const void *a , const void *b )
 ** https://blog.csdn.net/qq_43479203/article/details/105881735
 
 * Keyboard Remapping Tool to Remap Keys,Change Shortcut,Customize keys on Keyboard 
-** http://www.remapkey.com/</pre>
+** http://www.remapkey.com/
+
+* windows 10 - Can I switch the alt and ctrl keys on my keyboard? - Super User 
+    * https://superuser.com/questions/1190329/can-i-switch-the-alt-and-ctrl-keys-on-my-keyboard</pre>
 </div>
 <div created="20180121055814292" creator="Hans" modified="20180121074027545" modifier="Hans" tags="写作 科幻" title="科幻小说构思">
 <pre>$$$text/x-tiddlywiki
@@ -47972,6 +47984,9 @@ sudo apt-get install open-vm-tools-desktop
 </div>
 <div created="20180302043417387" creator="Hans" modified="20180302043510241" modifier="Hans" tags="Crack JavaScript" title="Webstrom 最新激活方式">
 <pre>选择激活服务器：http://idea.codebeta.cn </pre>
+</div>
+<div created="20200609100342550" creator="Hans" modified="20200609100848812" modifier="Hans" tags="Windows" title="Win10 电脑有线网时断时续">
+<pre>设备管理器 &gt; 网络适配器 &gt; Intel(R) Ethernet Connection * &gt; 右键属性 &gt; 高级 &gt; Speed &amp; Duplex &gt; 把 Auto Negotiation 改成 100 Mbps Full Duplex</pre>
 </div>
 <div created="20200608131616597" creator="Hans" modified="20200608131722790" modifier="Hans" tags="Windows" title="Win10 记忆每个应用的中英文输入法">
 <pre>控制面板&gt; 时钟、语言和区域 &gt; 语言 &gt; 高级设置 &gt; 勾选“允许我为每个应用窗口设置不同的输入法”
