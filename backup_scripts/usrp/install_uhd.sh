@@ -5,11 +5,13 @@ echo Installing UHD ...
 cd /home/loccs/usrp
 git clone https://github.com/EttusResearch/uhd
 cd uhd
+
 # git checkout release_003_008_004
 # git checkout release_003_009_005
-# git checkout release_003_010_000_000
+git checkout release_003_010_000_000
 # git checkout v3.12.0.0
-git checkout v3.13.1.0
+# git checkout v3.13.1.0
+
 cd host
 mkdir build
 cd build

@@ -1845,6 +1845,8 @@ Error message and password prompt
 
 <li>C++ 读取文件每一行 file getline</li>
 
+<li>C++ 段错误:您的程序发生段错误，可能是数组越界，堆栈溢出（比如，递归调用层数太多）等情况引起</li>
+
 <li>C++ 二维向量排序（逆序） sort 2d vector ascend/discend</li>
 
 <li>C++ 数组通过指针赋值 assign value through pointer</li>
@@ -17532,7 +17534,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[Win10 电脑有线网时断时续]] 凯酷键盘失效" title="$:/StoryList">
+<div list="[[C++ 段错误:您的程序发生段错误，可能是数组越界，堆栈溢出（比如，递归调用层数太多）等情况引起]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -17667,7 +17669,7 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200312094502634" creator="Hans" modified="20200609100352819" modifier="Hans" title="$:/temp/NewTagName">
+<div created="20200312094502634" creator="Hans" modified="20200611052833791" modifier="Hans" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
@@ -25494,6 +25496,24 @@ int main() {
     return 0;
 }
 ```
+</pre>
+</div>
+<div created="20200611052824103" creator="Hans" modified="20200611052941916" modifier="Hans" tags="C/C++" title="C++ 段错误:您的程序发生段错误，可能是数组越界，堆栈溢出（比如，递归调用层数太多）等情况引起">
+<pre>
+
+```
+if (t-&gt;right); // 这里多打了个分号！
+    q.push(t-&gt;right);
+```
+
+改成：
+
+```
+if (t-&gt;right)
+    q.push(t-&gt;right);
+```
+
+
 </pre>
 </div>
 <div created="20190730080527159" creator="Hans" modified="20190730080644934" modifier="Hans" tags="C/C++" title="C++ 二维向量排序（逆序） sort 2d vector ascend/discend">
