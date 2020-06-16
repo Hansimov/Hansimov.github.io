@@ -1,8 +1,11 @@
 // ==UserScript==
-// @name        前往leetcode中文站
-// @description 前往leetcode中文站
+// @name        前往LeetCode中文站
+// @description 在英文LeetCode页面添加了一个“前往中文站”对应题解的按钮
+// @namespace   *://leetcode.com/*
 // @match       *://leetcode.com/*
 // @exclude     *://leetcode.com/*/discuss/*
+// @version     1.0
+// @author      Hansimov
 // @grant       GM_addStyle
 // ==/UserScript==
 
