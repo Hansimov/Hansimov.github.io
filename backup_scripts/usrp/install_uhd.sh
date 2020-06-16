@@ -22,6 +22,16 @@ sudo make install
 sudo ldconfig
 sudo uhd_images_downloader
 
+# # Configureing USB
+cd /home/loccs/usrp/uhd/host/utils
+sudo cp uhd-usrp.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+
+# # Thread priority sheduling
+sudo groupadd usrp
+sudo usermod -aG usrp $USER
+
 # # Verifying UHD operations
 # cd /usr/local/lib/uhd/examples
 # sudo ./rx_samples_to_file --freq 98e6 --rate 5e6 --gain 20 --duration 10 usrp_samples.dat
