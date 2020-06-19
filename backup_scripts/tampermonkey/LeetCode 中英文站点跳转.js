@@ -66,7 +66,7 @@ GM_addStyle ( `
 
     #lc-btn-div-cn {
         position:               absolute;
-        top:                    70px;
+        top:                    5px;
         left:                   550px;
         font-size:              15px;
         // background:             cyan;
