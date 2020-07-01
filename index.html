@@ -47468,7 +47468,7 @@ sudo service systemd-logind restart
 <pre>* ubuntu 16.04挂载2T机械硬盘 - qq_34351547的博客 - CSDN博客 
 ** https://blog.csdn.net/qq_34351547/article/details/78649667</pre>
 </div>
-<div created="20200630101333689" creator="Hans" modified="20200630101811874" modifier="Hans" tags="Ubuntu Windows Python" title="Ubuntu 和 Windows 共享文件">
+<div created="20200630101333689" creator="Hans" modified="20200701080620590" modifier="Hans" tags="Ubuntu Windows Python" title="Ubuntu 和 Windows 共享文件">
 <pre>以 Ubuntu 向 Windows 传输为例：
 
 * 得到 Ubuntu 主机 IP `xxx.xxx.xxx.xxx`：
@@ -47485,9 +47485,15 @@ ip addr
 &lt;ol&gt; 
 
 ```cmd
+#python2
 python -m SimpleHTTPServer 8080
+
+#python3
+python3 -m http.server 8080
+
 ```
 &lt;/ol&gt;
+
 
 * Windows 浏览器打开 `xxx.xxx.xxx.xxx:8080`
 ** 访问或下载文件
