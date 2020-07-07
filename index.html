@@ -1963,6 +1963,8 @@ Error message and password prompt
 
 <li>CSS Units</li>
 
+<li>Cygwin 安装和配置</li>
+
 <li>Daisy Bell</li>
 
 <li>Daisy Bell - Audio</li>
@@ -17542,7 +17544,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20170423062203921" modifier="Han" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[Ubuntu 和 Windows 共享文件]]" title="$:/StoryList">
+<div list="[[Cygwin 安装和配置]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -17677,7 +17679,7 @@ $title$$(currentTiddler)$
     }
 }</pre>
 </div>
-<div created="20200312094502634" creator="Hans" modified="20200630101348569" modifier="Hans" title="$:/temp/NewTagName">
+<div created="20200312094502634" creator="Hans" modified="20200707084923656" modifier="Hans" title="$:/temp/NewTagName">
 <pre></pre>
 </div>
 <div created="20171229091700122" creator="Hans" modified="20200229052432480" modifier="Hans" title="$:/temp/password">
@@ -26789,6 +26791,67 @@ dir ???????000??.trc.bz2
 * http://www.runoob.com/cssref/css-units.html
 
 &lt;embed src=&quot;http://www.runoob.com/cssref/css-units.html&quot; width=100% height= 600px&gt;</pre>
+</div>
+<div created="20200707084901985" creator="Hans" modified="20200707090848448" modifier="Hans" tags="Cygwin" title="Cygwin 安装和配置">
+<pre>; 安装 Cygwin 和新的 package
+
+下载 `setup-x86_64.exe` 安装
+
+* https://cygwin.com/install.html
+
+在任何时候重新运行 `setup-x86_64.exe` 都能安装新的 package。
+
+* View
+** Full，展示所有的包
+** Pending，展示将要处理的包
+** Picked，展示安装好的包
+* 选择 Full 模式，搜索到对应的包名称，在 New 一列选择对应的版本，点击下一步即可
+* 可以同时安装多个 package
+
+
+---
+; 得到 Cygwin 主目录在 Windows 下的位置
+
+在 Cygwin 命令行输入：
+
+```
+cygpath -w ~
+```
+
+输出：
+
+```
+&lt;安装路径&gt;/Cygwin/home/&lt;用户名&gt;
+```
+
+---
+; 自动补全忽略大小写
+
+在 Windows 文件夹进入 `&lt;安装路径&gt;/Cygwin/home/&lt;用户名&gt;`，用 Sublime 打开 `.inputrc`，向末尾添加下面一行：
+
+```
+set completion-ignore-case on
+```
+
+
+---
+; 进入 Windows 盘符
+
+比如 `D` 盘：
+
+```
+cd /cygwindriver/d
+```
+
+
+---
+* Cygwin Installation 
+** https://cygwin.com/install.html
+* cygpath 
+** https://www.cygwin.com/cygwin-ug-net/cygpath.html
+* terminal - WGET Command Not Working in Cygwin - Super User 
+** https://superuser.com/questions/693284/wget-command-not-working-in-cygwin
+</pre>
 </div>
 <div created="20170508113459303" creator="Hans" modified="20170508124956970" modifier="Hans" tags="计算机" title="Daisy Bell" tmap.id="9f813ec2-48c1-4c9b-a3fb-c380dc08e9a0">
 <pre>''&quot;Daisy Bell (Bicycle Built for Two)''&quot;&lt;&lt;footnote &quot;Daisy Bell - Wikipedia&quot; &quot;https://en.wikipedia.org/wiki/Daisy_Bell&quot;&gt;&gt;is a popular song, written in 1892 by Harry Dacre, with the well-known chorus:
