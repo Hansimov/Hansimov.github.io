@@ -645,6 +645,22 @@ Error message and password prompt
 
 <li>$:/plugins/sk/Indents</li>
 
+<li>$:/plugins/tg/layout</li>
+
+<li>$:/plugins/tg/layout/recent-dates-bold/style</li>
+
+<li>$:/plugins/tg/layout/sidebar-top</li>
+
+<li>$:/plugins/tg/layout/styles</li>
+
+<li>$:/plugins/tg/layout/systemtags</li>
+
+<li>$:/plugins/tg/layout/toolbar-up/ckeckbox</li>
+
+<li>$:/plugins/tg/tiddlersbar</li>
+
+<li>$:/plugins/tg/tiddlersbar/styles</li>
+
 <li>$:/plugins/tiddlywiki/googleanalytics/readme</li>
 
 <li>$:/plugins/tiddlywiki/highlight</li>
@@ -995,11 +1011,15 @@ Error message and password prompt
 
 <li>$:/state/tab-1999577953</li>
 
+<li>$:/state/tab-2059741237</li>
+
 <li>$:/state/tab-219552783</li>
 
 <li>$:/state/tab-469376079</li>
 
 <li>$:/state/tab-578329660</li>
+
+<li>$:/state/tab-658165082</li>
 
 <li>$:/state/tab-936493323</li>
 
@@ -15377,7 +15397,8 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[Tiddlywiki 居中主题 Centralised]]</pre>
+# [[$:/plugins/tg/tiddlersbar]]
+# [[$:/plugins/tg/layout]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -16253,6 +16274,619 @@ exports.encryptTiddler = encryptTiddlerWidget;
     }
 }</pre>
 </div>
+<div author="TonGerner" core-version="&gt;=5.1.15" created="20191227185336422" description="Layout tweaks" list="readme license" modified="20200316202427165" name="Layout tweaks" plugin-type="plugin" source="http://tongerner.tiddlyspot.com/" title="$:/plugins/tg/layout" type="application/json" version="0.4.34">
+<pre>{
+    &quot;tiddlers&quot;: {
+        &quot;$:/plugins/tg/layout/combination&quot;: {
+            &quot;created&quot;: &quot;20180316161209354&quot;,
+            &quot;text&quot;: &quot;In case two or three of the following plugins:\n\n* Top menu  ^^1^^ or Top-left menu ^^1^^\n* Top toolbar ^^1^^\n* Tiddlersbar ^^1^^\n\nare to be combined, some adjustments to the layout are necessary to prevent overlapping parts. The following gives the general procedure.\n\n# Click the ''Adjust layout'' button (&lt;&lt;icn $:/plugins/tg/layout/images/layout&gt;&gt;) in the top right bar or click [[Plugin tweaks|$:/plugins/tg/layout/tweaks]] and select the Theme tweaks tab\n## To create extra room on top, increase ''Story top position''\n# Select the Layout tab and increase ''Height topbar''\n# If required, adjust the 'Top' settings of&lt;div&gt;\n\n* 'Top menu' (tab Top menu, setting ''Top 'Top menu''')\n* 'Top-left menu' (tab Top-left menu, setting ''Top 'Top menu''' &amp; setting ''Top 'Left menu''')\n* 'Toolbar' (tab Toolbar, setting ''Top 'Toolbar''')\n* 'Tiddlersbar (tab Tiddlersbar, setting ''Top 'Tiddlersbar''')\n&lt;/div&gt;\n# Some tweaking of the above values\n# Adjust ''Sidebar top position'' in Theme tweaks tab until wiki title and tiddler title are level.\n\n\n\n^^''1''^^ Available at http://tongerner.tiddlyspot.com/\n\n&lt;&lt;&lt;\n''Note:''&lt;br&gt;http://tongerner.tiddlyspot.com/ shows the combination of 'Top menu', 'Toolbar' and 'Tiddlersbar'.\n&lt;&lt;&lt;\n\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/combination&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20200313135445072&quot;
+        },
+        &quot;$:/plugins/tg/layout/configuration-button&quot;: {
+            &quot;created&quot;: &quot;20171203165317769&quot;,
+            &quot;text&quot;: &quot;&lt;$button class=\&quot;tc-btn-invisible\&quot; tooltip=\&quot;Adjust layout\&quot;&gt;\n&lt;$action-sendmessage $message=\&quot;tm-open-window\&quot; $param=\&quot;$:/plugins/tg/layout/tweaks\&quot; height=\&quot;800px\&quot; width=\&quot;720px\&quot;/&gt;\n{{$:/plugins/tg/layout/images/layout}}\n&lt;/$button&gt;\n\n\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/configuration-button&quot;,
+            &quot;tags&quot;: &quot;$:/tags/TopRightBar&quot;,
+            &quot;modified&quot;: &quot;20200313135507564&quot;,
+            &quot;list-before&quot;: &quot;$:/core/ui/TopBar/menu&quot;,
+            &quot;description&quot;: &quot;Adjust layout&quot;,
+            &quot;caption&quot;: &quot;{{$:/plugins/tg/layout/icon}} adjust layout&quot;
+        },
+        &quot;$:/plugins/tg/layout/css-units&quot;: {
+            &quot;text&quot;: &quot;&lt;br&gt;\n\n* You can enter values in allowed CSS units, e.g. `%`, `px`, `em`, ...\n* You can enter colors:\n** by name, e.g. `red`, `blue`, ... see [[w3schools|https://www.w3schools.com/tags/ref_colornames.asp]]\n** as 6 (sometimes 3) digit Hex color code, e.g. `#FF0000` (or `#F00`)\n** with the color macro, e.g. `&lt;&lt;colour primary&gt;&gt;`.\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/css-units&quot;,
+            &quot;modified&quot;: &quot;20191216151510179&quot;,
+            &quot;created&quot;: &quot;20190722175502370&quot;
+        },
+        &quot;$:/plugins/tg/layout/icon&quot;: {
+            &quot;text&quot;: &quot;&lt;svg width=\&quot;22pt\&quot; height=\&quot;22pt\&quot; viewBox=\&quot;0 0 100 100\&quot; xmlns=\&quot;http://www.w3.org/2000/svg\&quot; xmlns:svg=\&quot;http://www.w3.org/2000/svg\&quot;&gt;\n &lt;metadata id=\&quot;metadata7\&quot;&gt;image/svg+xml&lt;/metadata&gt;\n &lt;g&gt;\n  &lt;title&gt;Layer 1&lt;/title&gt;\n  &lt;g id=\&quot;layer1\&quot;&gt;\n   &lt;path d=\&quot;m48.98237,97.8691l-41.98313,-24.239l0,-48.47796l41.98313,-24.23897l41.98313,24.23897l0,48.47796l-41.98313,24.239z\&quot; id=\&quot;path4142\&quot; stroke-miterlimit=\&quot;4\&quot; stroke-width=\&quot;1.2218\&quot; stroke=\&quot;#a0a0ff\&quot; fill=\&quot;#a0a0ff\&quot;/&gt;\n   &lt;path id=\&quot;svg_3\&quot; d=\&quot;m73.1813,28.26401l-15.55706,15.81597c0.61319,0.6247 0.61206,1.63724 0,2.25944c-0.61371,0.62398 -1.60823,0.62448 -2.22362,0l-6.66496,-6.77579c-0.61439,-0.62462 -0.61363,-1.63801 0,-2.26065c0.61329,-0.62358 1.60695,-0.62444 2.22244,0l0,0l15.55707,-15.81609c1.84112,-1.87179 4.8262,-1.87179 6.66732,0c1.84113,1.87178 1.84112,4.90654 -0.00001,6.77832l-0.00118,-0.0012zm-50.00484,46.31849l-2.22244,-2.2595l3.30621,-5.6205l3.36112,-1.1578l23.33557,-23.72413l2.22243,2.25941l-23.33556,23.72422l-1.13868,3.417l-5.52865,3.3613z\&quot; fill-rule=\&quot;evenodd\&quot;/&gt;\n  &lt;/g&gt;\n &lt;/g&gt;\n&lt;/svg&gt;&quot;,
+            &quot;type&quot;: &quot;image/svg+xml&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/icon&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20191216151535498&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;,
+            &quot;created&quot;: &quot;20160109160239631&quot;
+        },
+        &quot;$:/plugins/tg/layout/info&quot;: {
+            &quot;created&quot;: &quot;20190902161718650&quot;,
+            &quot;text&quot;: &quot;\\define slidertg(label,tiddler)\n&lt;$button popup=\&quot;$:/state/$tiddler$\&quot; class=\&quot;tc-btn-invisible tgc-slider\&quot;&gt;&lt;$text text=\&quot;$label$ »\&quot;/&gt;&lt;/$button&gt;\n&lt;$reveal type=\&quot;nomatch\&quot; text=\&quot;\&quot; default=\&quot;\&quot; state=\&quot;$:/state/$tiddler$\&quot; animate=\&quot;yes\&quot;&gt;\n\n{{$tiddler$}}\n\n&lt;/$reveal&gt;\n\\end\n\n* &lt;&lt;slidertg \&quot;CSS units\&quot; $:/plugins/tg/layout/css-units&gt;&gt;\n* &lt;&lt;slidertg \&quot;Combine plugins\&quot; $:/plugins/tg/layout/combination&gt;&gt;\n* &lt;&lt;slidertg \&quot;Upgrading plugins\&quot; $:/plugins/tg/layout/upgrade&gt;&gt;\n\n\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/info&quot;,
+            &quot;tags&quot;: &quot;$:/tags/plugin-tweaks&quot;,
+            &quot;order&quot;: &quot;1&quot;,
+            &quot;modified&quot;: &quot;20191230140536247&quot;,
+            &quot;caption&quot;: &quot;General info&quot;
+        },
+        &quot;$:/plugins/tg/layout/license&quot;: {
+            &quot;text&quot;: &quot;[[Layout tweaks plugin|http://tongerner.tiddlyspot.com/#Layout%20adjustment%20plugin]] &amp;copy; Ton Gerner &amp;mdash; 2018-2020\n\nMIT License: https://opensource.org/licenses/MIT\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/license&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20191227193112628&quot;,
+            &quot;created&quot;: &quot;20180124162829244&quot;
+        },
+        &quot;$:/plugins/tg/layout/readme&quot;: {
+            &quot;created&quot;: &quot;20150731184044439&quot;,
+            &quot;text&quot;: &quot;''Note:''&lt;br&gt;This plugin contains 'general' settings for the layout and is additionally required for my following plugins: ^^1^^\n\n* Top menu\n* Top-left menu (top + left menu)\n* Toolbar (on top)\n* Tiddlersbar\n* ~TabStory (alternative tiddlersbar at top of story)\n* Uptoolbar (toolbar above title)\n* Tristate (tristate sidebar)\n\nThis plugin contains layout code common to the mentioned plugins and let you adjust:\n\n!! Theme tweaks\n* Sidebar layout\n* Story left position\n* Story top position\n* Story right\n* Story width\n* Tiddler width\n* Sidebar top position\n* Sidebar width\n\n!! Layout tweaks\n* Checkboxes\n** Display layout button (&lt;&lt;icn $:/plugins/tg/layout/images/layout&gt;&gt;)\n** Search above story\n** Toolbar to toggle editor toolbar + preview\n** Sort recent results alphabetical\n** Button to top of story river\n** Hide description Tools tab buttons\n** System tags tab\n** Recent dates bold\n** Add editor toolbar to sticky title behaviour\n** Set tiddler toolbar above the tiddler title\n\n* Other settings\n** Color and height of the top bar (as a boundary for top menu, toolbar, tiddlersbar, etc.)\n** Top padding of a tiddler\n** Color for  displaying the  'active' state of some toggle buttons\n\nSettings for the layout can be found in ''~ControlPanel &gt; Appearance &gt; [[Plugin tweaks|$:/plugins/tg/layout/tweaks]]'', also available via the 'Adjust layout' button (&lt;&lt;icn $:/plugins/tg/layout/images/layout&gt;&gt;) in the Toprightbar.\n\n|borderless|k\n|^^^1^^ |&amp;nbsp;&amp;nbsp;|All these plugins contain a 'Settings' tiddler tagged with $:/tags/plugin-tweaks and will display - when installed - a tab under 'Plugin tweaks'.|\n\n&lt;&lt;&lt;\n''Note:''&lt;br&gt;@@color:red;A sticky editor toolbar works ''only'' well in non-preview mode!.@@\n&lt;&lt;&lt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/readme&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20200314172312713&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;
+        },
+        &quot;$:/plugins/tg/layout/search&quot;: {
+            &quot;created&quot;: &quot;20181228194403881&quot;,
+            &quot;text&quot;: &quot;{{$:/AdvancedSearch}}&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/search&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20200115143633717&quot;
+        },
+        &quot;$:/plugins/tg/layout/settings&quot;: {
+            &quot;created&quot;: &quot;20150729190109349&quot;,
+            &quot;text&quot;: &quot;!!Layout tweaks\n\n&lt;$checkbox tiddler=\&quot;$:/plugins/tg/layout/configuration-button\&quot; tag=\&quot;$:/tags/TopRightBar\&quot;&gt; 'Adjust layout' button (&lt;&lt;icn $:/plugins/tg/layout/images/layout&gt;&gt;)&lt;/$checkbox&gt;&lt;br&gt;\n&lt;$checkbox tiddler=\&quot;$:/plugins/tg/layout/search\&quot; tag=\&quot;$:/tags/AboveStory\&quot;&gt; 'Search above story river'&lt;/$checkbox&gt;&lt;br&gt;\n&lt;$checkbox tiddler=\&quot;$:/plugins/tg/layout/toggle_toolbar\&quot; tag=\&quot;$:/tags/EditTemplate\&quot;&gt; Toolbar 'Toggle editortoolbar/preview'&lt;/$checkbox&gt;&lt;br&gt;\n&lt;$checkbox tiddler=\&quot;$:/plugins/tg/layout/timeline-macro\&quot; tag=\&quot;$:/tags/Macro\&quot;&gt; 'Sort recent alphabetical'&lt;/$checkbox&gt;&lt;br&gt;\n&lt;$checkbox tiddler=\&quot;$:/plugins/tg/layout/button2top/style\&quot; tag=\&quot;$:/tags/Stylesheet\&quot;&gt; 'Button to top of story river'&lt;/$checkbox&gt;&lt;br&gt;\n&lt;$checkbox tiddler=\&quot;$:/plugins/tg/layout/tools/style\&quot; tag=\&quot;$:/tags/Stylesheet\&quot;&gt; 'Hide description Tools tab buttons'&lt;/$checkbox&gt;&lt;br&gt;\n&lt;$checkbox tiddler=\&quot;$:/plugins/tg/layout/systemtags\&quot; tag=\&quot;$:/tags/MoreSideBar\&quot;&gt; 'System tags tab'&lt;/$checkbox&gt;&lt;br&gt;\n&lt;$checkbox tiddler=\&quot;$:/plugins/tg/layout/recent-dates-bold/style\&quot; tag=\&quot;$:/tags/Stylesheet\&quot;&gt; 'Recent dates bold'&lt;/$checkbox&gt;&lt;br&gt;\n&lt;$checkbox field=\&quot;sticky\&quot; checked=\&quot;yes\&quot; unchecked=\&quot;no\&quot; default=\&quot;yes\&quot; checkactions=\&quot;\&quot;\&quot;&lt;$action-setfield $tiddler=\&quot;$:/plugins/tg/layout/sticky\&quot; title=\&quot;$:/themes/tiddlywiki/vanilla/sticky\&quot;&gt;\&quot;\&quot;\&quot; uncheckactions=\&quot;\&quot;\&quot;&lt;$action-deletetiddler $tiddler=\&quot;$:/themes/tiddlywiki/vanilla/sticky\&quot;/&gt;\&quot;\&quot;\&quot; &gt; Add editor toolbar to sticky title behaviour&lt;/$checkbox&gt; ({{$:/plugins/layout/buttons/toggle-sticky}} Sticky {{$:/themes/tiddlywiki/vanilla/options/stickytitles}} )&lt;br&gt;\n{{$:/plugins/tg/layout/toolbar-up/ckeckbox}}\n\n\n&lt;table class=\&quot;tablestyle\&quot;&gt;\n@@.brown ''Top bar''@@\n&lt;&lt;tableRow \&quot;Background color 'Top bar'\&quot; \&quot;$:/plugins/tg/layout/styles\&quot; \&quot;topbar-background-color\&quot;&gt;&gt;\n&lt;&lt;tableRow \&quot;Height 'Top bar'\&quot; \&quot;$:/plugins/tg/layout/styles\&quot; \&quot;topbar-height\&quot;&gt;&gt;\n@@.brown ''Tiddler''@@\n&lt;&lt;tableRow \&quot;Top padding\&quot; \&quot;$:/plugins/tg/layout/styles\&quot; \&quot;tiddler-padding-top\&quot;&gt;&gt;\n@@.brown ''Button color''@@\n&lt;&lt;tableRow \&quot;Active button color\&quot; \&quot;$:/plugins/tg/layout/styles\&quot; \&quot;active-state-color\&quot;&gt;&gt;\n&lt;/table&gt;\n\n&lt;&lt;&lt;\n''Note:''\n\n* @@color:red;For a 'Top bar' to become visible, a ''color'' (and a ''height &gt; 0px'') need to be entered!@@\n* The height of the Top bar is also the offset for sticky titles; the sticky editor toolbar gets an extra 40px offset\n** @@color:red;A sticky editor toolbar works ''only'' correct in non-preview mode!@@\n&lt;&lt;&lt;\n\n&lt;$button tooltip=\&quot;Help\&quot;&gt;\n&lt;$action-sendmessage $message=\&quot;tm-open-window\&quot; $param=\&quot;$:/plugins/tg/layout/settings-help\&quot; height=\&quot;800px\&quot; width=\&quot;720px\&quot;/&gt;Help&lt;/$button&gt;&quot;,
+            &quot;up&quot;: &quot;yes&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/settings&quot;,
+            &quot;tags&quot;: &quot;$:/tags/plugin-tweaks&quot;,
+            &quot;sticky&quot;: &quot;yes&quot;,
+            &quot;order&quot;: &quot;3&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20200316201508833&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;,
+            &quot;caption&quot;: &quot;Layout tweaks&quot;
+        },
+        &quot;$:/plugins/tg/layout/settings-help&quot;: {
+            &quot;created&quot;: &quot;20150801124528672&quot;,
+            &quot;text&quot;: &quot;|Item|Entry |Description |Default |h\n|'Adjust layout' button |&lt;input type=\&quot;checkbox\&quot; /&gt; / &lt;input type=\&quot;checkbox\&quot; checked /&gt;|'Adjust layout' button in Toprightbar| &lt;input type=\&quot;checkbox\&quot; checked /&gt; |\n|'Search above story river' |&lt;input type=\&quot;checkbox\&quot; /&gt; / &lt;input type=\&quot;checkbox\&quot; checked /&gt;|Advanced search above story river&amp;nbsp;^^''1''^^| &lt;input type=\&quot;checkbox\&quot; /&gt; |\n|Toolbar 'toggle editortoolbar/preview' |&lt;input type=\&quot;checkbox\&quot; /&gt; / &lt;input type=\&quot;checkbox\&quot; checked /&gt;|Toolbar - in edit mode - below tags| &lt;input type=\&quot;checkbox\&quot; checked /&gt; |\n|Sort recent results alphabetical |&lt;input type=\&quot;checkbox\&quot; /&gt; / &lt;input type=\&quot;checkbox\&quot; checked /&gt;|Sort recent results each day in alphabetical order| &lt;input type=\&quot;checkbox\&quot; checked /&gt; |\n|'Button to top of story river' |&lt;input type=\&quot;checkbox\&quot; /&gt; / &lt;input type=\&quot;checkbox\&quot; checked /&gt;|Button to jump to top of story river| &lt;input type=\&quot;checkbox\&quot; checked /&gt; |\n|'Hide description Tools tab buttons' |&lt;input type=\&quot;checkbox\&quot; /&gt; / &lt;input type=\&quot;checkbox\&quot; checked /&gt;|Hide decriptions next to buttons under Tools tab| &lt;input type=\&quot;checkbox\&quot; checked /&gt; |\n|'System tags tab' |&lt;input type=\&quot;checkbox\&quot; /&gt; / &lt;input type=\&quot;checkbox\&quot; checked /&gt;|Add a System tags tab| &lt;input type=\&quot;checkbox\&quot; checked /&gt; |\n|'Recent dates bold' |&lt;input type=\&quot;checkbox\&quot; /&gt; / &lt;input type=\&quot;checkbox\&quot; checked /&gt;|Show dates in recent tab bold| &lt;input type=\&quot;checkbox\&quot; checked /&gt; |\n|Add editor toolbar to sticky title behaviour |&lt;input type=\&quot;checkbox\&quot; /&gt; / &lt;input type=\&quot;checkbox\&quot; checked /&gt;|If titles are sticky, editor toolbar will be sticky as well | &lt;input type=\&quot;checkbox\&quot; checked /&gt; |\n|Set tiddler toolbar above the tiddler title|&lt;input type=\&quot;checkbox\&quot; /&gt; / &lt;input type=\&quot;checkbox\&quot; checked /&gt;|Creates more room for tiddler title ^^2^^| &lt;input type=\&quot;checkbox\&quot; /&gt; |\n|||||\n|||||\n|Topbar |Background color 'Top bar'|Background color of the top bar&lt;br&gt;Transparent when left 'blank'!| `&lt;&lt;colour page-background&gt;&gt;` |\n|~|Height 'Top bar'|Height of the top bar| 40px |\n|Tiddler |Top padding |Top padding of tiddler  | 30px |\n|Button color|Active button color |Color indicating 'active' state of toggle button | `&lt;&lt;colour primary&gt;&gt;` |\n\n\n|borderless|k\n|^''@@font-size: 0.8em;1@@'' |&amp;nbsp;&amp;nbsp;|&amp;bull; In classic storyview: scroll up to reach search&lt;br&gt;&amp;bull; In zoomin view search always visible|\n|^''@@font-size: 0.8em;2@@'' ||Adds 'Toolbar - title' tab to Plugin tweaks with settings for layout tiddler toolbar|\n\n\n\n\n\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/settings-help&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20200325165236673&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;
+        },
+        &quot;$:/plugins/tg/layout/sidebar-top&quot;: {
+            &quot;text&quot;: &quot;0px&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/sidebar-top&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20191216152841842&quot;,
+            &quot;created&quot;: &quot;20161213115930178&quot;
+        },
+        &quot;$:/plugins/tg/layout/styles&quot;: {
+            &quot;text&quot;: &quot;&lt;pre&gt;/* LAYOUT SETTINGS */\n\n/* VERTICAL OFFSET FOR TOP OF SIDEBAR */\nhtml .tc-sidebar-scrollable {\n    top: {{$:/plugins/tg/layout/sidebar-top}};\n}\n\n* BACKGROUND COLOR TOPRIGHTBAR (with double chevron) */\n.tc-topbar {\n     background-color: {{!!topbar-background-color}};\n}\n\n/* TOPBAR */\n.tgc-toolbar {\n     display:block;\n     position:fixed;\n     left:0px;\n     top:0px;\n     width:100%;\n     height: {{!!topbar-height}};\n     background-color: {{!!topbar-background-color}};\n     z-index: 600;\n}\n\n/* TOP PADDING TIDDLER */\nbody.tc-body .tc-tiddler-frame {\n     padding-top: {{!!tiddler-padding-top}};\n}\n\n/* COLOR ACTIVE STATE TOGGLE BUTTON */\nbody.tc-body .tgc-active-indicator {\n     color: {{!!active-state-color}};\n}\nbody.tc-body .tgc-active-indicator svg {\n     fill: {{!!active-state-color}};\n}\n\nbody.tc-body .tgc-active-indicator:hover svg {\n     fill: &lt;&lt;colour \&quot;foreground\&quot;&gt;&gt;;\n}\n\n/* HIDE BUTTON2TOP WHEN NOT ACTIVE */\n.tgc-fixed-bottom {\n     display: none;\n}\n\n/* TITLE - TOOLBAR SPACING */\nhtml .tgc-tiddler-title-space {\n     line-height: {{!!title-toolbar-spacing}}; \n}\n\n/* SIZE OF TIDDLER BUTTONS */\nhtml .tc-tiddler-controls button svg {\n     height: {{!!tiddler-button-size}};\n}\n\n/* SPACE BETWEEN TIDDLER BUTTONS */\nhtml .tc-tiddler-controls button {\n     margin-left: {{!!tiddler-button-spacing}};\n}\n\n/* SETTINGS TABLE */\n/* WIDTH SETTINGS TABLE */\ninput[type='text'].settings {\n     width: 150px;\n}\ntable.tablestyle {\n     font-size: 0.9em;\n     border-width: 0px;\n     border-style: solid;\n     padding: 2px;\n     border-color: #DDD;\n     border-collapse: collapse;\n}\ntable.tablestyle th {\n     background-color: #F0F0F0;\n     border-color: #DDD;\n     text-align: left;\n     vertical-align: top;\n     border-style: solid;\n     border-width: 1px;\n     padding: 5px;\n}\ntable.tablestyle tr {\n     background-color: #F0F0F0;\n     padding: 0px;\n}\ntable.tablestyle td {\n     border-color: #DDD;\n     border-style: solid;\n     border-width: 1px;\n     padding:2px;\n}\n/* COLOR HEADINGS TABLE */\n.brown {\n     color: #884411;\n     font-weight: bold;\n}\n/* BORDERLESS TABLES */\n.borderless, .borderless table, .borderless td, .borderless tr, .borderless th, .borderless tbody {\n     border:0 !important;\n     margin:0 !important;\n     padding:0 !important;\n}\n&lt;/pre&gt;&quot;,
+            &quot;topbar-height&quot;: &quot;40px&quot;,
+            &quot;topbar-background-color&quot;: &quot;&lt;&lt;colour page-background&gt;&gt;&quot;,
+            &quot;title-toolbar-spacing&quot;: &quot;1.3em&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/styles&quot;,
+            &quot;tiddler-padding-top&quot;: &quot;30px&quot;,
+            &quot;tiddler-button-spacing&quot;: &quot;0px&quot;,
+            &quot;tiddler-button-size&quot;: &quot;0.6em&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Stylesheet&quot;,
+            &quot;story-river-top&quot;: &quot;0px&quot;,
+            &quot;sidebar-top&quot;: &quot;0px&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20200314160330594&quot;,
+            &quot;list-after&quot;: &quot;$:/themes/tiddlywiki/vanilla/base&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;,
+            &quot;created&quot;: &quot;20161212103011213&quot;,
+            &quot;active-state-color&quot;: &quot;&lt;&lt;colour primary&gt;&gt;&quot;
+        },
+        &quot;$:/plugins/tg/layout/themetweaks-help&quot;: {
+            &quot;text&quot;: &quot;|Item |Entry |Description |Default |h\n|Theme tweaks |^Sidebar layout |^Choice between Fluid story, fixed sidebar and Fixed story, fluid sidebar|Fluid story, fixed sidebar&amp;nbsp;^^1^^|\n|~|^Story left position |^How far the left margin of the story river (tiddler area) is from the left of the page| 0px|\n|~|^Story top position |^How far the top margin of the story river is from the top of the page| 0px ^^2^^|\n|~|^Story right |^How far the left margin of the sidebar is from the left of the page| 770px|\n|~|^Story width |^The overall width of the story river| 770px|\n|~|^Tiddler width |^Within the story river| 686px|\n|~|^Sidebar top position |^Start of the sidebar&lt;br&gt;(from the top)| 0px ^^2^^|\n|~|^Sidebar width |^The width of the sidebar in fluid-fixed layout| 350px|\n\n|borderless|k\n|^''@@font-size: 0.8em;1@@'' ||''Fluid story, fixed sidebar interferes with Tristate plugin'' =&gt; select Fixed story, fluid sidebar for Tristate plugin |\n|^''@@font-size: 0.8em;2@@'' |&amp;nbsp;&amp;nbsp;|Default values; ''need to be adjusted (increased) in case of adding a top menu, toolbar, tiddlersbar, ... to the wiki!''|&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/themetweaks-help&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20191227170019117&quot;,
+            &quot;created&quot;: &quot;20161212130221042&quot;
+        },
+        &quot;$:/plugins/tg/layout/toggle_toolbar&quot;: {
+            &quot;created&quot;: &quot;20190221194645657&quot;,
+            &quot;text&quot;: &quot;Toggle editor toolbar &lt;$checkbox tiddler=\&quot;$:/config/TextEditor/EnableToolbar\&quot; field=\&quot;text\&quot; checked=\&quot;yes\&quot; unchecked=\&quot;no\&quot; default=\&quot;yes\&quot;&gt;&lt;/$checkbox&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;Toggle preview &lt;$reveal state=\&quot;$:/state/showeditpreview\&quot; type=\&quot;nomatch\&quot; text=\&quot;no\&quot;&gt;\n&lt;$button set=\&quot;$:/state/showeditpreview\&quot; setTo=\&quot;no\&quot; tooltip=\&quot;Hide preview\&quot; class=\&quot;tc-btn-invisible\&quot;&gt;{{$:/core/images/preview-open}}&lt;/$button&gt;\n&lt;/$reveal&gt;\n&lt;$reveal state=\&quot;$:/state/showeditpreview\&quot; type=\&quot;match\&quot; text=\&quot;no\&quot;&gt;\n&lt;$button set=\&quot;$:/state/showeditpreview\&quot; setTo=\&quot;yes\&quot; tooltip=\&quot;Show preview\&quot; class=\&quot;tc-btn-invisible\&quot;&gt;{{$:/core/images/preview-closed}}&lt;/$button&gt;\n&lt;/$reveal&gt;\n&amp;nbsp;Scrollable preview &lt;$checkbox tiddler=\&quot;$:/plugins/tg/layout/style_scroll_preview\&quot; tag=\&quot;$:/tags/Stylesheet\&quot;&gt;&lt;/$checkbox&gt;&amp;nbsp;&amp;nbsp;Toggle sidebar {{$:/core/ui/TopBar/menu}}\n\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/toggle_toolbar&quot;,
+            &quot;tags&quot;: &quot;$:/tags/EditTemplate&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20191216153840057&quot;,
+            &quot;list-after&quot;: &quot;$:/core/ui/EditTemplate/tags&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;
+        },
+        &quot;$:/plugins/tg/layout/topbar&quot;: {
+            &quot;text&quot;: &quot;&lt;div class=\&quot;tgc-toolbar tc-adjust-top-of-scroll\&quot;&gt;&lt;/div&gt;\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/topbar&quot;,
+            &quot;tags&quot;: &quot;$:/tags/PageTemplate&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20191216153308624&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;,
+            &quot;created&quot;: &quot;20150731184520854&quot;
+        },
+        &quot;$:/plugins/tg/layout/tweaks&quot;: {
+            &quot;created&quot;: &quot;20150801100456266&quot;,
+            &quot;text&quot;: &quot;The general layout adjustments can be found under the 'Themes tweak' and 'Layout tweaks' tabs. Dependent on installed plugins other tabs are available ('Top menu', 'Top-left menu', 'Top toolbar', 'Tiddlersbar, '~TabStory', 'Uptoolbar', 'Tristate').\n&lt;&lt;tabs \&quot;[all[shadows+tiddlers]tag[$:/tags/plugin-tweaks]nsort[order]]\&quot; \&quot;$:/plugins/tg/layout/settings\&quot; \&quot;\&quot; \&quot;tc-vertical\&quot;&gt;&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/tweaks&quot;,
+            &quot;tags&quot;: &quot;$:/tags/ControlPanel/Appearance&quot;,
+            &quot;status&quot;: &quot;yes&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20200314172835412&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;,
+            &quot;caption&quot;: &quot;Plugin tweaks&quot;,
+            &quot;up&quot;: &quot;no&quot;
+        },
+        &quot;$:/plugins/tg/layout/upgrade&quot;: {
+            &quot;text&quot;: &quot;Recommended before upgrading one of the following plugins:\n\n* Layout adjustment\n* Top menu\n* Top toolbar\n* Tiddlersbar\n\n&lt;hr&gt;\n\n\n# Note down all adjustments made in the Settings section of the plugin\n# Delete the following overridden shadow tiddlers of the plugin:\n#* Settings\n#* Styles\n# Upgrade the plugin\n# Reapply the settings&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/upgrade&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20191216153509327&quot;,
+            &quot;created&quot;: &quot;20190816185216079&quot;
+        },
+        &quot;$:/plugins/tg/layout/style_scroll_preview&quot;: {
+            &quot;text&quot;: &quot;.tc-edit-texteditor, .tc-tiddler-preview-preview {\n     max-height:80vh;\n     overflow-y:auto;\n}&quot;,
+            &quot;type&quot;: &quot;text/css&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/style_scroll_preview&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20200312125033755&quot;,
+            &quot;created&quot;: &quot;20191222101746570&quot;
+        },
+        &quot;$:/plugins/tg/layout/table-macros&quot;: {
+            &quot;created&quot;: &quot;20150801122014492&quot;,
+            &quot;text&quot;: &quot;\\define inputBox() &lt;$edit-text tiddler=\&quot;$(reftarget)$\&quot; field=\&quot;$(reffield)$\&quot; class=\&quot;$(refclass)$\&quot;/&gt;\n\n\\define tableRow(header,target,field,class)\n&lt;$set name=\&quot;reftarget\&quot; value=\&quot;$target$\&quot;&gt;\n&lt;$set name=\&quot;reffield\&quot; value=\&quot;$field$\&quot;&gt;\n&lt;$set name=\&quot;refclass\&quot; value=\&quot;settings\&quot;&gt;\n&lt;tr&gt;&lt;th&gt;$header$ &lt;/th&gt;&lt;td&gt;&lt;&lt;inputBox&gt;&gt;&lt;/td&gt;&lt;/tr&gt;\n&lt;/$set&gt;\n&lt;/$set&gt;\n&lt;/$set&gt;\n\\end\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/table-macros&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Macro&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20200110204107672&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;
+        },
+        &quot;$:/plugins/tg/layout/themetweaks&quot;: {
+            &quot;text&quot;: &quot;!! Theme tweaks\n\n@@.brown ''Theme tweaks''@@&lt;br&gt;\nexcerpt from 'Theme Tweaks' tab\n\n|tablestyle|k\n|&lt;$link to=\&quot;$:/themes/tiddlywiki/vanilla/options/sidebarlayout\&quot;&gt;Sidebar layout&lt;/$link&gt; |&lt;$select tiddler=\&quot;$:/themes/tiddlywiki/vanilla/options/sidebarlayout\&quot;&gt;&lt;option value=\&quot;fixed-fluid\&quot;&gt;Fixed story, Fluid sidebar&lt;/option&gt;&lt;option value=\&quot;fluid-fixed\&quot;&gt;Fluid story, Fixed sidebar&lt;/option&gt;&lt;/$select&gt; |\n|&lt;$link to=\&quot;$:/themes/tiddlywiki/vanilla/metrics/storyleft\&quot;&gt;Story left position&lt;/$link&gt;|^&lt;$edit-text tiddler=\&quot;$:/themes/tiddlywiki/vanilla/metrics/storyleft\&quot; default=\&quot;\&quot; tag=\&quot;input\&quot;/&gt; |\n|&lt;$link to=\&quot;$:/themes/tiddlywiki/vanilla/metrics/storytop\&quot;&gt;Story top position&lt;/$link&gt;|^&lt;$edit-text tiddler=\&quot;$:/themes/tiddlywiki/vanilla/metrics/storytop\&quot; default=\&quot;\&quot; tag=\&quot;input\&quot;/&gt; |\n|&lt;$link to=\&quot;$:/themes/tiddlywiki/vanilla/metrics/storyright\&quot;&gt;Story right&lt;/$link&gt;|^&lt;$edit-text tiddler=\&quot;$:/themes/tiddlywiki/vanilla/metrics/storyright\&quot; default=\&quot;\&quot; tag=\&quot;input\&quot;/&gt; |\n|&lt;$link to=\&quot;$:/themes/tiddlywiki/vanilla/metrics/storywidth\&quot;&gt;Story width&lt;/$link&gt;|^&lt;$edit-text tiddler=\&quot;$:/themes/tiddlywiki/vanilla/metrics/storywidth\&quot; default=\&quot;\&quot; tag=\&quot;input\&quot;/&gt; |\n|&lt;$link to=\&quot;$:/themes/tiddlywiki/vanilla/metrics/tiddlerwidth\&quot;&gt;Tiddler width&lt;/$link&gt;|^&lt;$edit-text tiddler=\&quot;$:/themes/tiddlywiki/vanilla/metrics/tiddlerwidth\&quot; default=\&quot;\&quot; tag=\&quot;input\&quot;/&gt; |\n|&lt;$link to=\&quot;$:/plugins/tg/layout/sidebar-top\&quot;&gt;Sidebar top position&lt;/$link&gt; |^&lt;$edit-text tiddler=\&quot;$:/plugins/tg/layout/sidebar-top\&quot; default=\&quot;\&quot; tag=\&quot;input\&quot;/&gt; |\n|&lt;$link to=\&quot;$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth\&quot;&gt;Sidebar width&lt;/$link&gt; |^&lt;$edit-text tiddler=\&quot;$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth\&quot; default=\&quot;\&quot; tag=\&quot;input\&quot;/&gt; |\n&lt;$button tooltip=\&quot;Help\&quot;&gt;\n&lt;$action-sendmessage $message=\&quot;tm-open-window\&quot; $param=\&quot;$:/plugins/tg/layout/themetweaks-help\&quot; height=\&quot;500px\&quot; width=\&quot;700px\&quot;/&gt;Help&lt;/$button&gt;\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/themetweaks&quot;,
+            &quot;tags&quot;: &quot;$:/tags/plugin-tweaks&quot;,
+            &quot;order&quot;: &quot;2&quot;,
+            &quot;modified&quot;: &quot;20191231182438547&quot;,
+            &quot;created&quot;: &quot;20161212090056554&quot;,
+            &quot;caption&quot;: &quot;Theme tweaks&quot;
+        },
+        &quot;$:/plugins/tg/layout/timeline-macro&quot;: {
+            &quot;text&quot;: &quot;\\define timeline-title()\n&lt;!-- This macro overwrites the core macro; \n     the recent results will be sorted \n     each day in alpabetical order.\n     --&gt;\n&lt;$view field=\&quot;title\&quot;/&gt;\n\\end\n\\define timeline(limit:\&quot;100\&quot;,format:\&quot;DDth MMM YYYY\&quot;,subfilter:\&quot;\&quot;,dateField:\&quot;modified\&quot;)\n&lt;div class=\&quot;tc-timeline\&quot;&gt;\n&lt;$list filter=\&quot;[!is[system]$subfilter$has[$dateField$]!sort[$dateField$]limit[$limit$]eachday[$dateField$]]\&quot;&gt;\n&lt;div class=\&quot;tc-menu-list-item\&quot;&gt;\n&lt;$view field=\&quot;$dateField$\&quot; format=\&quot;date\&quot; template=\&quot;$format$\&quot;/&gt;\n&lt;$list filter=\&quot;[sameday:$dateField${!!$dateField$}!is[system]$subfilter$sort[]]\&quot;&gt;\n&lt;div class=\&quot;tc-menu-list-subitem\&quot;&gt;\n&lt;$link to={{!!title}}&gt;\n&lt;&lt;timeline-title&gt;&gt;\n&lt;/$link&gt;\n&lt;/div&gt;\n&lt;/$list&gt;\n&lt;/div&gt;\n&lt;/$list&gt;\n&lt;/div&gt;\n\\end\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/timeline-macro&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Macro&quot;,
+            &quot;modified&quot;: &quot;20200310171616511&quot;,
+            &quot;created&quot;: &quot;20160130112819603&quot;
+        },
+        &quot;$:/plugins/tg/layout/button2top&quot;: {
+            &quot;text&quot;: &quot;&lt;div class=\&quot;tgc-fixed-bottom\&quot;&gt;\n&lt;$button class=\&quot;tc-btn-invisible tgc-button-color\&quot;&gt;\n&amp;#9650;\n&lt;$list variable='Target' filter='[list[$:/StoryList]first[]]'&gt;\n&lt;$action-navigate $to=&lt;&lt;Target&gt;&gt;/&gt;\n&lt;/$list&gt;\n&lt;/$button&gt;\n&lt;/div&gt;\n\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/button2top&quot;,
+            &quot;tags&quot;: &quot;$:/tags/PageTemplate&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20200114111444798&quot;,
+            &quot;list-after&quot;: &quot;$:/plugins/tg/layout/styles&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;,
+            &quot;created&quot;: &quot;20180304212804838&quot;
+        },
+        &quot;$:/plugins/tg/layout/button2top/style&quot;: {
+            &quot;text&quot;: &quot;&lt;pre&gt;/* BUTTON TO TOP */\n.tgc-fixed-bottom {\n     display: block;\n     position: fixed;\n     bottom: 10px;\n     right: 10px;\n     padding: 8px;\n     background-color: &lt;&lt;colour page-background&gt;&gt;;\n}\n.tgc-button-color {\n     color: {{$:/plugins/tg/layout/styles!!active-state-color}};\n}\n.tgc-button-color:hover {\n     color: &lt;&lt;colour sidebar-controls-foreground-hover&gt;&gt;;\n}\n&lt;/pre&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/button2top/style&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Stylesheet&quot;,
+            &quot;modified&quot;: &quot;20200310171626305&quot;,
+            &quot;created&quot;: &quot;20200113122827159&quot;
+        },
+        &quot;$:/plugins/tg/layout/recent-dates-bold/style&quot;: {
+            &quot;created&quot;: &quot;20200115151655355&quot;,
+            &quot;text&quot;: &quot;/* RECENT TAB DATE BOLD */\n.tc-sidebar-lists .tc-timeline {\n   font-weight: bold;\n}\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/recent-dates-bold/style&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Stylesheet&quot;,
+            &quot;modified&quot;: &quot;20200310172022137&quot;,
+            &quot;type&quot;: &quot;text/css&quot;
+        },
+        &quot;$:/plugins/tg/layout/systemtags&quot;: {
+            &quot;created&quot;: &quot;20170323185212447&quot;,
+            &quot;text&quot;: &quot;&lt;$list filter=\&quot;[all[shadows+tiddlers]tags[]is[system]sort[title]]\&quot;&gt;\n\n&lt;$transclude tiddler=\&quot;$:/core/ui/TagTemplate\&quot;/&gt; &lt;small class=\&quot;tc-menu-list-count\&quot;&gt;&lt;$count filter=\&quot;[all[current]tagging[]]\&quot;/&gt;&lt;/small&gt;\n\n&lt;/$list&gt;\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/systemtags&quot;,
+            &quot;tags&quot;: &quot;$:/tags/MoreSideBar&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20200310172011553&quot;,
+            &quot;list-after&quot;: &quot;$:/core/ui/MoreSideBar/Tags&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;,
+            &quot;caption&quot;: &quot;System tags&quot;
+        },
+        &quot;$:/plugins/tg/layout/tools/style&quot;: {
+            &quot;created&quot;: &quot;20200115141940681&quot;,
+            &quot;text&quot;: &quot;/* REMOVE DESCRIPTIONS OF BUTTONS IN TOOLS TAB */\n.tc-sidebar-lists .tc-muted {\n     display:none;\n}\n&quot;,
+            &quot;type&quot;: &quot;text/css&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/tools/style&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Stylesheet&quot;,
+            &quot;modified&quot;: &quot;20200310172113537&quot;
+        },
+        &quot;$:/plugins/tg/layout/images/pin&quot;: {
+            &quot;text&quot;: &quot;&lt;svg class=\&quot;tgc-pin tc-image-button\&quot; width=\&quot;22pt\&quot; height=\&quot;22pt\&quot; viewBox=\&quot;0 0 8 8\&quot;&gt;\n  &lt;path d=\&quot;m1.85672,0.03562a0.5,0.49555 0 0 0 0.16,0.99109l0.5,0l0,1.98219l-1,0c-0.55,0 -1,0.44599 -1,0.99109l3,0l0,2.97328l0.44,0.99109l0.56,-0.99109l0,-2.97328l3,0c0,-0.5451 -0.45,-0.99109 -1,-0.99109l-1,0l0,-1.98219l0.5,0a0.5,0.49555 0 1 0 0,-0.99109l-4,0a0.5,0.49555 0 0 0 -0.09,0a0.5,0.49555 0 0 0 -0.06,0l-0.01,0z\&quot;/&gt;\n&lt;/svg&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/images/pin&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20200312161110078&quot;,
+            &quot;created&quot;: &quot;20180131170610630&quot;
+        },
+        &quot;$:/plugins/tg/layout/images/unpin&quot;: {
+            &quot;text&quot;: &quot;&lt;svg class=\&quot;tgc-unpin tc-image-button\&quot; width=\&quot;22pt\&quot; height=\&quot;22pt\&quot; viewBox=\&quot;0 0 8 8\&quot;&gt;\n  &lt;path transform=\&quot;rotate(89.90647888183594 4.016719818115234,3.998984575271606) \&quot; d=\&quot;m1.85672,0.03562a0.5,0.49555 0 0 0 0.16,0.99109l0.5,0l0,1.98219l-1,0c-0.55,0 -1,0.44599 -1,0.99109l3,0l0,2.97328l0.44,0.99109l0.56,-0.99109l0,-2.97328l3,0c0,-0.5451 -0.45,-0.99109 -1,-0.99109l-1,0l0,-1.98219l0.5,0a0.5,0.49555 0 1 0 0,-0.99109l-4,0a0.5,0.49555 0 0 0 -0.09,0a0.5,0.49555 0 0 0 -0.06,0l-0.01,0z\&quot;/&gt;\n&lt;/svg&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/images/unpin&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20200312161053254&quot;,
+            &quot;created&quot;: &quot;20180130174200638&quot;
+        },
+        &quot;$:/plugins/tg/layout/sticky&quot;: {
+            &quot;text&quot;: &quot;&lt;$reveal state=\&quot;$:/themes/tiddlywiki/vanilla/options/stickytitles\&quot; type=\&quot;match\&quot; text=\&quot;yes\&quot;&gt;\n``\n.tc-tiddler-title {\n     position: -webkit-sticky;\n     position: -moz-sticky;\n     position: -o-sticky;\n     position: -ms-sticky;\n     position: sticky;\n     top: ``{{$:/plugins/tg/layout/styles!!topbar-height}}``;\n     background: ``&lt;&lt;colour tiddler-background&gt;&gt;``;\n     z-index: 500;\n}\n.tc-editor-toolbar {\n     position: -webkit-sticky;\n     position: -moz-sticky;\n     position: -o-sticky;\n     position: -ms-sticky;\n     position: sticky;\n     top: ``calc({{$:/plugins/tg/layout/styles!!topbar-height}} + 40px)``;\n     background: ``&lt;&lt;colour tiddler-background&gt;&gt;``;\n     z-index: 500;\n}\n\n``\n&lt;$list filter=\&quot;[range[100]]\&quot;&gt;\n`.tc-story-river .tc-tiddler-frame:nth-child(100n+`&lt;$text text=&lt;&lt;currentTiddler&gt;&gt;/&gt;`) {\nz-index: `&lt;$text text={{{ [[200]subtract&lt;currentTiddler&gt;] }}}/&gt;`;\n}\n`\n&lt;/$list&gt;\n&lt;/$reveal&gt;\n&quot;,
+            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/sticky&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20200312155210620&quot;,
+            &quot;created&quot;: &quot;20170330150510113&quot;
+        },
+        &quot;$:/plugins/tg/layout/macros/doc&quot;: {
+            &quot;created&quot;: &quot;20200313125315847&quot;,
+            &quot;text&quot;: &quot;\\define icn(icon)\n&lt;button class=\&quot;tc-btn-invisible\&quot;&gt; {{$icon$}}&lt;/button&gt;\n\\end\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/macros/doc&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Macro&quot;,
+            &quot;modified&quot;: &quot;20200313130334028&quot;
+        },
+        &quot;$:/plugins/tg/layout/images/layout&quot;: {
+            &quot;text&quot;: &quot;&lt;svg class=\&quot;tgc-layout-button tc-image-button\&quot; height=\&quot;22pt\&quot; width=\&quot;22pt\&quot; viewBox=\&quot;0 0 22 22\&quot;&gt;\n&lt;path  d=\&quot;m19.84313,0.21698l-17.65497,0c-1.08334,0 -1.96191,0.9235 -1.96191,2.0571l0,17.48416c0,1.1359 0.87857,2.0571 1.96191,2.0571l17.65497,0c1.08334,0 1.96191,-0.92119 1.96191,-2.0571l0,-17.48416c0,-1.1336 -0.87857,-2.0571 -1.96191,-2.0571zm-17.65497,7.80127l5.71838,0l0,11.73768l-5.71838,0l0,-11.73768zm7.67809,11.73768l0,-11.73768l9.97689,0l0,-2.0571l-17.65497,0l0,-3.68707l17.65497,0l0.0022,17.48416l-9.97909,0l0,-0.00231z\&quot;/&gt;\n&lt;/svg&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/images/layout&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20200313130134669&quot;,
+            &quot;created&quot;: &quot;20171203171851124&quot;
+        },
+        &quot;$:/plugins/tg/layout/buttons/toggle-sticky&quot;: {
+            &quot;text&quot;: &quot;&lt;$reveal state=\&quot;$:/themes/tiddlywiki/vanilla/options/stickytitles\&quot; type=\&quot;nomatch\&quot; text=\&quot;no\&quot;&gt;\n&lt;$button set=\&quot;$:/themes/tiddlywiki/vanilla/options/stickytitles\&quot; setTo=\&quot;no\&quot; tooltip=\&quot;Toggle sticky behaviour\&quot; class=&lt;&lt;tv-config-toolbar-class&gt;&gt;&gt;\n&lt;$list filter=\&quot;[&lt;tv-config-toolbar-icons&gt;match[yes]]\&quot; variable=\&quot;listItem\&quot;&gt;\n&lt;span class=\&quot;tgc-active-indicator\&quot;&gt;\n{{$:/plugins/tg/layout/images/pin}}\n&lt;/span&gt;\n&lt;/$list&gt;\n&lt;$list filter=\&quot;[&lt;tv-config-toolbar-text&gt;match[yes]]\&quot;&gt;\n&lt;span class=\&quot;tc-btn-text\&quot;&gt;&lt;$text text=\&quot;sticky\&quot;/&gt;&lt;/span&gt;\n&lt;/$list&gt;\n&lt;/$button&gt;\n\n&lt;/$reveal&gt;\n&lt;$reveal state=\&quot;$:/themes/tiddlywiki/vanilla/options/stickytitles\&quot; type=\&quot;match\&quot; text=\&quot;no\&quot;&gt;\n&lt;$button set=\&quot;$:/themes/tiddlywiki/vanilla/options/stickytitles\&quot; setTo=\&quot;yes\&quot; tooltip=\&quot;Toggle sticky behaviour\&quot; class=&lt;&lt;tv-config-toolbar-class&gt;&gt;&gt;\n&lt;$list filter=\&quot;[&lt;tv-config-toolbar-icons&gt;match[yes]]\&quot; variable=\&quot;listItem\&quot;&gt;\n{{$:/plugins/tg/layout/images/unpin}}\n&lt;/$list&gt;\n&lt;$list filter=\&quot;[&lt;tv-config-toolbar-text&gt;match[yes]]\&quot;&gt;\n&lt;span class=\&quot;tc-btn-text\&quot;&gt;&lt;$text text=\&quot;non-sticky\&quot;/&gt;&lt;/span&gt;\n&lt;/$list&gt;\n&lt;/$button&gt;\n&lt;/$reveal&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/buttons/toggle-sticky&quot;,
+            &quot;tags&quot;: &quot;$:/tags/PageControls&quot;,
+            &quot;modified&quot;: &quot;20200313124546512&quot;,
+            &quot;description&quot;: &quot;Toggle sticky behaviour&quot;,
+            &quot;created&quot;: &quot;20200312200703196&quot;,
+            &quot;caption&quot;: &quot;{{$:/plugins/tg/layout/images/pin}} toggle sticky behaviour&quot;
+        },
+        &quot;$:/plugins/tg/layout/settings-toolbar-up&quot;: {
+            &quot;text&quot;: &quot;!!Tiddler toolbar settings\n&lt;table class=\&quot;tablestyle\&quot;&gt;\n&lt;&lt;tableRow \&quot;Spacing title &amp;harr; toolbar\&quot; \&quot;$:/plugins/tg/layout/styles\&quot; \&quot;title-toolbar-spacing\&quot;&gt;&gt;\n&lt;&lt;tableRow \&quot;Size of tiddler buttons\&quot; \&quot;$:/plugins/tg/layout/styles\&quot; \&quot;tiddler-button-size\&quot;&gt;&gt;\n&lt;&lt;tableRow \&quot;Button spacing 'Tiddler toolbar'\&quot; \&quot;$:/plugins/tg/layout/styles\&quot; \&quot;tiddler-button-spacing\&quot;&gt;&gt;\n&lt;/table&gt;\n&lt;$button tooltip=\&quot;Help\&quot;&gt;\n&lt;$action-sendmessage $message=\&quot;tm-open-window\&quot; $param=\&quot;$:/plugins/tg/layout/settings-toolbar-up-help\&quot; height=\&quot;200px\&quot; width=\&quot;720px\&quot;/&gt;Help&lt;/$button&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/settings-toolbar-up&quot;,
+            &quot;order&quot;: &quot;9&quot;,
+            &quot;modified&quot;: &quot;20200316201821606&quot;,
+            &quot;created&quot;: &quot;20200314154628735&quot;,
+            &quot;caption&quot;: &quot;Toolbar - title&quot;
+        },
+        &quot;$:/plugins/tg/layout/settings-toolbar-up-help&quot;: {
+            &quot;text&quot;: &quot;|Entry |Description |Default |h\n|Spacing title &amp;harr; toolbar |Space between toolbar and title of tiddler | 1.3em |\n|Size of tiddler buttons |Size of tiddler buttons | 0.6em |\n|Button spacing 'Tiddler toolbar' |Spacing between buttons of tiddler toolbar | 0px |&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/settings-toolbar-up-help&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20200314172011820&quot;,
+            &quot;created&quot;: &quot;20200314154755381&quot;
+        },
+        &quot;$:/plugins/tg/layout/toolbar-up&quot;: {
+            &quot;created&quot;: &quot;20200314153228277&quot;,
+            &quot;text&quot;: &quot;\\define title-styles()\nfill:$(foregroundColor)$;\n\\end\n\\define config-title()\n$:/config/ViewToolbarButtons/Visibility/$(listItem)$\n\\end\n&lt;div class=\&quot;tc-tiddler-title\&quot;&gt;\n&lt;div class=\&quot;tc-titlebar\&quot;&gt;\n&lt;span class=\&quot;tc-tiddler-controls\&quot;&gt;\n&lt;$list filter=\&quot;[all[shadows+tiddlers]tag[$:/tags/ViewToolbar]!has[draft.of]]\&quot; variable=\&quot;listItem\&quot;&gt;&lt;$reveal type=\&quot;nomatch\&quot; state=&lt;&lt;config-title&gt;&gt; text=\&quot;hide\&quot;&gt;&lt;$set name=\&quot;tv-config-toolbar-class\&quot; filter=\&quot;[&lt;tv-config-toolbar-class&gt;] [&lt;listItem&gt;encodeuricomponent[]addprefix[tc-btn-]]\&quot;&gt;&lt;$transclude tiddler=&lt;&lt;listItem&gt;&gt;/&gt;&lt;/$set&gt;&lt;/$reveal&gt;&lt;/$list&gt;\n&lt;/span&gt;\n&lt;$set name=\&quot;tv-wikilinks\&quot; value={{$:/config/Tiddlers/TitleLinks}}&gt;\n&lt;$link&gt;\n&lt;div class=\&quot;tgc-tiddler-title-space\&quot;&gt;&amp;nbsp;&lt;/div&gt;\n&lt;$set name=\&quot;foregroundColor\&quot; value={{!!color}}&gt;\n&lt;span class=\&quot;tc-tiddler-title-icon\&quot; style=&lt;&lt;title-styles&gt;&gt;&gt;\n&lt;$transclude tiddler={{!!icon}}/&gt;\n&lt;/span&gt;\n&lt;/$set&gt;\n&lt;$list filter=\&quot;[all[current]removeprefix[$:/]]\&quot;&gt;\n&lt;h2 class=\&quot;tc-title\&quot; title={{$:/language/SystemTiddler/Tooltip}}&gt;\n&lt;span class=\&quot;tc-system-title-prefix\&quot;&gt;$:/&lt;/span&gt;&lt;$text text=&lt;&lt;currentTiddler&gt;&gt;/&gt;\n&lt;/h2&gt;\n&lt;/$list&gt;\n&lt;$list filter=\&quot;[all[current]!prefix[$:/]]\&quot;&gt;\n&lt;h2 class=\&quot;tc-title\&quot;&gt;\n&lt;$view field=\&quot;title\&quot;/&gt;\n&lt;/h2&gt;\n&lt;/$list&gt;\n&lt;/$link&gt;\n&lt;/$set&gt;\n&lt;/div&gt;\n\n&lt;$reveal type=\&quot;nomatch\&quot; text=\&quot;\&quot; default=\&quot;\&quot; state=&lt;&lt;tiddlerInfoState&gt;&gt; class=\&quot;tc-tiddler-info tc-popup-handle\&quot; animate=\&quot;yes\&quot; retain=\&quot;yes\&quot;&gt;\n\n&lt;$list filter=\&quot;[all[shadows+tiddlers]tag[$:/tags/TiddlerInfoSegment]!has[draft.of]] [[$:/core/ui/TiddlerInfo]]\&quot; variable=\&quot;listItem\&quot;&gt;&lt;$transclude tiddler=&lt;&lt;listItem&gt;&gt; mode=\&quot;block\&quot;/&gt;&lt;/$list&gt;\n\n&lt;/$reveal&gt;\n&lt;/div&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/toolbar-up&quot;,
+            &quot;modified&quot;: &quot;20200316201335735&quot;
+        },
+        &quot;$:/plugins/tg/layout/toolbar-up/ckeckbox&quot;: {
+            &quot;created&quot;: &quot;20200316192402200&quot;,
+            &quot;text&quot;: &quot;&lt;$checkbox\nfield=\&quot;up\&quot;\nchecked=\&quot;yes\&quot;\nunchecked=\&quot;no\&quot;\ndefault=\&quot;no\&quot;\ncheckactions=\&quot;\&quot;\&quot;&lt;$action-setfield $tiddler=\&quot;$:/plugins/tg/layout/toolbar-up\&quot; title=\&quot;$:/core/ui/ViewTemplate/title\&quot;/&gt;\n&lt;$action-setfield $tiddler=\&quot;$:/plugins/tg/layout/settings-toolbar-up\&quot; tags=\&quot;$:/tags/plugin-tweaks\&quot;/&gt;\n&lt;$action-setfield $tiddler=\&quot;$:/core/ui/ViewTemplate/title\&quot; tags=\&quot;$:/tags/ViewTemplate\&quot;/&gt;\&quot;\&quot;\&quot;\nuncheckactions=\&quot;\&quot;\&quot;\n&lt;$action-deletetiddler $tiddler=\&quot;$:/core/ui/ViewTemplate/title\&quot;/&gt;\n&lt;$action-deletefield $tiddler=\&quot;$:/plugins/tg/layout/settings-toolbar-up\&quot; tags/&gt;\&quot;\&quot;\&quot;\n&gt;\n Set tiddler toolbar above the tiddler title\n&lt;/$checkbox&gt;\n&quot;,
+            &quot;up&quot;: &quot;no&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/layout/toolbar-up/ckeckbox&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20200316202137510&quot;
+        }
+    }
+}</pre>
+</div>
+<div created="20200115151655355" creator="Hans" modified="20200709080233715" modifier="Hans" tags="" title="$:/plugins/tg/layout/recent-dates-bold/style" type="text/css">
+<pre>/* RECENT TAB DATE BOLD */
+.tc-sidebar-lists .tc-timeline {
+   font-weight: bold;
+}
+</pre>
+</div>
+<div created="20161213115930178" creator="Hans" modified="20200709080505007" modifier="Hans" tags="" title="$:/plugins/tg/layout/sidebar-top">
+<pre>30px</pre>
+</div>
+<div active-state-color="&lt;&lt;colour primary&gt;&gt;" created="20161212103011213" creator="TonGerner" list-after="$:/themes/tiddlywiki/vanilla/base" modified="20200709080407649" modifier="Hans" sidebar-top="0px" story-river-top="0px" tags="$:/tags/Stylesheet" tiddler-button-size="0.6em" tiddler-button-spacing="0px" tiddler-padding-top="30px" title="$:/plugins/tg/layout/styles" title-toolbar-spacing="1.3em" topbar-background-color="&lt;&lt;colour page-background&gt;&gt;" topbar-height="40px">
+<pre>&lt;pre&gt;/* LAYOUT SETTINGS */
+
+/* VERTICAL OFFSET FOR TOP OF SIDEBAR */
+html .tc-sidebar-scrollable {
+    top: {{$:/plugins/tg/layout/sidebar-top}};
+}
+
+* BACKGROUND COLOR TOPRIGHTBAR (with double chevron) */
+.tc-topbar {
+     background-color: {{!!topbar-background-color}};
+}
+
+/* TOPBAR */
+.tgc-toolbar {
+     display:block;
+     position:fixed;
+     left:0px;
+     top:0px;
+     width:100%;
+     height: {{!!topbar-height}};
+     background-color: {{!!topbar-background-color}};
+     z-index: 600;
+}
+
+/* TOP PADDING TIDDLER */
+body.tc-body .tc-tiddler-frame {
+     padding-top: {{!!tiddler-padding-top}};
+}
+
+/* COLOR ACTIVE STATE TOGGLE BUTTON */
+body.tc-body .tgc-active-indicator {
+     color: {{!!active-state-color}};
+}
+body.tc-body .tgc-active-indicator svg {
+     fill: {{!!active-state-color}};
+}
+
+body.tc-body .tgc-active-indicator:hover svg {
+     fill: &lt;&lt;colour &quot;foreground&quot;&gt;&gt;;
+}
+
+/* HIDE BUTTON2TOP WHEN NOT ACTIVE */
+.tgc-fixed-bottom {
+     display: none;
+}
+
+/* TITLE - TOOLBAR SPACING */
+html .tgc-tiddler-title-space {
+     line-height: {{!!title-toolbar-spacing}}; 
+}
+
+/* SIZE OF TIDDLER BUTTONS */
+html .tc-tiddler-controls button svg {
+     height: {{!!tiddler-button-size}};
+}
+
+/* SPACE BETWEEN TIDDLER BUTTONS */
+html .tc-tiddler-controls button {
+     margin-left: {{!!tiddler-button-spacing}};
+}
+
+/* SETTINGS TABLE */
+/* WIDTH SETTINGS TABLE */
+input[type='text'].settings {
+     width: 150px;
+}
+table.tablestyle {
+     font-size: 0.9em;
+     border-width: 0px;
+     border-style: solid;
+     padding: 2px;
+     border-color: #DDD;
+     border-collapse: collapse;
+}
+table.tablestyle th {
+     background-color: #F0F0F0;
+     border-color: #DDD;
+     text-align: left;
+     vertical-align: top;
+     border-style: solid;
+     border-width: 1px;
+     padding: 5px;
+}
+table.tablestyle tr {
+     background-color: #F0F0F0;
+     padding: 0px;
+}
+table.tablestyle td {
+     border-color: #DDD;
+     border-style: solid;
+     border-width: 1px;
+     padding:2px;
+}
+/* COLOR HEADINGS TABLE */
+.brown {
+     color: #884411;
+     font-weight: bold;
+}
+/* BORDERLESS TABLES */
+.borderless, .borderless table, .borderless td, .borderless tr, .borderless th, .borderless tbody {
+     border:0 !important;
+     margin:0 !important;
+     padding:0 !important;
+}
+&lt;/pre&gt;</pre>
+</div>
+<div caption="System tags" created="20170323185212447" creator="TonGerner" list-after="$:/core/ui/MoreSideBar/Tags" modified="20200709080235522" modifier="Hans" tags="$:/tags/MoreSideBar" title="$:/plugins/tg/layout/systemtags">
+<pre>&lt;$list filter=&quot;[all[shadows+tiddlers]tags[]is[system]sort[title]]&quot;&gt;
+
+&lt;$transclude tiddler=&quot;$:/core/ui/TagTemplate&quot;/&gt; &lt;small class=&quot;tc-menu-list-count&quot;&gt;&lt;$count filter=&quot;[all[current]tagging[]]&quot;/&gt;&lt;/small&gt;
+
+&lt;/$list&gt;
+</pre>
+</div>
+<div created="20200316192402200" creator="Hans" modified="20200709080228691" modifier="Hans" tags="" title="$:/plugins/tg/layout/toolbar-up/ckeckbox" up="no">
+<pre>&lt;$checkbox
+field=&quot;up&quot;
+checked=&quot;yes&quot;
+unchecked=&quot;no&quot;
+default=&quot;no&quot;
+checkactions=&quot;&quot;&quot;&lt;$action-setfield $tiddler=&quot;$:/plugins/tg/layout/toolbar-up&quot; title=&quot;$:/core/ui/ViewTemplate/title&quot;/&gt;
+&lt;$action-setfield $tiddler=&quot;$:/plugins/tg/layout/settings-toolbar-up&quot; tags=&quot;$:/tags/plugin-tweaks&quot;/&gt;
+&lt;$action-setfield $tiddler=&quot;$:/core/ui/ViewTemplate/title&quot; tags=&quot;$:/tags/ViewTemplate&quot;/&gt;&quot;&quot;&quot;
+uncheckactions=&quot;&quot;&quot;
+&lt;$action-deletetiddler $tiddler=&quot;$:/core/ui/ViewTemplate/title&quot;/&gt;
+&lt;$action-deletefield $tiddler=&quot;$:/plugins/tg/layout/settings-toolbar-up&quot; tags/&gt;&quot;&quot;&quot;
+&gt;
+ Set tiddler toolbar above the tiddler title
+&lt;/$checkbox&gt;
+</pre>
+</div>
+<div author="TonGerner" core-version="&gt;=5.1.15" created="20191228205111942" description="Tiddlersbar" list="readme license" modified="20191228211019421" name="Tiddlersbar" plugin-type="plugin" source="http://tw5custom.tiddlyspot.com/" tags="" title="$:/plugins/tg/tiddlersbar" type="application/json" version="0.0.19">
+<pre>{
+    &quot;tiddlers&quot;: {
+        &quot;$:/plugins/tg/tiddlersbar/button&quot;: {
+            &quot;created&quot;: &quot;20170325114731405&quot;,
+            &quot;text&quot;: &quot;&lt;$fieldmangler tiddler=\&quot;$:/plugins/tg/tiddlersbar/styles\&quot;&gt;\n&lt;$list filter=\&quot;[[$:/plugins/tg/tiddlersbar/styles]tag[$:/tags/Stylesheet]]\&quot;&gt;&lt;$button message=\&quot;tm-remove-tag\&quot; tooltip=\&quot;Hide Tiddlersbar\&quot; param=\&quot;$:/tags/Stylesheet\&quot; class=&lt;&lt;tv-config-toolbar-class&gt;&gt;&gt;\n&lt;span class=\&quot;tgc-active-indicator\&quot;&gt;\n{{$:/plugins/tg/tiddlersbar/image-tiddlersbar-on}}\n&lt;/span&gt;\n&lt;$list filter=\&quot;[&lt;tv-config-toolbar-text&gt;prefix[yes]]\&quot;&gt;\n&lt;span class=\&quot;tgc-active-indicator\&quot;&gt;\n&lt;$text text=\&quot;tiddlersbar\&quot;/&gt;\n&lt;/span&gt;\n&lt;/$list&gt;\n&lt;/$button&gt;\n&lt;/$list&gt;\n&lt;$list filter=\&quot;[[$:/plugins/tg/tiddlersbar/styles]!tag[$:/tags/Stylesheet]]\&quot;&gt;\n&lt;$button message=\&quot;tm-add-tag\&quot; tooltip=\&quot;Show tiddlersbar\&quot; param=\&quot;$:/tags/Stylesheet\&quot; class=&lt;&lt;tv-config-toolbar-class&gt;&gt;&gt;{{$:/plugins/tg/tiddlersbar/image-tiddlersbar-off}}\n&lt;$list filter=\&quot;[&lt;tv-config-toolbar-text&gt;prefix[yes]]\&quot;&gt;\n&lt;$text text=\&quot;tiddlersbar\&quot;/&gt;\n&lt;/$list&gt;\n&lt;/$button&gt;\n&lt;/$list&gt;\n&lt;/$fieldmangler&gt;\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/tiddlersbar/button&quot;,
+            &quot;tags&quot;: &quot;$:/tags/PageControls&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20200323103546936&quot;,
+            &quot;description&quot;: &quot;Toggle tiddlersbar on/off&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;,
+            &quot;caption&quot;: &quot;{{$:/plugins/tg/tiddlersbar/image-tiddlersbar-on}} tiddlersbar&quot;
+        },
+        &quot;$:/plugins/tg/tiddlersbar/icon&quot;: {
+            &quot;text&quot;: &quot;&lt;svg width=\&quot;22pt\&quot; height=\&quot;22pt\&quot; viewBox=\&quot;0 0 100 100\&quot; xmlns=\&quot;http://www.w3.org/2000/svg\&quot; xmlns:svg=\&quot;http://www.w3.org/2000/svg\&quot;&gt;\n  &lt;path fill=\&quot;#a0a0ff\&quot; stroke=\&quot;#a0a0ff\&quot; stroke-width=\&quot;1.2218\&quot; stroke-miterlimit=\&quot;4\&quot; d=\&quot;m48.98237,97.86909l-41.98313,-24.239l0,-48.47796l41.98313,-24.23897l41.98313,24.23897l0,48.47796l-41.98313,24.239z\&quot; id=\&quot;path4142\&quot;/&gt;\n  &lt;rect fill=\&quot;#000000\&quot; stroke=\&quot;#000000\&quot; stroke-width=\&quot;8.78819\&quot; stroke-miterlimit=\&quot;4\&quot; stroke-opacity=\&quot;0\&quot; y=\&quot;25.08274\&quot; x=\&quot;8.68744\&quot; height=\&quot;9.10985\&quot; width=\&quot;16.25652\&quot; id=\&quot;rect4807\&quot;/&gt;\n  &lt;rect fill=\&quot;#000000\&quot; stroke=\&quot;#000000\&quot; stroke-width=\&quot;8.78819\&quot; stroke-miterlimit=\&quot;4\&quot; stroke-opacity=\&quot;0\&quot; id=\&quot;rect4809\&quot; width=\&quot;16.25652\&quot; height=\&quot;9.10985\&quot; x=\&quot;54.08981\&quot; y=\&quot;25.08274\&quot;/&gt;\n  &lt;rect fill=\&quot;#000000\&quot; stroke=\&quot;#000000\&quot; stroke-width=\&quot;8.78819\&quot; stroke-miterlimit=\&quot;4\&quot; stroke-opacity=\&quot;0\&quot; y=\&quot;25.08274\&quot; x=\&quot;31.38863\&quot; height=\&quot;9.10985\&quot; width=\&quot;16.25652\&quot; id=\&quot;rect4820\&quot;/&gt;\n&lt;/svg&gt;&quot;,
+            &quot;type&quot;: &quot;image/svg+xml&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/tiddlersbar/icon&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20191228200121464&quot;,
+            &quot;created&quot;: &quot;20170325114817530&quot;
+        },
+        &quot;$:/plugins/tg/tiddlersbar/image-tiddlersbar-off&quot;: {
+            &quot;text&quot;: &quot;&lt;svg class=\&quot;tgc-image-tiddlersbar-off tc-image-button\&quot; viewBox=\&quot;0 0 22 22\&quot; width=\&quot;22pt\&quot; height=\&quot;22pt\&quot;&gt;&lt;path d=\&quot;m7.3572,12.30506c-0.13915,-0.39832 -0.23057,-0.82001 -0.23057,-1.26429c0,-2.13671 1.74588,-3.87591 3.889,-3.87591c0.44658,0 0.8689,0.09111 1.26856,0.2298l1.84701,-1.84079c-1.05983,-0.44185 -2.12289,-0.73293 -3.11557,-0.73293c-6.10492,0 -10.92187,6.21983 -10.92187,6.21983s1.75316,2.2504 4.47392,4.04523l2.78953,-2.78094zm9.7407,-5.14664l-2.47239,2.46407c0.17556,0.44024 0.27911,0.91757 0.27911,1.4191c0,2.1351 -1.74588,3.87591 -3.889,3.87591c-0.50321,0 -0.98135,-0.10321 -1.42389,-0.27818l-1.99749,1.99157c1.07358,0.38622 2.22078,0.63134 3.42138,0.63134c4.6689,0 10.92188,-6.22064 10.92188,-6.22064s-2.13664,-2.11816 -4.8396,-3.88316zm1.63747,-5.05392l-16.73636,16.68002l1.14477,1.14173l16.73555,-16.68083l-1.14396,-1.14092z\&quot;/&gt;&lt;/svg&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/tiddlersbar/image-tiddlersbar-off&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20191228200145294&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;,
+            &quot;created&quot;: &quot;20170325114839090&quot;
+        },
+        &quot;$:/plugins/tg/tiddlersbar/image-tiddlersbar-on&quot;: {
+            &quot;text&quot;: &quot;&lt;svg class=\&quot;tgc-image-tiddlersbar-on tc-image-button\&quot; viewBox=\&quot;0 0 22 22\&quot; width=\&quot;22pt\&quot; height=\&quot;22pt\&quot;&gt;\n&lt;path  d=\&quot;m10.98438,4.786c-6.10492,0 -10.92187,6.2141 -10.92187,6.2141s4.81695,6.2149 10.92187,6.2149c4.6689,0 10.92188,-6.2149 10.92188,-6.2149s-6.25298,-6.2141 -10.92188,-6.2141zm0,10.08643c-2.14311,0 -3.889,-1.73759 -3.889,-3.87233s1.74588,-3.87233 3.889,-3.87233s3.889,1.7384 3.889,3.87233s-1.74588,3.87233 -3.889,3.87233zm0,-6.13273c-1.25318,0 -2.27013,1.01178 -2.27013,2.2604c0,1.24862 1.01614,2.2604 2.27013,2.2604c1.25399,0 2.27013,-1.01179 2.27013,-2.2604c0,-1.24781 -1.01614,-2.2604 -2.27013,-2.2604z\&quot;/&gt;\n&lt;/svg&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/tiddlersbar/image-tiddlersbar-on&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20191228200159990&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;,
+            &quot;created&quot;: &quot;20170325114911997&quot;
+        },
+        &quot;$:/plugins/tg/tiddlersbar/license&quot;: {
+            &quot;text&quot;: &quot;!!! Buggy j's ~StoryTopTabs plugin\n\nMIT License\n\nCopyright &amp;copy; Jeffrey Wikinson aka Buggyj &amp;mdash; 2015\n\n&lt;hr&gt;\n\n[[Tiddlersbar plugin|http://tongerner.tiddlyspot.com/#Tiddlersbar%20plugin]] &amp;copy; Ton Gerner &amp;mdash; 2018-2020\n\nMIT License: https://opensource.org/licenses/MIT\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/tiddlersbar/license&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20191228200225470&quot;,
+            &quot;created&quot;: &quot;20180124182128080&quot;
+        },
+        &quot;$:/plugins/tg/tiddlersbar/readme&quot;: {
+            &quot;text&quot;: &quot;This plugin - based on Buggy j's [[StoryTopTabs plugin|http://bjtools.tiddlyspot.com/#StoryTopTabs]] - creates a 'Tiddlersbar' of open tiddlers (as tabs) on top of the screen. It works best in Zoomin view.&lt;br&gt;\nThe Tiddlersbar can be toggled on/off (&lt;&lt;icn $:/plugins/tg/tiddlersbar/image-tiddlersbar-on&gt;&gt;/&lt;&lt;icn $:/plugins/tg/tiddlersbar/image-tiddlersbar-off&gt;&gt;) with a button in the Page toolbar and/or the View toolbar.\n\n&lt;&lt;&lt;\n''Note:''&lt;br&gt;''This plugin needs my $:/plugins/tg/layout plugin for general layout settings (available at http://tongerner.tiddlyspot.com/).''\n&lt;&lt;&lt;\n\nSettings for the layout can be found in ''~ControlPanel &gt; Appearance &gt; [[Plugin tweaks|$:/plugins/tg/layout/tweaks]]''.\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/tiddlersbar/readme&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20200315132513150&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;,
+            &quot;created&quot;: &quot;20170325115014248&quot;
+        },
+        &quot;$:/plugins/tg/tiddlersbar/settings&quot;: {
+            &quot;created&quot;: &quot;20170325115624509&quot;,
+            &quot;text&quot;: &quot;!!Tiddlersbar settings\n@@.brown ''Toggle tiddlersbar in ~PageControls''@@&lt;br&gt;\n&lt;$checkbox tiddler=\&quot;$:/plugins/tg/tiddlersbar/button\&quot; tag=\&quot;$:/tags/PageControls\&quot;&gt; Button active&lt;/$checkbox&gt;\n\n@@.brown ''Toggle tiddlersbar in ~ViewToolbar ''@@&lt;br&gt;\n&lt;$checkbox tiddler=\&quot;$:/plugins/tg/tiddlersbar/button\&quot; tag=\&quot;$:/tags/ViewToolbar\&quot;&gt; Button active&lt;/$checkbox&gt;\n\n&lt;table class=\&quot;tablestyle\&quot;&gt;\n&lt;&lt;tableRow \&quot;Left 'Tiddlersbar'\&quot; \&quot;$:/plugins/tg/tiddlersbar/styles\&quot; \&quot;left-tiddlersbar\&quot;&gt;&gt;\n&lt;&lt;tableRow \&quot;Top 'Tiddlersbar'\&quot; \&quot;$:/plugins/tg/tiddlersbar/styles\&quot; \&quot;top-tiddlersbar\&quot;&gt;&gt;\n&lt;&lt;tableRow \&quot;Font size 'Tiddlersbar'\&quot; \&quot;$:/plugins/tg/tiddlersbar/styles\&quot; \&quot;tiddlersbar-font-size\&quot;&gt;&gt;\n&lt;&lt;tableRow \&quot;Background color 'Tiddler tabs'\&quot; \&quot;$:/plugins/tg/tiddlersbar/styles\&quot; \&quot;tiddlersbar-color\&quot;&gt;&gt;\n&lt;&lt;tableRow \&quot;Text color 'Tiddler tabs'\&quot; \&quot;$:/plugins/tg/tiddlersbar/styles\&quot; \&quot;tiddlersbar-text-color\&quot;&gt;&gt;\n&lt;&lt;tableRow \&quot;Background color 'Tiddler tab selected'\&quot; \&quot;$:/plugins/tg/tiddlersbar/styles\&quot; \&quot;tiddlersbar-selected-color\&quot;&gt;&gt;\n&lt;&lt;tableRow \&quot;Text color 'Tiddler tab selected'\&quot; \&quot;$:/plugins/tg/tiddlersbar/styles\&quot; \&quot;tiddlersbar-selected-text-color\&quot;&gt;&gt;\n&lt;&lt;tableRow \&quot;Rounded corners 'tiddler tabs'\&quot; \&quot;$:/plugins/tg/tiddlersbar/styles\&quot; \&quot;tiddlersbar-border-radius\&quot;&gt;&gt;\n&lt;/table&gt;\n&lt;$button tooltip=\&quot;Help\&quot;&gt;\n&lt;$action-sendmessage $message=\&quot;tm-open-window\&quot; $param=\&quot;$:/plugins/tg/tiddlersbar/settings-help\&quot; height=\&quot;380px\&quot; width=\&quot;700px\&quot;/&gt;Help&lt;/$button&gt;\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/tiddlersbar/settings&quot;,
+            &quot;tags&quot;: &quot;$:/tags/plugin-tweaks&quot;,
+            &quot;order&quot;: &quot;7&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20191228205719769&quot;,
+            &quot;list-after&quot;: &quot;$:/plugins/tg/layout&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;,
+            &quot;caption&quot;: &quot;Tiddlersbar&quot;
+        },
+        &quot;$:/plugins/tg/tiddlersbar/settings-help&quot;: {
+            &quot;text&quot;: &quot;|Item |Description |Default |h\n|Toggle tiddlersbar in ~PageControls |'Toggle tiddlersbar' button in ~PageControls| &lt;input type=\&quot;checkbox\&quot; checked /&gt; |\n|Toggle tiddlersbar in ~ViewToolbar |'Toggle tiddlersbar' button in ~ViewToolbar| &lt;input type=\&quot;checkbox\&quot; /&gt; |\n|Left 'Tiddlersbar'  |Start (from the left) of the Tiddlersbar| 42px |\n|Top 'Tiddlersbar' |Start (from the top) of the Tiddlersbar| 10px |\n|Font size 'Tiddlersbar' |Font size of Tiddlersbar | 0.9em |\n|Background color 'Tiddler tabs' |Background color of breadcrumbs | `&lt;&lt;colour tab-background&gt;&gt;` |\n|Text color 'Tiddler tabs' |Text color of tiddler tabs | `&lt;&lt;colour tab-foreground&gt;&gt;` |\n|Background color 'Tiddler tab selected' |Background color of selected tiddler tab| `&lt;&lt;colour tab-background-selected&gt;&gt;` |\n|Text color 'Tiddler tab selected' |Text color of selected tiddler tab | `&lt;&lt;colour tab-foreground-selected&gt;&gt;` |\n|Rounded corners 'tiddler tabs' |Rounded corners of tiddlersbar | 1px |\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/tiddlersbar/settings-help&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20191230170358959&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;,
+            &quot;created&quot;: &quot;20170325115648290&quot;
+        },
+        &quot;$:/plugins/tg/tiddlersbar/style-no-tiddlersbar&quot;: {
+            &quot;text&quot;: &quot;/* DEFAULT: HIDDEN TIDDLERSBAR */\n.tgc-tiddlersbar {\n     display: none;\n}&quot;,
+            &quot;type&quot;: &quot;text/css&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/tiddlersbar/style-no-tiddlersbar&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Stylesheet&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20191228200615839&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;,
+            &quot;created&quot;: &quot;20170325115709994&quot;
+        },
+        &quot;$:/plugins/tg/tiddlersbar/styles&quot;: {
+            &quot;text&quot;: &quot;&lt;pre&gt;/* BREADCRUMBS TOP MENU */\n.tgc-tiddlersbar {\n     display: block;\n     position: fixed;\n     left: 0;\n     top: {{!!top-tiddlersbar}};  /* vertical start of tiddlersbar 'menu' */\n     width: calc(100% - 60px); /* right margin for '&gt;&gt;' icon */\n     margin-left: {{!!left-tiddlersbar}};\n     z-index: 900;\n}\n\n/* TIDDLERSBAR */\n.tgc-tiddlersbar button {\n     font-size: {{!!tiddlersbar-font-size}};\n     color: {{!!tiddlersbar-text-color}};\n     padding: 3px 5px 3px 5px;\n     border: none;\n     border-radius: {{!!tiddlersbar-border-radius}};\n     background: none;\n     background-color: {{!!tiddlersbar-color}};\n     border-left: 1px solid #cccccc;\n     border-top: 1px solid #cccccc;\n     border-right: 1px solid #cccccc;\n}\n\n/* TIDDLERBAR SELECTED */\n.tgc-tiddlersbar button.tgc-tiddlersbar-selected {\n     color: {{!!tiddlersbar-selected-text-color}};\n     background: none;\n     background-color: {{!!tiddlersbar-selected-color}};\n}\n/* HOVER over 'x' */\n.tgc-tiddlersbar button.tgc-x:hover {\n     font-weight: bold;\n}\n.tgc-tiddlersbar button.tgc-tiddlersbar-selected.tgc-x:hover {\n     font-weight: bold;\n}\n&lt;/pre&gt;&quot;,
+            &quot;top-tiddlersbar&quot;: &quot;10px&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/tiddlersbar/styles&quot;,
+            &quot;tiddlersbar-text-color&quot;: &quot;&lt;&lt;colour tab-foreground&gt;&gt;&quot;,
+            &quot;tiddlersbar-selected-text-color&quot;: &quot;&lt;&lt;colour tab-foreground-selected&gt;&gt;&quot;,
+            &quot;tiddlersbar-selected-color&quot;: &quot;&lt;&lt;colour tab-background-selected&gt;&gt;&quot;,
+            &quot;tiddlersbar-font-size&quot;: &quot;0.9em&quot;,
+            &quot;tiddlersbar-color&quot;: &quot;&lt;&lt;colour tab-background&gt;&gt;&quot;,
+            &quot;tiddlersbar-border-radius&quot;: &quot;1px&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Stylesheet&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20191228200650043&quot;,
+            &quot;list-after&quot;: &quot;$:/plugins/tg/tiddlersbar/style-no-tiddlersbar&quot;,
+            &quot;left-tiddlersbar&quot;: &quot;42px&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;,
+            &quot;created&quot;: &quot;20170325123352694&quot;
+        },
+        &quot;$:/plugins/tg/tiddlersbar/tiddlersbar&quot;: {
+            &quot;text&quot;: &quot;&lt;div class=\&quot;tgc-tiddlersbar\&quot; &gt;\n&lt;$list filter=\&quot;[list[$:/StoryList]]\&quot; history=\&quot;$:/HistoryList\&quot; variable=\&quot;currentTab\&quot;&gt;\n&lt;$reveal type=\&quot;match\&quot; state=\&quot;$:/HistoryList!!current-tiddler\&quot; text=&lt;&lt;currentTab&gt;&gt;&gt;\n&lt;div style=\&quot;display:inline-block;\&quot;&gt;\n&lt;$button to=&lt;&lt;currentTab&gt;&gt; class=\&quot;tgc-tiddlersbar-selected\&quot; style=\&quot;margin-right: -0.4em; border-right: 0.0em\&quot;&gt;\n&lt;$macrocall $name=\&quot;currentTab\&quot; $type=\&quot;text/plain\&quot; $output=\&quot;text/plain\&quot;/&gt;\n&lt;/$button&gt;\n&lt;$button message=\&quot;tm-close-tiddler\&quot; param=&lt;&lt;currentTab&gt;&gt; class=\&quot;tgc-tiddlersbar-selected tgc-x\&quot; style=\&quot;border-left: 0.0em;\&quot;&gt;X&lt;/$button&gt;&lt;/div&gt;&lt;/$reveal&gt;\n&lt;$reveal type=\&quot;nomatch\&quot; state=\&quot;$:/HistoryList!!current-tiddler\&quot; text=&lt;&lt;currentTab&gt;&gt;&gt;\n&lt;div style=\&quot;display:inline-block;\&quot;&gt;\n&lt;$button to=&lt;&lt;currentTab&gt;&gt;  style=\&quot;margin-right: 0.0em;\&quot; &gt;\n&lt;$macrocall $name=\&quot;currentTab\&quot; $type=\&quot;text/plain\&quot; $output=\&quot;text/plain\&quot;/&gt;\n&lt;/$button&gt;&lt;$button message=\&quot;tm-close-tiddler\&quot; param=&lt;&lt;currentTab&gt;&gt; class=\&quot;tgc-x\&quot;&gt;\nX&lt;/$button&gt;&lt;/div&gt;&lt;/$reveal&gt;\n&lt;/$list&gt;\n&lt;/div&gt;\n&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tg/tiddlersbar/tiddlersbar&quot;,
+            &quot;tags&quot;: &quot;$:/tags/PageTemplate&quot;,
+            &quot;modifier&quot;: &quot;TonGerner&quot;,
+            &quot;modified&quot;: &quot;20191228200736188&quot;,
+            &quot;creator&quot;: &quot;TonGerner&quot;,
+            &quot;created&quot;: &quot;20170325114702089&quot;
+        }
+    }
+}</pre>
+</div>
+<div created="20170325123352694" creator="TonGerner" left-tiddlersbar="42px" list-after="$:/plugins/tg/tiddlersbar/style-no-tiddlersbar" modified="20200709080319525" modifier="Hans" tags="$:/tags/Stylesheet" tiddlersbar-border-radius="1px" tiddlersbar-color="#fff" tiddlersbar-font-size="0.9em" tiddlersbar-selected-color="#0ff" tiddlersbar-selected-text-color="&lt;&lt;colour tab-foreground-selected&gt;&gt;" tiddlersbar-text-color="&lt;&lt;colour tab-foreground&gt;&gt;" title="$:/plugins/tg/tiddlersbar/styles" top-tiddlersbar="10px">
+<pre>&lt;pre&gt;/* BREADCRUMBS TOP MENU */
+.tgc-tiddlersbar {
+     display: block;
+     position: fixed;
+     left: 0;
+     top: {{!!top-tiddlersbar}};  /* vertical start of tiddlersbar 'menu' */
+     width: calc(100% - 60px); /* right margin for '&gt;&gt;' icon */
+     margin-left: {{!!left-tiddlersbar}};
+     z-index: 900;
+}
+
+/* TIDDLERSBAR */
+.tgc-tiddlersbar button {
+     font-size: {{!!tiddlersbar-font-size}};
+     color: {{!!tiddlersbar-text-color}};
+     padding: 3px 5px 3px 5px;
+     border: none;
+     border-radius: {{!!tiddlersbar-border-radius}};
+     background: none;
+     background-color: {{!!tiddlersbar-color}};
+     border-left: 1px solid #cccccc;
+     border-top: 1px solid #cccccc;
+     border-right: 1px solid #cccccc;
+}
+
+/* TIDDLERBAR SELECTED */
+.tgc-tiddlersbar button.tgc-tiddlersbar-selected {
+     color: {{!!tiddlersbar-selected-text-color}};
+     background: none;
+     background-color: {{!!tiddlersbar-selected-color}};
+}
+/* HOVER over 'x' */
+.tgc-tiddlersbar button.tgc-x:hover {
+     font-weight: bold;
+}
+.tgc-tiddlersbar button.tgc-tiddlersbar-selected.tgc-x:hover {
+     font-weight: bold;
+}
+&lt;/pre&gt;</pre>
+</div>
 <div created="20170424120500331" creator="Hans" modified="20170424120500331" modifier="Hans" title="$:/plugins/tiddlywiki/googleanalytics/readme">
 <pre>This plugin enables you to use Google Analytics to track access to your online TiddlyWiki document.
 
@@ -16928,8 +17562,8 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20171221043812738" creator="Hans" modified="20171221043826291" modifier="Hans" title="$:/state/tab--1949922094">
 <pre>$:/core/ui/TiddlerInfo/Fields</pre>
 </div>
-<div created="20170423055551946" creator="Hans" modified="20200709035400021" modifier="Hans" title="$:/state/tab--1963855381">
-<pre>$:/themes/tiddlywiki/vanilla/themetweaks</pre>
+<div created="20170423055551946" creator="Hans" modified="20200709080449834" modifier="Hans" title="$:/state/tab--1963855381">
+<pre>$:/plugins/tg/layout/tweaks</pre>
 </div>
 <div created="20170426092950049" creator="Hans" modified="20170426092950049" modifier="Hans" title="$:/state/tab--1979493427">
 <pre>$:/plugins/felixhayashi/tiddlymap/dialog/editNode/local</pre>
@@ -16970,8 +17604,8 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20171231064112687" creator="Hans" modified="20171231064112687" modifier="Hans" title="$:/state/tab-158098419">
 <pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
-<div created="20170423052939963" creator="Hans" modified="20200709040007459" modifier="Hans" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Info</pre>
+<div created="20170423052939963" creator="Hans" modified="20200709080436410" modifier="Hans" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Appearance</pre>
 </div>
 <div created="20170423064346284" creator="Hans" modified="20170423064350083" modifier="Hans" title="$:/state/tab-1872943071">
 <pre>$:/core/ui/TiddlerInfo/Advanced</pre>
@@ -16982,6 +17616,9 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062433424" creator="Hans" modified="20170423062433424" modifier="Hans" title="$:/state/tab-1999577953">
 <pre>$:/core/ui/TiddlerInfo/Tagging</pre>
 </div>
+<div created="20200709080501386" creator="Hans" modified="20200709080501386" modifier="Hans" title="$:/state/tab-2059741237">
+<pre>$:/plugins/tg/layout/themetweaks</pre>
+</div>
 <div created="20171226034556531" creator="Hans" modified="20180119052156961" modifier="Hans" title="$:/state/tab-219552783">
 <pre>侧信道分析软件 - 进度管理</pre>
 </div>
@@ -16990,6 +17627,9 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 </div>
 <div created="20171221043738044" creator="Hans" modified="20171221043834658" modifier="Hans" title="$:/state/tab-578329660">
 <pre>$:/core/ui/TiddlerInfo/References</pre>
+</div>
+<div created="20200709080237083" creator="Hans" modified="20200709080400066" modifier="Hans" title="$:/state/tab-658165082">
+<pre>$:/plugins/tg/layout/settings</pre>
 </div>
 <div created="20170423122406522" creator="Hans" modified="20170423122406522" modifier="Hans" title="$:/state/tab-936493323">
 <pre>$:/core/ui/AdvancedSearch/Shadows</pre>
@@ -17360,7 +18000,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20200709040053208" modifier="Hansimov" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="" title="$:/StoryList">
+<div list="[[Tiddlywik 左对齐主题（默认） vanilla]] [[Tiddlywiki 居中主题 Centralised]] $:/ControlPanel" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
