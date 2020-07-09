@@ -1,0 +1,20 @@
+created: 20200709050859915
+creator: Hans
+modified: 20200709053503958
+modifier: Hans
+tags: Tiddlywiki
+title: Tiddlywiki 居中主题 Centralised
+
+* $:/ControlPanel > Appearance
+** Theme > Centralised
+** Theme Tweaks > Sidebar layout > Fixed story, fluid sidebar
+** Theme Tweaks > SideBar Breakpoint: {{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}}
+*** 此参数含义为，当窗口高度低于 breakpoint 的值时，侧边栏消失（跑到最顶端）
+
+
+* $:/themes/tiddlywiki/centralised/styles.tid
+** 几个重要参数遵循如下等式：
+*** 50%*window.width+story-river.width/2 = sidebar-scrollable.left
+** 取 story-river 的 width 为 `56%`
+** 计算得到 sidebar-scrollable 的 left 为 50%+56%/2 = `78%`
+

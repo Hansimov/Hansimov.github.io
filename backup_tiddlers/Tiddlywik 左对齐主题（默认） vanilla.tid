@@ -1,0 +1,13 @@
+created: 20200709060214291
+creator: Hans
+modified: 20200709060552181
+modifier: Hans
+tags: Tiddlywiki
+title: Tiddlywik 左对齐主题（默认） vanilla
+
+* $:/themes/tiddlywiki/vanilla/themetweaks
+
+** storyright: {{$:/themes/tiddlywiki/vanilla/metrics/storyright}}
+** storywidth: {{$:/themes/tiddlywiki/vanilla/metrics/storywidth}}
+** sidebar breakpoint: {{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}}
+** Sidebar width: {{$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth}}
