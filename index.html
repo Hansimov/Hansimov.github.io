@@ -687,6 +687,12 @@ Error message and password prompt
 
 <li>$:/plugins/tiddlywiki/tw2parser</li>
 
+<li>$:/plugins/TWaddle/LeftBar</li>
+
+<li>$:/plugins/TWaddle/LeftBar/Menu</li>
+
+<li>$:/plugins/TWaddle/LeftBar/Stylesheet</li>
+
 <li>$:/plugins/TWaddle/ListTree</li>
 
 <li>$:/plugins/TWaddle/ListTree/readme</li>
@@ -842,6 +848,8 @@ Error message and password prompt
 <li>$:/state/folded/Python print 的细节</li>
 
 <li>$:/state/folded/Sublime CSS颜色</li>
+
+<li>$:/state/LeftBar</li>
 
 <li>$:/state/Link/-219172419/search</li>
 
@@ -1516,6 +1524,8 @@ Error message and password prompt
 <li>$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint</li>
 
 <li>$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth</li>
+
+<li>$:/themes/tiddlywiki/vanilla/metrics/storyleft</li>
 
 <li>$:/themes/tiddlywiki/vanilla/metrics/storyright</li>
 
@@ -15413,9 +15423,7 @@ $:/config/ViewToolbarButtons/Visibility/$(listItem)$
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/plugins/tg/layout]]
-# [[$:/plugins/tg/tristate]]
-# [[$:/plugins/tg/tiddlersbar]]</pre>
+# [[$:/plugins/TWaddle/LeftBar]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -17144,6 +17152,160 @@ uncheckactions=&quot;&quot;&quot;
     }
 }</pre>
 </div>
+<div author="Mat von TWaddle" core-version="&gt;=5.1.16" created="20180905142253202" creator="Mat von TWaddle" description="LeftBar - a menu type sidebar, on the left" list="contents readme" modified="20200709124415683" modifier="Hans" plugin-type="plugin" title="$:/plugins/TWaddle/LeftBar" type="application/json" version="2.1.4">
+<pre>{
+    &quot;tiddlers&quot;: {
+        &quot;$:/plugins/TWaddle/LeftBar/Toggle&quot;: {
+            &quot;text&quot;: &quot;\\define leftbar-content()\n&lt;div class=\&quot;leftbar-content\&quot;&gt;\n\n{{$:/plugins/TWaddle/LeftBar/Menu}}\n&lt;/div&gt;\n\\end\n\n&lt;$list filter=\&quot;[title[$:/plugins/TWaddle/LeftBar/temp]!is[tiddler]]\&quot; &gt;\n&lt;$button set=\&quot;$:/state/LeftBar\&quot; setTo=\&quot;show\&quot; class=\&quot;tc-btn-invisible tc-image-button leftbar-toggle\&quot;&gt;\n\t{{$:/core/images/menu-button}}\n   \t&lt;$action-setfield $tiddler=\&quot;$:/plugins/TWaddle/LeftBar/temp\&quot;\n\t\t$field=\&quot;storyleft\&quot;\n        $value={{$:/themes/tiddlywiki/vanilla/metrics/storyleft}}/&gt;\n\t&lt;$action-setfield $tiddler=\&quot;$:/plugins/TWaddle/LeftBar/temp\&quot; \n\t\t$field=\&quot;storyright\&quot;\n        $value={{$:/themes/tiddlywiki/vanilla/metrics/storyright}}/&gt;\n    &lt;$action-setfield $tiddler=\&quot;$:/themes/tiddlywiki/vanilla/metrics/storyleft\&quot; \n\t\ttext=\&quot;/*LeftBar*/ calc({{$:/plugins/TWaddle/LeftBar/Stylesheet!!width}} + {{$:/plugins/TWaddle/LeftBar/temp!!storyleft}})\&quot; /&gt;\n\t&lt;$action-setfield $tiddler=\&quot;$:/themes/tiddlywiki/vanilla/metrics/storyright\&quot;\n\t\ttext=\&quot;/*LeftBar*/ calc({{$:/plugins/TWaddle/LeftBar/temp!!storyright}} + {{$:/themes/tiddlywiki/vanilla/metrics/storyleft}})\&quot;/&gt;\n&lt;/$button&gt;\n&lt;/$list&gt;\n\n&lt;$list filter=\&quot;[title[$:/plugins/TWaddle/LeftBar/temp]is[tiddler]]\&quot; &gt;\n&lt;$button set=\&quot;$:/state/LeftBar\&quot; setTo=\&quot;hide\&quot; class=\&quot;tc-btn-invisible tc-image-button leftbar-toggle\&quot;&gt;\n\t{{$:/core/images/chevron-left}}\n\t&lt;$action-setfield $tiddler=\&quot;$:/themes/tiddlywiki/vanilla/metrics/storyleft\&quot; \n\t\ttext={{$:/plugins/TWaddle/LeftBar/temp!!storyleft}} /&gt;\n\t&lt;$action-setfield $tiddler=\&quot;$:/themes/tiddlywiki/vanilla/metrics/storyright\&quot; \n\t\ttext={{$:/plugins/TWaddle/LeftBar/temp!!storyright}} /&gt;\n\t&lt;$action-deletetiddler $tiddler=\&quot;$:/plugins/TWaddle/LeftBar/temp\&quot;/&gt;\n&lt;/$button&gt;\n&lt;/$list&gt;\n\n&lt;$list filter=\&quot;[title[$:/plugins/TWaddle/LeftBar/temp]is[tiddler]]\&quot; &gt;\n\t&lt;&lt;leftbar-content&gt;&gt;\n&lt;/$list&gt;\n&lt;$list filter=\&quot;[title[$:/plugins/TWaddle/LeftBar/temp]!is[tiddler]]\&quot; &gt;\n\t&lt;div class=\&quot;leftbar-togglezone\&quot;&gt;\n\t\t&lt;&lt;leftbar-content&gt;&gt;\n\t&lt;/div&gt;\n&lt;/$list&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/TWaddle/LeftBar/Toggle&quot;,
+            &quot;tags&quot;: &quot;$:/tags/PageTemplate&quot;,
+            &quot;modifier&quot;: &quot;Mat von TWaddle&quot;,
+            &quot;modified&quot;: &quot;20180905121252605&quot;,
+            &quot;creator&quot;: &quot;Mat von TWaddle&quot;,
+            &quot;created&quot;: &quot;20170430114950811&quot;
+        },
+        &quot;$:/plugins/TWaddle/LeftBar/Stylesheet&quot;: {
+            &quot;text&quot;: &quot;&lt;pre&gt;button.leftbar-toggle {\n\tposition:fixed;\n\tz-index: 1200;\n\tdisplay:{{!!display}};\n\ttop:0px;\n\tleft:0px;\n\tpadding:0px;\n\theight:3em;\n\twidth:2em;\n}\n.leftbar-toggle svg {\n\t&lt;&lt;transition \&quot;fill 150ms ease-in-out\&quot;&gt;&gt;\n\tfill: &lt;&lt;colour muted-foreground&gt;&gt;;\n}\n.leftbar-toggle:hover svg {\n\tfill: &lt;&lt;colour foreground&gt;&gt;;\n}\n.leftbar-togglezone {\n\tposition:fixed;\n\tleft:0;\n\ttop:3em;\n\tmin-height:50vh;\n\twidth:1em;\n}\n.leftbar-settingstable {\n\tmargin:\n\t0 auto;\n}\n.leftbar-settingstable,\n .leftbar-settingstable td {\n\tborder:0;\n}\n.leftbar-settingstable td:nth-of-type(1) {\n\ttext-align:right;\n\tvertical-align:top;\n}\n.leftbar-content {\n\tposition:{{!!position}};\n\tmax-width:calc(42px + {{!!width}});\n\tleft:0px;\n\ttop:3em;\n\tpadding:0em 10px 5px 10px;\n\tbackground:none;\n\tmin-height:50vh;\n\tmax-height:85vh;\n\toverflow-y:auto;\n}\n.leftbar-content .tc-tab-buttons button.tc-tab-selected {\n\tbackground-color: &lt;&lt;colour sidebar-tab-background-selected&gt;&gt;;\n}\n.leftbar-content .tc-tab-buttons button {\n\tbackground-color: &lt;&lt;colour sidebar-tab-background&gt;&gt;;\n}\n.leftbar-togglezone .leftbar-content {\n\tdisplay:none;\n\tposition:fixed;\n}\n.leftbar-togglezone:hover .leftbar-content {\n\tdisplay:{{$:/plugins/TWaddle/LeftBar/Stylesheet!!hover-to-display-as}};\n\tbackground:#f4f4f4;\n\t&lt;&lt;box-shadow \&quot;1px 1px 5px rgba(0, 0, 0, 0.3)\&quot;&gt;&gt;\n }\n\n@media (max-width: {{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}}) {\n\t.leftbar-content  {\n\t\tdisplay:block;\n\t\tbackground:#f4f4f4;\n\t\t&lt;&lt;box-shadow \&quot;1px 1px 5px rgba(0, 0, 0, 0.3)\&quot;&gt;&gt;\n\t\tmax-width:90vw;\n\t}\n\tbutton.leftbar-toggle {\n\t\tbackground:transparent;\n\t\theight:2em;\n\t}\n\tbutton.leftbar-toggle svg {\n\t\tbackground:white;\n\t}\n\tbutton.leftbar-toggle:hover {\n\t\toutline:2px solid lightgray;\n\t}\n}\n&lt;/pre&gt;\n&quot;,
+            &quot;width&quot;: &quot;200px&quot;,
+            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
+            &quot;title&quot;: &quot;$:/plugins/TWaddle/LeftBar/Stylesheet&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Stylesheet&quot;,
+            &quot;position&quot;: &quot;fixed&quot;,
+            &quot;modifier&quot;: &quot;Mat von TWaddle&quot;,
+            &quot;modified&quot;: &quot;20180905120521378&quot;,
+            &quot;hover-to-display-as&quot;: &quot;block&quot;,
+            &quot;display&quot;: &quot;block&quot;,
+            &quot;creator&quot;: &quot;Mat von TWaddle&quot;,
+            &quot;created&quot;: &quot;20170430122213416&quot;
+        },
+        &quot;$:/plugins/TWaddle/LeftBar/readme&quot;: {
+            &quot;text&quot;: &quot;!!To use\nEdit the LeftBar contents by editing $:/plugins/TWaddle/LeftBar/Menu\n\n!!LeftBar settings\nAlso found under //Controlpanel&gt; Settings&gt; LeftBar//, unless unchecked here\n\n{{$:/plugins/TWaddle/LeftBar/settings}}\n\n@@color:silver; /// Mat von TWaddle//@@&quot;,
+            &quot;title&quot;: &quot;$:/plugins/TWaddle/LeftBar/readme&quot;,
+            &quot;modifier&quot;: &quot;Mat von TWaddle&quot;,
+            &quot;modified&quot;: &quot;20180426160512182&quot;,
+            &quot;creator&quot;: &quot;Mat von TWaddle&quot;,
+            &quot;created&quot;: &quot;20170501015503878&quot;
+        },
+        &quot;$:/plugins/TWaddle/LeftBar/icon&quot;: {
+            &quot;text&quot;: &quot;{{$:/core/images/menu-button}}&quot;,
+            &quot;title&quot;: &quot;$:/plugins/TWaddle/LeftBar/icon&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modifier&quot;: &quot;Mat von TWaddle&quot;,
+            &quot;modified&quot;: &quot;20180426160450511&quot;,
+            &quot;creator&quot;: &quot;Mat von TWaddle&quot;,
+            &quot;created&quot;: &quot;20170502094251285&quot;
+        },
+        &quot;$:/plugins/TWaddle/LeftBar/Menu&quot;: {
+            &quot;text&quot;: &quot;Welcome to LeftBar!&lt;br&gt;&lt;br&gt;\nChange the content of this by editing $:/plugins/TWaddle/LeftBar/Menu&lt;br&gt;&lt;br&gt; \nYou can add tablists or whatever you want.&lt;br&gt;&lt;br&gt;\nNote also that you access the menu either by clicking the hamburger or by simply hovering (or tapping) along the left screen edge. If you don't like this behaviour, you can change it in the //Controlpanel &gt; settings// &quot;,
+            &quot;title&quot;: &quot;$:/plugins/TWaddle/LeftBar/Menu&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modifier&quot;: &quot;Mat von TWaddle&quot;,
+            &quot;modified&quot;: &quot;20180905122142436&quot;,
+            &quot;creator&quot;: &quot;Mat von TWaddle&quot;,
+            &quot;created&quot;: &quot;20170502091456621&quot;
+        },
+        &quot;$:/plugins/TWaddle/LeftBar/settings&quot;: {
+            &quot;text&quot;: &quot;&lt;table class=\&quot;leftbar-settingstable\&quot;&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;$edit-text tiddler=\&quot;$:/plugins/TWaddle/LeftBar/Stylesheet\&quot; field=\&quot;width\&quot; size=3/&gt;&lt;/td&gt;\n&lt;td&gt;''Width'' for LeftBar&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;\n&lt;$checkbox tiddler=\&quot;$:/plugins/TWaddle/LeftBar/Stylesheet\&quot; field=\&quot;display\&quot; checked=\&quot;block\&quot; unchecked=\&quot;none\&quot; default=\&quot;blocked\&quot;/&gt;\n&lt;/td&gt;\n&lt;td&gt;''Toggle button'' - display in left top menu&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;$checkbox tiddler=\&quot;$:/plugins/TWaddle/LeftBar/Stylesheet\&quot; field=\&quot;position\&quot; checked=\&quot;fixed\&quot; unchecked=\&quot;absolute\&quot; default=\&quot;fixed\&quot;/&gt;\n&lt;/td&gt;\n&lt;td&gt;''Scroll vs Fix'' - behaviour when activated //via button//&lt;br&gt;(The //hover-activated// content is always in fixed position.)&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;$checkbox tiddler=\&quot;$:/plugins/TWaddle/LeftBar/settings\&quot; tag=\&quot;$:/tags/ControlPanel/Settings\&quot; /&gt;&lt;/td&gt;\n&lt;td&gt;''Ctrlpanel'' - show this table also in //Ctrlpanel&gt;  Settings//&lt;/td&gt;\n&lt;/tr&gt;\n&lt;tr&gt;\n&lt;td&gt;&lt;$checkbox tiddler=\&quot;$:/plugins/TWaddle/LeftBar/Stylesheet\&quot; field=\&quot;hover-to-display-as\&quot; checked=\&quot;block\&quot; unchecked=\&quot;none\&quot; default=\&quot;block\&quot;/&gt;&lt;/td&gt;\n&lt;td&gt;''Hover to display'' - enable \&quot;hover window edge\&quot; to display pop-out&lt;/td&gt;\n&lt;/tr&gt;\n&lt;/table&gt;&quot;,
+            &quot;title&quot;: &quot;$:/plugins/TWaddle/LeftBar/settings&quot;,
+            &quot;tags&quot;: &quot;$:/tags/ControlPanel/Settings&quot;,
+            &quot;modifier&quot;: &quot;Mat von TWaddle&quot;,
+            &quot;modified&quot;: &quot;20180905120536003&quot;,
+            &quot;list-before&quot;: &quot;&quot;,
+            &quot;creator&quot;: &quot;Mat von TWaddle&quot;,
+            &quot;created&quot;: &quot;20170430123149149&quot;,
+            &quot;caption&quot;: &quot;LeftBar Settings&quot;
+        }
+    }
+}</pre>
+</div>
+<div created="20170502091456621" creator="Mat von TWaddle" modified="20200709124805739" modifier="Hans" tags="" title="$:/plugins/TWaddle/LeftBar/Menu">
+<pre></pre>
+</div>
+<div created="20170430122213416" creator="Mat von TWaddle" display="block" hover-to-display-as="none" modified="20200709123311044" modifier="Hans" position="fixed" tags="$:/tags/Stylesheet" title="$:/plugins/TWaddle/LeftBar/Stylesheet" type="text/vnd.tiddlywiki" width="250px">
+<pre>&lt;pre&gt;button.leftbar-toggle {
+	position:fixed;
+	z-index: 1200;
+	display:{{!!display}};
+	top:0px;
+	left:0px;
+	padding:0px;
+	height:3em;
+	width:2em;
+}
+.leftbar-toggle svg {
+	&lt;&lt;transition &quot;fill 150ms ease-in-out&quot;&gt;&gt;
+	fill: &lt;&lt;colour muted-foreground&gt;&gt;;
+}
+.leftbar-toggle:hover svg {
+	fill: &lt;&lt;colour foreground&gt;&gt;;
+}
+.leftbar-togglezone {
+	position:fixed;
+	left:0;
+	top:3em;
+	min-height:50vh;
+	width:1em;
+}
+.leftbar-settingstable {
+	margin:
+	0 auto;
+}
+.leftbar-settingstable,
+ .leftbar-settingstable td {
+	border:0;
+}
+.leftbar-settingstable td:nth-of-type(1) {
+	text-align:right;
+	vertical-align:top;
+}
+.leftbar-content {
+	position:{{!!position}};
+	max-width:calc(42px + {{!!width}});
+	left:0px;
+	top:3em;
+	padding:0em 10px 5px 10px;
+	background:none;
+	min-height:50vh;
+	max-height:85vh;
+	overflow-y:auto;
+}
+.leftbar-content .tc-tab-buttons button.tc-tab-selected {
+	background-color: &lt;&lt;colour sidebar-tab-background-selected&gt;&gt;;
+}
+.leftbar-content .tc-tab-buttons button {
+	background-color: &lt;&lt;colour sidebar-tab-background&gt;&gt;;
+}
+.leftbar-togglezone .leftbar-content {
+	display:none;
+	position:fixed;
+}
+.leftbar-togglezone:hover .leftbar-content {
+	display:{{$:/plugins/TWaddle/LeftBar/Stylesheet!!hover-to-display-as}};
+	background:#f4f4f4;
+	&lt;&lt;box-shadow &quot;1px 1px 5px rgba(0, 0, 0, 0.3)&quot;&gt;&gt;
+ }
+
+@media (max-width: {{$:/themes/tiddlywiki/vanilla/metrics/sidebarbreakpoint}}) {
+	.leftbar-content  {
+		display:block;
+		background:#f4f4f4;
+		&lt;&lt;box-shadow &quot;1px 1px 5px rgba(0, 0, 0, 0.3)&quot;&gt;&gt;
+		max-width:90vw;
+	}
+	button.leftbar-toggle {
+		background:transparent;
+		height:2em;
+	}
+	button.leftbar-toggle svg {
+		background:white;
+	}
+	button.leftbar-toggle:hover {
+		outline:2px solid lightgray;
+	}
+}
+&lt;/pre&gt;
+</pre>
+</div>
 <div author="Mat von TWaddle" description="ListTree - style common bullet lists into list trees" list="readme" plugin-type="plugin" title="$:/plugins/TWaddle/ListTree" type="application/json" version="1.0.4">
 <pre>{
     &quot;tiddlers&quot;: {
@@ -17465,6 +17627,9 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20180324065622244" creator="Hans" modified="20180324065628533" modifier="Hans" title="$:/state/folded/Sublime CSS颜色">
 <pre>show</pre>
 </div>
+<div created="20200709123220594" creator="Hans" modified="20200709124921858" modifier="Hans" title="$:/state/LeftBar">
+<pre>hide</pre>
+</div>
 <div created="20180922052407679" creator="Hans" modified="20180922052410808" modifier="Hans" title="$:/state/Link/-219172419/search">
 <pre></pre>
 </div>
@@ -17672,8 +17837,8 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20180805140124511" creator="Hans" modified="20180805140127799" modifier="Hans" title="$:/state/tab--1294592561">
 <pre>$:/core/ui/TiddlerInfo/Advanced</pre>
 </div>
-<div created="20170423102613832" creator="Hans" modified="20200229133307316" modifier="Hans" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/Filter</pre>
+<div created="20170423102613832" creator="Hans" modified="20200709123541103" modifier="Hans" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/System</pre>
 </div>
 <div created="20171219084235578" creator="Hans" modified="20171219084238138" modifier="Hans" title="$:/state/tab--1729597686">
 <pre>$:/core/ui/TiddlerInfo/Fields</pre>
@@ -17729,7 +17894,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20171231064112687" creator="Hans" modified="20171231064112687" modifier="Hans" title="$:/state/tab-158098419">
 <pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
-<div created="20170423052939963" creator="Hans" modified="20200709084612032" modifier="Hans" title="$:/state/tab-1749438307">
+<div created="20170423052939963" creator="Hans" modified="20200709124704667" modifier="Hans" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Appearance</pre>
 </div>
 <div created="20170423064346284" creator="Hans" modified="20170423064350083" modifier="Hans" title="$:/state/tab-1872943071">
@@ -17765,7 +17930,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423060241542" creator="Hans" modified="20200709084219354" modifier="Hans" title="$:/state/tab/moresidebar-401116514">
 <pre>$:/core/ui/MoreSideBar/All</pre>
 </div>
-<div created="20170423052918471" creator="Hans" modified="20200709084220098" modifier="Hans" title="$:/state/tab/sidebar--1835078512">
+<div created="20170423052918471" creator="Hans" modified="20200709121823639" modifier="Hans" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20170425014253820" creator="Hans" modified="20200229060410625" modifier="Hans" title="$:/state/tabs/controlpanel/toolbars-1345989671">
@@ -18122,7 +18287,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20200709040053208" modifier="Hansimov" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[Tiddlywiki 增加上方的活跃窗口标签]] [[GitHub pages 增加子网站]] [[Tiddlywik 左对齐主题（默认） vanilla]] $:/ControlPanel [[Tiddlywiki 居中主题 Centralised]]" title="$:/StoryList">
+<div list="" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -18228,8 +18393,8 @@ $title$$(currentTiddler)$
 <div created="20170612021852946" creator="Hans" filter="ToRead" modified="20170612021859206" modifier="Hans" title="$:/temp/AddTags">
 <pre></pre>
 </div>
-<div created="20170423102600845" creator="Hans" modified="20200229133326958" modifier="Hans" title="$:/temp/advancedsearch">
-<pre>[!is[system]!sort[modified]days[-365]]</pre>
+<div created="20170423102600845" creator="Hans" modified="20200709123905182" modifier="Hans" title="$:/temp/advancedsearch">
+<pre>leftbar</pre>
 </div>
 <div created="20170612021352675" creator="Hans" modified="20170612022841011" modifier="Hans" replace_tag="" search_tags="" title="$:/temp/changetags">
 <pre></pre>
@@ -21520,7 +21685,10 @@ body.tc-dirty span.tc-dirty-indicator, body.tc-dirty span.tc-dirty-indicator svg
 <div created="20170423121339169" creator="Hans" modified="20180809020600316" modifier="Hans" title="$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth">
 <pre>450px</pre>
 </div>
-<div created="20170426092452893" creator="Hans" modified="20200709062403182" modifier="Hans" title="$:/themes/tiddlywiki/vanilla/metrics/storyright">
+<div created="20200709123220593" creator="Hans" modified="20200709124921858" modifier="Hans" title="$:/themes/tiddlywiki/vanilla/metrics/storyleft">
+<pre>0px</pre>
+</div>
+<div created="20170426092452893" creator="Hans" modified="20200709124921858" modifier="Hans" title="$:/themes/tiddlywiki/vanilla/metrics/storyright">
 <pre>70%</pre>
 </div>
 <div created="20170426091415076" creator="Hans" modified="20200709062406030" modifier="Hans" title="$:/themes/tiddlywiki/vanilla/metrics/storywidth">
@@ -21529,7 +21697,7 @@ body.tc-dirty span.tc-dirty-indicator, body.tc-dirty span.tc-dirty-indicator svg
 <div created="20170426091832464" creator="Hans" modified="20200709062215922" modifier="Hans" title="$:/themes/tiddlywiki/vanilla/metrics/tiddlerwidth">
 <pre></pre>
 </div>
-<div created="20170423113044520" creator="Hans" modified="20200709062549913" modifier="Hans" title="$:/themes/tiddlywiki/vanilla/options/sidebarlayout">
+<div created="20170423113044520" creator="Hans" modified="20200709124841441" modifier="Hans" title="$:/themes/tiddlywiki/vanilla/options/sidebarlayout">
 <pre>fixed-fluid</pre>
 </div>
 <div created="20200709035402357" creator="Hans" modified="20200709084318577" modifier="Hans" title="$:/themes/tiddlywiki/vanilla/options/stickytitles">
