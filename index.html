@@ -651,6 +651,8 @@ Error message and password prompt
 
 <li>$:/plugins/tg/layout/recent-dates-bold/style</li>
 
+<li>$:/plugins/tg/layout/search</li>
+
 <li>$:/plugins/tg/layout/sidebar-top</li>
 
 <li>$:/plugins/tg/layout/style_scroll_preview</li>
@@ -1011,6 +1013,8 @@ Error message and password prompt
 
 <li>$:/state/tab--375372069</li>
 
+<li>$:/state/tab--4179469</li>
+
 <li>$:/state/tab--473168170</li>
 
 <li>$:/state/tab--780495755</li>
@@ -1036,6 +1040,8 @@ Error message and password prompt
 <li>$:/state/tab-1908707267</li>
 
 <li>$:/state/tab-1999577953</li>
+
+<li>$:/state/tab-2059741237</li>
 
 <li>$:/state/tab-219552783</li>
 
@@ -14265,7 +14271,7 @@ exports.parse = function() {
 })();
 </pre>
 </div>
-<div created="20200229045133713" creator="Hans" modified="20200229045144762" modifier="Hans" module-type="widget" title="$:/core/modules/widgets/navigator.js" type="application/javascript">
+<div created="20200229045133713" creator="Hans" modified="20200709131637868" modifier="Hans" module-type="widget" title="$:/core/modules/widgets/navigator.js" type="application/javascript">
 <pre>/*\
 title: $:/core/modules/widgets/navigator.js
 type: application/javascript
@@ -16627,12 +16633,15 @@ exports.encryptTiddler = encryptTiddlerWidget;
 
 </pre>
 </div>
-<div created="20200115151655355" creator="Hans" modified="20200709082656225" modifier="Hans" tags="" title="$:/plugins/tg/layout/recent-dates-bold/style" type="text/css">
+<div created="20200115151655355" creator="Hans" modified="20200709131309135" modifier="Hans" tags="" title="$:/plugins/tg/layout/recent-dates-bold/style" type="text/css">
 <pre>/* RECENT TAB DATE BOLD */
 .tc-sidebar-lists .tc-timeline {
    font-weight: bold;
 }
 </pre>
+</div>
+<div created="20181228194403881" creator="Hans" modified="20200709131256640" modifier="Hans" tags="" title="$:/plugins/tg/layout/search">
+<pre>{{$:/AdvancedSearch}}</pre>
 </div>
 <div created="20161213115930178" creator="Hans" modified="20200709084139194" modifier="Hans" tags="" title="$:/plugins/tg/layout/sidebar-top">
 <pre>50px</pre>
@@ -16643,7 +16652,7 @@ exports.encryptTiddler = encryptTiddlerWidget;
      overflow-y:auto;
 }</pre>
 </div>
-<div active-state-color="&lt;&lt;colour primary&gt;&gt;" created="20161212103011213" creator="TonGerner" list-after="$:/themes/tiddlywiki/vanilla/base" modified="20200709083551405" modifier="Hans" sidebar-top="0px" story-river-top="0px" tags="$:/tags/Stylesheet" tiddler-button-size="0.6em" tiddler-button-spacing="0px" tiddler-padding-top="30px" title="$:/plugins/tg/layout/styles" title-toolbar-spacing="1.3em" topbar-background-color="&lt;&lt;colour page-background&gt;&gt;" topbar-height="40px">
+<div active-state-color="&lt;&lt;colour primary&gt;&gt;" created="20161212103011213" creator="TonGerner" list-after="$:/themes/tiddlywiki/vanilla/base" modified="20200709131827369" modifier="Hans" sidebar-top="0px" story-river-top="0px" tags="$:/tags/Stylesheet" tiddler-button-size="0.6em" tiddler-button-spacing="0px" tiddler-padding-top="30px" title="$:/plugins/tg/layout/styles" title-toolbar-spacing="1.3em" topbar-background-color="&lt;&lt;colour page-background&gt;&gt;" topbar-height="40px">
 <pre>&lt;pre&gt;/* LAYOUT SETTINGS */
 
 /* VERTICAL OFFSET FOR TOP OF SIDEBAR */
@@ -16776,7 +16785,7 @@ table.tablestyle td {
 \end
 </pre>
 </div>
-<div created="20190221194645657" creator="TonGerner" list-after="$:/core/ui/EditTemplate/tags" modified="20200709083512709" modifier="Hans" tags="" title="$:/plugins/tg/layout/toggle_toolbar">
+<div created="20190221194645657" creator="TonGerner" list-after="$:/core/ui/EditTemplate/tags" modified="20200709130946712" modifier="Hans" tags="" title="$:/plugins/tg/layout/toggle_toolbar">
 <pre>Toggle editor toolbar &lt;$checkbox tiddler=&quot;$:/config/TextEditor/EnableToolbar&quot; field=&quot;text&quot; checked=&quot;yes&quot; unchecked=&quot;no&quot; default=&quot;yes&quot;&gt;&lt;/$checkbox&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;Toggle preview &lt;$reveal state=&quot;$:/state/showeditpreview&quot; type=&quot;nomatch&quot; text=&quot;no&quot;&gt;
 &lt;$button set=&quot;$:/state/showeditpreview&quot; setTo=&quot;no&quot; tooltip=&quot;Hide preview&quot; class=&quot;tc-btn-invisible&quot;&gt;{{$:/core/images/preview-open}}&lt;/$button&gt;
 &lt;/$reveal&gt;
@@ -16787,7 +16796,7 @@ table.tablestyle td {
 
 </pre>
 </div>
-<div created="20200316192402200" creator="Hans" modified="20200709083538965" modifier="Hans" tags="" title="$:/plugins/tg/layout/toolbar-up/ckeckbox" up="no">
+<div created="20200316192402200" creator="Hans" modified="20200709130950841" modifier="Hans" tags="" title="$:/plugins/tg/layout/toolbar-up/ckeckbox" up="yes">
 <pre>&lt;$checkbox
 field=&quot;up&quot;
 checked=&quot;yes&quot;
@@ -16932,7 +16941,7 @@ uncheckactions=&quot;&quot;&quot;
     }
 }</pre>
 </div>
-<div caption="{{$:/plugins/tg/tiddlersbar/image-tiddlersbar-on}} tiddlersbar" created="20170325114731405" creator="TonGerner" description="Toggle tiddlersbar on/off" modified="20200709082635529" modifier="Hans" tags="" title="$:/plugins/tg/tiddlersbar/button">
+<div caption="{{$:/plugins/tg/tiddlersbar/image-tiddlersbar-on}} tiddlersbar" created="20170325114731405" creator="TonGerner" description="Toggle tiddlersbar on/off" modified="20200709131202663" modifier="Hans" tags="" title="$:/plugins/tg/tiddlersbar/button">
 <pre>&lt;$fieldmangler tiddler=&quot;$:/plugins/tg/tiddlersbar/styles&quot;&gt;
 &lt;$list filter=&quot;[[$:/plugins/tg/tiddlersbar/styles]tag[$:/tags/Stylesheet]]&quot;&gt;&lt;$button message=&quot;tm-remove-tag&quot; tooltip=&quot;Hide Tiddlersbar&quot; param=&quot;$:/tags/Stylesheet&quot; class=&lt;&lt;tv-config-toolbar-class&gt;&gt;&gt;
 &lt;span class=&quot;tgc-active-indicator&quot;&gt;
@@ -16955,7 +16964,7 @@ uncheckactions=&quot;&quot;&quot;
 &lt;/$fieldmangler&gt;
 </pre>
 </div>
-<div created="20170325123352694" creator="TonGerner" left-tiddlersbar="42px" list-after="$:/plugins/tg/tiddlersbar/style-no-tiddlersbar" modified="20200709083630933" modifier="Hans" tags="$:/tags/Stylesheet" tiddlersbar-border-radius="0px" tiddlersbar-color="#fff" tiddlersbar-font-size="1em" tiddlersbar-selected-color="#0ff" tiddlersbar-selected-text-color="&lt;&lt;colour tab-foreground-selected&gt;&gt;" tiddlersbar-text-color="&lt;&lt;colour tab-foreground&gt;&gt;" title="$:/plugins/tg/tiddlersbar/styles" top-tiddlersbar="10px">
+<div created="20170325123352694" creator="TonGerner" left-tiddlersbar="42px" list-after="$:/plugins/tg/tiddlersbar/style-no-tiddlersbar" modified="20200709131136088" modifier="Hans" tags="$:/tags/Stylesheet" tiddlersbar-border-radius="0px" tiddlersbar-color="#fff" tiddlersbar-font-size="1em" tiddlersbar-selected-color="#0ff" tiddlersbar-selected-text-color="&lt;&lt;colour tab-foreground-selected&gt;&gt;" tiddlersbar-text-color="&lt;&lt;colour tab-foreground&gt;&gt;" title="$:/plugins/tg/tiddlersbar/styles" top-tiddlersbar="10px">
 <pre>&lt;pre&gt;/* BREADCRUMBS TOP MENU */
 .tgc-tiddlersbar {
      display: block;
@@ -17224,10 +17233,10 @@ uncheckactions=&quot;&quot;&quot;
     }
 }</pre>
 </div>
-<div created="20170502091456621" creator="Mat von TWaddle" modified="20200709125403812" modifier="Hans" tags="" title="$:/plugins/TWaddle/LeftBar/Menu">
-<pre>{{$:/core/ui/SideBar/Recent}}</pre>
+<div created="20170502091456621" creator="Mat von TWaddle" modified="20200709132230740" modifier="Hans" tags="" title="$:/plugins/TWaddle/LeftBar/Menu">
+<pre>{{$:/core/ui/SideBar/Open}}</pre>
 </div>
-<div created="20170430122213416" creator="Mat von TWaddle" display="block" hover-to-display-as="none" modified="20200709123311044" modifier="Hans" position="fixed" tags="$:/tags/Stylesheet" title="$:/plugins/TWaddle/LeftBar/Stylesheet" type="text/vnd.tiddlywiki" width="250px">
+<div created="20170430122213416" creator="Mat von TWaddle" display="block" hover-to-display-as="none" modified="20200709130628429" modifier="Hans" position="fixed" tags="$:/tags/Stylesheet" title="$:/plugins/TWaddle/LeftBar/Stylesheet" type="text/vnd.tiddlywiki" width="250px">
 <pre>&lt;pre&gt;button.leftbar-toggle {
 	position:fixed;
 	z-index: 1200;
@@ -17268,7 +17277,7 @@ uncheckactions=&quot;&quot;&quot;
 	position:{{!!position}};
 	max-width:calc(42px + {{!!width}});
 	left:0px;
-	top:3em;
+	top:50px;
 	padding:0em 10px 5px 10px;
 	background:none;
 	min-height:50vh;
@@ -17825,7 +17834,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170612021600648" creator="Hans" modified="20170612021604096" modifier="Hans" num_recent_entries="40" title="$:/state/Recent Changes">
 <pre></pre>
 </div>
-<div created="20170423105015768" creator="Hans" modified="20200709130004605" modifier="Hans" title="$:/state/showeditpreview">
+<div created="20170423105015768" creator="Hans" modified="20200709131429454" modifier="Hans" title="$:/state/showeditpreview">
 <pre>yes</pre>
 </div>
 <div created="20170427093719513" creator="Hans" modified="20180609134438525" modifier="Hans" title="$:/state/ShowPaletteEditor">
@@ -17846,8 +17855,8 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20180805140124511" creator="Hans" modified="20180805140127799" modifier="Hans" title="$:/state/tab--1294592561">
 <pre>$:/core/ui/TiddlerInfo/Advanced</pre>
 </div>
-<div created="20170423102613832" creator="Hans" modified="20200709125315975" modifier="Hans" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
+<div created="20170423102613832" creator="Hans" modified="20200709131341597" modifier="Hans" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Standard</pre>
 </div>
 <div created="20171219084235578" creator="Hans" modified="20171219084238138" modifier="Hans" title="$:/state/tab--1729597686">
 <pre>$:/core/ui/TiddlerInfo/Fields</pre>
@@ -17861,8 +17870,8 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20171221043812738" creator="Hans" modified="20171221043826291" modifier="Hans" title="$:/state/tab--1949922094">
 <pre>$:/core/ui/TiddlerInfo/Fields</pre>
 </div>
-<div created="20170423055551946" creator="Hans" modified="20200709084613831" modifier="Hans" title="$:/state/tab--1963855381">
-<pre>$:/themes/tiddlywiki/vanilla/themetweaks</pre>
+<div created="20170423055551946" creator="Hans" modified="20200709131813932" modifier="Hans" title="$:/state/tab--1963855381">
+<pre>$:/plugins/tg/layout/tweaks</pre>
 </div>
 <div created="20170426092950049" creator="Hans" modified="20170426092950049" modifier="Hans" title="$:/state/tab--1979493427">
 <pre>$:/plugins/felixhayashi/tiddlymap/dialog/editNode/local</pre>
@@ -17875,6 +17884,9 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 </div>
 <div created="20171106080736809" creator="Hans" modified="20171106080954169" modifier="Hans" title="$:/state/tab--375372069">
 <pre>第10章：对掩码技术的攻击</pre>
+</div>
+<div created="20200709131415302" creator="Hans" modified="20200709131415302" modifier="Hans" title="$:/state/tab--4179469">
+<pre>$:/plugins/tg/layout/themetweaks</pre>
 </div>
 <div created="20170426092930969" creator="Hans" modified="20170426092943497" modifier="Hans" title="$:/state/tab--473168170">
 <pre>$:/plugins/felixhayashi/tiddlymap/dialog/globalConfig/vis</pre>
@@ -17903,8 +17915,8 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20171231064112687" creator="Hans" modified="20171231064112687" modifier="Hans" title="$:/state/tab-158098419">
 <pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
-<div created="20170423052939963" creator="Hans" modified="20200709125333872" modifier="Hans" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Settings</pre>
+<div created="20170423052939963" creator="Hans" modified="20200709131734205" modifier="Hans" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Appearance</pre>
 </div>
 <div created="20170423064346284" creator="Hans" modified="20170423064350083" modifier="Hans" title="$:/state/tab-1872943071">
 <pre>$:/core/ui/TiddlerInfo/Advanced</pre>
@@ -17915,6 +17927,9 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062433424" creator="Hans" modified="20170423062433424" modifier="Hans" title="$:/state/tab-1999577953">
 <pre>$:/core/ui/TiddlerInfo/Tagging</pre>
 </div>
+<div created="20200709131820029" creator="Hans" modified="20200709131824109" modifier="Hans" title="$:/state/tab-2059741237">
+<pre>$:/plugins/tg/layout/settings</pre>
+</div>
 <div created="20171226034556531" creator="Hans" modified="20180119052156961" modifier="Hans" title="$:/state/tab-219552783">
 <pre>侧信道分析软件 - 进度管理</pre>
 </div>
@@ -17924,8 +17939,8 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20171221043738044" creator="Hans" modified="20171221043834658" modifier="Hans" title="$:/state/tab-578329660">
 <pre>$:/core/ui/TiddlerInfo/References</pre>
 </div>
-<div created="20200709082508761" creator="Hans" modified="20200709084135224" modifier="Hans" title="$:/state/tab-658165082">
-<pre>$:/plugins/tg/layout/themetweaks</pre>
+<div created="20200709082508761" creator="Hans" modified="20200709130942304" modifier="Hans" title="$:/state/tab-658165082">
+<pre>$:/plugins/tg/layout/settings</pre>
 </div>
 <div created="20170423122406522" creator="Hans" modified="20170423122406522" modifier="Hans" title="$:/state/tab-936493323">
 <pre>$:/core/ui/AdvancedSearch/Shadows</pre>
@@ -17936,11 +17951,11 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423130331633" creator="Hans" modified="20170423130450681" modifier="Hans" title="$:/state/tab/moresidebar--1647206943">
 <pre>$:/core/ui/MoreSideBar/Missing</pre>
 </div>
-<div created="20170423060241542" creator="Hans" modified="20200709130056932" modifier="Hans" title="$:/state/tab/moresidebar-401116514">
-<pre>$:/core/ui/MoreSideBar/All</pre>
+<div created="20170423060241542" creator="Hans" modified="20200709132158874" modifier="Hans" title="$:/state/tab/moresidebar-401116514">
+<pre>$:/core/ui/MoreSideBar/Tags</pre>
 </div>
-<div created="20170423052918471" creator="Hans" modified="20200709130058348" modifier="Hans" title="$:/state/tab/sidebar--1835078512">
-<pre>$:/core/ui/SideBar/Open</pre>
+<div created="20170423052918471" creator="Hans" modified="20200709132214466" modifier="Hans" title="$:/state/tab/sidebar--1835078512">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20170425014253820" creator="Hans" modified="20200229060410625" modifier="Hans" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
@@ -18296,7 +18311,7 @@ Apply the style `list-tree` by use of the standard WikiText [[@@ technique|http:
 <div created="20170423062203476" creator="H" modified="20200709040053208" modifier="Hansimov" title="$:/status/UserName">
 <pre>Hans</pre>
 </div>
-<div list="[[Tiddlywiki 增加左边栏]]" title="$:/StoryList">
+<div list="[[Tiddlywiki 居中主题 Centralised]] [[Tiddlywiki 增加上方的活跃窗口标签]] [[Tiddlywiki 增加左边栏]] $:/plugins/TWaddle/LeftBar/Menu" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20170423060313606" creator="Hans" icon="$:/core/images/tag-button" modified="20170423130421754" modifier="Hans" title="$:/TagManager">
@@ -18402,8 +18417,8 @@ $title$$(currentTiddler)$
 <div created="20170612021852946" creator="Hans" filter="ToRead" modified="20170612021859206" modifier="Hans" title="$:/temp/AddTags">
 <pre></pre>
 </div>
-<div created="20170423102600845" creator="Hans" modified="20200709125350750" modifier="Hans" title="$:/temp/advancedsearch">
-<pre>leftbar</pre>
+<div created="20170423102600845" creator="Hans" modified="20200709131338868" modifier="Hans" title="$:/temp/advancedsearch">
+<pre>***</pre>
 </div>
 <div created="20170612021352675" creator="Hans" modified="20170612022841011" modifier="Hans" replace_tag="" search_tags="" title="$:/temp/changetags">
 <pre></pre>
@@ -19204,7 +19219,7 @@ var4=&quot;if(attr1 == attr2 ? attr3[1]) || [attr3[2]]&quot;&gt;
 <div created="20170424124755785" creator="Hans" modified="20170424134907966" modifier="Hans" title="$:/temp/RenameTags/search">
 <pre></pre>
 </div>
-<div created="20170423101332258" creator="Hans" modified="20200709083926067" modifier="Hans" title="$:/temp/search">
+<div created="20170423101332258" creator="Hans" modified="20200709131644053" modifier="Hans" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200229054401141" creator="Hans" modified="20200229054401141" modifier="Hans" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/http://tiddlywiki.com/library/v5.1.13/index.html" url="http://tiddlywiki.com/library/v5.1.13/index.html">
@@ -21712,10 +21727,10 @@ body.tc-dirty span.tc-dirty-indicator, body.tc-dirty span.tc-dirty-indicator svg
 <div created="20170423113044520" creator="Hans" modified="20200709124841441" modifier="Hans" title="$:/themes/tiddlywiki/vanilla/options/sidebarlayout">
 <pre>fixed-fluid</pre>
 </div>
-<div created="20200709035402357" creator="Hans" modified="20200709084318577" modifier="Hans" title="$:/themes/tiddlywiki/vanilla/options/stickytitles">
+<div created="20200709035402357" creator="Hans" modified="20200709131727216" modifier="Hans" title="$:/themes/tiddlywiki/vanilla/options/stickytitles">
 <pre>no</pre>
 </div>
-<div created="20170423063534473" creator="Hans" modified="20200709082520833" modifier="Hans" title="$:/view">
+<div created="20170423063534473" creator="Hans" modified="20200709131810460" modifier="Hans" title="$:/view">
 <pre>zoomin</pre>
 </div>
 <div created="20170426104810571" creator="Hans" modified="20171004133315186" modifier="Hans" tags="第1章：引言" title="1.1：密码学与密码设备" tmap.edges="{}" tmap.id="b3e53ed7-d956-443f-b7ab-c9b7d1bcd91e" type="text/vnd.tiddlywiki">
@@ -46738,7 +46753,7 @@ draftTitle = &quot;*** &quot; + (c ? (c + 1) + &quot; &quot; : &quot;&quot;) + t
 `Code foreground: #ab3473` 行内代码颜色
 </pre>
 </div>
-<div created="20200709083010368" creator="Hans" modified="20200709084552773" modifier="Hans" tags="Tiddlywiki" title="Tiddlywiki 增加上方的活跃窗口标签">
+<div created="20200709083010368" creator="Hans" modified="20200709132117807" modifier="Hans" tags="Tiddlywiki" title="Tiddlywiki 增加上方的活跃窗口标签">
 <pre>* 拖动并导入链接中的两个相关文件
 ** http://tw5breadcrumbs.tiddlyspot.com/
 ** $:/plugins/tg/tiddlersbar
@@ -46761,6 +46776,7 @@ draftTitle = &quot;*** &quot; + (c ? (c + 1) + &quot; &quot; : &quot;&quot;) + t
 ** Appearances &gt; Theme Tweaks &gt; Sticky titles: `no`
 *** $:/themes/tiddlywiki/vanilla/options/stickytitles
 
+; &lt;red&gt;Bug：当前正在编辑 tiddler 时，如果切换到其他窗口再切回来，文本编辑区域高度会变得很小。&lt;/red&gt;原因不明。猜测可能和版本有关。
 
 ---
 * My 'playground' — a demo TiddlyWiki (TW v5.1.22) 
@@ -46769,7 +46785,7 @@ draftTitle = &quot;*** &quot; + (c ? (c + 1) + &quot; &quot; : &quot;&quot;) + t
 ** http://tw5breadcrumbs.tiddlyspot.com/
 </pre>
 </div>
-<div created="20200709125435255" creator="Hans" modified="20200709130043835" modifier="Hans" tags="Tiddlywiki" title="Tiddlywiki 增加左边栏">
+<div created="20200709125435255" creator="Hans" modified="20200709130758835" modifier="Hans" tags="Tiddlywiki" title="Tiddlywiki 增加左边栏">
 <pre>* 将链接中的文件拖动导入
 ** http://leftbar.tiddlyspot.com/
 ** $:/plugins/TWaddle/LeftBar
@@ -46777,6 +46793,18 @@ draftTitle = &quot;*** &quot; + (c ? (c + 1) + &quot; &quot; : &quot;&quot;) + t
 * $:/plugins/TWaddle/LeftBar/settings
 ** 取消勾选 hover to display
 ** 将 width 改为 250
+
+* $:/plugins/TWaddle/LeftBar/Stylesheet
+&lt;ol&gt;
+
+```
+.leftbar-content {
+        ...
+	top:50px;
+        ...
+}
+```
+&lt;/ol&gt;
 
 * $:/plugins/TWaddle/LeftBar/Menu，即为左边栏展示的内容
 ** 比如可以修改为如下，显示最近文章：
