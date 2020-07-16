@@ -8,9 +8,10 @@ cd uhd
 
 # git checkout release_003_008_004
 # git checkout release_003_009_005
-git checkout release_003_010_000_000
+# git checkout release_003_010_000_000
 # git checkout v3.12.0.0
 # git checkout v3.13.1.0
+git checkout v3.15.0.0
 
 cd host
 mkdir build
@@ -20,6 +21,10 @@ make
 make test
 sudo make install
 sudo ldconfig
+
+# # Append to `.bashrc`
+# export LD_LIBRARY_PATH=/usr/local/lib
+
 sudo uhd_images_downloader
 
 # # Configureing USB
@@ -32,7 +37,10 @@ sudo udevadm trigger
 sudo groupadd usrp
 sudo usermod -aG usrp $USER
 
+# # Append to `/etc/security/limits.conf`
+# @usrp - rtprio  99
+
 # # Verifying UHD operations
 # cd /usr/local/lib/uhd/examples
 # sudo ./rx_samples_to_file --freq 98e6 --rate 5e6 --gain 20 --duration 10 usrp_samples.dat
-# sudo ./tx_samples_from_file --freq 915e6 --rate 5e6 --gain 10 usrp_samples.dat
+# sudo ./tx_samples_from_file --freq 915e6 --rate 5e6 --gain 10 usrp_samples.dat 
