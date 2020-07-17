@@ -25,7 +25,11 @@ sudo ldconfig
 # # Append to `.bashrc`
 # export LD_LIBRARY_PATH=/usr/local/lib
 
-sudo uhd_images_downloader
+
+# # Edit uhd_images to download
+# sudo uhd_images_downloader
+# sudo subl /usr/local/lib/uhd/utils/uhd_images_downloader.py
+sudo python /usr/local/lib/uhd/utils/uhd_images_downloader.py
 
 # # Configureing USB
 cd /home/loccs/usrp/uhd/host/utils
