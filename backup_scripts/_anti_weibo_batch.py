@@ -7,17 +7,18 @@ from PIL import Image, ImageFilter, ImageOps
 import imageio
 import subprocess
 import cv2
+import time
 
 home = './'
 
 magick = "D:/ImageMagick/magick.exe convert "
 ffmpeg = "D:/ffmpeg/bin/ffmpeg.exe "
 
-antimode = [2,2]                    # 1: tolong - 2: togif || 1: stripe - 2: blur
+antimode = [2,3]                    # 1: tolong - 2: togif || 1: stripe - 2: blur  - 3: pure color
 isPreviewPDF = False                # txt2pdf2png2gif: True: only output pdf || False: toGif
 MASK_NUM = 2                        # imgToLong: num of masks
 BLUR_RADIUS = 32                    # blurImg: GaussianBlur radius
-STRIPE_STEP = 2                     # stripeImg: number of step of stripes
+STRIPE_STEP = 10                     # stripeImg: number of step of stripes
 STRIPE_COLOR = 255                  # stripeImg: number of step of stripes
 isResizeImg = True                  # imgToLong: is resize img before later processing
 ratiow, ratioh = 800, 1000          # resizeImg: min image width (high or wide)
@@ -101,6 +102,13 @@ def blurImg(imgr,name,ext):
     # os.system(cmd_blur.format(imgrname,BLUR_RADIUS,imgbname))
     # return "", imgbname
 
+cmd_pure = magick + " -size {}x{} xc:white \"{}\""
+def pureImg(imgr,name,ext):
+    imguname = name+"_pure"+ext
+    imgu = Image.new("RGB", imgr.size, (0,0,0))
+    imgu.save(imguname)
+    return imgu, imguname
+
 def stripeImg(imgr,name,ext):
     imgr = imgr.convert("RGB")
     pixr = np.array(imgr)
@@ -119,6 +127,7 @@ def stripeImg(imgr,name,ext):
     imgp = Image.fromarray(pixr)
     imgp.save(imgpname)
     return imgp, imgpname
+
 
 # bg = (255, 153, 204)
 # bg = (0,0,0)
@@ -299,6 +308,8 @@ def img2gif(imgname):
     elif antimode[1] == 2:
         # imgb, imgbname = blurImg(imgrname,name,ext)
         imgb, imgbname = blurImg(imgr,name,ext)
+    elif antimode[1] == 3:
+        imgb, imgbname = pureImg(imgr,name,ext)
     # if wr < hr:
     #     imgb, imgbname = stripeImg(imgr,name,ext)
     # else:
@@ -424,8 +435,8 @@ def antiWB(filename):
         pass
 if __name__ == '__main__':
     pass
-
     # videoname = "_txt2pdf.txt"
     # videoname = "z.png"
-    videoname = "z.mp4"
+    # videoname = "z.mp4"
+    videoname = "H:/图片/微博_归档/20200714-20200731-unused/logancure-tifa-sofa-lace-03.jpg"
     antiWB(videoname)

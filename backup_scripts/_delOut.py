@@ -7,7 +7,7 @@ def delelteOut(imgname):
     if not ext in [".jpg",".png",".jpeg",".bmp",".gif",".webm",".mp4"]:
         pass
     else:
-        if name.endswith(("_out","_resize","副本","_combined")):
+        if name.endswith(("_out","_resize","副本","_combined","_pure")):
             print("Deleting {} ...".format(imgname))
             os.remove(imgname)
     # else:
