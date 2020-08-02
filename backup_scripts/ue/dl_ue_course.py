@@ -14,6 +14,8 @@
     * https://stackoverflow.com/questions/698223/how-can-i-parse-a-time-string-containing-milliseconds-in-it-with-python
 * Python timedelta issue with negative values - Stack Overflow 
     * https://stackoverflow.com/questions/8408397/python-timedelta-issue-with-negative-values
+* robot527/add-spaces: 自动给文本文件的中文英文之间加入合理的空格 
+    * https://github.com/robot527/add-spaces
 """
 
 import os
@@ -79,8 +81,11 @@ def combine_vtt(vtt_folder):
                     continue
                 else:
                     if time_str != "":
+                        # dial_L.append([time_str,dial_str])
+                        # Must add "\n" at the end of dialogue of .vtt file,
+                        # since .vtt file use this format to distinguish differenct dialogues
+                        dial_str = dial_str.replace("\n"," ").replace("--","——").strip()+"\n"
                         dial_L.append([time_str,dial_str])
-                        # dial_L.append([time_str,dial_str.replace("\n"," ")])
                 dial_str = ""
                 time_str = line
             else:
@@ -99,6 +104,7 @@ MIN_OFFSET = 0.05
 def correct_ass_timeline(ass_fname):
     with open(ass_fname+".ass", encoding="utf-8", mode="r") as rf:
         dials = rf.readlines()
+        # print("Correcting {} ...".format(ass_fname))
 
     old_dial_start_dt, old_dial_end_dt = -1, -1
 
@@ -108,19 +114,21 @@ def correct_ass_timeline(ass_fname):
         if not dial.startswith("Dialogue"):
             out_str += dial
             continue
+        # print(dial)
         new_dial_start_str, new_dial_end_str = re.findall(r"\d+:\d+:\d+\.\d+", dial)
+
         # print(dial_begin, dial_end)
         # print(dial)
         new_dial_start_dt, new_dial_end_dt = str2dt(new_dial_start_str), str2dt(new_dial_end_str)
         # print(dial_begin_dt, dial_end_dt)
-        print(new_dial_start_str, new_dial_end_str)
+        # print(new_dial_start_str, new_dial_end_str)
         if old_dial_start_dt == -1 or old_dial_end_dt == -1:
             out_str += dial
             pass
         else:
             # print(dial)
             delta_sec = (new_dial_start_dt-old_dial_end_dt).total_seconds()
-            print(delta_sec)
+            # print(delta_sec)
             if delta_sec < 0:
                 if abs(delta_sec) <= MIN_OFFSET:
                     corrected_dial = dial.replace(new_dial_start_str, old_dial_end_str)
@@ -133,9 +141,10 @@ def correct_ass_timeline(ass_fname):
         old_dial_start_dt, old_dial_end_dt = new_dial_start_dt, new_dial_end_dt
         old_dial_start_str, old_dial_end_str = new_dial_start_str, new_dial_end_str
 
-    out_str = out_str.replace("\\N","\n")
+    # out_str = out_str.replace("\\N","\n")
     with open(ass_fname+".ass", encoding="utf-8", mode="w") as wf:
         wf.write(out_str)
+    print("+ Corrected {} !".format(ass_fname))
 
 cmd_vtt2ass = "ffmpeg -y -i \"{}.vtt\" \"{}.ass\""
 def vtt2ass(vtt_fname):
@@ -148,7 +157,6 @@ cmd_burn_ass_into_mp4 = "ffmpeg -y -i \"{}.mp4\" -vf \"subtitles={}.ass:force_st
 def merge_ass_into_mp4(folder, fname):
     name, ext = os.path.splitext(fname)
     os.system(cmd_burn_ass_into_mp4.format(folder+fname+"_tmp",folder+fname[0:2],folder+fname))
-
 
 cmd_dl_m3u8 = "ffmpeg -y -i \"{}\" -c copy -bsf:a aac_adtstoasc \"{}.mp4\""
 def download_m3u8_and_vtt():
@@ -176,12 +184,11 @@ def download_m3u8_and_vtt():
         elif links_status == 1:
             url_m3u8 = line
             fname_tmp = fname + "_tmp"
-            # os.system(cmd_dl_m3u8.format(url_m3u8, folder+fname_tmp))
             links_status += 1
         else:
-            fetch_vtt(line, vtt_folder, video_idx)
-            vtt_fname = combine_vtt(vtt_folder)
-            vtt2ass(vtt_fname)
+            # os.system(cmd_dl_m3u8.format(url_m3u8, folder+fname_tmp))
+            # fetch_vtt(line, vtt_folder, video_idx)
+            vtt2ass(combine_vtt(vtt_folder))
             # merge_ass_into_mp4(folder,fname)
             links_status = 0
 
