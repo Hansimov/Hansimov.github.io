@@ -79,7 +79,8 @@ def combine_vtt(vtt_folder):
                     continue
                 else:
                     if time_str != "":
-                        dial_L.append([time_str,dial_str.replace("\n"," ")])
+                        dial_L.append([time_str,dial_str])
+                        # dial_L.append([time_str,dial_str.replace("\n"," ")])
                 dial_str = ""
                 time_str = line
             else:
@@ -142,9 +143,14 @@ def vtt2ass(vtt_fname):
     os.system(cmd_vtt2ass.format(name, name))
     correct_ass_timeline(name)
 
-cmd_dl_m3u8 = "ffmpeg -y -i \"{}\" -c copy -bsf:a aac_adtstoasc \"{}.mp4\""
-cmd_ass_in_mp4 = "ffmpeg -y -i \"{}.mp4\" -vf \"subtitles={}.ass:force_style='Fontsize=25,MarginV=30'\" \"{}.mp4\""
 
+cmd_burn_ass_into_mp4 = "ffmpeg -y -i \"{}.mp4\" -vf \"subtitles={}.ass:force_style='Fontsize=25,MarginV=30'\" \"{}.mp4\""
+def merge_ass_into_mp4(folder, fname):
+    name, ext = os.path.splitext(fname)
+    os.system(cmd_burn_ass_into_mp4.format(folder+fname+"_tmp",folder+fname[0:2],folder+fname))
+
+
+cmd_dl_m3u8 = "ffmpeg -y -i \"{}\" -c copy -bsf:a aac_adtstoasc \"{}.mp4\""
 def download_m3u8_and_vtt():
     url_m3u8 = ""
     url_vtt = ""
@@ -173,19 +179,11 @@ def download_m3u8_and_vtt():
             # os.system(cmd_dl_m3u8.format(url_m3u8, folder+fname_tmp))
             links_status += 1
         else:
-            # fetch_vtt(line, vtt_folder, video_idx)
+            fetch_vtt(line, vtt_folder, video_idx)
             vtt_fname = combine_vtt(vtt_folder)
             vtt2ass(vtt_fname)
+            # merge_ass_into_mp4(folder,fname)
             links_status = 0
 
-            # ass_fname = "{:0>2}_tmp".format(idx)
-            # ass_fname_new = "{:0>2}_tmp_new".format(idx)
-            # status = 0
-            # r = requests.get(url_vtt)
-            # with open("{}.vtt".format(fname), "wb") as wf:
-            #     wf.write(r.content)
-            # os.system(cmd_vtt2ass.format(fname, ass_fname))
-            # correct_ass_timeline(ass_fname)
-            # os.system(cmd_ass_in_mp4.format(fname_tmp, ass_fname_new, fname))
 
 download_m3u8_and_vtt()
