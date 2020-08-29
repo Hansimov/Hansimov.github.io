@@ -1,21 +1,47 @@
 tex_key_list = [
-    # name, trigger, content
-    ['select', 'select', 'select'],
-    ['ifnull', 'ifnull', 'ifnull'],
-    ['where'],
-    ['create'],
-    ['drop'],
+# name, trigger, content
+    # commands
     ['alter'],
-    ['group by'],
-    ['order by'],
-    ['distinct'],
-    ['limit'],
+    ['create'],
     ['delete'],
     ['drop'],
     ['insert'],
+    ['select'],
     ['update'],
+    # preps
+    ['as'],
+    ['asc'],
+    ['begin'],
+    ['between'],
+    ['by'],
+    ['desc'],
+    ['distinct'],
+    ['end'],
+    ['from'],
+    ['group by'],
+    ['having'],
+    ['into'],
+    ['limit'],
+    ['on'],
+    ['offset'],
+    ['order by'],
+    ['return'],
+    ['returns'],
+    ['set'],
+    ['where'],
+    # nouns
+    ['null'],
+    ['function'],
     ['table'],
+    ['values'],
     ['view'],
+    # functions
+    ['avg',     'avg',      'avg($0)'],
+    ['count',   'count',    'count'],
+    ['ifnull',  'ifnull',   'ifnull($0)'],
+    ['min',     'min',      'min($0)'],
+    ['max',     'max',      'max($0)'],
+    ['sum',     'sum',      'sum($0)'],
 ]
 
 scope = "source.sql"
