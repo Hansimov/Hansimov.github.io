@@ -48,6 +48,7 @@ tex_key_list = [
     # functions
     ['avg',     'avg',      'avg($0)'],
     ['count',   'count',    'count'],
+    ['datediff'],
     ['ifnull',  'ifnull',   'ifnull($0)'],
     ['min',     'min',      'min($0)'],
     ['max',     'max',      'max($0)'],
@@ -55,7 +56,6 @@ tex_key_list = [
     ['rank'],
     ['dense_rank'],
     ['row_number'],
-
 ]
 
 scope = "source.sql"
