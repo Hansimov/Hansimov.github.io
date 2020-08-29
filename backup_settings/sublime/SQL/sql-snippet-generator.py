@@ -7,6 +7,7 @@ tex_key_list = [
     ['drop'],
     ['insert'],
     ['select'],
+    ['truncate'],
     ['update'],
     # preps
     ['as'],
@@ -18,17 +19,26 @@ tex_key_list = [
     ['distinct'],
     ['end'],
     ['from'],
+    ['full join'],
     ['group by'],
     ['having'],
+    ['inner join'],
     ['into'],
+    ['join'],
+    ['left join'],
     ['limit'],
     ['on'],
     ['offset'],
     ['order by'],
     ['return'],
     ['returns'],
+    ['right join'],
     ['set'],
     ['where'],
+    ['outer join'],
+    ['over'],
+    ['partition by'],
+    ['union'],
     # nouns
     ['null'],
     ['function'],
@@ -42,6 +52,10 @@ tex_key_list = [
     ['min',     'min',      'min($0)'],
     ['max',     'max',      'max($0)'],
     ['sum',     'sum',      'sum($0)'],
+    ['rank'],
+    ['dense_rank'],
+    ['row_number'],
+
 ]
 
 scope = "source.sql"
