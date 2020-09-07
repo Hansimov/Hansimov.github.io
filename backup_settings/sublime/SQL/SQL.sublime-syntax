@@ -73,13 +73,13 @@ contexts:
         13: storage.type.sql
         14: constant.numeric.sql
         15: storage.type.sql
-    - match: (?i:\b((?:primary|foreign)\s+key|references|on\sdelete(\s+cascade)?|on\supdate(\s+cascade)?|check|constraint|default)\b)
+    - match: (?i:\b((?:primary|foreign)\s+key|table|window|unique|index|references|on\sdelete(\s+cascade)?|on\supdate(\s+cascade)?|check|constraint|default)\b)
       scope: storage.modifier.sql
     - match: \b\d+\b
       scope: constant.numeric.sql
     - match: (?i:\b(true|false)\b)
       scope: constant.boolean.sql
-    - match: (?i:\b(select(\s+(distinct|top))?|insert(\s+(ignore\s+)?into)?|update|delete|truncate|from|set|where|group\sby|or|like|between|and|with|case|when|then|else|end|union(\s+all)?|having|using|order\sby|unbounded|rows|preceding|following|partition\sby|window|limit|if|for|offset|over|distinct|returns|return|(inner|cross)\s+join|join|straight_join|(left|right)(\s+outer)?\s+join|natural(\s+(left|right)(\s+outer)?)?\s+join)\b)
+    - match: (?i:\b(select(\s+(distinct|top))?|insert(\s+(ignore\s+)?into)?|after|before|add|ignore|update|delete|truncate|from|set|where|create|group\s+by|indexed\s+by|or|like|between|and|with|case|when|then|else|end|union(\s+all)?|having|using|order\sby|unbounded|rows|preceding|following|partition\sby|limit|if|for|offset|over|distinct|returns|return|(inner|cross)\s+join|join|straight_join|(left|right)(\s+outer)?\s+join|natural(\s+(left|right)(\s+outer)?)?\s+join)\b)
       scope: keyword.other.DML.sql
     - match: (?i:\b(on|((is\s+)?not\s+)?null)\b)
       scope: keyword.other.DDL.create.II.sql
@@ -108,7 +108,7 @@ contexts:
     - match: (?i)\b(CURRENT_(DATE|TIME(STAMP)?|USER)|(SESSION|SYSTEM)_USER)\b
       comment: List of SQL99 built-in functions from http://www.oreilly.com/catalog/sqlnut/chapter/ch04.html
       scope: support.function.scalar.sql
-    - match: (?i)\b(AVG|COUNT|MIN|MAX|SUM|IFNULL|mod|rank|round|pivot|dense_rank|row_number|datediff)(?=\s*\()
+    - match: (?i)\b(AVG|COUNT|MIN|MAX|SUM|IFNULL|mod|rank|round|pivot|dense_rank|row_number|strftime|datediff)(?=\s*\()
       comment: List of SQL99 built-in functions from http://www.oreilly.com/catalog/sqlnut/chapter/ch04.html
       scope: support.function.aggregate.sql
     - match: (?i)\b(CONCATENATE|CONVERT|LOWER|SUBSTRING|TRANSLATE|TRIM|UPPER)\b
