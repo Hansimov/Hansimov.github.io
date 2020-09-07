@@ -108,7 +108,7 @@ contexts:
     - match: (?i)\b(CURRENT_(DATE|TIME(STAMP)?|USER)|(SESSION|SYSTEM)_USER)\b
       comment: List of SQL99 built-in functions from http://www.oreilly.com/catalog/sqlnut/chapter/ch04.html
       scope: support.function.scalar.sql
-    - match: (?i)\b(AVG|COUNT|MIN|MAX|SUM|IFNULL|mod|rank|round|pivot|dense_rank|row_number|strftime|datediff)(?=\s*\()
+    - match: (?i)\b(AVG|COUNT|MIN|MAX|SUM|length|IFNULL|mod|rank|round|pivot|dense_rank|row_number|strftime|datediff)(?=\s*\()
       comment: List of SQL99 built-in functions from http://www.oreilly.com/catalog/sqlnut/chapter/ch04.html
       scope: support.function.aggregate.sql
     - match: (?i)\b(CONCATENATE|CONVERT|LOWER|SUBSTRING|TRANSLATE|TRIM|UPPER)\b

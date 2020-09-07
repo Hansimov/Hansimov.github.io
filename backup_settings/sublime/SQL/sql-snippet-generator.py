@@ -77,6 +77,7 @@ tex_key_list = [
     ['datediff'],
     ['dense_rank'],
     ['ifnull'],
+    ['length'],
     ['min'],
     ['max'],
     ['mod'],
