@@ -1,5 +1,6 @@
 import platform
 import os
+import shutil
 
 tex_key_list = [
 # name, trigger, content
@@ -99,13 +100,20 @@ for item in tex_key_list:
     else:
         name, trigger, content = item[0], item[1], item[2]
     pc_name = platform.node()
+
+    path_body = 'C:/Users/{}/AppData/Roaming/Sublime Text 3/Packages/SQL/'
     if pc_name == "DESKTOP-BQVCMQA":
-        path = 'C:/Users/yuzeh/AppData/Roaming/Sublime Text 3/Packages/SQL/snippets/'
+        snippet_path = path_body.format("yuzeh") + "snippets/"
+        syntax_path = path_body.format("yuzeh")
     else:
-        path = 'C:/Users/yzh/AppData/Roaming/Sublime Text 3/Packages/SQL/snippets/'
-    if not os.path.exists(path):
-        os.makedirs(path)
-    fname = path + '{}.sublime-snippet'.format(name)
+        snippet_path = path_body.format("yzh") + "snippets/"
+        syntax_path = path_body.format("yzh")
+
+    syntax_fname = "SQL.sublime-syntax"
+    shutil.copyfile(syntax_path+syntax_fname, syntax_fname)
+    if not os.path.exists(snippet_path):
+        os.makedirs(snippet_path)
+    fname = snippet_path + '{}.sublime-snippet'.format(name)
     with open(fname, 'w') as wf:
         snippet_str = """<snippet>\n<content><![CDATA[{}]]></content>\n<tabTrigger>{}</tabTrigger>\n<scope>{}</scope>\n<description>sql: {}</description>\n</snippet>""".format(content, trigger, scope, name)
         wf.write(snippet_str)
