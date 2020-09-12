@@ -8,7 +8,7 @@ for fname in fname_L:
         print(fname)
         for subfname in os.listdir(fname):
             name, ext = os.path.splitext(subfname)
-            if ext in [".mp4", ".avi", ".mkv"]:
+            if ext in [".mp4", ".avi", ".mkv", ".rmvb", ".wmv"]:
                 old_subfname = os.path.join(root, fname, subfname)
                 new_subfname = os.path.join(root, subfname)
                 print(subfname)
