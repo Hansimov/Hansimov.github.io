@@ -4,14 +4,23 @@ t0 = time.time()
 
 mark_str_body = "BookmarkBegin\nBookmarkTitle: {}\nBookmarkLevel: {}\nBookmarkPageNumber: {}\n"
 
+# OCR 识别的目录正则表达式替换
+# [^\d\.\w\s]+[-…\.]*
+# -> \n
+
 # book_fname = "镜头的语法.pdf"
 # txt_fname =  "bk-camera-i.txt"
 # mark_fname = "bk-camera.txt"
-book_fname = "破坏之王-DDoS攻击与防范深度剖析.pdf"
-txt_fname =  "bk-phzw-i.txt"
-mark_fname = "bk-phzw.txt"
+# book_fname = "破坏之王-DDoS攻击与防范深度剖析.pdf"
+# txt_fname =  "bk-phzw-i.txt"
+# mark_fname = "bk-phzw.txt"
+# page_offset = 13 # means page 1 in .txt is page 14 (= 1+13) in .pdf
 
-page_offset = 13 # means page 1 in .txt is page (1+13=)14 in .pdf
+book_fname = "黑客攻防技术宝典 - Web实战篇【高清】.pdf"
+txt_fname =  "bk-hkweb-i.txt"
+mark_fname = "bk-hkweb-o.txt"
+page_offset = 15
+
 def write_bookmark_from_txt():
     with open(txt_fname,encoding='utf-8', mode = 'r') as rf:
         lines = rf.readlines()
@@ -38,7 +47,7 @@ def write_bookmark_from_txt():
     with open(mark_fname,"w") as wf:
         wf.write(mark_str)
 
-# write_bookmark_from_txt()
+write_bookmark_from_txt()
 name,ext = os.path.splitext(book_fname)
 # os.system("pdftk \"{}\" dump_data output {}".format(book_fname,mark_fname))
 os.system("pdftk \"{}\" update_info {} output \"{}\"".format(book_fname, mark_fname, name+"【书签】"+ext))
