@@ -11,10 +11,14 @@ from multiprocessing import Pool
 # cmd_sharpen = "magick convert -level 40%,100% -adaptive-sharpen 0x3 -contrast -contrast \"{}\" \"{}\""
 # root = "./破坏之王/"
 # outpath = "./破坏之王-out/"
-cmd_sharpen = "magick convert -adaptive-sharpen 0x5 \"{}\" \"{}\""
-root = "./黑客攻防-web/"
-outpath = "./黑客攻防-web-out/"
-cmd_sharpen = "magick convert -level 20%,100% -deskew 40% -set option:deskew:auto-crop false -resize 1000x -adaptive-sharpen 0x5 \"{}\" \"{}\""
+# cmd_sharpen = "magick convert -adaptive-sharpen 0x5 \"{}\" \"{}\""
+# root = "./黑客攻防-web/"
+# outpath = "./黑客攻防-web-out/"
+# cmd_sharpen = "magick convert -level 20%,100% -deskew 40% -set option:deskew:auto-crop false -resize 1000x -adaptive-sharpen 0x5 \"{}\" \"{}\""
+root = "./黑客攻防-web-2/"
+outpath = "./黑客攻防-web-2-out/"
+# cmd_sharpen = "magick convert -deskew 40% -set option:deskew:auto-crop false -resize 1000x -adaptive-sharpen 0x5 \"{}\" \"{}\""
+cmd_sharpen = "magick convert -deskew 90% -set option:deskew:auto-crop false -adaptive-sharpen 0x2 \"{}\" \"{}\""
 
 
 if not os.path.exists(outpath):
@@ -31,7 +35,7 @@ def sharpenImg(img_name):
 if __name__ == '__main__':
     # pool = Pool(5)
     # pool.map_async(sharpenImg,imgList).get(1)
-    # startPage,endPage = 80, 100
-    # for img in imgList[startPage:endPage]:
+    startPage,endPage = 10, 30
+    imgList = imgList[startPage:endPage]
     for img in imgList:
         sharpenImg(img)

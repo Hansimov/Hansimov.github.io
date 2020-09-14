@@ -5,7 +5,9 @@ t0 = time.time()
 mark_str_body = "BookmarkBegin\nBookmarkTitle: {}\nBookmarkLevel: {}\nBookmarkPageNumber: {}\n"
 
 # OCR 识别的目录正则表达式替换
+# [-…\.]*$
 # [^\d\.\w\s]+[-…\.]*
+# ^(\s)*[-…\.]+|[-…\.]+$
 # -> \n
 
 # book_fname = "镜头的语法.pdf"
@@ -16,10 +18,15 @@ mark_str_body = "BookmarkBegin\nBookmarkTitle: {}\nBookmarkLevel: {}\nBookmarkPa
 # mark_fname = "bk-phzw.txt"
 # page_offset = 13 # means page 1 in .txt is page 14 (= 1+13) in .pdf
 
-book_fname = "黑客攻防技术宝典 - Web实战篇【高清】.pdf"
-txt_fname =  "bk-hkweb-i.txt"
-mark_fname = "bk-hkweb-o.txt"
-page_offset = 15
+# book_fname = "黑客攻防技术宝典 - Web实战篇【高清】.pdf"
+# txt_fname =  "bk-hkweb-i.txt"
+# mark_fname = "bk-hkweb-o.txt"
+# page_offset = 15
+
+book_fname = "黑客攻防技术宝典 - Web实战篇 第2版.pdf"
+txt_fname =  "bk-hkweb-2-i.txt"
+mark_fname = "bk-hkweb-2-o.txt"
+page_offset = 24
 
 def write_bookmark_from_txt():
     with open(txt_fname,encoding='utf-8', mode = 'r') as rf:
@@ -33,12 +40,13 @@ def write_bookmark_from_txt():
             continue
         if status == 0:
             title = line.strip()
+            level = (len(line) - len(line.lstrip())) // 4 + 1
             status = 1
             continue
         else:
             tmp_L = list(map(int,line.split()))
             page_num = tmp_L[0]
-            level = level if len(tmp_L) == 1 else tmp_L[1]
+            # level = level if len(tmp_L) == 1 else tmp_L[1]
 
             # print(title, page_num, level)
             mark_str+=mark_str_body.format(title.encode('ascii', 'xmlcharrefreplace').decode('utf-8'), level, max(1,page_num+page_offset))
