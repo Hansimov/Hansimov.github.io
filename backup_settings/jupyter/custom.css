@@ -11,4 +11,5 @@ a hack to deal with our current css styles and no new styling should be added in
 
 .CodeMirror pre {
     font-family: Consolas;
+    font-size: 10pt;
 }
