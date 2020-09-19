@@ -27,7 +27,6 @@
         "r",
         "shift-k",
         "shift-j",
-        "y",
         "c",
         "x",
         "v"
@@ -38,6 +37,7 @@
         "ctrl-z": "jupyter-notebook:undo-cell-deletion",
         "n": "jupyter-notebook:change-cell-to-markdown",
         "c": "jupyter-notebook:change-cell-to-code",
+        "y": "jupyter-notebook:change-cell-to-code",
         "ctrl-c": "jupyter-notebook:copy-cell",
         "ctrl-x": "jupyter-notebook:cut-cell",
         "ctrl-v": "jupyter-notebook:paste-cell-below"

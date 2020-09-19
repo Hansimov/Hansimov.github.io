@@ -301,7 +301,7 @@ cmd_img2gif = magick + " -flatten -delay 8 \"{}\" -delay 1500 \"{}\" -loop 1 \"{
 def img2gif(imgname):
     name,ext = os.path.splitext(imgname)
     img = Image.open(imgname)
-    imgr, imgrname,wr,hr = resizeImg(img,name,ext)
+    imgr, imgrname, wr, hr = resizeImg(img,name,ext)
     # imgb, imgbname = stripeImg(img,name,ext)
     if antimode[1] == 1:
         imgb, imgbname = stripeImg(imgr,name,ext)
@@ -319,8 +319,12 @@ def img2gif(imgname):
     print("Creating {} ...".format(outname))
     # os.system(cmd_imgs2gif.format(imgbname,imgname,outname))
     os.system(cmd_img2gif.format(imgbname,imgrname,outname))
-    os.remove(imgrname)
-    os.remove(imgbname)
+    imgr.close()
+    rm_tmp_imgs([imgrname, imgbname])
+
+def rm_tmp_imgs(tmp_imgs):
+    for img_name in tmp_imgs:
+        os.remove(img_name)
 
 
 # cmd_compgif = "convert {} null: ( {} -coalesce ) -gravity center -layers composite -fuzz 3% -layers OptimizeTransparency {}"
@@ -438,5 +442,5 @@ if __name__ == '__main__':
     # videoname = "_txt2pdf.txt"
     # videoname = "z.png"
     # videoname = "z.mp4"
-    videoname = "H:/图片/微博_归档/20200714-20200731-unused/logancure-tifa-sofa-lace-03.jpg"
+    videoname = "H:/图片/微博_归档/20200919-20200931-unused/zumi-sockings-hinata-1.jpg"
     antiWB(videoname)
