@@ -1,9 +1,12 @@
 <snippet>
     <description>#include main()</description>
     <content><![CDATA[include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <iterator>
+#include <list>
 
 using namespace std;
 
