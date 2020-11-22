@@ -4,29 +4,33 @@ t0 = time.time()
 
 mark_str_body = "BookmarkBegin\nBookmarkTitle: {}\nBookmarkLevel: {}\nBookmarkPageNumber: {}\n"
 
-# OCR 识别的目录正则表达式替换
-# [-…\.]*$
-# [^\d\.\w\s]+[-…\.]*
-# ^(\s)*[-…\.]+|[-…\.]+$
-# -> \n
-
-# book_fname = "镜头的语法.pdf"
+# new_book_fname = "镜头的语法.pdf"
 # txt_fname =  "bk-camera-i.txt"
 # mark_fname = "bk-camera.txt"
-# book_fname = "破坏之王-DDoS攻击与防范深度剖析.pdf"
-# txt_fname =  "bk-phzw-i.txt"
-# mark_fname = "bk-phzw.txt"
-# page_offset = 13 # means page 1 in .txt is page 14 (= 1+13) in .pdf
+# page_offset = 11
 
-# book_fname = "黑客攻防技术宝典 - Web实战篇【高清】.pdf"
-# txt_fname =  "bk-hkweb-i.txt"
-# mark_fname = "bk-hkweb-o.txt"
-# page_offset = 15
+# new_book_fname = "剪辑的语法.pdf"
+# txt_fname =  "bk-cut-i.txt"
+# mark_fname = "bk-cut.txt"
+# page_offset = 12
 
-book_fname = "黑客攻防技术宝典 - Web实战篇 第2版.pdf"
-txt_fname =  "bk-hkweb-2-i.txt"
-mark_fname = "bk-hkweb-2-o.txt"
-page_offset = 24
+# old_book_fname = "组合 1.pdf"
+# new_book_fname = "算法 原书第4版【高清】.pdf"
+# txt_fname =  "bk-algo4-i.txt"
+# mark_fname = "bk-algo4.txt"
+# page_offset = 13
+
+# old_book_fname = "C Primer Plus 第6版 中文.pdf"
+# mid_book_fname = "组合 1.pdf"
+# new_book_fname = "组合 1【书签】.pdf"
+# mark_fname = "c-primer-plus.txt"
+# write_mode = 1 # Extract bookmarks to .txt from "old" file, use "mid" file contents, generate "new" file
+
+old_book_fname = "Unix 网络编程 卷1：套接字联网API（第3版）.pdf"
+mid_book_fname = "组合 1.pdf"
+new_book_fname = "组合 1【书签】.pdf"
+mark_fname = "unix-net-v1.txt"
+write_mode = 1 # Extract bookmarks to .txt from "old" file, use "mid" file contents, generate 
 
 def write_bookmark_from_txt():
     with open(txt_fname,encoding='utf-8', mode = 'r') as rf:
@@ -40,13 +44,12 @@ def write_bookmark_from_txt():
             continue
         if status == 0:
             title = line.strip()
-            level = (len(line) - len(line.lstrip())) // 4 + 1
             status = 1
             continue
         else:
             tmp_L = list(map(int,line.split()))
             page_num = tmp_L[0]
-            # level = level if len(tmp_L) == 1 else tmp_L[1]
+            level = level if len(tmp_L) == 1 else tmp_L[1]
 
             # print(title, page_num, level)
             mark_str+=mark_str_body.format(title.encode('ascii', 'xmlcharrefreplace').decode('utf-8'), level, max(1,page_num+page_offset))
@@ -55,9 +58,15 @@ def write_bookmark_from_txt():
     with open(mark_fname,"w") as wf:
         wf.write(mark_str)
 
-write_bookmark_from_txt()
-name,ext = os.path.splitext(book_fname)
-# os.system("pdftk \"{}\" dump_data output {}".format(book_fname,mark_fname))
-os.system("pdftk \"{}\" update_info {} output \"{}\"".format(book_fname, mark_fname, name+"【书签】"+ext))
+name,ext = os.path.splitext(old_book_fname)
+
+if write_mode == 0:
+    write_bookmark_from_txt()
+    # os.system("pdftk \"{}\" dump_data output {}".format(mid_book_fname,mark_fname))
+    os.system("pdftk \"{}\" update_info {} output \"{}\"".format(old_book_fname, mark_fname, new_book_fname))
+else:
+    os.system("pdftk \"{}\" dump_data output {}".format(old_book_fname, mark_fname))
+    os.system("pdftk \"{}\" update_info {} output \"{}\"".format(mid_book_fname, mark_fname, new_book_fname))
+
 
 print("Elapsed time: {}s".format(round(time.time()-t0,1)))

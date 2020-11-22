@@ -1,24 +1,45 @@
 import os
-from multiprocessing import Pool
+import time
+# from multiprocessing import Pool
 
 # root = "./algo-intro/"
 # outpath = "./algo-intro-out/"
-# cmd_sharpen = "magick convert -level 48%,100% -contrast-stretch 4% -adaptive-sharpen 0x3 -contrast -contrast \"{}\" \"{}\""
-# cmd_sharpen = "magick convert -level 48%,100% -adaptive-sharpen 0x3 -contrast -contrast \"{}\" \"{}\""
+
 # root = "./os/"
 # outpath = "./os-out/"
-# cmd_sharpen = "magick convert -level 40%,100% -contrast-stretch 4% -adaptive-sharpen 0x3 -contrast -contrast \"{}\" \"{}\""
-# cmd_sharpen = "magick convert -level 40%,100% -adaptive-sharpen 0x3 -contrast -contrast \"{}\" \"{}\""
-# root = "./破坏之王/"
-# outpath = "./破坏之王-out/"
-# cmd_sharpen = "magick convert -adaptive-sharpen 0x5 \"{}\" \"{}\""
-# root = "./黑客攻防-web/"
-# outpath = "./黑客攻防-web-out/"
-# cmd_sharpen = "magick convert -level 20%,100% -deskew 40% -set option:deskew:auto-crop false -resize 1000x -adaptive-sharpen 0x5 \"{}\" \"{}\""
-root = "./黑客攻防-web-2/"
-outpath = "./黑客攻防-web-2-out/"
-# cmd_sharpen = "magick convert -deskew 40% -set option:deskew:auto-crop false -resize 1000x -adaptive-sharpen 0x5 \"{}\" \"{}\""
-cmd_sharpen = "magick convert -deskew 90% -set option:deskew:auto-crop false -adaptive-sharpen 0x2 \"{}\" \"{}\""
+# cmd_sharpen = "magick convert -contrast -contrast -adaptive-sharpen 0x3 \"{}\" \"{}\""
+
+# root = "./net/"
+# outpath = "./net-out/"
+# cmd_sharpen = "magick convert -contrast -contrast -contrast -adaptive-sharpen 0x3 \"{}\" \"{}\""
+# # cmd_sharpen = "magick convert -contrast -contrast -contrast \"{}\" \"{}\""
+
+# root = "./db/"
+# outpath = "./db-out/"
+# cmd_sharpen = "magick convert -adaptive-sharpen 0x4 \"{}\" \"{}\""
+# cmd_sharpen = "magick convert -contrast -contrast -contrast \"{}\" \"{}\""
+
+# root = "./win-prog/"
+# outpath = "./win-prog-out/"
+# cmd_sharpen = "magick convert -set option:deskew:auto-crop true -deskew 40% -resize 990x -adaptive-sharpen 0x3 \"{}\" \"{}\""
+# cmd_sharpen = "magick convert -set option:deskew:auto-crop true -deskew 40% -adaptive-sharpen 0x4 \"{}\" \"{}\""
+
+# root = "./Windows核心编程/"
+# outpath = "./Windows核心编程-out/"
+# cmd_sharpen = "magick convert -set option:deskew:auto-crop false -deskew 40% -resize 990x \"{}\" \"{}\""
+# cmd_sharpen = "magick convert -set option:deskew:auto-crop true -deskew 40% -adaptive-sharpen 0x4 \"{}\" \"{}\""
+
+# root = "./深入解析Windows操作系统 第6版 下册/"
+# outpath = "./深入解析Windows操作系统 第6版 下册-out/"
+# cmd_sharpen = "magick convert -level 60%,100% -contrast \"{}\" \"{}\""
+
+# root = "./汇编语言x86/"
+# outpath = "./汇编语言x86-out/"
+# cmd_sharpen = "magick convert -level 70%,100% -contrast \"{}\" \"{}\""
+
+root = "./unix-networking-vol1/"
+outpath = "./unix-networking-vol1-out/"
+cmd_sharpen = "magick convert -set option:deskew:auto-crop false -deskew 10% -adaptive-sharpen 0x3 -resize 983x \"{}\" \"{}\""
 
 
 if not os.path.exists(outpath):
@@ -35,7 +56,11 @@ def sharpenImg(img_name):
 if __name__ == '__main__':
     # pool = Pool(5)
     # pool.map_async(sharpenImg,imgList).get(1)
-    startPage,endPage = 10, 30
-    imgList = imgList[startPage:endPage]
-    for img in imgList:
+
+    t1 = time.time()
+    # start_page, end_page = -1,
+    for img in imgList[:]:
         sharpenImg(img)
+    t2 = time.time()
+
+    print("Elapsed time: {}s".format(round(t2-t1),1))
