@@ -1,0 +1,6 @@
+<snippet>
+    <description>endl</description>
+    <content><![CDATA[endl]]></content>
+    <tabTrigger>endl</tabTrigger>
+    <scope>source.c, source.c++, source.objc, source.objc++</scope>
+</snippet>

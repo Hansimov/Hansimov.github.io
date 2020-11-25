@@ -37,9 +37,15 @@ import time
 # outpath = "./汇编语言x86-out/"
 # cmd_sharpen = "magick convert -level 70%,100% -contrast \"{}\" \"{}\""
 
-root = "./unix-networking-vol1/"
-outpath = "./unix-networking-vol1-out/"
-cmd_sharpen = "magick convert -set option:deskew:auto-crop false -deskew 10% -adaptive-sharpen 0x3 -resize 983x \"{}\" \"{}\""
+# root = "./unix-networking-vol1/"
+# outpath = "./unix-networking-vol1-out/"
+# cmd_sharpen = "magick convert -set option:deskew:auto-crop false -deskew 10% -adaptive-sharpen 0x3 -resize 983x \"{}\" \"{}\""
+
+root = "./linux-server/"
+outpath = "./linux-server-out/"
+cmd_sharpen = "magick convert -adaptive-sharpen 0x1 -set option:deskew:auto-crop false -deskew 80% -adaptive-resize 982x \"{}\" \"{}\"" # 60% is better than 40%
+# cmd_sharpen = "magick convert -set option:deskew:auto-crop false -deskew 80% \"{}\" \"{}\""
+# cmd_sharpen = "magick convert -set option:deskew:auto-crop false -deskew 80% -resize 1000x \"{}\" \"{}\""
 
 
 if not os.path.exists(outpath):
