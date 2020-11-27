@@ -1,5 +1,5 @@
 @-moz-document domain("google.com") {
-.ads-ad {
+.ads-ad, #fbar, #prm, #taw{
     display:none;
 }
 }
