@@ -8,6 +8,7 @@ import imageio
 import subprocess
 import cv2
 import time
+from colorthief import ColorThief
 
 home = './'
 
@@ -105,7 +106,10 @@ def blurImg(imgr,name,ext):
 cmd_pure = magick + " -size {}x{} xc:white \"{}\""
 def pureImg(imgr,name,ext):
     imguname = name+"_pure"+ext
-    imgu = Image.new("RGB", imgr.size, (0,0,0))
+    pure_color = (0,0,0)
+    color_thief = ColorThief(name+"_resize"+ext)
+    pure_color = color_thief.get_color(quality=1)
+    imgu = Image.new("RGB", imgr.size, pure_color)
     imgu.save(imguname)
     return imgu, imguname
 
@@ -442,5 +446,5 @@ if __name__ == '__main__':
     # videoname = "_txt2pdf.txt"
     # videoname = "z.png"
     # videoname = "z.mp4"
-    videoname = "H:/图片/微博_归档/20200919-20200931-unused/zumi-sockings-hinata-1.jpg"
+    videoname = "H:/图片/微博_归档/20200919-20201131-unused/studiofow-subverse-sidein-lily.jpeg"
     antiWB(videoname)
