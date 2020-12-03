@@ -106,9 +106,9 @@ def blurImg(imgr,name,ext):
 cmd_pure = magick + " -size {}x{} xc:white \"{}\""
 def pureImg(imgr,name,ext):
     imguname = name+"_pure"+ext
-    pure_color = (0,0,0)
-    color_thief = ColorThief(name+"_resize"+ext)
-    pure_color = color_thief.get_color(quality=1)
+    pure_color = (40,40,40)
+    # color_thief = ColorThief(name+"_resize"+ext)
+    # pure_color = color_thief.get_color(quality=1)
     imgu = Image.new("RGB", imgr.size, pure_color)
     imgu.save(imguname)
     return imgu, imguname
