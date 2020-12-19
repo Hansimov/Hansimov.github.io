@@ -3,12 +3,17 @@
 __author__   = "legendmohe"
 __modified__ = "Hansimov"
 
-root = "oai5g-v1.2.2/openair3/"
-out_file = "openair3.txt"
+# root = "oai5g-v1.2.2/openair3/"
+# out_file = "dirtree_openair3.txt"
+root = "oai5g-v1.2.2/"
+out_file = "dirtree_oai5g.txt"
 
-ONLY_PRINT_NO_EMPTY_FOLDERS = True
+ONLY_PRINT_NO_EMPTY_FOLDERS = False
+DO_NOT_PRINT_FILES = True # if True, ONLY_PRINT_NO_EMPTY_FOLDERS must be False
 ONLY_INCLUDED_EXTENSTION_L = [".c"]
 ONLY_EXLUDED_EXTENSTION_L = []
+
+MAX_LEVEL = 2
 
 import os
 import argparse
@@ -47,14 +52,15 @@ class FileTreeMaker(object):
                 elif os.path.isfile(full_path):
                     # Add excluded extension here
                     name, ext = os.path.splitext(full_path)
-                    if ONLY_INCLUDED_EXTENSTION_L:
-                        if ext in ONLY_INCLUDED_EXTENSTION_L:
+                    if not DO_NOT_PRINT_FILES:
+                        if ONLY_INCLUDED_EXTENSTION_L:
+                            if ext in ONLY_INCLUDED_EXTENSTION_L:
+                                output_buf.append("%s%s%s" % (prefix, idc, sub_path))
+                        elif ONLY_EXLUDED_EXTENSTION_L:
+                                if ext not in ONLY_EXLUDED_EXTENSTION_L:
+                                    output_buf.append("%s%s%s" % (prefix, idc, sub_path))
+                        else:
                             output_buf.append("%s%s%s" % (prefix, idc, sub_path))
-                    elif ONLY_EXLUDED_EXTENSTION_L:
-                        if ext not in ONLY_EXLUDED_EXTENSTION_L:
-                            output_buf.append("%s%s%s" % (prefix, idc, sub_path))
-                    else:
-                        output_buf.append("%s%s%s" % (prefix, idc, sub_path))
 
 
     def make(self, args):
@@ -84,7 +90,7 @@ if __name__ == "__main__":
     parser.add_argument("-xf", "--exclude_folder", nargs='*', help="exclude folder", default=[])
     parser.add_argument("-xn", "--exclude_name", nargs='*', help="exclude name", default=[])
     parser.add_argument("-m", "--max_level", help="max level",
-                        type=int, default=-1)
+                        type=int, default=MAX_LEVEL)
     args = parser.parse_args()
     print(FileTreeMaker().make(args))
 
