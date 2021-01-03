@@ -322,8 +322,8 @@ def img2gif(imgname):
     outname = name+"_out"+".gif"
     print("Creating {} ...".format(outname))
     # os.system(cmd_imgs2gif.format(imgbname,imgname,outname))
-    in_img_L = [imgbname, imgbname, imgrname, imgbname]
-    in_img_delay_L = [8, 8, 1500, 8]
+    in_img_L = [imgbname, imgbname, imgrname, imgbname, imgbname]
+    in_img_delay_L = [8, 8, 1500, 8, 8]
     in_img_str = ""
     for i in range(len(in_img_L)):
         in_img_str += " -delay {} \"{}\" ".format(in_img_delay_L[i], in_img_L[i])
