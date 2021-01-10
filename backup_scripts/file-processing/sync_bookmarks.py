@@ -32,11 +32,18 @@ mark_str_body = "BookmarkBegin\nBookmarkTitle: {}\nBookmarkLevel: {}\nBookmarkPa
 # mark_fname = "bk-unix-net-v1.txt"
 # write_mode = 1 # Extract bookmarks to .txt from "old" file, use "mid" file contents, generate 
 
-old_book_fname = "Linux 高性能服务器编程【OCR】.pdf"
-mid_book_fname = "Linux 高性能服务器编程【OCR】.pdf"
+# old_book_fname = "Linux 高性能服务器编程【OCR】.pdf"
+# mid_book_fname = "Linux 高性能服务器编程【OCR】.pdf"
+# new_book_fname = "组合 1【书签】.pdf"
+# mark_fname = "bk-linux-server.txt"
+# write_mode = 1 # Extract bookmarks to .txt from "old" file, use "mid" file contents, generate "new" file
+
+old_book_fname = "数据库系统概念 原书第6版【高清】.pdf"
+mid_book_fname = "数据库系统概念 原书第6版【高清】.pdf"
 new_book_fname = "组合 1【书签】.pdf"
-mark_fname = "bk-linux-server.txt"
-write_mode = 1 # Extract bookmarks to .txt from "old" file, use "mid" file contents, generate "new" file
+mark_fname = "bk-db-sys.txt"
+write_mode = 1
+
 
 def write_bookmark_from_txt():
     with open(txt_fname,encoding='utf-8', mode = 'r') as rf:
@@ -66,11 +73,11 @@ def write_bookmark_from_txt():
 
 name,ext = os.path.splitext(old_book_fname)
 
-if write_mode == 0:
+if write_mode == 0: # from input .txt generate bookmarks, and write to "new" file
     write_bookmark_from_txt()
     # os.system("pdftk \"{}\" dump_data output {}".format(mid_book_fname,mark_fname))
     os.system("pdftk \"{}\" update_info {} output \"{}\"".format(old_book_fname, mark_fname, new_book_fname))
-else:
+else: # write_mode == 1: Extract bookmarks to .txt from "old" file, use "mid" file contents, generate "new" file
     # os.system("pdftk \"{}\" dump_data output {}".format(old_book_fname, mark_fname))
     os.system("pdftk \"{}\" update_info {} output \"{}\"".format(mid_book_fname, mark_fname, new_book_fname))
 

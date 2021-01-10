@@ -43,9 +43,9 @@ import time
 
 root = "./linux-server/"
 outpath = "./linux-server-out/"
-cmd_sharpen = "magick convert -adaptive-sharpen 0x1 -set option:deskew:auto-crop false -deskew 80% -adaptive-resize 982x \"{}\" \"{}\"" # 60% is better than 40%
+# cmd_sharpen = "magick convert -adaptive-resize 2000x -adaptive-sharpen 0x1 -set option:deskew:auto-crop false -deskew 80% -adaptive-resize 982x \"{}\" \"{}\"" # 60% is better than 40%
 # cmd_sharpen = "magick convert -set option:deskew:auto-crop false -deskew 80% \"{}\" \"{}\""
-# cmd_sharpen = "magick convert -set option:deskew:auto-crop false -deskew 80% -resize 1000x \"{}\" \"{}\""
+cmd_sharpen = "magick convert -set option:deskew:auto-crop false -deskew 80% \"{}\" \"{}\""
 
 
 if not os.path.exists(outpath):
@@ -65,7 +65,7 @@ if __name__ == '__main__':
 
     t1 = time.time()
     # start_page, end_page = -1,
-    for img in imgList[:]:
+    for img in imgList[10:30]:
         sharpenImg(img)
     t2 = time.time()
 
