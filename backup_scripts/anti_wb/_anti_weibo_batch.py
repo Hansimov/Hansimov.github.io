@@ -25,8 +25,10 @@ isResizeImg = True                  # imgToLong: is resize img before later proc
 ratiow, ratioh = 800, 1000          # resizeImg: min image width (high or wide)
 MAX_H = 8000                        # resizeImg: max image height
 gsw = 600                           # resizeGif: gif max width
-bg = (209,160,25)                 # genBG: background color
-# bg = (0,0,0)                        # genBG: background color
+# bg = (209,160,25)                 # genBG: background color
+# bg = (255,255,255)                 # genBG: background color
+bg = (10,10,10)                 # genBG: background color
+pure_color = (10,12,10)          # pureImg: first frame color
 gaph = 10                           # imgToLong: height gap between images
 bgrw,bgrh = 1,4                     # genBG: ratio of width and height to original img
 bdr = ((0,0),                       # borderImg: border of tolong (in ratio %): w>h
@@ -103,15 +105,15 @@ def blurImg(imgr,name,ext):
     # os.system(cmd_blur.format(imgrname,BLUR_RADIUS,imgbname))
     # return "", imgbname
 
-cmd_pure = magick + " -size {}x{} xc:white \"{}\""
+# cmd_pure = magick + " -size {}x{} xc:white \"{}\""
 def pureImg(imgr,name,ext):
     imguname = name+"_pure"+ext
-    pure_color = (40,40,40)
     # color_thief = ColorThief(name+"_resize"+ext)
     # pure_color = color_thief.get_color(quality=1)
     imgu = Image.new("RGB", imgr.size, pure_color)
     imgu.save(imguname)
-    return imgu, imguname
+    imgu.close()
+    return "", imguname
 
 def stripeImg(imgr,name,ext):
     imgr = imgr.convert("RGB")
@@ -181,8 +183,9 @@ def genBG(imgename):
     name,ext = os.path.splitext(imgename)
     imge = Image.open(imgename)
     # imgp,imgpname = stripeImg(imge, name, ".jpg")
-    imgp,imgpname = blurImg(imge, name, ".jpg")
-    imgb, imgbname = blankImg(imge,name,".jpg",bgrw,bgrh,bg)
+    # imgp,imgpname = blurImg(imge, name, ".jpg")
+    _,imgpname = pureImg(imge, name, ".jpg")
+    _, imgbname = blankImg(imge,name,".jpg",bgrw,bgrh,bg)
     parts = [imgpname, imgbname, imgpname]
 
     imggname = name+"_bg"+".jpg"
@@ -242,7 +245,7 @@ def getFPS(img):
 
 def getWH(imgname):
     name,ext = os.path.splitext(imgname)
-    if not ext in [".jpg",".jpeg",".bmp",".png"]:
+    if not ext in [".jpg",".jpeg",".bmp",".png", ".gif"]:
         return
     img = Image.open(imgname)
     w,h = img.size
@@ -301,7 +304,8 @@ def imgToLong(imgname):
     os.remove(imgpname)
     os.remove(imgdname)
 
-cmd_img2gif = magick + " -flatten {} -loop 1 \"{}\""
+# cmd_img2gif = magick + " -flatten {} -loop 1 \"{}\""
+cmd_img2gif = magick + " -flatten {} \"{}\""
 def img2gif(imgname):
     name,ext = os.path.splitext(imgname)
     img = Image.open(imgname)
@@ -324,6 +328,8 @@ def img2gif(imgname):
     # os.system(cmd_imgs2gif.format(imgbname,imgname,outname))
     in_img_L = [imgbname, imgbname, imgrname, imgbname, imgbname]
     in_img_delay_L = [8, 8, 1500, 8, 8]
+    # in_img_L = [imgbname, imgrname]
+    # in_img_delay_L = [3, 3]
     in_img_str = ""
     for i in range(len(in_img_L)):
         in_img_str += " -delay {} \"{}\" ".format(in_img_delay_L[i], in_img_L[i])
@@ -333,12 +339,12 @@ def img2gif(imgname):
     rm_tmp_imgs([imgrname, imgbname])
 
 def rm_tmp_imgs(tmp_imgs):
-    for img_name in tmp_imgs:
-        os.remove(img_name)
+    for imgname in tmp_imgs:
+        os.remove(imgname)
 
 
-# cmd_compgif = "convert {} null: ( {} -coalesce ) -gravity center -layers composite -fuzz 3% -layers OptimizeTransparency {}"
 cmd_compgif = magick + "\"{}\" null: ( \"{}\" -coalesce ) -gravity center -layers composite -fuzz 5% -layers OptimizeTransparency \"{}\""
+# cmd_compgif = magick + " \"{}\" null: ( \"{}\" -coalesce ) -gravity center -layers composite \"{}\""
 def gifToLong(gifname, isResize=True):
     print("Gif to long: {} ...".format(gifname))
     name,ext = os.path.splitext(gifname)
@@ -449,8 +455,6 @@ def antiWB(filename):
         pass
 if __name__ == '__main__':
     pass
-    # videoname = "_txt2pdf.txt"
-    # videoname = "z.png"
-    # videoname = "z.mp4"
-    videoname = "H:/图片/微博_归档/20200919-20201131-unused/studiofow-subverse-sidein-lily.jpeg"
-    antiWB(videoname)
+    root = "H:/图片/微博_归档/20201226-20210131-unused/"
+    imgname = root + "milkychu-riding-dva-1.gif"
+    antiWB(imgname)
