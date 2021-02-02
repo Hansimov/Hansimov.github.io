@@ -2,31 +2,27 @@ import os
 import time
 t0 = time.time()
 
-mark_str_body = "BookmarkBegin\nBookmarkTitle: {}\nBookmarkLevel: {}\nBookmarkPageNumber: {}\n"
-
-# new_book_fname = "镜头的语法.pdf"
-# txt_fname =  "bk-camera-i.txt"
-# mark_fname = "bk-camera.txt"
+mark_str_body = "BookmarkBegin\nBookmarkTitle: {}\nBookmarkLevel: {}\nBookmarkPageNumber: {}\n"# new_book_fname =" 镜头的语法. pdf"# txt_fname ="bk-camera-i.txt"# mark_fname ="bk-camera.txt"
 # page_offset = 11
 
-# new_book_fname = "剪辑的语法.pdf"
+# new_book_fname = "剪辑的语法. pdf"
 # txt_fname =  "bk-cut-i.txt"
 # mark_fname = "bk-cut.txt"
 # page_offset = 12
 
 # old_book_fname = "组合 1.pdf"
-# new_book_fname = "算法 原书第4版【高清】.pdf"
+# new_book_fname = "算法 原书第 4 版【高清】.pdf"
 # txt_fname =  "bk-algo4-i.txt"
 # mark_fname = "bk-algo4.txt"
 # page_offset = 13
 
-# old_book_fname = "C Primer Plus 第6版 中文.pdf"
+# old_book_fname = "C Primer Plus 第 6 版 中文. pdf"
 # mid_book_fname = "组合 1.pdf"
 # new_book_fname = "组合 1【书签】.pdf"
 # mark_fname = "c-primer-plus.txt"
 # write_mode = 1 # Extract bookmarks to .txt from "old" file, use "mid" file contents, generate "new" file
 
-# old_book_fname = "Unix 网络编程 卷1：套接字联网API（第3版）.pdf"
+# old_book_fname = "Unix 网络编程 卷 1：套接字联网 API（第 3 版）.pdf"
 # mid_book_fname = "组合 1.pdf"
 # new_book_fname = "组合 1【书签】.pdf"
 # mark_fname = "bk-unix-net-v1.txt"
@@ -38,15 +34,22 @@ mark_str_body = "BookmarkBegin\nBookmarkTitle: {}\nBookmarkLevel: {}\nBookmarkPa
 # mark_fname = "bk-linux-server.txt"
 # write_mode = 1 # Extract bookmarks to .txt from "old" file, use "mid" file contents, generate "new" file
 
-old_book_fname = "数据库系统概念 原书第6版【高清】.pdf"
-mid_book_fname = "数据库系统概念 原书第6版【高清】.pdf"
-new_book_fname = "组合 1【书签】.pdf"
-mark_fname = "bk-db-sys.txt"
-write_mode = 1
+# old_book_fname = "数据库系统概念 原书第 6 版【高清】.pdf"
+# mid_book_fname = "数据库系统概念 原书第 6 版【高清】.pdf"
+# new_book_fname = "组合 1【书签】.pdf"
+# mark_fname = "bk-db-sys.txt"
+# write_mode = 1
 
+
+old_book_fname = "希区柯克与特吕弗对话录.pdf"
+new_book_fname = "希区柯克与特吕弗对话录【书签】.pdf"
+txt_fname =  "bk-hitchcock-i.txt"
+mark_fname = "bk-hitchcock.txt"
+page_offset = 1
+write_mode = 0
 
 def write_bookmark_from_txt():
-    with open(txt_fname,encoding='utf-8', mode = 'r') as rf:
+    with open(txt_fname,encoding='utf-8', mode ='r') as rf:
         lines = rf.readlines()
 
     mark_str = ""
@@ -65,7 +68,7 @@ def write_bookmark_from_txt():
             level = level if len(tmp_L) == 1 else tmp_L[1]
 
             # print(title, page_num, level)
-            mark_str+=mark_str_body.format(title.encode('ascii', 'xmlcharrefreplace').decode('utf-8'), level, max(1,page_num+page_offset))
+            mark_str+=mark_str_body.format(title.encode('ascii','xmlcharrefreplace').decode('utf-8'), level, max(1,page_num+page_offset))
             status = 0
 
     with open(mark_fname,"w") as wf:
