@@ -1,0 +1,4 @@
+STRINGTABLE										{
+	IDS_SELECTLOOP								"Select Loop";
+	IDS_SELECTNTH								"Select Nth";
+}
