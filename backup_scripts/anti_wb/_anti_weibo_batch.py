@@ -251,6 +251,7 @@ def getWH(imgname):
     img = Image.open(imgname)
     w,h = img.size
     print("{:>4} {:>4} {:>5} {}".format(w,h,round(w/h,2),imgname))
+    return w,h
 
 
 cmd_append2 = magick + " -append -bordercolor SkyBlue -gravity South -border 0x100% {} {} {}"
@@ -338,6 +339,18 @@ def img2gif(imgname):
     os.system(cmd_img2gif.format(in_img_str, outname))
     imgr.close()
     rm_tmp_imgs([imgrname, imgbname])
+
+cmd_add_frame = magick + " {} {} {}"
+def add_frame(gifname):
+    name, ext = os.path.splitext(gifname)
+    w,h = getWH(gifname)
+    pure_img = Image.new('RGB', (w,h), pure_color)
+    pure_img_name = name+"_pure.jpg"
+    pure_img.save(pure_img_name)
+    out_gif_fname = name+"_out" + ext
+    os.system(cmd_add_frame.format(pure_img_name, gifname, out_gif_fname))
+    os.remove(pure_img_name)
+
 
 def rm_tmp_imgs(tmp_imgs):
     for imgname in tmp_imgs:
@@ -447,7 +460,8 @@ def antiWB(filename):
         else:
             img2gif(filename)
     elif ext == ".gif":
-        gifToLong(filename)
+        # gifToLong(filename)
+        add_frame(filename)
     elif ext == ".txt":
         txt2pdf2png2gif(filename)
     elif ext in [".webm", ".mp4"]:
