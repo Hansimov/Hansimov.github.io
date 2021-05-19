@@ -12,10 +12,10 @@
 
 (function() {
     'use strict';
-    let sidebar_width = 320;
-    let sidebar_margin_left = 10;
-    let sidebar_left = 10;
-    let sidebar_top = 80;
+    var sidebar_width = 320;
+    var sidebar_margin_left = 10;
+    var sidebar_left = 10;
+    var sidebar_top = 80;
 
     var page_style = `
         code, span {
@@ -118,11 +118,11 @@
             </div>
         </div>
         `);
-        let sidebar_toc = $("#_sidebar_toc");
+        var sidebar_toc = $("#_sidebar_toc");
 
         // ToDo: "Fluent Python" need to use `getElementsByClassName("sect1")`
         try {
-            let h1 = document.getElementsByTagName("h1")[1];
+            var h1 = document.getElementsByTagName("h1")[1];
             sidebar_toc.append(`
                 <p style="white-space:nowrap;"><a href="#${h1.id}">${h1.textContent}</ol>
             `);
@@ -130,10 +130,10 @@
             console.log("No h1 elements!");
         }
         try {
-            let h2 = Array.prototype.slice.call(document.getElementsByTagName("h2")).slice(0,-2);
+            var h2 = Array.prototype.slice.call(document.getElementsByTagName("h2")).slice(0,-2);
             console.log("h2:", h2.length);
-            for (let i=0; i<h2.length; ++i) {
-                let h2_tmp = h2[i];
+            for (var i=0; i<h2.length; ++i) {
+                var h2_tmp = h2[i];
                 sidebar_toc.append(`
                     <p style="white-space:nowrap;"><a href="#${h2_tmp.id}" >${h2_tmp.textContent}</p>
                 `);
@@ -143,10 +143,10 @@
         }
         /*
         try {
-            let h3 = Array.prototype.slice.call(document.getElementsByTagName("h3"));
+            var h3 = Array.prototype.slice.call(document.getElementsByTagName("h3"));
             console.log(h3.length);
-            for (let i=0; i<h2.length; ++i) {
-                let h2_tmp = h2[i];
+            for (var i=0; i<h2.length; ++i) {
+                var h2_tmp = h2[i];
                 sidebar_toc.append(`
                     <ol style="white-space:nowrap;"><a href="#${h3_tmp.id}" >${h2_tmp.textContent}</ol>
                 `);
