@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         O'Reilly Sidebar
 // @namespace    http://tampermonkey.net/
-// @version      21.05.18
+// @version      21.05.19
 // @description  Add sidebar to O'Reilly books
 // @author       Hansimov
 // @match        https://learning.oreilly.com/*
@@ -105,6 +105,10 @@
         .minutes {
             color:black !important;
         }
+
+        .cyxy-trs-source.cyxy-trs-target {
+            background: #fffaaa !important;
+        }
     `;
 
     function add_sidebar() {
@@ -178,7 +182,8 @@
             opacity:0.1;
         }
         #sbo-rt-content {/* must placed here (after page loaded) */
-            margin-left: calc(${sidebar_width}px - ${sidebar_left}px - ${sidebar_margin_left}px);
+            /* margin-left: calc(${sidebar_width}px - ${sidebar_left}px - ${sidebar_margin_left}px); */
+            margin-left: ${sidebar_width}px;
         }
     `;
 
