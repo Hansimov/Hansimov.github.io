@@ -20,6 +20,8 @@ mode = 1
 #   Other lines will be remained and printed
 
 for line in file_r.readlines():
+    if line.startswith('--'):
+        continue
     if mode == 1:
         if line.startswith('*'):
             mode = 2
