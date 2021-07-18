@@ -4,7 +4,7 @@ import re
 # file_w = open('dx02_w.txt','w')
 # file_r = open('dx03.csv',encoding='utf-8',mode='r')
 # file_w = open('dx03_w.txt','w')
-file_r = open('dx04.csv',encoding='utf-8',mode='r')
+file_r = open('dx04.csv', encoding='utf-8',mode='r')
 file_w = open('dx04_w.txt','w')
 
 # start = 31
@@ -35,7 +35,8 @@ for line in file_r.readlines():
         elif line.startswith('$$$'):
             mode = 1
         else:
-            print(line,file=file_w,end='')
+            print(line, file=file_w, end='')
+            # pass
     else:
         pass
 
