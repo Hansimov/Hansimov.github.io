@@ -1,21 +1,19 @@
-# 一些尝试用于对抗色情图片检测算法的思路
-#   https://github.com/wangx404/anti-NSFW-detection-test
-
-import os
-import numpy as np
-from PIL import Image, ImageFilter, ImageOps
-import imageio
-import subprocess
 import cv2
+import imageio
+import numpy as np
+import os
+import random
+import subprocess
 import time
 from colorthief import ColorThief
+from PIL import Image, ImageFilter, ImageOps
 
 home = './'
 
 magick = "D:/ImageMagick/magick.exe convert "
 ffmpeg = "D:/ffmpeg/bin/ffmpeg.exe "
 
-antimode = [2,3]                    # 1: tolong - 2: togif || 1: stripe - 2: blur  - 3: pure color
+antimode = [3]                    # 1: tolong - 2: togif - 3: noise || 1: stripe - 2: blur  - 3: pure color
 isPreviewPDF = False                # txt2pdf2png2gif: True: only output pdf || False: toGif
 MASK_NUM = 2                        # imgToLong: num of masks
 BLUR_RADIUS = 32                    # blurImg: GaussianBlur radius
@@ -30,6 +28,7 @@ gsw = 600                           # resizeGif: gif max width
 bg = (10,10,10)                 # genBG: background color
 # pure_color = (10,12,10)          # pureImg: first frame color
 pure_color = (50,50,50)          # pureImg: first frame color
+noise_color = (150,150,150)      # noise_img: color of noise pixel
 gaph = 10                           # imgToLong: height gap between images
 bgrw,bgrh = 1,4                     # genBG: ratio of width and height to original img
 bdr = ((0,0),                       # borderImg: border of tolong (in ratio %): w>h
@@ -451,14 +450,48 @@ def txt2pdf2png2gif(filename):
         # os.remove(pdfname)
         os.remove(pngname)
 
+def noise_img(imgname):
+    name,ext = os.path.splitext(imgname)
+    img = Image.open(imgname)
+    imgr, imgrname, wr, hr = resizeImg(img,name,ext)
+
+    arr = np.array(imgr)
+    row, col, depth = arr.shape
+    
+    SNR = 2 # Signal/Noise = SNR-1
+    frame_num = 2
+
+    for i in range(frame_num):
+        new_arr = np.copy(arr)
+        cnt = 0
+        for x in range(row):
+            for y in range(col):
+                if cnt == SNR:
+                    cnt = 0
+                if cnt == 0:
+                    noise_flag = False
+                    noise_idx = random.randint(0,SNR-1)
+                noise_flag = (cnt == noise_idx)
+                new_arr[x,y] = arr[x,y] if not noise_flag else noise_color
+                cnt += 1
+        im = Image.fromarray(np.uint8(new_arr))
+
+        noise_imgname = f"{name}-x{SNR}-{i}-out{ext}"
+        print(f">>> Saving {noise_imgname} ...")
+        im.save(noise_imgname)
+    imgr.close()
+    os.remove(imgrname)
+
 def antiWB(filename):
     global antimode
     name,ext = os.path.splitext(filename)
     if ext in [".jpg",".png",".jpeg",".bmp"]:
         if antimode[0] == 1:
             imgToLong(filename)
-        else:
+        elif antimode[0] == 2:
             img2gif(filename)
+        elif antimode[0] == 3:
+            noise_img(filename)
     elif ext == ".gif":
         # gifToLong(filename)
         add_frame(filename)
@@ -468,6 +501,7 @@ def antiWB(filename):
         antiVideo(filename)
     else:
         pass
+
 if __name__ == '__main__':
     pass
     root = "H:/图片/微博_归档/20201226-20210131-unused/"
