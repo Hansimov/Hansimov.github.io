@@ -450,6 +450,18 @@ def txt2pdf2png2gif(filename):
         # os.remove(pdfname)
         os.remove(pngname)
 
+def noise_val(val, lower_bound=0, upper_bound=255):
+    margin = 100
+    new_val = val + random.randint(-margin,margin)
+    new_val = min(upper_bound, max(lower_bound, new_val))
+    return new_val
+
+def noise_pixel(pixel):
+    pixel[0] = noise_val(pixel[0])
+    pixel[1] = noise_val(pixel[1])
+    pixel[2] = noise_val(pixel[2])
+    return pixel
+
 def noise_img(imgname):
     name,ext = os.path.splitext(imgname)
     img = Image.open(imgname)
@@ -458,7 +470,7 @@ def noise_img(imgname):
     arr = np.array(imgr)
     row, col, depth = arr.shape
     
-    SNR = 2 # Signal/Noise = SNR-1
+    SNR = 4 # Signal/Noise = SNR-1
     frame_num = 2
 
     for i in range(frame_num):
@@ -466,17 +478,19 @@ def noise_img(imgname):
         cnt = 0
         for x in range(row):
             for y in range(col):
-                if cnt == SNR:
-                    cnt = 0
-                if cnt == 0:
-                    noise_flag = False
-                    noise_idx = random.randint(0,SNR-1)
-                noise_flag = (cnt == noise_idx)
-                new_arr[x,y] = arr[x,y] if not noise_flag else noise_color
+                # if cnt == SNR:
+                #     cnt = 0
+                # if cnt == 0:
+                #     noise_flag = False
+                #     noise_idx = random.randint(0,SNR-1)
+                # noise_flag = (cnt == noise_idx)
+                # noise_color = [random.randint(0,255),random.randint(0,255),random.randint(0,255)]
+                # new_arr[x,y] = arr[x,y] if not noise_flag else noise_color
+                new_arr[x,y] = noise_pixel(new_arr[x,y])
                 cnt += 1
         im = Image.fromarray(np.uint8(new_arr))
 
-        noise_imgname = f"{name}-x{SNR}-{i}-out{ext}"
+        noise_imgname = f"{name}-pix-{i}-out{ext}"
         print(f">>> Saving {noise_imgname} ...")
         im.save(noise_imgname)
     imgr.close()
