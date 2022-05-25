@@ -1,2 +1,8 @@
 # My Personal Wiki: **Han's Lab**
-### https://hansimov.github.io
+Collections of my tech notes:
+* https://hansimov.github.io
+
+This repo is almost deprecated.
+
+Newer notes are hosted on:
+* https://gist.github.com/Hansimov?direction=desc&sort=updated
