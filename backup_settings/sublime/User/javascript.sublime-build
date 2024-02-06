@@ -1,4 +1,0 @@
-{
-    "cmd": ["D:/nodejs/node.exe","$file"],
-    "selector": "*.js"
-}

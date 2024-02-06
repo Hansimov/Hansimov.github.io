@@ -1,7 +1,0 @@
-{
-    "cmd": ["D:\\SumatraPDF\\SumatraPDF.exe","$file"],
-    "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
-    // "line_regex":"line(.|\n)*.*Error.*",
-    "selector": "source.ps",
-    "working_dir": "$file_dir",
-}

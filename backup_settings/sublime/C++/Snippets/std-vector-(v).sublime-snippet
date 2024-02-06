@@ -1,6 +1,0 @@
-<snippet>
-    <description>vector</description>
-    <content><![CDATA[vector<$0>]]></content>
-    <tabTrigger>vector</tabTrigger>
-    <scope>source.c++, source.objc++</scope>
-</snippet>

@@ -1,9 +1,0 @@
-@-moz-document regexp(".*.zhihu.com/.*") {
-#root > div > main > div > div.ColumnPageHeader-Wrapper > div:nth-child(2) > div.Sticky.ColumnPageHeader.is-fixed {
-     display: none;
-}
-
-.Sticky.AppHeader.is-hidden.is-fixed {
-     display: none;
-}
-}

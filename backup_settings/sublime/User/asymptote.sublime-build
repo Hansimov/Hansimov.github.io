@@ -1,5 +1,0 @@
-{
-    "cmd": ["D:/Asymptote/asy.exe", "$file"],
-    "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
-    "selector": "source.c"
-}

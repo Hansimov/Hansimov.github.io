@@ -1,9 +1,0 @@
-@-moz-document domain("docs.unrealengine.com") {
-#feedbackButton,#epicGamesFooter,#pageTags,#skinContainer {
-    display:none;
-}
-#maincol > p {
-    font-size:18px;
-    line-height:28px;
-}
-}
